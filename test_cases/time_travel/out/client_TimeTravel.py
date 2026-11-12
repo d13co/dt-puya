@@ -71,6 +71,19 @@ class TimeTravel(algopy.arc4.ARC4Client, typing.Protocol):
     ) -> algopy.arc4.DynamicBytes: ...
 
     @algopy.arc4.abimethod
+    def data_existed_before_call(
+        self,
+        rnd: algopy.arc4.UIntN[typing.Literal[64]],
+    ) -> algopy.arc4.DynamicBytes: ...
+
+    @algopy.arc4.abimethod
+    def first_valid_then_and_now(
+        self,
+        i: algopy.arc4.UIntN[typing.Literal[64]],
+        rnd: algopy.arc4.UIntN[typing.Literal[64]],
+    ) -> algopy.arc4.UIntN[typing.Literal[64]]: ...
+
+    @algopy.arc4.abimethod
     def data_exists_then(
         self,
         rnd: algopy.arc4.UIntN[typing.Literal[64]],

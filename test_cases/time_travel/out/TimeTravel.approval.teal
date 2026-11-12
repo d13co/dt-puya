@@ -8,28 +8,28 @@ main:
     bytecblock 0x151f7c75 0x64617461 0x6974656d73 0x636f756e746572 0x00 0x7074
     txn ApplicationID
     bnz main_after_if_else@2
-    // time_travel/contract.py:30
+    // time_travel/contract.py:31
     // self.counter = GlobalState(UInt64(0))
     bytec_3 // "counter"
     intc_2 // 0
     app_global_put
 
 main_after_if_else@2:
-    // time_travel/contract.py:28
+    // time_travel/contract.py:29
     // class TimeTravel(ARC4Contract, avm_version=13):
     txn NumAppArgs
-    bz main___algopy_default_create@21
+    bz main___algopy_default_create@23
     txn OnCompletion
     !
     assert
     txn ApplicationID
     assert
-    pushbytess 0x324c6a50 0x27135e52 0xe0dabb12 0x744eef4f 0x73a731a6 0x6ca1c380 0x98852240 0x022a0d7b 0x77561254 0xdddbbccf 0xdf0664cf 0xfbb80e0f // method "round_at(uint64)uint64", method "round_before(uint64)uint64", method "counter_then_and_now(uint64)(uint64,uint64)", method "data_changed(uint64)bool", method "first_item_changed(uint64)bool", method "first_item_now(uint64)uint64", method "append_then_write_back(uint64,uint64)void", method "set_then_write_back(uint64,uint64)void", method "timestamps(uint64,uint64)uint64", method "data_existed(uint64)byte[]", method "data_exists_then(uint64)bool", method "changes(address,uint64,uint64,uint64,uint64)uint64"
+    pushbytess 0x324c6a50 0x27135e52 0xe0dabb12 0x744eef4f 0x73a731a6 0x6ca1c380 0x98852240 0x022a0d7b 0x77561254 0xdddbbccf 0x4c61a8af 0xee9fa79c 0xdf0664cf 0xfbb80e0f // method "round_at(uint64)uint64", method "round_before(uint64)uint64", method "counter_then_and_now(uint64)(uint64,uint64)", method "data_changed(uint64)bool", method "first_item_changed(uint64)bool", method "first_item_now(uint64)uint64", method "append_then_write_back(uint64,uint64)void", method "set_then_write_back(uint64,uint64)void", method "timestamps(uint64,uint64)uint64", method "data_existed(uint64)byte[]", method "data_existed_before_call(uint64)byte[]", method "first_valid_then_and_now(uint64,uint64)uint64", method "data_exists_then(uint64)bool", method "changes(address,uint64,uint64,uint64,uint64)uint64"
     txna ApplicationArgs 0
-    match round_at round_before counter_then_and_now data_changed first_item_changed first_item_now append_then_write_back set_then_write_back timestamps data_existed data_exists_then changes
+    match round_at round_before counter_then_and_now data_changed first_item_changed first_item_now append_then_write_back set_then_write_back timestamps data_existed data_existed_before_call first_valid_then_and_now data_exists_then changes
     err
 
-main___algopy_default_create@21:
+main___algopy_default_create@23:
     txn OnCompletion
     !
     txn ApplicationID
@@ -38,9 +38,22 @@ main___algopy_default_create@21:
     return
 
 
+// test_cases.time_travel.contract.go_back_not_inlined(rnd: uint64) -> void:
+go_back_not_inlined:
+    // time_travel/contract.py:161-162
+    // @subroutine(inline=False)
+    // def go_back_not_inlined(rnd: UInt64) -> None:
+    proto 1 0
+    // time_travel/contract.py:163
+    // op.TimeTravel.seek(rnd)
+    frame_dig -1
+    tt_seek
+    retsub
+
+
 // test_cases.time_travel.contract.TimeTravel.round_at[routing]() -> void:
 round_at:
-    // time_travel/contract.py:35
+    // time_travel/contract.py:36
     // @arc4.abimethod
     txna ApplicationArgs 1
     dup
@@ -49,13 +62,13 @@ round_at:
     ==
     assert // invalid number of bytes for arc4.uint64
     btoi
-    // time_travel/contract.py:37
+    // time_travel/contract.py:38
     // op.TimeTravel.seek(rnd)
     tt_seek
-    // time_travel/contract.py:38
+    // time_travel/contract.py:39
     // return Global.round
     global Round
-    // time_travel/contract.py:35
+    // time_travel/contract.py:36
     // @arc4.abimethod
     itob
     bytec_0 // 0x151f7c75
@@ -68,7 +81,7 @@ round_at:
 
 // test_cases.time_travel.contract.TimeTravel.round_before[routing]() -> void:
 round_before:
-    // time_travel/contract.py:40
+    // time_travel/contract.py:41
     // @arc4.abimethod
     txna ApplicationArgs 1
     dup
@@ -77,14 +90,14 @@ round_before:
     ==
     assert // invalid number of bytes for arc4.uint64
     btoi
-    // time_travel/contract.py:42
+    // time_travel/contract.py:43
     // before = Global.round
     global Round
-    // time_travel/contract.py:43
+    // time_travel/contract.py:44
     // op.TimeTravel.seek(rnd)
     swap
     tt_seek
-    // time_travel/contract.py:40
+    // time_travel/contract.py:41
     // @arc4.abimethod
     itob
     bytec_0 // 0x151f7c75
@@ -97,7 +110,7 @@ round_before:
 
 // test_cases.time_travel.contract.TimeTravel.counter_then_and_now[routing]() -> void:
 counter_then_and_now:
-    // time_travel/contract.py:46
+    // time_travel/contract.py:47
     // @arc4.abimethod
     txna ApplicationArgs 1
     dup
@@ -106,32 +119,32 @@ counter_then_and_now:
     ==
     assert // invalid number of bytes for arc4.uint64
     btoi
-    // time_travel/contract.py:48
+    // time_travel/contract.py:49
     // home = Global.round - 1  # seeking to the round before the program's goes back to it
     global Round
     intc_1 // 1
     -
-    // time_travel/contract.py:49
+    // time_travel/contract.py:50
     // now = self.counter.value
     intc_2 // 0
     bytec_3 // "counter"
     app_global_get_ex
     assert // check self.counter exists
-    // time_travel/contract.py:50
+    // time_travel/contract.py:51
     // op.TimeTravel.seek(rnd)
     uncover 2
     tt_seek
-    // time_travel/contract.py:51
+    // time_travel/contract.py:52
     // then = self.counter.value
     intc_2 // 0
     bytec_3 // "counter"
     app_global_get_ex
     assert // check self.counter exists
-    // time_travel/contract.py:52
+    // time_travel/contract.py:53
     // op.TimeTravel.seek(home)
     uncover 2
     tt_seek
-    // time_travel/contract.py:46
+    // time_travel/contract.py:47
     // @arc4.abimethod
     itob
     swap
@@ -147,7 +160,7 @@ counter_then_and_now:
 
 // test_cases.time_travel.contract.TimeTravel.data_changed[routing]() -> void:
 data_changed:
-    // time_travel/contract.py:55
+    // time_travel/contract.py:56
     // @arc4.abimethod
     txna ApplicationArgs 1
     dup
@@ -156,16 +169,16 @@ data_changed:
     ==
     assert // invalid number of bytes for arc4.uint64
     btoi
-    // time_travel/contract.py:57
+    // time_travel/contract.py:58
     // now = self.data.value
     bytec_1 // 0x64617461
     box_get
     assert // check self.data exists
-    // time_travel/contract.py:58
+    // time_travel/contract.py:59
     // op.TimeTravel.seek(rnd)
     swap
     tt_seek
-    // time_travel/contract.py:60
+    // time_travel/contract.py:61
     // return now[:8] != then[:8]
     dup
     len
@@ -178,15 +191,15 @@ data_changed:
     intc_2 // 0
     swap
     substring3
-    // time_travel/contract.py:59
+    // time_travel/contract.py:60
     // then = self.data.value
     bytec_1 // 0x64617461
-    // time_travel/contract.py:59-60
+    // time_travel/contract.py:60-61
     // then = self.data.value
     // return now[:8] != then[:8]
     box_len
     assert // check self.data exists
-    // time_travel/contract.py:60
+    // time_travel/contract.py:61
     // return now[:8] != then[:8]
     intc_0 // 8
     dig 1
@@ -194,21 +207,21 @@ data_changed:
     intc_0 // 8
     cover 2
     select
-    // time_travel/contract.py:59
+    // time_travel/contract.py:60
     // then = self.data.value
     bytec_1 // 0x64617461
-    // time_travel/contract.py:60
+    // time_travel/contract.py:61
     // return now[:8] != then[:8]
     intc_2 // 0
-    // time_travel/contract.py:59-60
+    // time_travel/contract.py:60-61
     // then = self.data.value
     // return now[:8] != then[:8]
     uncover 2
     box_extract
-    // time_travel/contract.py:60
+    // time_travel/contract.py:61
     // return now[:8] != then[:8]
     !=
-    // time_travel/contract.py:55
+    // time_travel/contract.py:56
     // @arc4.abimethod
     bytec 4 // 0x00
     intc_2 // 0
@@ -224,7 +237,7 @@ data_changed:
 
 // test_cases.time_travel.contract.TimeTravel.first_item_changed[routing]() -> void:
 first_item_changed:
-    // time_travel/contract.py:62
+    // time_travel/contract.py:63
     // @arc4.abimethod
     txna ApplicationArgs 1
     dup
@@ -233,31 +246,31 @@ first_item_changed:
     ==
     assert // invalid number of bytes for arc4.uint64
     btoi
-    // time_travel/contract.py:64
+    // time_travel/contract.py:65
     // now = self.items.value.copy()
     bytec_2 // 0x6974656d73
     box_get
     assert // check self.items exists
-    // time_travel/contract.py:142
+    // time_travel/contract.py:158
     // op.TimeTravel.seek(rnd)
     swap
     tt_seek
-    // time_travel/contract.py:67
+    // time_travel/contract.py:68
     // return now[0] != then[0]
     extract 2 8
-    // time_travel/contract.py:66
+    // time_travel/contract.py:67
     // then = self.items.value.copy()
     bytec_2 // 0x6974656d73
-    // time_travel/contract.py:66-67
+    // time_travel/contract.py:67-68
     // then = self.items.value.copy()
     // return now[0] != then[0]
     intc_3 // 2
     intc_0 // 8
     box_extract // on error: index out of bounds
-    // time_travel/contract.py:67
+    // time_travel/contract.py:68
     // return now[0] != then[0]
     b!=
-    // time_travel/contract.py:62
+    // time_travel/contract.py:63
     // @arc4.abimethod
     bytec 4 // 0x00
     intc_2 // 0
@@ -273,7 +286,7 @@ first_item_changed:
 
 // test_cases.time_travel.contract.TimeTravel.first_item_now[routing]() -> void:
 first_item_now:
-    // time_travel/contract.py:69
+    // time_travel/contract.py:70
     // @arc4.abimethod
     txna ApplicationArgs 1
     dup
@@ -282,17 +295,17 @@ first_item_now:
     ==
     assert // invalid number of bytes for arc4.uint64
     btoi
-    // time_travel/contract.py:71
+    // time_travel/contract.py:72
     // first = self.items.value[0]
     bytec_2 // 0x6974656d73
     intc_3 // 2
     intc_0 // 8
     box_extract // on error: index out of bounds
-    // time_travel/contract.py:72
+    // time_travel/contract.py:73
     // op.TimeTravel.seek(rnd)
     swap
     tt_seek
-    // time_travel/contract.py:69
+    // time_travel/contract.py:70
     // @arc4.abimethod
     bytec_0 // 0x151f7c75
     swap
@@ -304,7 +317,7 @@ first_item_now:
 
 // test_cases.time_travel.contract.TimeTravel.append_then_write_back[routing]() -> void:
 append_then_write_back:
-    // time_travel/contract.py:75
+    // time_travel/contract.py:76
     // @arc4.abimethod
     txna ApplicationArgs 1
     dup
@@ -319,7 +332,7 @@ append_then_write_back:
     intc_0 // 8
     ==
     assert // invalid number of bytes for arc4.uint64
-    // time_travel/contract.py:77
+    // time_travel/contract.py:78
     // items = self.items.value.copy()
     bytec_2 // 0x6974656d73
     box_get
@@ -327,7 +340,7 @@ append_then_write_back:
     dup
     intc_2 // 0
     extract_uint16
-    // time_travel/contract.py:78
+    // time_travel/contract.py:79
     // items.append(x)
     intc_1 // 1
     +
@@ -336,11 +349,11 @@ append_then_write_back:
     replace2 0
     swap
     concat
-    // time_travel/contract.py:79
+    // time_travel/contract.py:80
     // op.TimeTravel.seek(rnd)
     swap
     tt_seek
-    // time_travel/contract.py:80
+    // time_travel/contract.py:81
     // self.items.value = items.copy()
     bytec_2 // 0x6974656d73
     box_del
@@ -348,7 +361,7 @@ append_then_write_back:
     bytec_2 // 0x6974656d73
     swap
     box_put
-    // time_travel/contract.py:75
+    // time_travel/contract.py:76
     // @arc4.abimethod
     intc_1 // 1
     return
@@ -356,7 +369,7 @@ append_then_write_back:
 
 // test_cases.time_travel.contract.TimeTravel.set_then_write_back[routing]() -> void:
 set_then_write_back:
-    // time_travel/contract.py:82
+    // time_travel/contract.py:83
     // @arc4.abimethod
     txna ApplicationArgs 1
     dup
@@ -371,25 +384,25 @@ set_then_write_back:
     intc_0 // 8
     ==
     assert // invalid number of bytes for arc4.uint64
-    // time_travel/contract.py:84
+    // time_travel/contract.py:85
     // point = self.point.value.copy()
     bytec 5 // 0x7074
     box_get
     assert // check self.point exists
-    // time_travel/contract.py:85
+    // time_travel/contract.py:86
     // point.a = x
     swap
     replace2 0
-    // time_travel/contract.py:86
+    // time_travel/contract.py:87
     // op.TimeTravel.seek(rnd)
     swap
     tt_seek
-    // time_travel/contract.py:87
+    // time_travel/contract.py:88
     // self.point.value = point.copy()
     bytec 5 // 0x7074
     swap
     box_put
-    // time_travel/contract.py:82
+    // time_travel/contract.py:83
     // @arc4.abimethod
     intc_1 // 1
     return
@@ -397,7 +410,7 @@ set_then_write_back:
 
 // test_cases.time_travel.contract.TimeTravel.timestamps[routing]() -> void:
 timestamps:
-    // time_travel/contract.py:89
+    // time_travel/contract.py:90
     // @arc4.abimethod
     txna ApplicationArgs 1
     dup
@@ -413,22 +426,22 @@ timestamps:
     ==
     assert // invalid number of bytes for arc4.uint64
     btoi
-    // time_travel/contract.py:91
+    // time_travel/contract.py:92
     // now = op.Block.blk_timestamp(of)
     dup
     block BlkTimestamp
-    // time_travel/contract.py:92
+    // time_travel/contract.py:93
     // op.TimeTravel.seek(rnd)
     uncover 2
     tt_seek
-    // time_travel/contract.py:93
+    // time_travel/contract.py:94
     // then = op.Block.blk_timestamp(of)
     swap
     block BlkTimestamp
-    // time_travel/contract.py:94
+    // time_travel/contract.py:95
     // return now + then
     +
-    // time_travel/contract.py:89
+    // time_travel/contract.py:90
     // @arc4.abimethod
     itob
     bytec_0 // 0x151f7c75
@@ -441,7 +454,7 @@ timestamps:
 
 // test_cases.time_travel.contract.TimeTravel.data_existed[routing]() -> void:
 data_existed:
-    // time_travel/contract.py:96
+    // time_travel/contract.py:97
     // @arc4.abimethod
     txna ApplicationArgs 1
     dup
@@ -450,25 +463,25 @@ data_existed:
     ==
     assert // invalid number of bytes for arc4.uint64
     btoi
-    // time_travel/contract.py:98
+    // time_travel/contract.py:99
     // existed = bool(self.data)
     bytec_1 // 0x64617461
     box_len
     cover 2
     pop
-    // time_travel/contract.py:99
+    // time_travel/contract.py:100
     // op.TimeTravel.seek(rnd)
     tt_seek
-    // time_travel/contract.py:100
+    // time_travel/contract.py:101
     // then = self.data.value
     bytec_1 // 0x64617461
     box_get
     assert // check self.data exists
-    // time_travel/contract.py:101
+    // time_travel/contract.py:102
     // assert existed
     swap
     assert
-    // time_travel/contract.py:96
+    // time_travel/contract.py:97
     // @arc4.abimethod
     dup
     len
@@ -484,9 +497,9 @@ data_existed:
     return
 
 
-// test_cases.time_travel.contract.TimeTravel.data_exists_then[routing]() -> void:
-data_exists_then:
-    // time_travel/contract.py:104
+// test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing]() -> void:
+data_existed_before_call:
+    // time_travel/contract.py:105
     // @arc4.abimethod
     txna ApplicationArgs 1
     dup
@@ -495,21 +508,110 @@ data_exists_then:
     ==
     assert // invalid number of bytes for arc4.uint64
     btoi
-    // time_travel/contract.py:106
+    // time_travel/contract.py:107
+    // existed = bool(self.data)
+    bytec_1 // 0x64617461
+    box_len
+    cover 2
+    pop
+    // time_travel/contract.py:108
+    // go_back_not_inlined(rnd)
+    callsub go_back_not_inlined
+    // time_travel/contract.py:109
+    // then = self.data.value
+    bytec_1 // 0x64617461
+    box_get
+    assert // check self.data exists
+    // time_travel/contract.py:110
+    // assert existed
+    swap
+    assert
+    // time_travel/contract.py:105
+    // @arc4.abimethod
+    dup
+    len
+    itob
+    extract 6 2
+    swap
+    concat
+    bytec_0 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+
+// test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]() -> void:
+first_valid_then_and_now:
+    // time_travel/contract.py:113
+    // @arc4.abimethod
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_0 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    txna ApplicationArgs 2
+    dup
+    len
+    intc_0 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    // time_travel/contract.py:115
+    // now = gtxn.Transaction(i).first_valid
+    dig 1
+    gtxns FirstValid
+    // time_travel/contract.py:116
+    // op.TimeTravel.seek(rnd)
+    swap
+    tt_seek
+    // time_travel/contract.py:117
+    // then = gtxn.Transaction(i).first_valid
+    swap
+    gtxns FirstValid
+    // time_travel/contract.py:118
+    // return now + then
+    +
+    // time_travel/contract.py:113
+    // @arc4.abimethod
+    itob
+    bytec_0 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+
+// test_cases.time_travel.contract.TimeTravel.data_exists_then[routing]() -> void:
+data_exists_then:
+    // time_travel/contract.py:120
+    // @arc4.abimethod
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_0 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    // time_travel/contract.py:122
     // assert self.data.length
     bytec_1 // 0x64617461
     box_len
     assert // check self.data exists
     assert
-    // time_travel/contract.py:107
+    // time_travel/contract.py:123
     // op.TimeTravel.seek(rnd)
     tt_seek
-    // time_travel/contract.py:108
+    // time_travel/contract.py:124
     // return bool(self.data)
     bytec_1 // 0x64617461
     box_len
     bury 1
-    // time_travel/contract.py:104
+    // time_travel/contract.py:120
     // @arc4.abimethod
     bytec 4 // 0x00
     intc_2 // 0
@@ -525,7 +627,7 @@ data_exists_then:
 
 // test_cases.time_travel.contract.TimeTravel.changes[routing]() -> void:
 changes:
-    // time_travel/contract.py:110
+    // time_travel/contract.py:126
     // @arc4.abimethod
     txna ApplicationArgs 1
     dup
@@ -561,89 +663,89 @@ changes:
     ==
     assert // invalid number of bytes for arc4.uint64
     btoi
-    // time_travel/contract.py:115
+    // time_travel/contract.py:131
     // rnd, status = op.TimeTravel.acct_change(acct, from_, to)
     dig 4
     dig 2
     dig 2
     tt_acct_change
-    // time_travel/contract.py:116
+    // time_travel/contract.py:132
     // total += rnd + status
     +
-    // time_travel/contract.py:117
+    // time_travel/contract.py:133
     // rnd, status = op.TimeTravel.holding_change(acct, asset, from_, to)
     dig 5
     dig 5
     dig 4
     dig 4
     tt_holding_change
-    // time_travel/contract.py:118
+    // time_travel/contract.py:134
     // total += rnd + status
     +
     +
-    // time_travel/contract.py:119
+    // time_travel/contract.py:135
     // rnd, status = op.TimeTravel.local_change(acct, app, from_, to)
     dig 5
     dig 4
     dig 4
     dig 4
     tt_local_change
-    // time_travel/contract.py:120
+    // time_travel/contract.py:136
     // total += rnd + status
     +
     +
-    // time_travel/contract.py:121
+    // time_travel/contract.py:137
     // rnd, status = op.TimeTravel.asset_change(asset, from_, to)
     uncover 4
     dig 3
     dig 3
     tt_asset_change
-    // time_travel/contract.py:122
+    // time_travel/contract.py:138
     // total += rnd + status
     +
     +
-    // time_travel/contract.py:123
+    // time_travel/contract.py:139
     // rnd, status = op.TimeTravel.app_change(app, from_, to)
     dig 3
     dig 3
     dig 3
     tt_app_change
-    // time_travel/contract.py:124
+    // time_travel/contract.py:140
     // total += rnd + status
     +
     +
-    // time_travel/contract.py:125
+    // time_travel/contract.py:141
     // rnd, status = op.TimeTravel.box_change(app, b"data", from_, to)
     dig 3
     bytec_1 // 0x64617461
     dig 4
     dig 4
     tt_box_change
-    // time_travel/contract.py:126
+    // time_travel/contract.py:142
     // total += rnd + status
     +
     +
-    // time_travel/contract.py:127
+    // time_travel/contract.py:143
     // rnd, status, value = op.TimeTravel.global_key_change_uint64(app, b"counter", from_, to)
     dig 3
     bytec_3 // 0x636f756e746572
     dig 4
     dig 4
     tt_global_key_change
-    // time_travel/contract.py:128
+    // time_travel/contract.py:144
     // total += rnd + status + value
     cover 2
     +
     +
     +
-    // time_travel/contract.py:129
+    // time_travel/contract.py:145
     // rnd, status, name = op.TimeTravel.global_key_change_bytes(app, b"name", from_, to)
     dig 3
     pushbytes 0x6e616d65
     dig 4
     dig 4
     tt_global_key_change
-    // time_travel/contract.py:130
+    // time_travel/contract.py:146
     // total += rnd + status + name.length
     cover 2
     +
@@ -651,7 +753,7 @@ changes:
     len
     +
     +
-    // time_travel/contract.py:131
+    // time_travel/contract.py:147
     // rnd, status, value = op.TimeTravel.local_key_change_uint64(acct, app, b"n", from_, to)
     dig 4
     dig 4
@@ -659,13 +761,13 @@ changes:
     dig 5
     dig 5
     tt_local_key_change
-    // time_travel/contract.py:132
+    // time_travel/contract.py:148
     // total += rnd + status + value
     cover 2
     +
     +
     +
-    // time_travel/contract.py:133
+    // time_travel/contract.py:149
     // rnd, status, name = op.TimeTravel.local_key_change_bytes(acct, app, b"s", from_, to)
     uncover 4
     dig 4
@@ -673,7 +775,7 @@ changes:
     dig 5
     dig 5
     tt_local_key_change
-    // time_travel/contract.py:134
+    // time_travel/contract.py:150
     // total += rnd + status + name.length
     cover 2
     +
@@ -681,14 +783,14 @@ changes:
     len
     +
     +
-    // time_travel/contract.py:135
+    // time_travel/contract.py:151
     // rnd, status, name = op.TimeTravel.box_prefix_change(app, b"it", from_, to)
     uncover 3
     pushbytes 0x6974
     uncover 4
     uncover 4
     tt_box_prefix_change
-    // time_travel/contract.py:136
+    // time_travel/contract.py:152
     // total += rnd + status + name.length
     cover 2
     +
@@ -696,7 +798,7 @@ changes:
     len
     +
     +
-    // time_travel/contract.py:110
+    // time_travel/contract.py:126
     // @arc4.abimethod
     itob
     bytec_0 // 0x151f7c75

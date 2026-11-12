@@ -15,6 +15,7 @@ from algopy import (
     GlobalState,
     UInt64,
     arc4,
+    gtxn,
     op,
     subroutine,
 )
@@ -102,6 +103,21 @@ class TimeTravel(ARC4Contract, avm_version=13):
         return then
 
     @arc4.abimethod
+    def data_existed_before_call(self, rnd: UInt64) -> Bytes:
+        existed = bool(self.data)
+        go_back_not_inlined(rnd)
+        then = self.data.value
+        assert existed
+        return then
+
+    @arc4.abimethod
+    def first_valid_then_and_now(self, i: UInt64, rnd: UInt64) -> UInt64:
+        now = gtxn.Transaction(i).first_valid
+        op.TimeTravel.seek(rnd)
+        then = gtxn.Transaction(i).first_valid
+        return now + then
+
+    @arc4.abimethod
     def data_exists_then(self, rnd: UInt64) -> bool:
         assert self.data.length
         op.TimeTravel.seek(rnd)
@@ -139,4 +155,9 @@ class TimeTravel(ARC4Contract, avm_version=13):
 
 @subroutine
 def go_back(rnd: UInt64) -> None:
+    op.TimeTravel.seek(rnd)
+
+
+@subroutine(inline=False)
+def go_back_not_inlined(rnd: UInt64) -> None:
     op.TimeTravel.seek(rnd)

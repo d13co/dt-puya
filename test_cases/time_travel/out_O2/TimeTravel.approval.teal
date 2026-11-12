@@ -14,18 +14,18 @@ main:
 
 main_after_if_else@2:
     txn NumAppArgs
-    bz main___algopy_default_create@21
+    bz main___algopy_default_create@23
     txn OnCompletion
     !
     assert
     txn ApplicationID
     assert
-    pushbytess 0x324c6a50 0x27135e52 0xe0dabb12 0x744eef4f 0x73a731a6 0x6ca1c380 0x98852240 0x022a0d7b 0x77561254 0xdddbbccf 0xdf0664cf 0xfbb80e0f // method "round_at(uint64)uint64", method "round_before(uint64)uint64", method "counter_then_and_now(uint64)(uint64,uint64)", method "data_changed(uint64)bool", method "first_item_changed(uint64)bool", method "first_item_now(uint64)uint64", method "append_then_write_back(uint64,uint64)void", method "set_then_write_back(uint64,uint64)void", method "timestamps(uint64,uint64)uint64", method "data_existed(uint64)byte[]", method "data_exists_then(uint64)bool", method "changes(address,uint64,uint64,uint64,uint64)uint64"
+    pushbytess 0x324c6a50 0x27135e52 0xe0dabb12 0x744eef4f 0x73a731a6 0x6ca1c380 0x98852240 0x022a0d7b 0x77561254 0xdddbbccf 0x4c61a8af 0xee9fa79c 0xdf0664cf 0xfbb80e0f // method "round_at(uint64)uint64", method "round_before(uint64)uint64", method "counter_then_and_now(uint64)(uint64,uint64)", method "data_changed(uint64)bool", method "first_item_changed(uint64)bool", method "first_item_now(uint64)uint64", method "append_then_write_back(uint64,uint64)void", method "set_then_write_back(uint64,uint64)void", method "timestamps(uint64,uint64)uint64", method "data_existed(uint64)byte[]", method "data_existed_before_call(uint64)byte[]", method "first_valid_then_and_now(uint64,uint64)uint64", method "data_exists_then(uint64)bool", method "changes(address,uint64,uint64,uint64,uint64)uint64"
     txna ApplicationArgs 0
-    match main_round_at_route@6 main_round_before_route@7 main_counter_then_and_now_route@8 main_data_changed_route@9 main_first_item_changed_route@10 main_first_item_now_route@11 main_append_then_write_back_route@12 main_set_then_write_back_route@13 main_timestamps_route@14 main_data_existed_route@15 main_data_exists_then_route@16 main_changes_route@17
+    match main_round_at_route@6 main_round_before_route@7 main_counter_then_and_now_route@8 main_data_changed_route@9 main_first_item_changed_route@10 main_first_item_now_route@11 main_append_then_write_back_route@12 main_set_then_write_back_route@13 main_timestamps_route@14 main_data_existed_route@15 main_data_existed_before_call_route@16 main_first_valid_then_and_now_route@17 main_data_exists_then_route@18 main_changes_route@19
     err
 
-main_changes_route@17:
+main_changes_route@19:
     txna ApplicationArgs 1
     dup
     len
@@ -159,7 +159,7 @@ main_changes_route@17:
     intc_1 // 1
     return
 
-main_data_exists_then_route@16:
+main_data_exists_then_route@18:
     txna ApplicationArgs 1
     dup
     len
@@ -179,6 +179,67 @@ main_data_exists_then_route@16:
     intc_2 // 0
     uncover 2
     setbit
+    bytec_0 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+main_first_valid_then_and_now_route@17:
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_0 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    txna ApplicationArgs 2
+    dup
+    len
+    intc_0 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    dig 1
+    gtxns FirstValid
+    swap
+    tt_seek
+    swap
+    gtxns FirstValid
+    +
+    itob
+    bytec_0 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+main_data_existed_before_call_route@16:
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_0 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    bytec_1 // 0x64617461
+    box_len
+    cover 2
+    pop
+    callsub go_back_not_inlined
+    bytec_1 // 0x64617461
+    box_get
+    assert // check self.data exists
+    swap
+    assert
+    dup
+    len
+    itob
+    extract 6 2
+    swap
+    concat
     bytec_0 // 0x151f7c75
     swap
     concat
@@ -483,10 +544,18 @@ main_round_at_route@6:
     intc_1 // 1
     return
 
-main___algopy_default_create@21:
+main___algopy_default_create@23:
     txn OnCompletion
     !
     txn ApplicationID
     !
     &&
     return
+
+
+// test_cases.time_travel.contract.go_back_not_inlined(rnd: uint64) -> void:
+go_back_not_inlined:
+    proto 1 0
+    frame_dig -1
+    tt_seek
+    retsub

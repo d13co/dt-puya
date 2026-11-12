@@ -88,14 +88,18 @@ def compute_dominator_tree(
     return start, dom_tree
 
 
+# the txn fields a seek moves, for the txns of the group (see _time_travel.py)
+_SEEK_MOVED_TXN_FIELDS = frozenset(("FirstValid", "LastValid", "FirstValidTime"))
+
+
 @attrs.define(kw_only=True)
 class RCEVisitor(NoOpIRVisitor[None]):
     block: models.BasicBlock
     const_intrinsics: dict[object, Sequence[models.Register]]
     asserted: set[models.Value]
     time_travel: bool = False
-    """the program seeks, which moves the rounds `block` and `FirstValidTime` may read
-    (see _time_travel.py)"""
+    """the program seeks, which moves the rounds `block` reads and the group's `FirstValid`,
+    `LastValid` and `FirstValidTime` (see _time_travel.py)"""
     modified: bool = False
 
     _assignment: models.Assignment | None = None
@@ -116,7 +120,10 @@ class RCEVisitor(NoOpIRVisitor[None]):
             and intrinsic.op.code in PURE_AVM_OPS
             and not (
                 self.time_travel
-                and (intrinsic.op.code == "block" or "FirstValidTime" in intrinsic.immediates)
+                and (
+                    intrinsic.op.code == "block"
+                    or not _SEEK_MOVED_TXN_FIELDS.isdisjoint(intrinsic.immediates)
+                )
             )
         ):
             # can't use .freeze() as we want to exclude error_message for the key,

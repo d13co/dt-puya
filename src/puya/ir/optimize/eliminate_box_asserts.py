@@ -1,21 +1,23 @@
 from puya import log
-from puya.context import CompileContext
 from puya.ir import models
 from puya.ir.avm_ops import AVMOp
+from puya.ir.optimize.context import IROptimizationContext
 from puya.utils import set_add
 
 logger = log.get_logger(__name__)
 
 
-def minimize_box_exist_asserts(_context: CompileContext, subroutine: models.Subroutine) -> bool:
+def minimize_box_exist_asserts(
+    context: IROptimizationContext, subroutine: models.Subroutine
+) -> bool:
     modified = False
     for block in subroutine.body:
-        if _remove_box_exists_asserts(block):
+        if _remove_box_exists_asserts(block, time_travel=context.time_travel):
             modified = True
     return modified
 
 
-def _remove_box_exists_asserts(block: models.BasicBlock) -> bool:
+def _remove_box_exists_asserts(block: models.BasicBlock, *, time_travel: bool) -> bool:
     #   for any box op that returns an exist flag that is asserted
     #   can remove any asserts after the first one as long as the box register is the same
     #   and no box_del op is called
@@ -58,6 +60,10 @@ def _remove_box_exists_asserts(block: models.BasicBlock) -> bool:
             if isinstance(source, models.InvokeSubroutine):
                 if not source.target.pure:
                     box_exists.clear()
+                    if time_travel:
+                        # the call may seek, after which an exists flag read before it is of
+                        # the round left (see _time_travel.py)
+                        box_exists_regs.clear()
             elif isinstance(source, models.Intrinsic):
                 match source.op:
                     case (

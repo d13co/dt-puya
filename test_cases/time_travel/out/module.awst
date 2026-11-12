@@ -110,6 +110,23 @@ contract TimeTravel
     return then
   }
   
+  abimethod test_cases.time_travel.contract.TimeTravel.data_existed_before_call(rnd: uint64): bytes
+  {
+    existed: bool = STATE_EXISTS(Box[hex<"64617461">])
+    test_cases.time_travel.contract.go_back_not_inlined(rnd)
+    then: bytes = Box[hex<"64617461">]
+    assert(existed)
+    return then
+  }
+  
+  abimethod test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now(i: uint64, rnd: uint64): uint64
+  {
+    now: uint64 = gtxns<FirstValid>(group_transaction(index=i, type=any))
+    tt_seek(rnd)
+    then: uint64 = gtxns<FirstValid>(group_transaction(index=i, type=any))
+    return now + then
+  }
+  
   abimethod test_cases.time_travel.contract.TimeTravel.data_exists_then(rnd: uint64): bool
   {
     assert(checked_maybe(box_len(hex<"64617461">)) != 0u)
@@ -155,6 +172,11 @@ contract TimeTravel
 }
 
 subroutine go_back(rnd: uint64): void
+{
+  tt_seek(rnd)
+}
+
+subroutine go_back_not_inlined(rnd: uint64): void
 {
   tt_seek(rnd)
 }

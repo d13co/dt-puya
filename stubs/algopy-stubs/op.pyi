@@ -3843,7 +3843,7 @@ class TimeTravel:
     def seek(a: UInt64 | int, /) -> None:
         """
         move the program's reads to the state round A left, as if it ran in the block after A. A the round the program started at returns to its own state
-        POST /v2/query only (non-standard fork feature); simulate and blocks refuse a program with it. Costs 2200 more the first time the call reaches A. Fails if A is after the query round, if the call reaches more than max-seek-rounds rounds, if the node has no state of A, or between `itxn_begin` and `itxn_submit`.
+        POST /v2/query only (non-standard fork feature); simulate and blocks refuse a program with it. The txns of the program's group then read A+1 as their FirstValid and LastValid, as do the inner txns it sends, and FirstValidTime the timestamp of A; an inner txn's FirstValidTime fails once a later seek's block window lacks A. Costs 2200 more the first time the call reaches A. Fails if A is after the query round, if the call reaches more than max-seek-rounds rounds, if the node has no state of A, or between `itxn_begin` and `itxn_submit`.
         Min AVM version: 13
 
         Native TEAL opcode: [`tt_seek`](https://github.com/d13co/dt-algorand/blob/dtalgorand/ledger/timetravel/README.md#time-travel-inside-a-call)

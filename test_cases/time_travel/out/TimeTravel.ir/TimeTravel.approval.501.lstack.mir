@@ -7,7 +7,7 @@ subroutine main:
         bz main_call___init__@1 ; b main_after_if_else@2
 
     main_call___init__@1:
-        // time_travel/contract.py:30
+        // time_travel/contract.py:31
         // self.counter = GlobalState(UInt64(0))
         byte "counter"                                                                             "counter"
         int 0                                                                                      "counter",0
@@ -15,14 +15,14 @@ subroutine main:
         b main_after_if_else@2
 
     main_after_if_else@2:
-        // time_travel/contract.py:28
+        // time_travel/contract.py:29
         // class TimeTravel(ARC4Contract, avm_version=13):
         txn NumAppArgs                                                                             tmp%0#1
         l-load tmp%0#1 0                                                                           tmp%0#1
-        bz main___algopy_default_create@21 ; b main_abi_routing@4
+        bz main___algopy_default_create@23 ; b main_abi_routing@4
 
     main_abi_routing@4:
-        // time_travel/contract.py:28
+        // time_travel/contract.py:29
         // class TimeTravel(ARC4Contract, avm_version=13):
         txn OnCompletion                                                                           tmp%2#0
         l-load tmp%2#0 0                                                                           tmp%2#0
@@ -43,89 +43,103 @@ subroutine main:
         method set_then_write_back(uint64,uint64)void                                              tmp%6#0,Method(round_at(uint64)uint64),Method(round_before(uint64)uint64),Method(counter_then_and_now(uint64)(uint64,uint64)),Method(data_changed(uint64)bool),Method(first_item_changed(uint64)bool),Method(first_item_now(uint64)uint64),Method(append_then_write_back(uint64,uint64)void),Method(set_then_write_back(uint64,uint64)void)
         method timestamps(uint64,uint64)uint64                                                     tmp%6#0,Method(round_at(uint64)uint64),Method(round_before(uint64)uint64),Method(counter_then_and_now(uint64)(uint64,uint64)),Method(data_changed(uint64)bool),Method(first_item_changed(uint64)bool),Method(first_item_now(uint64)uint64),Method(append_then_write_back(uint64,uint64)void),Method(set_then_write_back(uint64,uint64)void),Method(timestamps(uint64,uint64)uint64)
         method data_existed(uint64)byte[]                                                          tmp%6#0,Method(round_at(uint64)uint64),Method(round_before(uint64)uint64),Method(counter_then_and_now(uint64)(uint64,uint64)),Method(data_changed(uint64)bool),Method(first_item_changed(uint64)bool),Method(first_item_now(uint64)uint64),Method(append_then_write_back(uint64,uint64)void),Method(set_then_write_back(uint64,uint64)void),Method(timestamps(uint64,uint64)uint64),Method(data_existed(uint64)byte[])
-        method data_exists_then(uint64)bool                                                        tmp%6#0,Method(round_at(uint64)uint64),Method(round_before(uint64)uint64),Method(counter_then_and_now(uint64)(uint64,uint64)),Method(data_changed(uint64)bool),Method(first_item_changed(uint64)bool),Method(first_item_now(uint64)uint64),Method(append_then_write_back(uint64,uint64)void),Method(set_then_write_back(uint64,uint64)void),Method(timestamps(uint64,uint64)uint64),Method(data_existed(uint64)byte[]),Method(data_exists_then(uint64)bool)
-        method changes(address,uint64,uint64,uint64,uint64)uint64                                  tmp%6#0,Method(round_at(uint64)uint64),Method(round_before(uint64)uint64),Method(counter_then_and_now(uint64)(uint64,uint64)),Method(data_changed(uint64)bool),Method(first_item_changed(uint64)bool),Method(first_item_now(uint64)uint64),Method(append_then_write_back(uint64,uint64)void),Method(set_then_write_back(uint64,uint64)void),Method(timestamps(uint64,uint64)uint64),Method(data_existed(uint64)byte[]),Method(data_exists_then(uint64)bool),Method(changes(address,uint64,uint64,uint64,uint64)uint64)
-        l-load tmp%6#0 12                                                                          Method(round_at(uint64)uint64),Method(round_before(uint64)uint64),Method(counter_then_and_now(uint64)(uint64,uint64)),Method(data_changed(uint64)bool),Method(first_item_changed(uint64)bool),Method(first_item_now(uint64)uint64),Method(append_then_write_back(uint64,uint64)void),Method(set_then_write_back(uint64,uint64)void),Method(timestamps(uint64,uint64)uint64),Method(data_existed(uint64)byte[]),Method(data_exists_then(uint64)bool),Method(changes(address,uint64,uint64,uint64,uint64)uint64),tmp%6#0
-        match main_round_at_route@6 main_round_before_route@7 main_counter_then_and_now_route@8 main_data_changed_route@9 main_first_item_changed_route@10 main_first_item_now_route@11 main_append_then_write_back_route@12 main_set_then_write_back_route@13 main_timestamps_route@14 main_data_existed_route@15 main_data_exists_then_route@16 main_changes_route@17 ; b main_after_if_else@20 
+        method data_existed_before_call(uint64)byte[]                                              tmp%6#0,Method(round_at(uint64)uint64),Method(round_before(uint64)uint64),Method(counter_then_and_now(uint64)(uint64,uint64)),Method(data_changed(uint64)bool),Method(first_item_changed(uint64)bool),Method(first_item_now(uint64)uint64),Method(append_then_write_back(uint64,uint64)void),Method(set_then_write_back(uint64,uint64)void),Method(timestamps(uint64,uint64)uint64),Method(data_existed(uint64)byte[]),Method(data_existed_before_call(uint64)byte[])
+        method first_valid_then_and_now(uint64,uint64)uint64                                       tmp%6#0,Method(round_at(uint64)uint64),Method(round_before(uint64)uint64),Method(counter_then_and_now(uint64)(uint64,uint64)),Method(data_changed(uint64)bool),Method(first_item_changed(uint64)bool),Method(first_item_now(uint64)uint64),Method(append_then_write_back(uint64,uint64)void),Method(set_then_write_back(uint64,uint64)void),Method(timestamps(uint64,uint64)uint64),Method(data_existed(uint64)byte[]),Method(data_existed_before_call(uint64)byte[]),Method(first_valid_then_and_now(uint64,uint64)uint64)
+        method data_exists_then(uint64)bool                                                        tmp%6#0,Method(round_at(uint64)uint64),Method(round_before(uint64)uint64),Method(counter_then_and_now(uint64)(uint64,uint64)),Method(data_changed(uint64)bool),Method(first_item_changed(uint64)bool),Method(first_item_now(uint64)uint64),Method(append_then_write_back(uint64,uint64)void),Method(set_then_write_back(uint64,uint64)void),Method(timestamps(uint64,uint64)uint64),Method(data_existed(uint64)byte[]),Method(data_existed_before_call(uint64)byte[]),Method(first_valid_then_and_now(uint64,uint64)uint64),Method(data_exists_then(uint64)bool)
+        method changes(address,uint64,uint64,uint64,uint64)uint64                                  tmp%6#0,Method(round_at(uint64)uint64),Method(round_before(uint64)uint64),Method(counter_then_and_now(uint64)(uint64,uint64)),Method(data_changed(uint64)bool),Method(first_item_changed(uint64)bool),Method(first_item_now(uint64)uint64),Method(append_then_write_back(uint64,uint64)void),Method(set_then_write_back(uint64,uint64)void),Method(timestamps(uint64,uint64)uint64),Method(data_existed(uint64)byte[]),Method(data_existed_before_call(uint64)byte[]),Method(first_valid_then_and_now(uint64,uint64)uint64),Method(data_exists_then(uint64)bool),Method(changes(address,uint64,uint64,uint64,uint64)uint64)
+        l-load tmp%6#0 14                                                                          Method(round_at(uint64)uint64),Method(round_before(uint64)uint64),Method(counter_then_and_now(uint64)(uint64,uint64)),Method(data_changed(uint64)bool),Method(first_item_changed(uint64)bool),Method(first_item_now(uint64)uint64),Method(append_then_write_back(uint64,uint64)void),Method(set_then_write_back(uint64,uint64)void),Method(timestamps(uint64,uint64)uint64),Method(data_existed(uint64)byte[]),Method(data_existed_before_call(uint64)byte[]),Method(first_valid_then_and_now(uint64,uint64)uint64),Method(data_exists_then(uint64)bool),Method(changes(address,uint64,uint64,uint64,uint64)uint64),tmp%6#0
+        match main_round_at_route@6 main_round_before_route@7 main_counter_then_and_now_route@8 main_data_changed_route@9 main_first_item_changed_route@10 main_first_item_now_route@11 main_append_then_write_back_route@12 main_set_then_write_back_route@13 main_timestamps_route@14 main_data_existed_route@15 main_data_existed_before_call_route@16 main_first_valid_then_and_now_route@17 main_data_exists_then_route@18 main_changes_route@19 ; b main_after_if_else@22 
 
     main_round_at_route@6:
-        // time_travel/contract.py:35
+        // time_travel/contract.py:36
         // @arc4.abimethod
         callsub round_at
-        b main_after_if_else@20
+        b main_after_if_else@22
 
     main_round_before_route@7:
-        // time_travel/contract.py:40
+        // time_travel/contract.py:41
         // @arc4.abimethod
         callsub round_before
-        b main_after_if_else@20
+        b main_after_if_else@22
 
     main_counter_then_and_now_route@8:
-        // time_travel/contract.py:46
+        // time_travel/contract.py:47
         // @arc4.abimethod
         callsub counter_then_and_now
-        b main_after_if_else@20
+        b main_after_if_else@22
 
     main_data_changed_route@9:
-        // time_travel/contract.py:55
+        // time_travel/contract.py:56
         // @arc4.abimethod
         callsub data_changed
-        b main_after_if_else@20
+        b main_after_if_else@22
 
     main_first_item_changed_route@10:
-        // time_travel/contract.py:62
+        // time_travel/contract.py:63
         // @arc4.abimethod
         callsub first_item_changed
-        b main_after_if_else@20
+        b main_after_if_else@22
 
     main_first_item_now_route@11:
-        // time_travel/contract.py:69
+        // time_travel/contract.py:70
         // @arc4.abimethod
         callsub first_item_now
-        b main_after_if_else@20
+        b main_after_if_else@22
 
     main_append_then_write_back_route@12:
-        // time_travel/contract.py:75
+        // time_travel/contract.py:76
         // @arc4.abimethod
         callsub append_then_write_back
-        b main_after_if_else@20
+        b main_after_if_else@22
 
     main_set_then_write_back_route@13:
-        // time_travel/contract.py:82
+        // time_travel/contract.py:83
         // @arc4.abimethod
         callsub set_then_write_back
-        b main_after_if_else@20
+        b main_after_if_else@22
 
     main_timestamps_route@14:
-        // time_travel/contract.py:89
+        // time_travel/contract.py:90
         // @arc4.abimethod
         callsub timestamps
-        b main_after_if_else@20
+        b main_after_if_else@22
 
     main_data_existed_route@15:
-        // time_travel/contract.py:96
+        // time_travel/contract.py:97
         // @arc4.abimethod
         callsub data_existed
-        b main_after_if_else@20
+        b main_after_if_else@22
 
-    main_data_exists_then_route@16:
-        // time_travel/contract.py:104
+    main_data_existed_before_call_route@16:
+        // time_travel/contract.py:105
+        // @arc4.abimethod
+        callsub data_existed_before_call
+        b main_after_if_else@22
+
+    main_first_valid_then_and_now_route@17:
+        // time_travel/contract.py:113
+        // @arc4.abimethod
+        callsub first_valid_then_and_now
+        b main_after_if_else@22
+
+    main_data_exists_then_route@18:
+        // time_travel/contract.py:120
         // @arc4.abimethod
         callsub data_exists_then
-        b main_after_if_else@20
+        b main_after_if_else@22
 
-    main_changes_route@17:
-        // time_travel/contract.py:110
+    main_changes_route@19:
+        // time_travel/contract.py:126
         // @arc4.abimethod
         callsub changes
-        b main_after_if_else@20
+        b main_after_if_else@22
 
-    main_after_if_else@20:
-        // time_travel/contract.py:28
+    main_after_if_else@22:
+        // time_travel/contract.py:29
         // class TimeTravel(ARC4Contract, avm_version=13):
         err
 
-    main___algopy_default_create@21:
+    main___algopy_default_create@23:
         txn OnCompletion                                                                           tmp%7#0
         l-load tmp%7#0 0                                                                           tmp%7#0
         !                                                                                          tmp%8#0
@@ -141,10 +155,20 @@ subroutine main:
         return
 
 
+// test_cases.time_travel.contract.go_back_not_inlined(rnd: uint64) -> void:
+subroutine go_back_not_inlined:
+    go_back_not_inlined_block@0:                                                                   (𝕡) rnd#0 |
+        // time_travel/contract.py:163
+        // op.TimeTravel.seek(rnd)
+        p-load rnd#0                                                                               (𝕡) rnd#0 | rnd#0 (copy)
+        tt_seek                                                                                    (𝕡) rnd#0 |
+        retsub
+
+
 // test_cases.time_travel.contract.TimeTravel.round_at[routing]() -> void:
 subroutine round_at:
     round_at_block@0:
-        // time_travel/contract.py:35
+        // time_travel/contract.py:36
         // @arc4.abimethod
         txna ApplicationArgs 1                                                                     tmp%0#0
         l-load-copy tmp%0#0 0                                                                      tmp%0#0,tmp%0#0 (copy)
@@ -156,14 +180,14 @@ subroutine round_at:
         assert // invalid number of bytes for arc4.uint64                                          tmp%0#0
         l-load tmp%0#0 0                                                                           tmp%0#0
         btoi                                                                                       rnd#0
-        // time_travel/contract.py:37
+        // time_travel/contract.py:38
         // op.TimeTravel.seek(rnd)
         l-load rnd#0 0                                                                             rnd#0
         tt_seek
-        // time_travel/contract.py:38
+        // time_travel/contract.py:39
         // return Global.round
         global Round                                                                               tmp%0#1
-        // time_travel/contract.py:35
+        // time_travel/contract.py:36
         // @arc4.abimethod
         l-load tmp%0#1 0                                                                           tmp%0#1
         itob                                                                                       aggregate%val_as_bytes%0#0
@@ -179,7 +203,7 @@ subroutine round_at:
 // test_cases.time_travel.contract.TimeTravel.round_before[routing]() -> void:
 subroutine round_before:
     round_before_block@0:
-        // time_travel/contract.py:40
+        // time_travel/contract.py:41
         // @arc4.abimethod
         txna ApplicationArgs 1                                                                     tmp%0#0
         l-load-copy tmp%0#0 0                                                                      tmp%0#0,tmp%0#0 (copy)
@@ -191,14 +215,14 @@ subroutine round_before:
         assert // invalid number of bytes for arc4.uint64                                          tmp%0#0
         l-load tmp%0#0 0                                                                           tmp%0#0
         btoi                                                                                       rnd#0
-        // time_travel/contract.py:42
+        // time_travel/contract.py:43
         // before = Global.round
         global Round                                                                               rnd#0,before#0
-        // time_travel/contract.py:43
+        // time_travel/contract.py:44
         // op.TimeTravel.seek(rnd)
         l-load rnd#0 1                                                                             before#0,rnd#0
         tt_seek                                                                                    before#0
-        // time_travel/contract.py:40
+        // time_travel/contract.py:41
         // @arc4.abimethod
         l-load before#0 0                                                                          before#0
         itob                                                                                       aggregate%val_as_bytes%0#0
@@ -214,7 +238,7 @@ subroutine round_before:
 // test_cases.time_travel.contract.TimeTravel.counter_then_and_now[routing]() -> void:
 subroutine counter_then_and_now:
     counter_then_and_now_block@0:
-        // time_travel/contract.py:46
+        // time_travel/contract.py:47
         // @arc4.abimethod
         txna ApplicationArgs 1                                                                     tmp%0#0
         l-load-copy tmp%0#0 0                                                                      tmp%0#0,tmp%0#0 (copy)
@@ -226,35 +250,35 @@ subroutine counter_then_and_now:
         assert // invalid number of bytes for arc4.uint64                                          tmp%0#0
         l-load tmp%0#0 0                                                                           tmp%0#0
         btoi                                                                                       rnd#0
-        // time_travel/contract.py:48
+        // time_travel/contract.py:49
         // home = Global.round - 1  # seeking to the round before the program's goes back to it
         global Round                                                                               rnd#0,tmp%0#1
         l-load tmp%0#1 0                                                                           rnd#0,tmp%0#1
         int 1                                                                                      rnd#0,tmp%0#1,1
         -                                                                                          rnd#0,home#0
-        // time_travel/contract.py:49
+        // time_travel/contract.py:50
         // now = self.counter.value
         int 0                                                                                      rnd#0,home#0,0
         byte "counter"                                                                             rnd#0,home#0,0,"counter"
         app_global_get_ex                                                                          rnd#0,home#0,now#0,maybe_exists%0#0
         l-load maybe_exists%0#0 0                                                                  rnd#0,home#0,now#0,maybe_exists%0#0
         assert // check self.counter exists                                                        rnd#0,home#0,now#0
-        // time_travel/contract.py:50
+        // time_travel/contract.py:51
         // op.TimeTravel.seek(rnd)
         l-load rnd#0 2                                                                             home#0,now#0,rnd#0
         tt_seek                                                                                    home#0,now#0
-        // time_travel/contract.py:51
+        // time_travel/contract.py:52
         // then = self.counter.value
         int 0                                                                                      home#0,now#0,0
         byte "counter"                                                                             home#0,now#0,0,"counter"
         app_global_get_ex                                                                          home#0,now#0,then#0,maybe_exists%1#0
         l-load maybe_exists%1#0 0                                                                  home#0,now#0,then#0,maybe_exists%1#0
         assert // check self.counter exists                                                        home#0,now#0,then#0
-        // time_travel/contract.py:52
+        // time_travel/contract.py:53
         // op.TimeTravel.seek(home)
         l-load home#0 2                                                                            now#0,then#0,home#0
         tt_seek                                                                                    now#0,then#0
-        // time_travel/contract.py:46
+        // time_travel/contract.py:47
         // @arc4.abimethod
         l-load then#0 0                                                                            now#0,then#0
         itob                                                                                       now#0,aggregate%val_as_bytes%0#0
@@ -275,7 +299,7 @@ subroutine counter_then_and_now:
 // test_cases.time_travel.contract.TimeTravel.data_changed[routing]() -> void:
 subroutine data_changed:
     data_changed_block@0:
-        // time_travel/contract.py:55
+        // time_travel/contract.py:56
         // @arc4.abimethod
         txna ApplicationArgs 1                                                                     tmp%0#0
         l-load-copy tmp%0#0 0                                                                      tmp%0#0,tmp%0#0 (copy)
@@ -287,17 +311,17 @@ subroutine data_changed:
         assert // invalid number of bytes for arc4.uint64                                          tmp%0#0
         l-load tmp%0#0 0                                                                           tmp%0#0
         btoi                                                                                       rnd#0
-        // time_travel/contract.py:57
+        // time_travel/contract.py:58
         // now = self.data.value
         byte 0x64617461                                                                            rnd#0,0x64617461
         box_get                                                                                    rnd#0,now#0,aggregate%box_get%1#0
         l-load aggregate%box_get%1#0 0                                                             rnd#0,now#0,aggregate%box_get%1#0
         assert // check self.data exists                                                           rnd#0,now#0
-        // time_travel/contract.py:58
+        // time_travel/contract.py:59
         // op.TimeTravel.seek(rnd)
         l-load rnd#0 1                                                                             now#0,rnd#0
         tt_seek                                                                                    now#0
-        // time_travel/contract.py:60
+        // time_travel/contract.py:61
         // return now[:8] != then[:8]
         l-load-copy now#0 0                                                                        now#0,now#0 (copy)
         len                                                                                        now#0,length%0#0
@@ -312,16 +336,16 @@ subroutine data_changed:
         int 0                                                                                      bounded_index%0#0,now#0,0
         l-load bounded_index%0#0 2                                                                 now#0,0,bounded_index%0#0
         substring3                                                                                 tmp%0#0
-        // time_travel/contract.py:59
+        // time_travel/contract.py:60
         // then = self.data.value
         byte 0x64617461                                                                            tmp%0#0,0x64617461
-        // time_travel/contract.py:59-60
+        // time_travel/contract.py:60-61
         // then = self.data.value
         // return now[:8] != then[:8]
         box_len                                                                                    tmp%0#0,box%box_len%0#0,box%exists%0#0
         l-load box%exists%0#0 0                                                                    tmp%0#0,box%box_len%0#0,box%exists%0#0
         assert // check self.data exists                                                           tmp%0#0,box%box_len%0#0
-        // time_travel/contract.py:60
+        // time_travel/contract.py:61
         // return now[:8] != then[:8]
         int 8                                                                                      tmp%0#0,box%box_len%0#0,8
         l-load-copy box%box_len%0#0 1                                                              tmp%0#0,box%box_len%0#0,8,box%box_len%0#0 (copy)
@@ -330,23 +354,23 @@ subroutine data_changed:
         l-load box%box_len%0#0 2                                                                   tmp%0#0,is_out_of_bounds%1#0,8,box%box_len%0#0
         l-load is_out_of_bounds%1#0 2                                                              tmp%0#0,8,box%box_len%0#0,is_out_of_bounds%1#0
         select                                                                                     tmp%0#0,bounded_index%1#0
-        // time_travel/contract.py:59
+        // time_travel/contract.py:60
         // then = self.data.value
         byte 0x64617461                                                                            tmp%0#0,bounded_index%1#0,0x64617461
-        // time_travel/contract.py:60
+        // time_travel/contract.py:61
         // return now[:8] != then[:8]
         int 0                                                                                      tmp%0#0,bounded_index%1#0,0x64617461,0
-        // time_travel/contract.py:59-60
+        // time_travel/contract.py:60-61
         // then = self.data.value
         // return now[:8] != then[:8]
         l-load bounded_index%1#0 2                                                                 tmp%0#0,0x64617461,0,bounded_index%1#0
         box_extract                                                                                tmp%0#0,box%box_extract%0#0
-        // time_travel/contract.py:60
+        // time_travel/contract.py:61
         // return now[:8] != then[:8]
         l-load tmp%0#0 1                                                                           box%box_extract%0#0,tmp%0#0
         l-load box%box_extract%0#0 1                                                               tmp%0#0,box%box_extract%0#0
         !=                                                                                         tmp%2#1
-        // time_travel/contract.py:55
+        // time_travel/contract.py:56
         // @arc4.abimethod
         byte 0x00                                                                                  tmp%2#1,0x00
         int 0                                                                                      tmp%2#1,0x00,0
@@ -364,7 +388,7 @@ subroutine data_changed:
 // test_cases.time_travel.contract.TimeTravel.first_item_changed[routing]() -> void:
 subroutine first_item_changed:
     first_item_changed_block@0:
-        // time_travel/contract.py:62
+        // time_travel/contract.py:63
         // @arc4.abimethod
         txna ApplicationArgs 1                                                                     tmp%0#0
         l-load-copy tmp%0#0 0                                                                      tmp%0#0,tmp%0#0 (copy)
@@ -376,35 +400,35 @@ subroutine first_item_changed:
         assert // invalid number of bytes for arc4.uint64                                          tmp%0#0
         l-load tmp%0#0 0                                                                           tmp%0#0
         btoi                                                                                       rnd#0
-        // time_travel/contract.py:64
+        // time_travel/contract.py:65
         // now = self.items.value.copy()
         byte 0x6974656d73                                                                          rnd#0,0x6974656d73
         box_get                                                                                    rnd#0,now#0,aggregate%box_get%1#0
         l-load aggregate%box_get%1#0 0                                                             rnd#0,now#0,aggregate%box_get%1#0
         assert // check self.items exists                                                          rnd#0,now#0
-        // time_travel/contract.py:142
+        // time_travel/contract.py:158
         // op.TimeTravel.seek(rnd)
         l-load rnd#0 1                                                                             now#0,rnd#0
         tt_seek                                                                                    now#0
-        // time_travel/contract.py:67
+        // time_travel/contract.py:68
         // return now[0] != then[0]
         l-load now#0 0                                                                             now#0
         extract 2 8                                                                                aggregate%encoded_element%0#0
-        // time_travel/contract.py:66
+        // time_travel/contract.py:67
         // then = self.items.value.copy()
         byte 0x6974656d73                                                                          aggregate%encoded_element%0#0,0x6974656d73
-        // time_travel/contract.py:66-67
+        // time_travel/contract.py:67-68
         // then = self.items.value.copy()
         // return now[0] != then[0]
         int 2                                                                                      aggregate%encoded_element%0#0,0x6974656d73,2
         int 8                                                                                      aggregate%encoded_element%0#0,0x6974656d73,2,8
         box_extract // on error: index out of bounds                                               aggregate%encoded_element%0#0,box%box_extract%0#0
-        // time_travel/contract.py:67
+        // time_travel/contract.py:68
         // return now[0] != then[0]
         l-load aggregate%encoded_element%0#0 1                                                     box%box_extract%0#0,aggregate%encoded_element%0#0
         l-load box%box_extract%0#0 1                                                               aggregate%encoded_element%0#0,box%box_extract%0#0
         b!=                                                                                        tmp%0#1
-        // time_travel/contract.py:62
+        // time_travel/contract.py:63
         // @arc4.abimethod
         byte 0x00                                                                                  tmp%0#1,0x00
         int 0                                                                                      tmp%0#1,0x00,0
@@ -422,7 +446,7 @@ subroutine first_item_changed:
 // test_cases.time_travel.contract.TimeTravel.first_item_now[routing]() -> void:
 subroutine first_item_now:
     first_item_now_block@0:
-        // time_travel/contract.py:69
+        // time_travel/contract.py:70
         // @arc4.abimethod
         txna ApplicationArgs 1                                                                     tmp%0#0
         l-load-copy tmp%0#0 0                                                                      tmp%0#0,tmp%0#0 (copy)
@@ -434,17 +458,17 @@ subroutine first_item_now:
         assert // invalid number of bytes for arc4.uint64                                          tmp%0#0
         l-load tmp%0#0 0                                                                           tmp%0#0
         btoi                                                                                       rnd#0
-        // time_travel/contract.py:71
+        // time_travel/contract.py:72
         // first = self.items.value[0]
         byte 0x6974656d73                                                                          rnd#0,0x6974656d73
         int 2                                                                                      rnd#0,0x6974656d73,2
         int 8                                                                                      rnd#0,0x6974656d73,2,8
         box_extract // on error: index out of bounds                                               rnd#0,first#0
-        // time_travel/contract.py:72
+        // time_travel/contract.py:73
         // op.TimeTravel.seek(rnd)
         l-load rnd#0 1                                                                             first#0,rnd#0
         tt_seek                                                                                    first#0
-        // time_travel/contract.py:69
+        // time_travel/contract.py:70
         // @arc4.abimethod
         byte 0x151f7c75                                                                            first#0,0x151f7c75
         l-load first#0 1                                                                           0x151f7c75,first#0
@@ -458,7 +482,7 @@ subroutine first_item_now:
 // test_cases.time_travel.contract.TimeTravel.append_then_write_back[routing]() -> void:
 subroutine append_then_write_back:
     append_then_write_back_block@0:
-        // time_travel/contract.py:75
+        // time_travel/contract.py:76
         // @arc4.abimethod
         txna ApplicationArgs 1                                                                     tmp%0#0
         l-load-copy tmp%0#0 0                                                                      tmp%0#0,tmp%0#0 (copy)
@@ -478,7 +502,7 @@ subroutine append_then_write_back:
         ==                                                                                         rnd#0,x#0,eq%1#0
         l-load eq%1#0 0                                                                            rnd#0,x#0,eq%1#0
         assert // invalid number of bytes for arc4.uint64                                          rnd#0,x#0
-        // time_travel/contract.py:77
+        // time_travel/contract.py:78
         // items = self.items.value.copy()
         byte 0x6974656d73                                                                          rnd#0,x#0,0x6974656d73
         box_get                                                                                    rnd#0,x#0,items#0,aggregate%box_get%1#0
@@ -488,7 +512,7 @@ subroutine append_then_write_back:
         int 0                                                                                      rnd#0,x#0,items#0,items#0 (copy),0
         extract_uint16                                                                             rnd#0,x#0,items#0,array_length#0
         l-load array_length#0 0                                                                    rnd#0,x#0,items#0,array_length#0
-        // time_travel/contract.py:78
+        // time_travel/contract.py:79
         // items.append(x)
         int 1                                                                                      rnd#0,x#0,items#0,array_length#0,1
         +                                                                                          rnd#0,x#0,items#0,new_array_length#0
@@ -502,11 +526,11 @@ subroutine append_then_write_back:
         l-load result#0 0                                                                          rnd#0,x#0,result#0
         l-load x#0 1                                                                               rnd#0,result#0,x#0
         concat                                                                                     rnd#0,items#0
-        // time_travel/contract.py:79
+        // time_travel/contract.py:80
         // op.TimeTravel.seek(rnd)
         l-load rnd#0 1                                                                             items#0,rnd#0
         tt_seek                                                                                    items#0
-        // time_travel/contract.py:80
+        // time_travel/contract.py:81
         // self.items.value = items.copy()
         byte 0x6974656d73                                                                          items#0,0x6974656d73
         box_del                                                                                    items#0,{box_del}
@@ -514,7 +538,7 @@ subroutine append_then_write_back:
         byte 0x6974656d73                                                                          items#0,0x6974656d73
         l-load items#0 1                                                                           0x6974656d73,items#0
         box_put
-        // time_travel/contract.py:75
+        // time_travel/contract.py:76
         // @arc4.abimethod
         int 1                                                                                      1
         return
@@ -523,7 +547,7 @@ subroutine append_then_write_back:
 // test_cases.time_travel.contract.TimeTravel.set_then_write_back[routing]() -> void:
 subroutine set_then_write_back:
     set_then_write_back_block@0:
-        // time_travel/contract.py:82
+        // time_travel/contract.py:83
         // @arc4.abimethod
         txna ApplicationArgs 1                                                                     tmp%0#0
         l-load-copy tmp%0#0 0                                                                      tmp%0#0,tmp%0#0 (copy)
@@ -543,27 +567,27 @@ subroutine set_then_write_back:
         ==                                                                                         rnd#0,x#0,eq%1#0
         l-load eq%1#0 0                                                                            rnd#0,x#0,eq%1#0
         assert // invalid number of bytes for arc4.uint64                                          rnd#0,x#0
-        // time_travel/contract.py:84
+        // time_travel/contract.py:85
         // point = self.point.value.copy()
         byte 0x7074                                                                                rnd#0,x#0,0x7074
         box_get                                                                                    rnd#0,x#0,point#0,aggregate%box_get%1#0
         l-load aggregate%box_get%1#0 0                                                             rnd#0,x#0,point#0,aggregate%box_get%1#0
         assert // check self.point exists                                                          rnd#0,x#0,point#0
-        // time_travel/contract.py:85
+        // time_travel/contract.py:86
         // point.a = x
         l-load point#0 0                                                                           rnd#0,x#0,point#0
         l-load x#0 1                                                                               rnd#0,point#0,x#0
         replace2 0                                                                                 rnd#0,point#0
-        // time_travel/contract.py:86
+        // time_travel/contract.py:87
         // op.TimeTravel.seek(rnd)
         l-load rnd#0 1                                                                             point#0,rnd#0
         tt_seek                                                                                    point#0
-        // time_travel/contract.py:87
+        // time_travel/contract.py:88
         // self.point.value = point.copy()
         byte 0x7074                                                                                point#0,0x7074
         l-load point#0 1                                                                           0x7074,point#0
         box_put
-        // time_travel/contract.py:82
+        // time_travel/contract.py:83
         // @arc4.abimethod
         int 1                                                                                      1
         return
@@ -572,7 +596,7 @@ subroutine set_then_write_back:
 // test_cases.time_travel.contract.TimeTravel.timestamps[routing]() -> void:
 subroutine timestamps:
     timestamps_block@0:
-        // time_travel/contract.py:89
+        // time_travel/contract.py:90
         // @arc4.abimethod
         txna ApplicationArgs 1                                                                     tmp%0#0
         l-load-copy tmp%0#0 0                                                                      tmp%0#0,tmp%0#0 (copy)
@@ -594,24 +618,24 @@ subroutine timestamps:
         assert // invalid number of bytes for arc4.uint64                                          rnd#0,tmp%2#0
         l-load tmp%2#0 0                                                                           rnd#0,tmp%2#0
         btoi                                                                                       rnd#0,of#0
-        // time_travel/contract.py:91
+        // time_travel/contract.py:92
         // now = op.Block.blk_timestamp(of)
         l-load-copy of#0 0                                                                         rnd#0,of#0,of#0 (copy)
         block BlkTimestamp                                                                         rnd#0,of#0,now#0
-        // time_travel/contract.py:92
+        // time_travel/contract.py:93
         // op.TimeTravel.seek(rnd)
         l-load rnd#0 2                                                                             of#0,now#0,rnd#0
         tt_seek                                                                                    of#0,now#0
-        // time_travel/contract.py:93
+        // time_travel/contract.py:94
         // then = op.Block.blk_timestamp(of)
         l-load of#0 1                                                                              now#0,of#0
         block BlkTimestamp                                                                         now#0,then#0
-        // time_travel/contract.py:94
+        // time_travel/contract.py:95
         // return now + then
         l-load now#0 1                                                                             then#0,now#0
         l-load then#0 1                                                                            now#0,then#0
         +                                                                                          tmp%2#1
-        // time_travel/contract.py:89
+        // time_travel/contract.py:90
         // @arc4.abimethod
         l-load tmp%2#1 0                                                                           tmp%2#1
         itob                                                                                       aggregate%val_as_bytes%0#0
@@ -627,7 +651,7 @@ subroutine timestamps:
 // test_cases.time_travel.contract.TimeTravel.data_existed[routing]() -> void:
 subroutine data_existed:
     data_existed_block@0:
-        // time_travel/contract.py:96
+        // time_travel/contract.py:97
         // @arc4.abimethod
         txna ApplicationArgs 1                                                                     tmp%0#0
         l-load-copy tmp%0#0 0                                                                      tmp%0#0,tmp%0#0 (copy)
@@ -639,27 +663,27 @@ subroutine data_existed:
         assert // invalid number of bytes for arc4.uint64                                          tmp%0#0
         l-load tmp%0#0 0                                                                           tmp%0#0
         btoi                                                                                       rnd#0
-        // time_travel/contract.py:98
+        // time_travel/contract.py:99
         // existed = bool(self.data)
         byte 0x64617461                                                                            rnd#0,0x64617461
         box_len                                                                                    rnd#0,_%0#0,existed#0
         l-store existed#0 2                                                                        existed#0,rnd#0,_%0#0
         v-store _%0#0                                                                              existed#0,rnd#0
-        // time_travel/contract.py:99
+        // time_travel/contract.py:100
         // op.TimeTravel.seek(rnd)
         l-load rnd#0 0                                                                             existed#0,rnd#0
         tt_seek                                                                                    existed#0
-        // time_travel/contract.py:100
+        // time_travel/contract.py:101
         // then = self.data.value
         byte 0x64617461                                                                            existed#0,0x64617461
         box_get                                                                                    existed#0,then#0,aggregate%box_get%1#0
         l-load aggregate%box_get%1#0 0                                                             existed#0,then#0,aggregate%box_get%1#0
         assert // check self.data exists                                                           existed#0,then#0
-        // time_travel/contract.py:101
+        // time_travel/contract.py:102
         // assert existed
         l-load existed#0 1                                                                         then#0,existed#0
         assert                                                                                     then#0
-        // time_travel/contract.py:96
+        // time_travel/contract.py:97
         // @arc4.abimethod
         l-load-copy then#0 0                                                                       then#0,then#0 (copy)
         len                                                                                        then#0,aggregate%length%0#0
@@ -679,10 +703,10 @@ subroutine data_existed:
         return
 
 
-// test_cases.time_travel.contract.TimeTravel.data_exists_then[routing]() -> void:
-subroutine data_exists_then:
-    data_exists_then_block@0:
-        // time_travel/contract.py:104
+// test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing]() -> void:
+subroutine data_existed_before_call:
+    data_existed_before_call_block@0:
+        // time_travel/contract.py:105
         // @arc4.abimethod
         txna ApplicationArgs 1                                                                     tmp%0#0
         l-load-copy tmp%0#0 0                                                                      tmp%0#0,tmp%0#0 (copy)
@@ -694,7 +718,117 @@ subroutine data_exists_then:
         assert // invalid number of bytes for arc4.uint64                                          tmp%0#0
         l-load tmp%0#0 0                                                                           tmp%0#0
         btoi                                                                                       rnd#0
-        // time_travel/contract.py:106
+        // time_travel/contract.py:107
+        // existed = bool(self.data)
+        byte 0x64617461                                                                            rnd#0,0x64617461
+        box_len                                                                                    rnd#0,_%0#0,existed#0
+        l-store existed#0 2                                                                        existed#0,rnd#0,_%0#0
+        v-store _%0#0                                                                              existed#0,rnd#0
+        // time_travel/contract.py:108
+        // go_back_not_inlined(rnd)
+        l-load rnd#0 0                                                                             existed#0,rnd#0
+        callsub go_back_not_inlined                                                                existed#0
+        // time_travel/contract.py:109
+        // then = self.data.value
+        byte 0x64617461                                                                            existed#0,0x64617461
+        box_get                                                                                    existed#0,then#0,aggregate%box_get%1#0
+        l-load aggregate%box_get%1#0 0                                                             existed#0,then#0,aggregate%box_get%1#0
+        assert // check self.data exists                                                           existed#0,then#0
+        // time_travel/contract.py:110
+        // assert existed
+        l-load existed#0 1                                                                         then#0,existed#0
+        assert                                                                                     then#0
+        // time_travel/contract.py:105
+        // @arc4.abimethod
+        l-load-copy then#0 0                                                                       then#0,then#0 (copy)
+        len                                                                                        then#0,aggregate%length%0#0
+        l-load aggregate%length%0#0 0                                                              then#0,aggregate%length%0#0
+        itob                                                                                       then#0,aggregate%as_bytes%0#0
+        l-load aggregate%as_bytes%0#0 0                                                            then#0,aggregate%as_bytes%0#0
+        extract 6 2                                                                                then#0,aggregate%length_uint16%0#0
+        l-load aggregate%length_uint16%0#0 0                                                       then#0,aggregate%length_uint16%0#0
+        l-load then#0 1                                                                            aggregate%length_uint16%0#0,then#0
+        concat                                                                                     aggregate%encoded_value%0#0
+        byte 0x151f7c75                                                                            aggregate%encoded_value%0#0,0x151f7c75
+        l-load aggregate%encoded_value%0#0 1                                                       0x151f7c75,aggregate%encoded_value%0#0
+        concat                                                                                     tmp%4#0
+        l-load tmp%4#0 0                                                                           tmp%4#0
+        log
+        int 1                                                                                      1
+        return
+
+
+// test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]() -> void:
+subroutine first_valid_then_and_now:
+    first_valid_then_and_now_block@0:
+        // time_travel/contract.py:113
+        // @arc4.abimethod
+        txna ApplicationArgs 1                                                                     tmp%0#0
+        l-load-copy tmp%0#0 0                                                                      tmp%0#0,tmp%0#0 (copy)
+        len                                                                                        tmp%0#0,len%0#0
+        l-load len%0#0 0                                                                           tmp%0#0,len%0#0
+        int 8                                                                                      tmp%0#0,len%0#0,8
+        ==                                                                                         tmp%0#0,eq%0#0
+        l-load eq%0#0 0                                                                            tmp%0#0,eq%0#0
+        assert // invalid number of bytes for arc4.uint64                                          tmp%0#0
+        l-load tmp%0#0 0                                                                           tmp%0#0
+        btoi                                                                                       i#0
+        txna ApplicationArgs 2                                                                     i#0,tmp%2#0
+        l-load-copy tmp%2#0 0                                                                      i#0,tmp%2#0,tmp%2#0 (copy)
+        len                                                                                        i#0,tmp%2#0,len%1#0
+        l-load len%1#0 0                                                                           i#0,tmp%2#0,len%1#0
+        int 8                                                                                      i#0,tmp%2#0,len%1#0,8
+        ==                                                                                         i#0,tmp%2#0,eq%1#0
+        l-load eq%1#0 0                                                                            i#0,tmp%2#0,eq%1#0
+        assert // invalid number of bytes for arc4.uint64                                          i#0,tmp%2#0
+        l-load tmp%2#0 0                                                                           i#0,tmp%2#0
+        btoi                                                                                       i#0,rnd#0
+        // time_travel/contract.py:115
+        // now = gtxn.Transaction(i).first_valid
+        l-load-copy i#0 1                                                                          i#0,rnd#0,i#0 (copy)
+        gtxns FirstValid                                                                           i#0,rnd#0,now#0
+        // time_travel/contract.py:116
+        // op.TimeTravel.seek(rnd)
+        l-load rnd#0 1                                                                             i#0,now#0,rnd#0
+        tt_seek                                                                                    i#0,now#0
+        // time_travel/contract.py:117
+        // then = gtxn.Transaction(i).first_valid
+        l-load i#0 1                                                                               now#0,i#0
+        gtxns FirstValid                                                                           now#0,then#0
+        // time_travel/contract.py:118
+        // return now + then
+        l-load now#0 1                                                                             then#0,now#0
+        l-load then#0 1                                                                            now#0,then#0
+        +                                                                                          tmp%2#1
+        // time_travel/contract.py:113
+        // @arc4.abimethod
+        l-load tmp%2#1 0                                                                           tmp%2#1
+        itob                                                                                       aggregate%val_as_bytes%0#0
+        byte 0x151f7c75                                                                            aggregate%val_as_bytes%0#0,0x151f7c75
+        l-load aggregate%val_as_bytes%0#0 1                                                        0x151f7c75,aggregate%val_as_bytes%0#0
+        concat                                                                                     tmp%6#0
+        l-load tmp%6#0 0                                                                           tmp%6#0
+        log
+        int 1                                                                                      1
+        return
+
+
+// test_cases.time_travel.contract.TimeTravel.data_exists_then[routing]() -> void:
+subroutine data_exists_then:
+    data_exists_then_block@0:
+        // time_travel/contract.py:120
+        // @arc4.abimethod
+        txna ApplicationArgs 1                                                                     tmp%0#0
+        l-load-copy tmp%0#0 0                                                                      tmp%0#0,tmp%0#0 (copy)
+        len                                                                                        tmp%0#0,len%0#0
+        l-load len%0#0 0                                                                           tmp%0#0,len%0#0
+        int 8                                                                                      tmp%0#0,len%0#0,8
+        ==                                                                                         tmp%0#0,eq%0#0
+        l-load eq%0#0 0                                                                            tmp%0#0,eq%0#0
+        assert // invalid number of bytes for arc4.uint64                                          tmp%0#0
+        l-load tmp%0#0 0                                                                           tmp%0#0
+        btoi                                                                                       rnd#0
+        // time_travel/contract.py:122
         // assert self.data.length
         byte 0x64617461                                                                            rnd#0,0x64617461
         box_len                                                                                    rnd#0,value%0#0,check%0#0
@@ -702,17 +836,17 @@ subroutine data_exists_then:
         assert // check self.data exists                                                           rnd#0,value%0#0
         l-load value%0#0 0                                                                         rnd#0,value%0#0
         assert                                                                                     rnd#0
-        // time_travel/contract.py:107
+        // time_travel/contract.py:123
         // op.TimeTravel.seek(rnd)
         l-load rnd#0 0                                                                             rnd#0
         tt_seek
-        // time_travel/contract.py:108
+        // time_travel/contract.py:124
         // return bool(self.data)
         byte 0x64617461                                                                            0x64617461
         box_len                                                                                    _%0#0,maybe_exists%0#0
         l-store maybe_exists%0#0 1                                                                 maybe_exists%0#0,_%0#0
         v-store _%0#0                                                                              maybe_exists%0#0
-        // time_travel/contract.py:104
+        // time_travel/contract.py:120
         // @arc4.abimethod
         byte 0x00                                                                                  maybe_exists%0#0,0x00
         int 0                                                                                      maybe_exists%0#0,0x00,0
@@ -730,7 +864,7 @@ subroutine data_exists_then:
 // test_cases.time_travel.contract.TimeTravel.changes[routing]() -> void:
 subroutine changes:
     changes_block@0:
-        // time_travel/contract.py:110
+        // time_travel/contract.py:126
         // @arc4.abimethod
         txna ApplicationArgs 1                                                                     acct#0
         l-load-copy acct#0 0                                                                       acct#0,acct#0 (copy)
@@ -780,25 +914,25 @@ subroutine changes:
         assert // invalid number of bytes for arc4.uint64                                          acct#0,asset#0,app#0,from_#0,tmp%8#0
         l-load tmp%8#0 0                                                                           acct#0,asset#0,app#0,from_#0,tmp%8#0
         btoi                                                                                       acct#0,asset#0,app#0,from_#0,to#0
-        // time_travel/contract.py:115
+        // time_travel/contract.py:131
         // rnd, status = op.TimeTravel.acct_change(acct, from_, to)
         l-load-copy acct#0 4                                                                       acct#0,asset#0,app#0,from_#0,to#0,acct#0 (copy)
         l-load-copy from_#0 2                                                                      acct#0,asset#0,app#0,from_#0,to#0,acct#0 (copy),from_#0 (copy)
         l-load-copy to#0 2                                                                         acct#0,asset#0,app#0,from_#0,to#0,acct#0 (copy),from_#0 (copy),to#0 (copy)
         tt_acct_change                                                                             acct#0,asset#0,app#0,from_#0,to#0,rnd#0,status#0
-        // time_travel/contract.py:116
+        // time_travel/contract.py:132
         // total += rnd + status
         l-load rnd#0 1                                                                             acct#0,asset#0,app#0,from_#0,to#0,status#0,rnd#0
         l-load status#0 1                                                                          acct#0,asset#0,app#0,from_#0,to#0,rnd#0,status#0
         +                                                                                          acct#0,asset#0,app#0,from_#0,to#0,total#1
-        // time_travel/contract.py:117
+        // time_travel/contract.py:133
         // rnd, status = op.TimeTravel.holding_change(acct, asset, from_, to)
         l-load-copy acct#0 5                                                                       acct#0,asset#0,app#0,from_#0,to#0,total#1,acct#0 (copy)
         l-load-copy asset#0 5                                                                      acct#0,asset#0,app#0,from_#0,to#0,total#1,acct#0 (copy),asset#0 (copy)
         l-load-copy from_#0 4                                                                      acct#0,asset#0,app#0,from_#0,to#0,total#1,acct#0 (copy),asset#0 (copy),from_#0 (copy)
         l-load-copy to#0 4                                                                         acct#0,asset#0,app#0,from_#0,to#0,total#1,acct#0 (copy),asset#0 (copy),from_#0 (copy),to#0 (copy)
         tt_holding_change                                                                          acct#0,asset#0,app#0,from_#0,to#0,total#1,rnd#0,status#0
-        // time_travel/contract.py:118
+        // time_travel/contract.py:134
         // total += rnd + status
         l-load rnd#0 1                                                                             acct#0,asset#0,app#0,from_#0,to#0,total#1,status#0,rnd#0
         l-load status#0 1                                                                          acct#0,asset#0,app#0,from_#0,to#0,total#1,rnd#0,status#0
@@ -806,14 +940,14 @@ subroutine changes:
         l-load total#1 1                                                                           acct#0,asset#0,app#0,from_#0,to#0,tmp%6#1,total#1
         l-load tmp%6#1 1                                                                           acct#0,asset#0,app#0,from_#0,to#0,total#1,tmp%6#1
         +                                                                                          acct#0,asset#0,app#0,from_#0,to#0,total#1
-        // time_travel/contract.py:119
+        // time_travel/contract.py:135
         // rnd, status = op.TimeTravel.local_change(acct, app, from_, to)
         l-load-copy acct#0 5                                                                       acct#0,asset#0,app#0,from_#0,to#0,total#1,acct#0 (copy)
         l-load-copy app#0 4                                                                        acct#0,asset#0,app#0,from_#0,to#0,total#1,acct#0 (copy),app#0 (copy)
         l-load-copy from_#0 4                                                                      acct#0,asset#0,app#0,from_#0,to#0,total#1,acct#0 (copy),app#0 (copy),from_#0 (copy)
         l-load-copy to#0 4                                                                         acct#0,asset#0,app#0,from_#0,to#0,total#1,acct#0 (copy),app#0 (copy),from_#0 (copy),to#0 (copy)
         tt_local_change                                                                            acct#0,asset#0,app#0,from_#0,to#0,total#1,rnd#0,status#0
-        // time_travel/contract.py:120
+        // time_travel/contract.py:136
         // total += rnd + status
         l-load rnd#0 1                                                                             acct#0,asset#0,app#0,from_#0,to#0,total#1,status#0,rnd#0
         l-load status#0 1                                                                          acct#0,asset#0,app#0,from_#0,to#0,total#1,rnd#0,status#0
@@ -821,13 +955,13 @@ subroutine changes:
         l-load total#1 1                                                                           acct#0,asset#0,app#0,from_#0,to#0,tmp%10#1,total#1
         l-load tmp%10#1 1                                                                          acct#0,asset#0,app#0,from_#0,to#0,total#1,tmp%10#1
         +                                                                                          acct#0,asset#0,app#0,from_#0,to#0,total#1
-        // time_travel/contract.py:121
+        // time_travel/contract.py:137
         // rnd, status = op.TimeTravel.asset_change(asset, from_, to)
         l-load asset#0 4                                                                           acct#0,app#0,from_#0,to#0,total#1,asset#0
         l-load-copy from_#0 3                                                                      acct#0,app#0,from_#0,to#0,total#1,asset#0,from_#0 (copy)
         l-load-copy to#0 3                                                                         acct#0,app#0,from_#0,to#0,total#1,asset#0,from_#0 (copy),to#0 (copy)
         tt_asset_change                                                                            acct#0,app#0,from_#0,to#0,total#1,rnd#0,status#0
-        // time_travel/contract.py:122
+        // time_travel/contract.py:138
         // total += rnd + status
         l-load rnd#0 1                                                                             acct#0,app#0,from_#0,to#0,total#1,status#0,rnd#0
         l-load status#0 1                                                                          acct#0,app#0,from_#0,to#0,total#1,rnd#0,status#0
@@ -835,13 +969,13 @@ subroutine changes:
         l-load total#1 1                                                                           acct#0,app#0,from_#0,to#0,tmp%14#0,total#1
         l-load tmp%14#0 1                                                                          acct#0,app#0,from_#0,to#0,total#1,tmp%14#0
         +                                                                                          acct#0,app#0,from_#0,to#0,total#1
-        // time_travel/contract.py:123
+        // time_travel/contract.py:139
         // rnd, status = op.TimeTravel.app_change(app, from_, to)
         l-load-copy app#0 3                                                                        acct#0,app#0,from_#0,to#0,total#1,app#0 (copy)
         l-load-copy from_#0 3                                                                      acct#0,app#0,from_#0,to#0,total#1,app#0 (copy),from_#0 (copy)
         l-load-copy to#0 3                                                                         acct#0,app#0,from_#0,to#0,total#1,app#0 (copy),from_#0 (copy),to#0 (copy)
         tt_app_change                                                                              acct#0,app#0,from_#0,to#0,total#1,rnd#0,status#0
-        // time_travel/contract.py:124
+        // time_travel/contract.py:140
         // total += rnd + status
         l-load rnd#0 1                                                                             acct#0,app#0,from_#0,to#0,total#1,status#0,rnd#0
         l-load status#0 1                                                                          acct#0,app#0,from_#0,to#0,total#1,rnd#0,status#0
@@ -849,14 +983,14 @@ subroutine changes:
         l-load total#1 1                                                                           acct#0,app#0,from_#0,to#0,tmp%18#0,total#1
         l-load tmp%18#0 1                                                                          acct#0,app#0,from_#0,to#0,total#1,tmp%18#0
         +                                                                                          acct#0,app#0,from_#0,to#0,total#1
-        // time_travel/contract.py:125
+        // time_travel/contract.py:141
         // rnd, status = op.TimeTravel.box_change(app, b"data", from_, to)
         l-load-copy app#0 3                                                                        acct#0,app#0,from_#0,to#0,total#1,app#0 (copy)
         byte 0x64617461                                                                            acct#0,app#0,from_#0,to#0,total#1,app#0 (copy),0x64617461
         l-load-copy from_#0 4                                                                      acct#0,app#0,from_#0,to#0,total#1,app#0 (copy),0x64617461,from_#0 (copy)
         l-load-copy to#0 4                                                                         acct#0,app#0,from_#0,to#0,total#1,app#0 (copy),0x64617461,from_#0 (copy),to#0 (copy)
         tt_box_change                                                                              acct#0,app#0,from_#0,to#0,total#1,rnd#0,status#0
-        // time_travel/contract.py:126
+        // time_travel/contract.py:142
         // total += rnd + status
         l-load rnd#0 1                                                                             acct#0,app#0,from_#0,to#0,total#1,status#0,rnd#0
         l-load status#0 1                                                                          acct#0,app#0,from_#0,to#0,total#1,rnd#0,status#0
@@ -864,14 +998,14 @@ subroutine changes:
         l-load total#1 1                                                                           acct#0,app#0,from_#0,to#0,tmp%22#0,total#1
         l-load tmp%22#0 1                                                                          acct#0,app#0,from_#0,to#0,total#1,tmp%22#0
         +                                                                                          acct#0,app#0,from_#0,to#0,total#1
-        // time_travel/contract.py:127
+        // time_travel/contract.py:143
         // rnd, status, value = op.TimeTravel.global_key_change_uint64(app, b"counter", from_, to)
         l-load-copy app#0 3                                                                        acct#0,app#0,from_#0,to#0,total#1,app#0 (copy)
         byte 0x636f756e746572                                                                      acct#0,app#0,from_#0,to#0,total#1,app#0 (copy),0x636f756e746572
         l-load-copy from_#0 4                                                                      acct#0,app#0,from_#0,to#0,total#1,app#0 (copy),0x636f756e746572,from_#0 (copy)
         l-load-copy to#0 4                                                                         acct#0,app#0,from_#0,to#0,total#1,app#0 (copy),0x636f756e746572,from_#0 (copy),to#0 (copy)
         tt_global_key_change                                                                       acct#0,app#0,from_#0,to#0,total#1,rnd#0,status#0,value#0
-        // time_travel/contract.py:128
+        // time_travel/contract.py:144
         // total += rnd + status + value
         l-load rnd#0 2                                                                             acct#0,app#0,from_#0,to#0,total#1,status#0,value#0,rnd#0
         l-load status#0 2                                                                          acct#0,app#0,from_#0,to#0,total#1,value#0,rnd#0,status#0
@@ -882,14 +1016,14 @@ subroutine changes:
         l-load total#1 1                                                                           acct#0,app#0,from_#0,to#0,tmp%28#0,total#1
         l-load tmp%28#0 1                                                                          acct#0,app#0,from_#0,to#0,total#1,tmp%28#0
         +                                                                                          acct#0,app#0,from_#0,to#0,total#1
-        // time_travel/contract.py:129
+        // time_travel/contract.py:145
         // rnd, status, name = op.TimeTravel.global_key_change_bytes(app, b"name", from_, to)
         l-load-copy app#0 3                                                                        acct#0,app#0,from_#0,to#0,total#1,app#0 (copy)
         byte 0x6e616d65                                                                            acct#0,app#0,from_#0,to#0,total#1,app#0 (copy),0x6e616d65
         l-load-copy from_#0 4                                                                      acct#0,app#0,from_#0,to#0,total#1,app#0 (copy),0x6e616d65,from_#0 (copy)
         l-load-copy to#0 4                                                                         acct#0,app#0,from_#0,to#0,total#1,app#0 (copy),0x6e616d65,from_#0 (copy),to#0 (copy)
         tt_global_key_change                                                                       acct#0,app#0,from_#0,to#0,total#1,rnd#0,status#0,name#0
-        // time_travel/contract.py:130
+        // time_travel/contract.py:146
         // total += rnd + status + name.length
         l-load rnd#0 2                                                                             acct#0,app#0,from_#0,to#0,total#1,status#0,name#0,rnd#0
         l-load status#0 2                                                                          acct#0,app#0,from_#0,to#0,total#1,name#0,rnd#0,status#0
@@ -902,7 +1036,7 @@ subroutine changes:
         l-load total#1 1                                                                           acct#0,app#0,from_#0,to#0,tmp%35#0,total#1
         l-load tmp%35#0 1                                                                          acct#0,app#0,from_#0,to#0,total#1,tmp%35#0
         +                                                                                          acct#0,app#0,from_#0,to#0,total#1
-        // time_travel/contract.py:131
+        // time_travel/contract.py:147
         // rnd, status, value = op.TimeTravel.local_key_change_uint64(acct, app, b"n", from_, to)
         l-load-copy acct#0 4                                                                       acct#0,app#0,from_#0,to#0,total#1,acct#0 (copy)
         l-load-copy app#0 4                                                                        acct#0,app#0,from_#0,to#0,total#1,acct#0 (copy),app#0 (copy)
@@ -910,7 +1044,7 @@ subroutine changes:
         l-load-copy from_#0 5                                                                      acct#0,app#0,from_#0,to#0,total#1,acct#0 (copy),app#0 (copy),0x6e,from_#0 (copy)
         l-load-copy to#0 5                                                                         acct#0,app#0,from_#0,to#0,total#1,acct#0 (copy),app#0 (copy),0x6e,from_#0 (copy),to#0 (copy)
         tt_local_key_change                                                                        acct#0,app#0,from_#0,to#0,total#1,rnd#0,status#0,value#0
-        // time_travel/contract.py:132
+        // time_travel/contract.py:148
         // total += rnd + status + value
         l-load rnd#0 2                                                                             acct#0,app#0,from_#0,to#0,total#1,status#0,value#0,rnd#0
         l-load status#0 2                                                                          acct#0,app#0,from_#0,to#0,total#1,value#0,rnd#0,status#0
@@ -921,7 +1055,7 @@ subroutine changes:
         l-load total#1 1                                                                           acct#0,app#0,from_#0,to#0,tmp%41#0,total#1
         l-load tmp%41#0 1                                                                          acct#0,app#0,from_#0,to#0,total#1,tmp%41#0
         +                                                                                          acct#0,app#0,from_#0,to#0,total#1
-        // time_travel/contract.py:133
+        // time_travel/contract.py:149
         // rnd, status, name = op.TimeTravel.local_key_change_bytes(acct, app, b"s", from_, to)
         l-load acct#0 4                                                                            app#0,from_#0,to#0,total#1,acct#0
         l-load-copy app#0 4                                                                        app#0,from_#0,to#0,total#1,acct#0,app#0 (copy)
@@ -929,7 +1063,7 @@ subroutine changes:
         l-load-copy from_#0 5                                                                      app#0,from_#0,to#0,total#1,acct#0,app#0 (copy),0x73,from_#0 (copy)
         l-load-copy to#0 5                                                                         app#0,from_#0,to#0,total#1,acct#0,app#0 (copy),0x73,from_#0 (copy),to#0 (copy)
         tt_local_key_change                                                                        app#0,from_#0,to#0,total#1,rnd#0,status#0,name#0
-        // time_travel/contract.py:134
+        // time_travel/contract.py:150
         // total += rnd + status + name.length
         l-load rnd#0 2                                                                             app#0,from_#0,to#0,total#1,status#0,name#0,rnd#0
         l-load status#0 2                                                                          app#0,from_#0,to#0,total#1,name#0,rnd#0,status#0
@@ -942,14 +1076,14 @@ subroutine changes:
         l-load total#1 1                                                                           app#0,from_#0,to#0,tmp%48#0,total#1
         l-load tmp%48#0 1                                                                          app#0,from_#0,to#0,total#1,tmp%48#0
         +                                                                                          app#0,from_#0,to#0,total#1
-        // time_travel/contract.py:135
+        // time_travel/contract.py:151
         // rnd, status, name = op.TimeTravel.box_prefix_change(app, b"it", from_, to)
         l-load app#0 3                                                                             from_#0,to#0,total#1,app#0
         byte 0x6974                                                                                from_#0,to#0,total#1,app#0,0x6974
         l-load from_#0 4                                                                           to#0,total#1,app#0,0x6974,from_#0
         l-load to#0 4                                                                              total#1,app#0,0x6974,from_#0,to#0
         tt_box_prefix_change                                                                       total#1,rnd#0,status#0,name#0
-        // time_travel/contract.py:136
+        // time_travel/contract.py:152
         // total += rnd + status + name.length
         l-load rnd#0 2                                                                             total#1,status#0,name#0,rnd#0
         l-load status#0 2                                                                          total#1,name#0,rnd#0,status#0
@@ -962,7 +1096,7 @@ subroutine changes:
         l-load total#1 1                                                                           tmp%55#0,total#1
         l-load tmp%55#0 1                                                                          total#1,tmp%55#0
         +                                                                                          total#1
-        // time_travel/contract.py:110
+        // time_travel/contract.py:126
         // @arc4.abimethod
         l-load total#1 0                                                                           total#1
         itob                                                                                       aggregate%val_as_bytes%0#0

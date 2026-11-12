@@ -1,11 +1,12 @@
 """Time travel: dt-algorand's tt_seek op moves a program's reads to a past round.
 
-After a seek, every box, global and local state read, `global Round` and `global
-LatestTimestamp` return what they were at the round sought, until the program seeks again, and
-the rounds that `block` and `txn FirstValidTime` may read move with it: a read that succeeded
-before a seek may fail after it. So a read can't move across a seek, nor reuse the result of a
-read made before it. Only dt-algorand's POST /v2/query runs tt_seek; a program without it
-compiles as it always has.
+After a seek, every ledger read (box, global and local state, balances, holdings, account,
+asset and app params), `global Round` and `global LatestTimestamp` return what they were at the
+round sought, until the program seeks again; the group's txns read the round after it as their
+FirstValid and LastValid and its timestamp as FirstValidTime, and the rounds `block` may read
+move with it: a read that succeeded before a seek may fail after it. So a read can't move
+across a seek, nor reuse the result of a read made before it. Only dt-algorand's POST
+/v2/query runs tt_seek; a program without it compiles as it always has.
 """
 
 from collections.abc import Mapping

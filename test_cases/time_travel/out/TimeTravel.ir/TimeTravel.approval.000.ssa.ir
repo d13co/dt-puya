@@ -405,68 +405,79 @@ subroutine _puya_lib.arc4.dynamic_assert_index(array: bytes, index: uint64) -> v
         return 
 
 subroutine test_cases.time_travel.contract.go_back(rnd: uint64) -> void:
-    block@0: // L140
+    block@0: // L156
+        (tt_seek rnd#0)
+        return 
+
+subroutine test_cases.time_travel.contract.go_back_not_inlined(rnd: uint64) -> void:
+    block@0: // L161
         (tt_seek rnd#0)
         return 
 
 subroutine test_cases.time_travel.contract.TimeTravel.__puya_arc4_router__() -> bool:
-    block@0: // L28
+    block@0: // L29
         let tmp%0#0: uint64 = (txn NumAppArgs)
         let tmp%1#0: bool = (!= tmp%0#0 0u)
-        goto tmp%1#0 ? block@1 : block@18
-    block@1: // abi_routing_L28
+        goto tmp%1#0 ? block@1 : block@20
+    block@1: // abi_routing_L29
         let tmp%2#0: uint64 = (txn OnCompletion)
         let tmp%3#0: bool = (== tmp%2#0 NoOp)
         (assert tmp%3#0)
         let tmp%4#0: uint64 = (txn ApplicationID)
         let tmp%5#0: bool = (!= tmp%4#0 0u)
-        goto tmp%5#0 ? block@2 : block@16
-    block@2: // call_NoOp_L28
+        goto tmp%5#0 ? block@2 : block@18
+    block@2: // call_NoOp_L29
         let tmp%6#0: bytes = (txna ApplicationArgs 0)
-        switch tmp%6#0 {method "round_at(uint64)uint64" => block@3, method "round_before(uint64)uint64" => block@4, method "counter_then_and_now(uint64)(uint64,uint64)" => block@5, method "data_changed(uint64)bool" => block@6, method "first_item_changed(uint64)bool" => block@7, method "first_item_now(uint64)uint64" => block@8, method "append_then_write_back(uint64,uint64)void" => block@9, method "set_then_write_back(uint64,uint64)void" => block@10, method "timestamps(uint64,uint64)uint64" => block@11, method "data_existed(uint64)byte[]" => block@12, method "data_exists_then(uint64)bool" => block@13, method "changes(address,uint64,uint64,uint64,uint64)uint64" => block@14, * => block@15}
-    block@3: // round_at_route_L35
+        switch tmp%6#0 {method "round_at(uint64)uint64" => block@3, method "round_before(uint64)uint64" => block@4, method "counter_then_and_now(uint64)(uint64,uint64)" => block@5, method "data_changed(uint64)bool" => block@6, method "first_item_changed(uint64)bool" => block@7, method "first_item_now(uint64)uint64" => block@8, method "append_then_write_back(uint64,uint64)void" => block@9, method "set_then_write_back(uint64,uint64)void" => block@10, method "timestamps(uint64,uint64)uint64" => block@11, method "data_existed(uint64)byte[]" => block@12, method "data_existed_before_call(uint64)byte[]" => block@13, method "first_valid_then_and_now(uint64,uint64)uint64" => block@14, method "data_exists_then(uint64)bool" => block@15, method "changes(address,uint64,uint64,uint64,uint64)uint64" => block@16, * => block@17}
+    block@3: // round_at_route_L36
         test_cases.time_travel.contract.TimeTravel.round_at[routing]()
-        goto block@15
-    block@4: // round_before_route_L40
+        goto block@17
+    block@4: // round_before_route_L41
         test_cases.time_travel.contract.TimeTravel.round_before[routing]()
-        goto block@15
-    block@5: // counter_then_and_now_route_L46
+        goto block@17
+    block@5: // counter_then_and_now_route_L47
         test_cases.time_travel.contract.TimeTravel.counter_then_and_now[routing]()
-        goto block@15
-    block@6: // data_changed_route_L55
+        goto block@17
+    block@6: // data_changed_route_L56
         test_cases.time_travel.contract.TimeTravel.data_changed[routing]()
-        goto block@15
-    block@7: // first_item_changed_route_L62
+        goto block@17
+    block@7: // first_item_changed_route_L63
         test_cases.time_travel.contract.TimeTravel.first_item_changed[routing]()
-        goto block@15
-    block@8: // first_item_now_route_L69
+        goto block@17
+    block@8: // first_item_now_route_L70
         test_cases.time_travel.contract.TimeTravel.first_item_now[routing]()
-        goto block@15
-    block@9: // append_then_write_back_route_L75
+        goto block@17
+    block@9: // append_then_write_back_route_L76
         test_cases.time_travel.contract.TimeTravel.append_then_write_back[routing]()
-        goto block@15
-    block@10: // set_then_write_back_route_L82
+        goto block@17
+    block@10: // set_then_write_back_route_L83
         test_cases.time_travel.contract.TimeTravel.set_then_write_back[routing]()
-        goto block@15
-    block@11: // timestamps_route_L89
+        goto block@17
+    block@11: // timestamps_route_L90
         test_cases.time_travel.contract.TimeTravel.timestamps[routing]()
-        goto block@15
-    block@12: // data_existed_route_L96
+        goto block@17
+    block@12: // data_existed_route_L97
         test_cases.time_travel.contract.TimeTravel.data_existed[routing]()
-        goto block@15
-    block@13: // data_exists_then_route_L104
+        goto block@17
+    block@13: // data_existed_before_call_route_L105
+        test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing]()
+        goto block@17
+    block@14: // first_valid_then_and_now_route_L113
+        test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]()
+        goto block@17
+    block@15: // data_exists_then_route_L120
         test_cases.time_travel.contract.TimeTravel.data_exists_then[routing]()
-        goto block@15
-    block@14: // changes_route_L110
+        goto block@17
+    block@16: // changes_route_L126
         test_cases.time_travel.contract.TimeTravel.changes[routing]()
-        goto block@15
-    block@15: // switch_case_next_L28
         goto block@17
-    block@16: // create_NoOp_L28
-        goto block@17
-    block@17: // after_if_else_L28
+    block@17: // switch_case_next_L29
         goto block@19
-    block@18: // __algopy_default_create_L1
+    block@18: // create_NoOp_L29
+        goto block@19
+    block@19: // after_if_else_L29
+        goto block@21
+    block@20: // __algopy_default_create_L1
         let tmp%7#0: uint64 = (txn OnCompletion)
         let tmp%8#0: bool = (== tmp%7#0 NoOp)
         let tmp%9#0: uint64 = (txn ApplicationID)
@@ -475,11 +486,11 @@ subroutine test_cases.time_travel.contract.TimeTravel.__puya_arc4_router__() -> 
         (assert tmp%11#0)
         test_cases.time_travel.contract.TimeTravel.__algopy_default_create()
         exit 1u
-    block@19: // after_if_else_L28
+    block@21: // after_if_else_L29
         exit 0u
 
 subroutine test_cases.time_travel.contract.TimeTravel.round_at[routing]() -> void:
-    block@0: // L35
+    block@0: // L36
         let tmp%0#0: bytes = (txna ApplicationArgs 1)
         let len%0#0: uint64 = (len tmp%0#0)
         let eq%0#0: bool = (== len%0#0 8u)
@@ -493,7 +504,7 @@ subroutine test_cases.time_travel.contract.TimeTravel.round_at[routing]() -> voi
         exit 1u
 
 subroutine test_cases.time_travel.contract.TimeTravel.round_before[routing]() -> void:
-    block@0: // L40
+    block@0: // L41
         let tmp%0#0: bytes = (txna ApplicationArgs 1)
         let len%0#0: uint64 = (len tmp%0#0)
         let eq%0#0: bool = (== len%0#0 8u)
@@ -507,7 +518,7 @@ subroutine test_cases.time_travel.contract.TimeTravel.round_before[routing]() ->
         exit 1u
 
 subroutine test_cases.time_travel.contract.TimeTravel.counter_then_and_now[routing]() -> void:
-    block@0: // L46
+    block@0: // L47
         let tmp%0#0: bytes = (txna ApplicationArgs 1)
         let len%0#0: uint64 = (len tmp%0#0)
         let eq%0#0: bool = (== len%0#0 8u)
@@ -521,7 +532,7 @@ subroutine test_cases.time_travel.contract.TimeTravel.counter_then_and_now[routi
         exit 1u
 
 subroutine test_cases.time_travel.contract.TimeTravel.data_changed[routing]() -> void:
-    block@0: // L55
+    block@0: // L56
         let tmp%0#0: bytes = (txna ApplicationArgs 1)
         let len%0#0: uint64 = (len tmp%0#0)
         let eq%0#0: bool = (== len%0#0 8u)
@@ -535,7 +546,7 @@ subroutine test_cases.time_travel.contract.TimeTravel.data_changed[routing]() ->
         exit 1u
 
 subroutine test_cases.time_travel.contract.TimeTravel.first_item_changed[routing]() -> void:
-    block@0: // L62
+    block@0: // L63
         let tmp%0#0: bytes = (txna ApplicationArgs 1)
         let len%0#0: uint64 = (len tmp%0#0)
         let eq%0#0: bool = (== len%0#0 8u)
@@ -549,7 +560,7 @@ subroutine test_cases.time_travel.contract.TimeTravel.first_item_changed[routing
         exit 1u
 
 subroutine test_cases.time_travel.contract.TimeTravel.first_item_now[routing]() -> void:
-    block@0: // L69
+    block@0: // L70
         let tmp%0#0: bytes = (txna ApplicationArgs 1)
         let len%0#0: uint64 = (len tmp%0#0)
         let eq%0#0: bool = (== len%0#0 8u)
@@ -562,7 +573,7 @@ subroutine test_cases.time_travel.contract.TimeTravel.first_item_now[routing]() 
         exit 1u
 
 subroutine test_cases.time_travel.contract.TimeTravel.append_then_write_back[routing]() -> void:
-    block@0: // L75
+    block@0: // L76
         let tmp%0#0: bytes = (txna ApplicationArgs 1)
         let len%0#0: uint64 = (len tmp%0#0)
         let eq%0#0: bool = (== len%0#0 8u)
@@ -578,7 +589,7 @@ subroutine test_cases.time_travel.contract.TimeTravel.append_then_write_back[rou
         exit 1u
 
 subroutine test_cases.time_travel.contract.TimeTravel.set_then_write_back[routing]() -> void:
-    block@0: // L82
+    block@0: // L83
         let tmp%0#0: bytes = (txna ApplicationArgs 1)
         let len%0#0: uint64 = (len tmp%0#0)
         let eq%0#0: bool = (== len%0#0 8u)
@@ -594,7 +605,7 @@ subroutine test_cases.time_travel.contract.TimeTravel.set_then_write_back[routin
         exit 1u
 
 subroutine test_cases.time_travel.contract.TimeTravel.timestamps[routing]() -> void:
-    block@0: // L89
+    block@0: // L90
         let tmp%0#0: bytes = (txna ApplicationArgs 1)
         let len%0#0: uint64 = (len tmp%0#0)
         let eq%0#0: bool = (== len%0#0 8u)
@@ -614,7 +625,7 @@ subroutine test_cases.time_travel.contract.TimeTravel.timestamps[routing]() -> v
         exit 1u
 
 subroutine test_cases.time_travel.contract.TimeTravel.data_existed[routing]() -> void:
-    block@0: // L96
+    block@0: // L97
         let tmp%0#0: bytes = (txna ApplicationArgs 1)
         let len%0#0: uint64 = (len tmp%0#0)
         let eq%0#0: bool = (== len%0#0 8u)
@@ -627,8 +638,42 @@ subroutine test_cases.time_travel.contract.TimeTravel.data_existed[routing]() ->
         (log tmp%4#0)
         exit 1u
 
+subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing]() -> void:
+    block@0: // L105
+        let tmp%0#0: bytes = (txna ApplicationArgs 1)
+        let len%0#0: uint64 = (len tmp%0#0)
+        let eq%0#0: bool = (== len%0#0 8u)
+        (assert eq%0#0) // invalid number of bytes for arc4.uint64
+        let as_Encoded(uint64)%0#0: Encoded(uint64) = tmp%0#0
+        let tmp%1#0: uint64 = decode_bytes<uint64>(as_Encoded(uint64)%0#0)
+        let tmp%2#0: bytes = test_cases.time_travel.contract.TimeTravel.data_existed_before_call(tmp%1#0)
+        let tmp%3#0: Encoded(len+uint8[]) = bytes_encode<(len+uint8[])>(tmp%2#0)
+        let tmp%4#0: bytes = (concat 0x151f7c75 tmp%3#0)
+        (log tmp%4#0)
+        exit 1u
+
+subroutine test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]() -> void:
+    block@0: // L113
+        let tmp%0#0: bytes = (txna ApplicationArgs 1)
+        let len%0#0: uint64 = (len tmp%0#0)
+        let eq%0#0: bool = (== len%0#0 8u)
+        (assert eq%0#0) // invalid number of bytes for arc4.uint64
+        let as_Encoded(uint64)%0#0: Encoded(uint64) = tmp%0#0
+        let tmp%1#0: uint64 = decode_bytes<uint64>(as_Encoded(uint64)%0#0)
+        let tmp%2#0: bytes = (txna ApplicationArgs 2)
+        let len%1#0: uint64 = (len tmp%2#0)
+        let eq%1#0: bool = (== len%1#0 8u)
+        (assert eq%1#0) // invalid number of bytes for arc4.uint64
+        let as_Encoded(uint64)%1#0: Encoded(uint64) = tmp%2#0
+        let tmp%3#0: uint64 = decode_bytes<uint64>(as_Encoded(uint64)%1#0)
+        let tmp%4#0: uint64 = test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now(tmp%1#0, tmp%3#0)
+        let tmp%5#0: Encoded(uint64) = bytes_encode<uint64>(tmp%4#0)
+        let tmp%6#0: bytes = (concat 0x151f7c75 tmp%5#0)
+        (log tmp%6#0)
+        exit 1u
+
 subroutine test_cases.time_travel.contract.TimeTravel.data_exists_then[routing]() -> void:
-    block@0: // L104
+    block@0: // L120
         let tmp%0#0: bytes = (txna ApplicationArgs 1)
         let len%0#0: uint64 = (len tmp%0#0)
         let eq%0#0: bool = (== len%0#0 8u)
@@ -642,7 +687,7 @@ subroutine test_cases.time_travel.contract.TimeTravel.data_exists_then[routing](
         exit 1u
 
 subroutine test_cases.time_travel.contract.TimeTravel.changes[routing]() -> void:
-    block@0: // L110
+    block@0: // L126
         let tmp%0#0: bytes = (txna ApplicationArgs 1)
         let len%0#0: uint64 = (len tmp%0#0)
         let eq%0#0: bool = (== len%0#0 32u)
@@ -680,25 +725,25 @@ subroutine test_cases.time_travel.contract.TimeTravel.changes[routing]() -> void
         exit 1u
 
 subroutine test_cases.time_travel.contract.TimeTravel.__init__() -> void:
-    block@0: // L29
+    block@0: // L30
         (app_global_put "counter" 0u)
         return 
 
 subroutine test_cases.time_travel.contract.TimeTravel.round_at(rnd: uint64) -> uint64:
-    block@0: // L35
+    block@0: // L36
         (tt_seek rnd#0)
         let tmp%0#0: uint64 = (global Round)
         return tmp%0#0
 
 subroutine test_cases.time_travel.contract.TimeTravel.round_before(rnd: uint64) -> uint64:
-    block@0: // L40
+    block@0: // L41
         let tmp%0#0: uint64 = (global Round)
         let before#0: uint64 = tmp%0#0
         (tt_seek rnd#0)
         return before#0
 
 subroutine test_cases.time_travel.contract.TimeTravel.counter_then_and_now(rnd: uint64) -> <uint64, uint64>:
-    block@0: // L46
+    block@0: // L47
         let tmp%0#0: uint64 = (global Round)
         let tmp%1#0: uint64 = (- tmp%0#0 1u)
         let home#0: uint64 = tmp%1#0
@@ -713,7 +758,7 @@ subroutine test_cases.time_travel.contract.TimeTravel.counter_then_and_now(rnd: 
         return then#0 now#0
 
 subroutine test_cases.time_travel.contract.TimeTravel.data_changed(rnd: uint64) -> bool:
-    block@0: // L55
+    block@0: // L56
         let storage_value%0#0: bytes = box_read(0x64617461)
         let now#0: bytes = storage_value%0#0
         (tt_seek rnd#0)
@@ -731,7 +776,7 @@ subroutine test_cases.time_travel.contract.TimeTravel.data_changed(rnd: uint64) 
         return tmp%2#0
 
 subroutine test_cases.time_travel.contract.TimeTravel.first_item_changed(rnd: uint64) -> bool:
-    block@0: // L62
+    block@0: // L63
         let storage_value%0#0: bytes = box_read(0x6974656d73)
         let now#0: Encoded(len+uint64[]) = storage_value%0#0
         test_cases.time_travel.contract.go_back(rnd#0)
@@ -743,7 +788,7 @@ subroutine test_cases.time_travel.contract.TimeTravel.first_item_changed(rnd: ui
         return tmp%0#0
 
 subroutine test_cases.time_travel.contract.TimeTravel.first_item_now(rnd: uint64) -> Encoded(uint64):
-    block@0: // L69
+    block@0: // L70
         let storage_value%0#0: bytes = box_read(0x6974656d73)
         let array_item%0#0: Encoded(uint64) = extract_value(storage_value%0#0, 0u)
         let first#0: Encoded(uint64) = array_item%0#0
@@ -751,7 +796,7 @@ subroutine test_cases.time_travel.contract.TimeTravel.first_item_now(rnd: uint64
         return first#0
 
 subroutine test_cases.time_travel.contract.TimeTravel.append_then_write_back(rnd: uint64, x: Encoded(uint64)) -> void:
-    block@0: // L75
+    block@0: // L76
         let storage_value%0#0: bytes = box_read(0x6974656d73)
         let items#0: Encoded(len+uint64[]) = storage_value%0#0
         let tmp%0#0: Encoded(uint64[]) = bytes_encode<uint64[]>(x#0)
@@ -762,7 +807,7 @@ subroutine test_cases.time_travel.contract.TimeTravel.append_then_write_back(rnd
         return 
 
 subroutine test_cases.time_travel.contract.TimeTravel.set_then_write_back(rnd: uint64, x: Encoded(uint64)) -> void:
-    block@0: // L82
+    block@0: // L83
         let storage_value%0#0: bytes = box_read(0x7074)
         let point#0: Encoded(uint64,uint64) = storage_value%0#0
         let updated_tuple%0#0: Encoded(uint64,uint64) = replace_value(point#0, 0, x#0)
@@ -772,7 +817,7 @@ subroutine test_cases.time_travel.contract.TimeTravel.set_then_write_back(rnd: u
         return 
 
 subroutine test_cases.time_travel.contract.TimeTravel.timestamps(rnd: uint64, of: uint64) -> uint64:
-    block@0: // L89
+    block@0: // L90
         let tmp%0#0: uint64 = ((block BlkTimestamp) of#0)
         let now#0: uint64 = tmp%0#0
         (tt_seek rnd#0)
@@ -782,7 +827,7 @@ subroutine test_cases.time_travel.contract.TimeTravel.timestamps(rnd: uint64, of
         return tmp%2#0
 
 subroutine test_cases.time_travel.contract.TimeTravel.data_existed(rnd: uint64) -> bytes:
-    block@0: // L96
+    block@0: // L97
         let (_%0#0: uint64, maybe_exists%0#0: bool) = (box_len 0x64617461)
         let existed#0: bool = maybe_exists%0#0
         (tt_seek rnd#0)
@@ -791,8 +836,28 @@ subroutine test_cases.time_travel.contract.TimeTravel.data_existed(rnd: uint64) 
         (assert existed#0)
         return then#0
 
+subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_call(rnd: uint64) -> bytes:
+    block@0: // L105
+        let (_%0#0: uint64, maybe_exists%0#0: bool) = (box_len 0x64617461)
+        let existed#0: bool = maybe_exists%0#0
+        test_cases.time_travel.contract.go_back_not_inlined(rnd#0)
+        let storage_value%0#0: bytes = box_read(0x64617461)
+        let then#0: bytes = storage_value%0#0
+        (assert existed#0)
+        return then#0
+
+subroutine test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now(i: uint64, rnd: uint64) -> uint64:
+    block@0: // L113
+        let tmp%0#0: uint64 = ((gtxns FirstValid) i#0)
+        let now#0: uint64 = tmp%0#0
+        (tt_seek rnd#0)
+        let tmp%1#0: uint64 = ((gtxns FirstValid) i#0)
+        let then#0: uint64 = tmp%1#0
+        let tmp%2#0: uint64 = (+ now#0 then#0)
+        return tmp%2#0
+
 subroutine test_cases.time_travel.contract.TimeTravel.data_exists_then(rnd: uint64) -> bool:
-    block@0: // L104
+    block@0: // L120
         let (value%0#0: uint64, check%0#0: bool) = (box_len 0x64617461)
         (assert check%0#0) // check self.data exists
         let tmp%0#0: bool = (!= value%0#0 0u)
@@ -802,7 +867,7 @@ subroutine test_cases.time_travel.contract.TimeTravel.data_exists_then(rnd: uint
         return maybe_exists%0#0
 
 subroutine test_cases.time_travel.contract.TimeTravel.changes(acct: account, asset: uint64, app: uint64, from_: uint64, to: uint64) -> uint64:
-    block@0: // L110
+    block@0: // L126
         let total#0: uint64 = 0u
         let (tmp%0#0: uint64, tmp%1#0: uint64) = (tt_acct_change acct#0 from_#0 to#0)
         let rnd#0: uint64 = tmp%0#0

@@ -416,6 +416,9 @@ debug: Terminated block@0
 debug: Building IR for function test_cases.time_travel.contract.go_back
 debug: Sealing block@0
 debug: Terminated block@0
+debug: Building IR for function test_cases.time_travel.contract.go_back_not_inlined
+debug: Sealing block@0
+debug: Terminated block@0
 debug: Building IR for function test_cases.time_travel.contract.TimeTravel.__puya_arc4_router__
 debug: Sealing block@0
 debug: Terminated block@0
@@ -457,6 +460,10 @@ debug: Sealing block@18
 debug: Terminated block@18
 debug: Sealing block@19
 debug: Terminated block@19
+debug: Sealing block@20
+debug: Terminated block@20
+debug: Sealing block@21
+debug: Terminated block@21
 debug: Building IR for function test_cases.time_travel.contract.TimeTravel.round_at[routing]
 debug: Sealing block@0
 debug: Terminated block@0
@@ -485,6 +492,12 @@ debug: Building IR for function test_cases.time_travel.contract.TimeTravel.times
 debug: Sealing block@0
 debug: Terminated block@0
 debug: Building IR for function test_cases.time_travel.contract.TimeTravel.data_existed[routing]
+debug: Sealing block@0
+debug: Terminated block@0
+debug: Building IR for function test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing]
+debug: Sealing block@0
+debug: Terminated block@0
+debug: Building IR for function test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]
 debug: Sealing block@0
 debug: Terminated block@0
 debug: Building IR for function test_cases.time_travel.contract.TimeTravel.data_exists_then[routing]
@@ -524,6 +537,12 @@ debug: Building IR for function test_cases.time_travel.contract.TimeTravel.times
 debug: Sealing block@0
 debug: Terminated block@0
 debug: Building IR for function test_cases.time_travel.contract.TimeTravel.data_existed
+debug: Sealing block@0
+debug: Terminated block@0
+debug: Building IR for function test_cases.time_travel.contract.TimeTravel.data_existed_before_call
+debug: Sealing block@0
+debug: Terminated block@0
+debug: Building IR for function test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now
 debug: Sealing block@0
 debug: Terminated block@0
 debug: Building IR for function test_cases.time_travel.contract.TimeTravel.data_exists_then
@@ -599,6 +618,7 @@ debug: removing unused subroutine _puya_lib.arc4.static_array_replace_byte_lengt
 debug: removing unused subroutine _puya_lib.arc4._recalculate_head_for_elements_with_byte_length_head
 debug: removing unused subroutine _puya_lib.arc4.dynamic_assert_index
 debug: removing unused subroutine test_cases.time_travel.contract.go_back
+debug: removing unused subroutine test_cases.time_travel.contract.go_back_not_inlined
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.__puya_arc4_router__
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.round_at[routing]
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.round_before[routing]
@@ -610,6 +630,8 @@ debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.app
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.set_then_write_back[routing]
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.timestamps[routing]
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.data_existed[routing]
+debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing]
+debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.data_exists_then[routing]
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.changes[routing]
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.__init__
@@ -623,6 +645,8 @@ debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.app
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.set_then_write_back
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.timestamps
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.data_existed
+debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_call
+debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.data_exists_then
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.changes
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.__algopy_default_create
@@ -834,6 +858,15 @@ debug: Optimizer: Inner Txn Field Replacer
 debug: Optimizer: Replace Compiled References
 debug: Optimizer: Merge Chained Aggregate Reads
 debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizing subroutine test_cases.time_travel.contract.go_back_not_inlined
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
 debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.__puya_arc4_router__
 debug: Optimizer: Perform Subroutine Inlining
 debug: inlining call to test_cases.time_travel.contract.TimeTravel.__algopy_default_create in test_cases.time_travel.contract.TimeTravel.__puya_arc4_router__
@@ -934,6 +967,24 @@ debug: Optimizer: Inner Txn Field Replacer
 debug: Optimizer: Replace Compiled References
 debug: Optimizer: Merge Chained Aggregate Reads
 debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing]
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
 debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.data_exists_then[routing]
 debug: Optimizer: Perform Subroutine Inlining
 debug: Optimizer: Split Parallel Copies
@@ -1015,7 +1066,7 @@ debug: Optimizer: Inner Txn Field Replacer
 debug: Optimizer: Replace Compiled References
 debug: Optimizer: Merge Chained Aggregate Reads
 debug: Optimizer: Replace Aggregate Box Ops
-time_travel/contract.py:71:17 debug: combined BoxRead `storage_value%0#0 = box_read(0x6974656d73)`
+time_travel/contract.py:72:17 debug: combined BoxRead `storage_value%0#0 = box_read(0x6974656d73)`
 and ExtractValue `extract_value(storage_value%0#0, 0u)`
 into box%box_extract%0#0
 debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.append_then_write_back
@@ -1046,6 +1097,24 @@ debug: Optimizer: Replace Compiled References
 debug: Optimizer: Merge Chained Aggregate Reads
 debug: Optimizer: Replace Aggregate Box Ops
 debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.data_existed
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_call
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now
 debug: Optimizer: Perform Subroutine Inlining
 debug: Optimizer: Split Parallel Copies
 debug: Optimizer: Constant Replacer
@@ -1251,6 +1320,15 @@ debug: Optimizer: Inner Txn Field Replacer
 debug: Optimizer: Replace Compiled References
 debug: Optimizer: Merge Chained Aggregate Reads
 debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizing subroutine test_cases.time_travel.contract.go_back_not_inlined
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
 debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.round_at[routing]
 debug: Optimizer: Perform Subroutine Inlining
 debug: Optimizer: Split Parallel Copies
@@ -1333,6 +1411,24 @@ debug: Optimizer: Replace Compiled References
 debug: Optimizer: Merge Chained Aggregate Reads
 debug: Optimizer: Replace Aggregate Box Ops
 debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.data_existed[routing]
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing]
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]
 debug: Optimizer: Perform Subroutine Inlining
 debug: Optimizer: Split Parallel Copies
 debug: Optimizer: Constant Replacer
@@ -1451,6 +1547,24 @@ debug: Optimizer: Replace Compiled References
 debug: Optimizer: Merge Chained Aggregate Reads
 debug: Optimizer: Replace Aggregate Box Ops
 debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.data_existed
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_call
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now
 debug: Optimizer: Perform Subroutine Inlining
 debug: Optimizer: Split Parallel Copies
 debug: Optimizer: Constant Replacer
@@ -1651,6 +1765,15 @@ debug: Optimizer: Inner Txn Field Replacer
 debug: Optimizer: Replace Compiled References
 debug: Optimizer: Merge Chained Aggregate Reads
 debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizing subroutine test_cases.time_travel.contract.go_back_not_inlined
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
 debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.round_at[routing]
 debug: Optimizer: Perform Subroutine Inlining
 debug: Optimizer: Split Parallel Copies
@@ -1733,6 +1856,24 @@ debug: Optimizer: Replace Compiled References
 debug: Optimizer: Merge Chained Aggregate Reads
 debug: Optimizer: Replace Aggregate Box Ops
 debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.data_existed[routing]
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing]
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]
 debug: Optimizer: Perform Subroutine Inlining
 debug: Optimizer: Split Parallel Copies
 debug: Optimizer: Constant Replacer
@@ -1850,6 +1991,24 @@ debug: Optimizer: Replace Compiled References
 debug: Optimizer: Merge Chained Aggregate Reads
 debug: Optimizer: Replace Aggregate Box Ops
 debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.data_existed
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_call
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now
 debug: Optimizer: Perform Subroutine Inlining
 debug: Optimizer: Split Parallel Copies
 debug: Optimizer: Constant Replacer
@@ -2055,6 +2214,15 @@ debug: Optimizer: Inner Txn Field Replacer
 debug: Optimizer: Replace Compiled References
 debug: Optimizer: Merge Chained Aggregate Reads
 debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizing subroutine test_cases.time_travel.contract.go_back_not_inlined
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
 debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.round_at[routing]
 debug: Optimizer: Perform Subroutine Inlining
 debug: Optimizer: Split Parallel Copies
@@ -2137,6 +2305,24 @@ debug: Optimizer: Replace Compiled References
 debug: Optimizer: Merge Chained Aggregate Reads
 debug: Optimizer: Replace Aggregate Box Ops
 debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.data_existed[routing]
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing]
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]
 debug: Optimizer: Perform Subroutine Inlining
 debug: Optimizer: Split Parallel Copies
 debug: Optimizer: Constant Replacer
@@ -2228,7 +2414,7 @@ debug: Optimizer: Merge Chained Aggregate Reads
 debug: Optimizer: Replace Aggregate Box Ops
 debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.append_then_write_back
 debug: Optimizer: Perform Subroutine Inlining
-time_travel/contract.py:78:9 debug: inlining call to _puya_lib.arc4.dynamic_array_concat_fixed in test_cases.time_travel.contract.TimeTravel.append_then_write_back
+time_travel/contract.py:79:9 debug: inlining call to _puya_lib.arc4.dynamic_array_concat_fixed in test_cases.time_travel.contract.TimeTravel.append_then_write_back
 debug: Optimizer: Split Parallel Copies
 debug: Optimizer: Constant Replacer
 debug: Optimizer: Remove Unused Variables
@@ -2256,6 +2442,24 @@ debug: Optimizer: Replace Compiled References
 debug: Optimizer: Merge Chained Aggregate Reads
 debug: Optimizer: Replace Aggregate Box Ops
 debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.data_existed
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_call
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now
 debug: Optimizer: Perform Subroutine Inlining
 debug: Optimizer: Split Parallel Copies
 debug: Optimizer: Constant Replacer
@@ -2318,6 +2522,15 @@ debug: Optimizer: Inner Txn Field Replacer
 debug: Optimizer: Replace Compiled References
 debug: Optimizer: Merge Chained Aggregate Reads
 debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizing subroutine test_cases.time_travel.contract.go_back_not_inlined
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
 debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.round_at[routing]
 debug: Optimizer: Perform Subroutine Inlining
 debug: Optimizer: Split Parallel Copies
@@ -2400,6 +2613,24 @@ debug: Optimizer: Replace Compiled References
 debug: Optimizer: Merge Chained Aggregate Reads
 debug: Optimizer: Replace Aggregate Box Ops
 debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.data_existed[routing]
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing]
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]
 debug: Optimizer: Perform Subroutine Inlining
 debug: Optimizer: Split Parallel Copies
 debug: Optimizer: Constant Replacer
@@ -2525,6 +2756,24 @@ debug: Optimizer: Inner Txn Field Replacer
 debug: Optimizer: Replace Compiled References
 debug: Optimizer: Merge Chained Aggregate Reads
 debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_call
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
 debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.data_exists_then
 debug: Optimizer: Perform Subroutine Inlining
 debug: Optimizer: Split Parallel Copies
@@ -2558,32 +2807,37 @@ debug: Optimizer: Replace Aggregate Box Ops
 debug: No optimizations performed in pass 1, ending loop
 debug: removing local static slots in approval program of test_cases.time_travel.contract.TimeTravel
 debug: auto reserving slots in algopy.arc4.ARC4Contract.approval_program, []
-time_travel/contract.py:140:2 debug: auto reserving slots in test_cases.time_travel.contract.go_back, []
-time_travel/contract.py:35:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.round_at[routing], []
-time_travel/contract.py:40:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.round_before[routing], []
-time_travel/contract.py:46:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.counter_then_and_now[routing], []
-time_travel/contract.py:55:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.data_changed[routing], []
-time_travel/contract.py:62:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.first_item_changed[routing], []
-time_travel/contract.py:69:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.first_item_now[routing], []
-time_travel/contract.py:75:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.append_then_write_back[routing], []
-time_travel/contract.py:82:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.set_then_write_back[routing], []
-time_travel/contract.py:89:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.timestamps[routing], []
-time_travel/contract.py:96:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.data_existed[routing], []
-time_travel/contract.py:104:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.data_exists_then[routing], []
-time_travel/contract.py:110:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.changes[routing], []
-time_travel/contract.py:29:5 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.__init__, []
-time_travel/contract.py:35:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.round_at, []
-time_travel/contract.py:40:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.round_before, []
-time_travel/contract.py:46:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.counter_then_and_now, []
-time_travel/contract.py:55:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.data_changed, []
-time_travel/contract.py:62:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.first_item_changed, []
-time_travel/contract.py:69:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.first_item_now, []
-time_travel/contract.py:75:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.append_then_write_back, []
-time_travel/contract.py:82:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.set_then_write_back, []
-time_travel/contract.py:89:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.timestamps, []
-time_travel/contract.py:96:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.data_existed, []
-time_travel/contract.py:104:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.data_exists_then, []
-time_travel/contract.py:110:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.changes, []
+time_travel/contract.py:156:2 debug: auto reserving slots in test_cases.time_travel.contract.go_back, []
+time_travel/contract.py:161:2 debug: auto reserving slots in test_cases.time_travel.contract.go_back_not_inlined, []
+time_travel/contract.py:36:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.round_at[routing], []
+time_travel/contract.py:41:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.round_before[routing], []
+time_travel/contract.py:47:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.counter_then_and_now[routing], []
+time_travel/contract.py:56:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.data_changed[routing], []
+time_travel/contract.py:63:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.first_item_changed[routing], []
+time_travel/contract.py:70:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.first_item_now[routing], []
+time_travel/contract.py:76:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.append_then_write_back[routing], []
+time_travel/contract.py:83:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.set_then_write_back[routing], []
+time_travel/contract.py:90:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.timestamps[routing], []
+time_travel/contract.py:97:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.data_existed[routing], []
+time_travel/contract.py:105:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing], []
+time_travel/contract.py:113:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing], []
+time_travel/contract.py:120:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.data_exists_then[routing], []
+time_travel/contract.py:126:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.changes[routing], []
+time_travel/contract.py:30:5 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.__init__, []
+time_travel/contract.py:36:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.round_at, []
+time_travel/contract.py:41:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.round_before, []
+time_travel/contract.py:47:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.counter_then_and_now, []
+time_travel/contract.py:56:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.data_changed, []
+time_travel/contract.py:63:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.first_item_changed, []
+time_travel/contract.py:70:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.first_item_now, []
+time_travel/contract.py:76:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.append_then_write_back, []
+time_travel/contract.py:83:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.set_then_write_back, []
+time_travel/contract.py:90:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.timestamps, []
+time_travel/contract.py:97:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.data_existed, []
+time_travel/contract.py:105:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.data_existed_before_call, []
+time_travel/contract.py:113:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now, []
+time_travel/contract.py:120:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.data_exists_then, []
+time_travel/contract.py:126:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.changes, []
 debug: Slot allocation not required
 debug: removing local static slots in clear program of test_cases.time_travel.contract.TimeTravel
 debug: auto reserving slots in algopy.arc4.ARC4Contract.clear_state_program, []
@@ -2602,6 +2856,13 @@ debug: Removing Phi nodes
 debug: Coalescing local variables in test_cases.time_travel.contract.go_back using strategy 'root_operand'
 debug: Coalescing resulted in 0 replacement/s
 debug: Sequentializing parallel copies in test_cases.time_travel.contract.go_back
+debug: Performing post-SSA optimizations at level 0
+debug: Performing SSA IR destructuring for test_cases.time_travel.contract.go_back_not_inlined
+debug: Converting to CSSA
+debug: Removing Phi nodes
+debug: Coalescing local variables in test_cases.time_travel.contract.go_back_not_inlined using strategy 'root_operand'
+debug: Coalescing resulted in 0 replacement/s
+debug: Sequentializing parallel copies in test_cases.time_travel.contract.go_back_not_inlined
 debug: Performing post-SSA optimizations at level 0
 debug: Performing SSA IR destructuring for test_cases.time_travel.contract.TimeTravel.round_at[routing]
 debug: Converting to CSSA
@@ -2672,6 +2933,20 @@ debug: Removing Phi nodes
 debug: Coalescing local variables in test_cases.time_travel.contract.TimeTravel.data_existed[routing] using strategy 'root_operand'
 debug: Coalescing resulted in 0 replacement/s
 debug: Sequentializing parallel copies in test_cases.time_travel.contract.TimeTravel.data_existed[routing]
+debug: Performing post-SSA optimizations at level 0
+debug: Performing SSA IR destructuring for test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing]
+debug: Converting to CSSA
+debug: Removing Phi nodes
+debug: Coalescing local variables in test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing] using strategy 'root_operand'
+debug: Coalescing resulted in 0 replacement/s
+debug: Sequentializing parallel copies in test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing]
+debug: Performing post-SSA optimizations at level 0
+debug: Performing SSA IR destructuring for test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]
+debug: Converting to CSSA
+debug: Removing Phi nodes
+debug: Coalescing local variables in test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing] using strategy 'root_operand'
+debug: Coalescing resulted in 0 replacement/s
+debug: Sequentializing parallel copies in test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]
 debug: Performing post-SSA optimizations at level 0
 debug: Performing SSA IR destructuring for test_cases.time_travel.contract.TimeTravel.data_exists_then[routing]
 debug: Converting to CSSA
@@ -2768,6 +3043,20 @@ debug: Coalescing local variables in test_cases.time_travel.contract.TimeTravel.
 debug: Coalescing resulted in 0 replacement/s
 debug: Sequentializing parallel copies in test_cases.time_travel.contract.TimeTravel.data_existed
 debug: Performing post-SSA optimizations at level 0
+debug: Performing SSA IR destructuring for test_cases.time_travel.contract.TimeTravel.data_existed_before_call
+debug: Converting to CSSA
+debug: Removing Phi nodes
+debug: Coalescing local variables in test_cases.time_travel.contract.TimeTravel.data_existed_before_call using strategy 'root_operand'
+debug: Coalescing resulted in 0 replacement/s
+debug: Sequentializing parallel copies in test_cases.time_travel.contract.TimeTravel.data_existed_before_call
+debug: Performing post-SSA optimizations at level 0
+debug: Performing SSA IR destructuring for test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now
+debug: Converting to CSSA
+debug: Removing Phi nodes
+debug: Coalescing local variables in test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now using strategy 'root_operand'
+debug: Coalescing resulted in 0 replacement/s
+debug: Sequentializing parallel copies in test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now
+debug: Performing post-SSA optimizations at level 0
 debug: Performing SSA IR destructuring for test_cases.time_travel.contract.TimeTravel.data_exists_then
 debug: Converting to CSSA
 debug: Removing Phi nodes
@@ -2811,19 +3100,19 @@ debug: Replaced main_abi_routing@4.ops[13]: 'v-load tmp%4#0' with 'l-load tmp%4#
 debug: Inserted main_abi_routing@4.ops[16]: 'l-store-copy tmp%5#0 0'
 debug: Replaced main_abi_routing@4.ops[18]: 'v-load tmp%5#0' with 'l-load tmp%5#0'
 debug: Inserted main_call_NoOp@5.ops[1]: 'l-store-copy tmp%6#0 0'
-debug: Replaced main_call_NoOp@5.ops[15]: 'v-load tmp%6#0' with 'l-load tmp%6#0'
-debug: Inserted main___algopy_default_create@21.ops[1]: 'l-store-copy tmp%7#0 0'
-debug: Replaced main___algopy_default_create@21.ops[3]: 'v-load tmp%7#0' with 'l-load tmp%7#0'
-debug: Inserted main___algopy_default_create@21.ops[8]: 'l-store-copy tmp%9#0 0'
-debug: Replaced main___algopy_default_create@21.ops[10]: 'v-load tmp%9#0' with 'l-load tmp%9#0'
-debug: Inserted main___algopy_default_create@21.ops[17]: 'l-store-copy tmp%11#0 0'
-debug: Replaced main___algopy_default_create@21.ops[19]: 'v-load tmp%11#0' with 'l-load tmp%11#0'
-debug: Inserted main___algopy_default_create@21.ops[13]: 'l-store-copy tmp%10#0 0'
-debug: Replaced main___algopy_default_create@21.ops[16]: 'v-load tmp%10#0' with 'l-load tmp%10#0'
-debug: Inserted main___algopy_default_create@21.ops[6]: 'l-store-copy tmp%8#0 0'
-debug: Replaced main___algopy_default_create@21.ops[16]: 'v-load tmp%8#0' with 'l-load tmp%8#0'
-debug: Inserted main_after_inlined_test_cases.time_travel.contract.TimeTravel.__puya_arc4_router__@23.ops[1]: 'l-store-copy tmp%1#0 0'
-debug: Replaced main_after_inlined_test_cases.time_travel.contract.TimeTravel.__puya_arc4_router__@23.ops[3]: 'v-load tmp%1#0' with 'l-load tmp%1#0'
+debug: Replaced main_call_NoOp@5.ops[17]: 'v-load tmp%6#0' with 'l-load tmp%6#0'
+debug: Inserted main___algopy_default_create@23.ops[1]: 'l-store-copy tmp%7#0 0'
+debug: Replaced main___algopy_default_create@23.ops[3]: 'v-load tmp%7#0' with 'l-load tmp%7#0'
+debug: Inserted main___algopy_default_create@23.ops[8]: 'l-store-copy tmp%9#0 0'
+debug: Replaced main___algopy_default_create@23.ops[10]: 'v-load tmp%9#0' with 'l-load tmp%9#0'
+debug: Inserted main___algopy_default_create@23.ops[17]: 'l-store-copy tmp%11#0 0'
+debug: Replaced main___algopy_default_create@23.ops[19]: 'v-load tmp%11#0' with 'l-load tmp%11#0'
+debug: Inserted main___algopy_default_create@23.ops[13]: 'l-store-copy tmp%10#0 0'
+debug: Replaced main___algopy_default_create@23.ops[16]: 'v-load tmp%10#0' with 'l-load tmp%10#0'
+debug: Inserted main___algopy_default_create@23.ops[6]: 'l-store-copy tmp%8#0 0'
+debug: Replaced main___algopy_default_create@23.ops[16]: 'v-load tmp%8#0' with 'l-load tmp%8#0'
+debug: Inserted main_after_inlined_test_cases.time_travel.contract.TimeTravel.__puya_arc4_router__@25.ops[1]: 'l-store-copy tmp%1#0 0'
+debug: Replaced main_after_inlined_test_cases.time_travel.contract.TimeTravel.__puya_arc4_router__@25.ops[3]: 'v-load tmp%1#0' with 'l-load tmp%1#0'
 debug: Inserted round_at_block@0.ops[1]: 'l-store-copy tmp%0#0 0'
 debug: Replaced round_at_block@0.ops[3]: 'v-load tmp%0#0' with 'l-load tmp%0#0'
 debug: Inserted round_at_block@0.ops[5]: 'l-store-copy len%0#0 0'
@@ -3070,6 +3359,70 @@ debug: Inserted data_existed_block@0.ops[4]: 'l-store-copy tmp%0#0 0'
 debug: Replaced data_existed_block@0.ops[15]: 'v-load tmp%0#0' with 'l-load tmp%0#0'
 debug: Inserted data_existed_block@0.ops[27]: 'l-store-copy tmp%2#0 0'
 debug: Replaced data_existed_block@0.ops[40]: 'v-load tmp%2#0' with 'l-load tmp%2#0'
+debug: Inserted data_existed_before_call_block@0.ops[1]: 'l-store-copy tmp%0#0 0'
+debug: Replaced data_existed_before_call_block@0.ops[3]: 'v-load tmp%0#0' with 'l-load tmp%0#0'
+debug: Inserted data_existed_before_call_block@0.ops[5]: 'l-store-copy len%0#0 0'
+debug: Replaced data_existed_before_call_block@0.ops[7]: 'v-load len%0#0' with 'l-load len%0#0'
+debug: Inserted data_existed_before_call_block@0.ops[10]: 'l-store-copy eq%0#0 0'
+debug: Replaced data_existed_before_call_block@0.ops[12]: 'v-load eq%0#0' with 'l-load eq%0#0'
+debug: Inserted data_existed_before_call_block@0.ops[15]: 'l-store-copy as_Encoded(uint64)%0#0 0'
+debug: Replaced data_existed_before_call_block@0.ops[17]: 'v-load as_Encoded(uint64)%0#0' with 'l-load as_Encoded(uint64)%0#0'
+debug: Inserted data_existed_before_call_block@0.ops[19]: 'l-store-copy tmp%1#0 0'
+debug: Replaced data_existed_before_call_block@0.ops[21]: 'v-load tmp%1#0' with 'l-load tmp%1#0'
+debug: Inserted data_existed_before_call_block@0.ops[23]: 'l-store-copy tmp%2#0 0'
+debug: Replaced data_existed_before_call_block@0.ops[25]: 'v-load tmp%2#0' with 'l-load tmp%2#0'
+debug: Inserted data_existed_before_call_block@0.ops[27]: 'l-store-copy aggregate%length%0#0 0'
+debug: Replaced data_existed_before_call_block@0.ops[29]: 'v-load aggregate%length%0#0' with 'l-load aggregate%length%0#0'
+debug: Inserted data_existed_before_call_block@0.ops[31]: 'l-store-copy aggregate%as_bytes%0#0 0'
+debug: Replaced data_existed_before_call_block@0.ops[33]: 'v-load aggregate%as_bytes%0#0' with 'l-load aggregate%as_bytes%0#0'
+debug: Inserted data_existed_before_call_block@0.ops[35]: 'l-store-copy aggregate%length_uint16%0#0 0'
+debug: Replaced data_existed_before_call_block@0.ops[37]: 'v-load aggregate%length_uint16%0#0' with 'l-load aggregate%length_uint16%0#0'
+debug: Inserted data_existed_before_call_block@0.ops[40]: 'l-store-copy aggregate%encoded_value%0#0 0'
+debug: Replaced data_existed_before_call_block@0.ops[42]: 'v-load aggregate%encoded_value%0#0' with 'l-load aggregate%encoded_value%0#0'
+debug: Inserted data_existed_before_call_block@0.ops[43]: 'l-store-copy aggregate%as_Encoded(len+uint8[])%0#0 0'
+debug: Replaced data_existed_before_call_block@0.ops[45]: 'v-load aggregate%as_Encoded(len+uint8[])%0#0' with 'l-load aggregate%as_Encoded(len+uint8[])%0#0'
+debug: Inserted data_existed_before_call_block@0.ops[50]: 'l-store-copy tmp%4#0 0'
+debug: Replaced data_existed_before_call_block@0.ops[52]: 'v-load tmp%4#0' with 'l-load tmp%4#0'
+debug: Inserted data_existed_before_call_block@0.ops[46]: 'l-store-copy tmp%3#0 0'
+debug: Replaced data_existed_before_call_block@0.ops[49]: 'v-load tmp%3#0' with 'l-load tmp%3#0'
+debug: Inserted data_existed_before_call_block@0.ops[4]: 'l-store-copy tmp%0#0 0'
+debug: Replaced data_existed_before_call_block@0.ops[15]: 'v-load tmp%0#0' with 'l-load tmp%0#0'
+debug: Inserted data_existed_before_call_block@0.ops[27]: 'l-store-copy tmp%2#0 0'
+debug: Replaced data_existed_before_call_block@0.ops[40]: 'v-load tmp%2#0' with 'l-load tmp%2#0'
+debug: Inserted first_valid_then_and_now_block@0.ops[1]: 'l-store-copy tmp%0#0 0'
+debug: Replaced first_valid_then_and_now_block@0.ops[3]: 'v-load tmp%0#0' with 'l-load tmp%0#0'
+debug: Inserted first_valid_then_and_now_block@0.ops[5]: 'l-store-copy len%0#0 0'
+debug: Replaced first_valid_then_and_now_block@0.ops[7]: 'v-load len%0#0' with 'l-load len%0#0'
+debug: Inserted first_valid_then_and_now_block@0.ops[10]: 'l-store-copy eq%0#0 0'
+debug: Replaced first_valid_then_and_now_block@0.ops[12]: 'v-load eq%0#0' with 'l-load eq%0#0'
+debug: Inserted first_valid_then_and_now_block@0.ops[15]: 'l-store-copy as_Encoded(uint64)%0#0 0'
+debug: Replaced first_valid_then_and_now_block@0.ops[17]: 'v-load as_Encoded(uint64)%0#0' with 'l-load as_Encoded(uint64)%0#0'
+debug: Inserted first_valid_then_and_now_block@0.ops[21]: 'l-store-copy tmp%2#0 0'
+debug: Replaced first_valid_then_and_now_block@0.ops[23]: 'v-load tmp%2#0' with 'l-load tmp%2#0'
+debug: Inserted first_valid_then_and_now_block@0.ops[25]: 'l-store-copy len%1#0 0'
+debug: Replaced first_valid_then_and_now_block@0.ops[27]: 'v-load len%1#0' with 'l-load len%1#0'
+debug: Inserted first_valid_then_and_now_block@0.ops[30]: 'l-store-copy eq%1#0 0'
+debug: Replaced first_valid_then_and_now_block@0.ops[32]: 'v-load eq%1#0' with 'l-load eq%1#0'
+debug: Inserted first_valid_then_and_now_block@0.ops[35]: 'l-store-copy as_Encoded(uint64)%1#0 0'
+debug: Replaced first_valid_then_and_now_block@0.ops[37]: 'v-load as_Encoded(uint64)%1#0' with 'l-load as_Encoded(uint64)%1#0'
+debug: Inserted first_valid_then_and_now_block@0.ops[43]: 'l-store-copy tmp%4#0 0'
+debug: Replaced first_valid_then_and_now_block@0.ops[45]: 'v-load tmp%4#0' with 'l-load tmp%4#0'
+debug: Inserted first_valid_then_and_now_block@0.ops[47]: 'l-store-copy aggregate%val_as_bytes%0#0 0'
+debug: Replaced first_valid_then_and_now_block@0.ops[49]: 'v-load aggregate%val_as_bytes%0#0' with 'l-load aggregate%val_as_bytes%0#0'
+debug: Inserted first_valid_then_and_now_block@0.ops[50]: 'l-store-copy aggregate%as_Encoded(uint64)%0#0 0'
+debug: Replaced first_valid_then_and_now_block@0.ops[52]: 'v-load aggregate%as_Encoded(uint64)%0#0' with 'l-load aggregate%as_Encoded(uint64)%0#0'
+debug: Inserted first_valid_then_and_now_block@0.ops[57]: 'l-store-copy tmp%6#0 0'
+debug: Replaced first_valid_then_and_now_block@0.ops[59]: 'v-load tmp%6#0' with 'l-load tmp%6#0'
+debug: Inserted first_valid_then_and_now_block@0.ops[39]: 'l-store-copy tmp%3#0 0'
+debug: Replaced first_valid_then_and_now_block@0.ops[42]: 'v-load tmp%3#0' with 'l-load tmp%3#0'
+debug: Inserted first_valid_then_and_now_block@0.ops[54]: 'l-store-copy tmp%5#0 0'
+debug: Replaced first_valid_then_and_now_block@0.ops[57]: 'v-load tmp%5#0' with 'l-load tmp%5#0'
+debug: Inserted first_valid_then_and_now_block@0.ops[4]: 'l-store-copy tmp%0#0 0'
+debug: Replaced first_valid_then_and_now_block@0.ops[15]: 'v-load tmp%0#0' with 'l-load tmp%0#0'
+debug: Inserted first_valid_then_and_now_block@0.ops[25]: 'l-store-copy tmp%2#0 0'
+debug: Replaced first_valid_then_and_now_block@0.ops[36]: 'v-load tmp%2#0' with 'l-load tmp%2#0'
+debug: Inserted first_valid_then_and_now_block@0.ops[20]: 'l-store-copy tmp%1#0 0'
+debug: Replaced first_valid_then_and_now_block@0.ops[44]: 'v-load tmp%1#0' with 'l-load tmp%1#0'
 debug: Inserted data_exists_then_block@0.ops[1]: 'l-store-copy tmp%0#0 0'
 debug: Replaced data_exists_then_block@0.ops[3]: 'v-load tmp%0#0' with 'l-load tmp%0#0'
 debug: Inserted data_exists_then_block@0.ops[5]: 'l-store-copy len%0#0 0'
@@ -3354,6 +3707,28 @@ debug: Inserted test_cases.time_travel.contract.TimeTravel.data_existed_block@0.
 debug: Replaced test_cases.time_travel.contract.TimeTravel.data_existed_block@0.ops[25]: 'v-load then#0' with 'l-load then#0'
 debug: Inserted test_cases.time_travel.contract.TimeTravel.data_existed_block@0.ops[6]: 'l-store-copy existed#0 0'
 debug: Replaced test_cases.time_travel.contract.TimeTravel.data_existed_block@0.ops[24]: 'v-load existed#0' with 'l-load existed#0'
+debug: Inserted test_cases.time_travel.contract.TimeTravel.data_existed_before_call_block@0.ops[15]: 'l-store-copy storage_value%0#0 0'
+debug: Replaced test_cases.time_travel.contract.TimeTravel.data_existed_before_call_block@0.ops[17]: 'v-load storage_value%0#0' with 'l-load storage_value%0#0'
+debug: Inserted test_cases.time_travel.contract.TimeTravel.data_existed_before_call_block@0.ops[2]: 'l-store-copy maybe_exists%0#0 1'
+debug: Replaced test_cases.time_travel.contract.TimeTravel.data_existed_before_call_block@0.ops[5]: 'v-load maybe_exists%0#0' with 'l-load maybe_exists%0#0'
+debug: Inserted test_cases.time_travel.contract.TimeTravel.data_existed_before_call_block@0.ops[11]: 'l-store-copy aggregate%box_get%1#0 1'
+debug: Replaced test_cases.time_travel.contract.TimeTravel.data_existed_before_call_block@0.ops[14]: 'v-load aggregate%box_get%1#0' with 'l-load aggregate%box_get%1#0'
+debug: Inserted test_cases.time_travel.contract.TimeTravel.data_existed_before_call_block@0.ops[13]: 'l-store-copy aggregate%box_get%0#0 1'
+debug: Replaced test_cases.time_travel.contract.TimeTravel.data_existed_before_call_block@0.ops[17]: 'v-load aggregate%box_get%0#0' with 'l-load aggregate%box_get%0#0'
+debug: Inserted test_cases.time_travel.contract.TimeTravel.data_existed_before_call_block@0.ops[21]: 'l-store-copy then#0 0'
+debug: Replaced test_cases.time_travel.contract.TimeTravel.data_existed_before_call_block@0.ops[25]: 'v-load then#0' with 'l-load then#0'
+debug: Inserted test_cases.time_travel.contract.TimeTravel.data_existed_before_call_block@0.ops[6]: 'l-store-copy existed#0 0'
+debug: Replaced test_cases.time_travel.contract.TimeTravel.data_existed_before_call_block@0.ops[24]: 'v-load existed#0' with 'l-load existed#0'
+debug: Inserted test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now_block@0.ops[2]: 'l-store-copy tmp%0#0 0'
+debug: Replaced test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now_block@0.ops[4]: 'v-load tmp%0#0' with 'l-load tmp%0#0'
+debug: Inserted test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now_block@0.ops[10]: 'l-store-copy tmp%1#0 0'
+debug: Replaced test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now_block@0.ops[12]: 'v-load tmp%1#0' with 'l-load tmp%1#0'
+debug: Inserted test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now_block@0.ops[17]: 'l-store-copy tmp%2#0 0'
+debug: Replaced test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now_block@0.ops[19]: 'v-load tmp%2#0' with 'l-load tmp%2#0'
+debug: Inserted test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now_block@0.ops[13]: 'l-store-copy then#0 0'
+debug: Replaced test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now_block@0.ops[16]: 'v-load then#0' with 'l-load then#0'
+debug: Inserted test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now_block@0.ops[5]: 'l-store-copy now#0 0'
+debug: Replaced test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now_block@0.ops[16]: 'v-load now#0' with 'l-load now#0'
 debug: Inserted test_cases.time_travel.contract.TimeTravel.data_exists_then_block@0.ops[9]: 'l-store-copy tmp%0#0 0'
 debug: Replaced test_cases.time_travel.contract.TimeTravel.data_exists_then_block@0.ops[11]: 'v-load tmp%0#0' with 'l-load tmp%0#0'
 debug: Inserted test_cases.time_travel.contract.TimeTravel.data_exists_then_block@0.ops[2]: 'l-store-copy check%0#0 1'
@@ -3556,6 +3931,8 @@ debug: algopy.arc4.ARC4Contract.approval_program f-stack entry: []
 debug: algopy.arc4.ARC4Contract.approval_program f-stack on first store: []
 debug: test_cases.time_travel.contract.go_back f-stack entry: []
 debug: test_cases.time_travel.contract.go_back f-stack on first store: []
+debug: test_cases.time_travel.contract.go_back_not_inlined f-stack entry: []
+debug: test_cases.time_travel.contract.go_back_not_inlined f-stack on first store: []
 debug: test_cases.time_travel.contract.TimeTravel.round_at[routing] f-stack entry: []
 debug: test_cases.time_travel.contract.TimeTravel.round_at[routing] f-stack on first store: []
 debug: test_cases.time_travel.contract.TimeTravel.round_before[routing] f-stack entry: []
@@ -3576,6 +3953,10 @@ debug: test_cases.time_travel.contract.TimeTravel.timestamps[routing] f-stack en
 debug: test_cases.time_travel.contract.TimeTravel.timestamps[routing] f-stack on first store: []
 debug: test_cases.time_travel.contract.TimeTravel.data_existed[routing] f-stack entry: []
 debug: test_cases.time_travel.contract.TimeTravel.data_existed[routing] f-stack on first store: []
+debug: test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing] f-stack entry: []
+debug: test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing] f-stack on first store: []
+debug: test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing] f-stack entry: []
+debug: test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing] f-stack on first store: []
 debug: test_cases.time_travel.contract.TimeTravel.data_exists_then[routing] f-stack entry: []
 debug: test_cases.time_travel.contract.TimeTravel.data_exists_then[routing] f-stack on first store: []
 debug: test_cases.time_travel.contract.TimeTravel.changes[routing] f-stack entry: []
@@ -3602,6 +3983,10 @@ debug: test_cases.time_travel.contract.TimeTravel.timestamps f-stack entry: []
 debug: test_cases.time_travel.contract.TimeTravel.timestamps f-stack on first store: []
 debug: test_cases.time_travel.contract.TimeTravel.data_existed f-stack entry: []
 debug: test_cases.time_travel.contract.TimeTravel.data_existed f-stack on first store: ['_%0#0']
+debug: test_cases.time_travel.contract.TimeTravel.data_existed_before_call f-stack entry: []
+debug: test_cases.time_travel.contract.TimeTravel.data_existed_before_call f-stack on first store: ['_%0#0']
+debug: test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now f-stack entry: []
+debug: test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now f-stack on first store: []
 debug: test_cases.time_travel.contract.TimeTravel.data_exists_then f-stack entry: []
 debug: test_cases.time_travel.contract.TimeTravel.data_exists_then f-stack on first store: ['_%0#0']
 debug: test_cases.time_travel.contract.TimeTravel.changes f-stack entry: []
@@ -3609,32 +3994,37 @@ debug: test_cases.time_travel.contract.TimeTravel.changes f-stack on first store
 debug: algopy.arc4.ARC4Contract.clear_state_program f-stack entry: []
 debug: algopy.arc4.ARC4Contract.clear_state_program f-stack on first store: []
 debug: optimizing TEAL subroutine ops algopy.arc4.ARC4Contract.approval_program() -> uint64:
-time_travel/contract.py:140:2 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.go_back(rnd: uint64) -> void:
-time_travel/contract.py:35:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.round_at[routing]() -> void:
-time_travel/contract.py:40:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.round_before[routing]() -> void:
-time_travel/contract.py:46:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.counter_then_and_now[routing]() -> void:
-time_travel/contract.py:55:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.data_changed[routing]() -> void:
-time_travel/contract.py:62:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.first_item_changed[routing]() -> void:
-time_travel/contract.py:69:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.first_item_now[routing]() -> void:
-time_travel/contract.py:75:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.append_then_write_back[routing]() -> void:
-time_travel/contract.py:82:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.set_then_write_back[routing]() -> void:
-time_travel/contract.py:89:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.timestamps[routing]() -> void:
-time_travel/contract.py:96:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.data_existed[routing]() -> void:
-time_travel/contract.py:104:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.data_exists_then[routing]() -> void:
-time_travel/contract.py:110:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.changes[routing]() -> void:
-time_travel/contract.py:29:5 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.__init__() -> void:
-time_travel/contract.py:35:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.round_at(rnd: uint64) -> uint64:
-time_travel/contract.py:40:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.round_before(rnd: uint64) -> uint64:
-time_travel/contract.py:46:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.counter_then_and_now(rnd: uint64) -> uint64, uint64:
-time_travel/contract.py:55:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.data_changed(rnd: uint64) -> uint64:
-time_travel/contract.py:62:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.first_item_changed(rnd: uint64) -> uint64:
-time_travel/contract.py:69:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.first_item_now(rnd: uint64) -> bytes:
-time_travel/contract.py:75:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.append_then_write_back(rnd: uint64, x: bytes) -> void:
-time_travel/contract.py:82:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.set_then_write_back(rnd: uint64, x: bytes) -> void:
-time_travel/contract.py:89:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.timestamps(rnd: uint64, of: uint64) -> uint64:
-time_travel/contract.py:96:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.data_existed(rnd: uint64) -> bytes:
-time_travel/contract.py:104:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.data_exists_then(rnd: uint64) -> uint64:
-time_travel/contract.py:110:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.changes(acct: bytes, asset: uint64, app: uint64, from_: uint64, to: uint64) -> uint64:
+time_travel/contract.py:156:2 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.go_back(rnd: uint64) -> void:
+time_travel/contract.py:161:2 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.go_back_not_inlined(rnd: uint64) -> void:
+time_travel/contract.py:36:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.round_at[routing]() -> void:
+time_travel/contract.py:41:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.round_before[routing]() -> void:
+time_travel/contract.py:47:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.counter_then_and_now[routing]() -> void:
+time_travel/contract.py:56:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.data_changed[routing]() -> void:
+time_travel/contract.py:63:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.first_item_changed[routing]() -> void:
+time_travel/contract.py:70:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.first_item_now[routing]() -> void:
+time_travel/contract.py:76:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.append_then_write_back[routing]() -> void:
+time_travel/contract.py:83:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.set_then_write_back[routing]() -> void:
+time_travel/contract.py:90:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.timestamps[routing]() -> void:
+time_travel/contract.py:97:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.data_existed[routing]() -> void:
+time_travel/contract.py:105:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing]() -> void:
+time_travel/contract.py:113:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]() -> void:
+time_travel/contract.py:120:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.data_exists_then[routing]() -> void:
+time_travel/contract.py:126:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.changes[routing]() -> void:
+time_travel/contract.py:30:5 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.__init__() -> void:
+time_travel/contract.py:36:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.round_at(rnd: uint64) -> uint64:
+time_travel/contract.py:41:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.round_before(rnd: uint64) -> uint64:
+time_travel/contract.py:47:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.counter_then_and_now(rnd: uint64) -> uint64, uint64:
+time_travel/contract.py:56:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.data_changed(rnd: uint64) -> uint64:
+time_travel/contract.py:63:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.first_item_changed(rnd: uint64) -> uint64:
+time_travel/contract.py:70:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.first_item_now(rnd: uint64) -> bytes:
+time_travel/contract.py:76:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.append_then_write_back(rnd: uint64, x: bytes) -> void:
+time_travel/contract.py:83:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.set_then_write_back(rnd: uint64, x: bytes) -> void:
+time_travel/contract.py:90:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.timestamps(rnd: uint64, of: uint64) -> uint64:
+time_travel/contract.py:97:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.data_existed(rnd: uint64) -> bytes:
+time_travel/contract.py:105:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.data_existed_before_call(rnd: uint64) -> bytes:
+time_travel/contract.py:113:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now(i: uint64, rnd: uint64) -> uint64:
+time_travel/contract.py:120:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.data_exists_then(rnd: uint64) -> uint64:
+time_travel/contract.py:126:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.changes(acct: bytes, asset: uint64, app: uint64, from_: uint64, to: uint64) -> uint64:
 debug: optimizing TEAL subroutine ops algopy.arc4.ARC4Contract.clear_state_program() -> uint64:
 info: Writing time_travel/out_unoptimized/TimeTravel.approval.teal
 info: Writing time_travel/out_unoptimized/TimeTravel.clear.teal
