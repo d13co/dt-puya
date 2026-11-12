@@ -1,8 +1,9 @@
 [project]
 name = "puyapy"
-version = "5.10.1"
-description = "An optimising compiler for Algorand Python"
+version = "5.10.1+dt.1.0.0"
+description = "An optimising compiler for Algorand Python (dt-puya fork for dt-algorand)"
 authors = [{ name = "Algorand Foundation", email = "contact@algorand.foundation" }]
+maintainers = [{ name = "Bit D13", email = "bit@d13.co" }]
 readme = "README.md"
 classifiers = [
     "Development Status :: 5 - Production/Stable",

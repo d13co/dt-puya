@@ -1,0 +1,240 @@
+name: dt-puya
+
+# CI for the dtalgorand branch, and the release of dt-puya: pushing a v<version> tag
+# (v5.10.1-dt.1.0.0) on dtalgorand tests it, builds the puya binaries for the five platforms
+# dt-puya-ts downloads, and the puyapy and algorand-python wheels, and creates a GitHub release
+# with them. Nothing is published to PyPI. See "Releasing dt-puya" in DTPUYA.md.
+on:
+  push:
+    branches: [dtalgorand]
+    tags: ['v*-dt.*']
+  pull_request:
+    branches: [dtalgorand]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: dt-puya-${{ github.ref }}
+  cancel-in-progress: ${{ !startsWith(github.ref, 'refs/tags/') }}
+
+jobs:
+  checks:
+    name: Checks
+    runs-on: ubuntu-latest
+    outputs:
+      release: ${{ steps.version.outputs.release }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        with:
+          fetch-depth: 0
+
+      - name: Check the tag is on dtalgorand
+        if: github.ref_type == 'tag'
+        run: |
+          git fetch --quiet origin dtalgorand
+          git merge-base --is-ancestor "$GITHUB_SHA" FETCH_HEAD || {
+            echo "::error::$GITHUB_REF_NAME is not on dtalgorand"
+            exit 1
+          }
+
+      # Standard library only, so a mistagged release fails before the install
+      - name: Check the version in the stubs, uv.lock, the docs and the tag
+        env:
+          TAG: ${{ github.ref_type == 'tag' && github.ref_name || '' }}
+        run: python3 scripts/dt_release.py check "$TAG"
+
+      - name: Read version
+        id: version
+        run: |
+          version=$(python3 -c 'import tomllib; print(tomllib.load(open("pyproject.toml", "rb"))["project"]["version"])')
+          echo "release=${version/+/-}" >> "$GITHUB_OUTPUT"
+
+      - name: Setup Python venv
+        uses: ./.github/actions/setup-python-venv
+        with:
+          uv_sync_args: "--group cicd --group doc"
+
+      - name: Check pre-commits
+        run: pre-commit run --all-files && git diff --exit-code
+
+      - name: Check generated code
+        run: poe gen && git diff --exit-code
+
+      - name: Check typeshed
+        run: poe update_typeshed && git diff --exit-code
+
+      - name: Check puya --version
+        env:
+          RELEASE: ${{ steps.version.outputs.release }}
+        run: |
+          found=$(puya --version)
+          [ "$found" = "puya $RELEASE" ] || {
+            echo "::error::puya --version printed '$found', not 'puya $RELEASE'"
+            exit 1
+          }
+
+      - name: Build the puyapy wheel
+        run: uv build --wheel
+
+      - name: Build the algorand-python wheel
+        working-directory: stubs
+        run: uv build --wheel
+
+      - name: Upload wheels
+        if: github.ref_type == 'tag'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: wheels
+          path: |
+            dist/*.whl
+            stubs/dist/*.whl
+          if-no-files-found: error
+
+  pytest:
+    name: pytest (${{ matrix.module }}, ${{ matrix.group }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        group: [1, 2]
+        module: ['localnet', 'not localnet']
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+
+      - name: Setup Python venv
+        uses: ./.github/actions/setup-python-venv
+        with:
+          uv_sync_args: "--group cicd"
+
+      - name: Start LocalNet
+        if: matrix.module == 'localnet'
+        run: algokit localnet start
+
+      - name: pytest
+        shell: bash
+        run: pytest --splits 2 -m "${{ matrix.module }}" --group ${{ matrix.group }}
+
+  compile-all:
+    name: Compile all (${{ matrix.flags }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        flags: ['-O0', '-O1', '-O2']
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+
+      - name: Setup Python venv
+        uses: ./.github/actions/setup-python-venv
+
+      - name: Compile all
+        run: poe compile_all ${{ matrix.flags }}
+
+      - name: Check for changes
+        run: |
+          git status --porcelain examples/ test_cases/
+          git diff --exit-code examples/ test_cases/
+          test -z "$(git status --porcelain examples/ test_cases/)"
+
+  # The required status check: passes only if every job above passed
+  test:
+    name: Test
+    needs: [checks, pytest, compile-all]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check the results
+        env:
+          RESULTS: ${{ join(needs.*.result, ' ') }}
+        run: |
+          echo "$RESULTS"
+          for r in $RESULTS; do [ "$r" = success ] || exit 1; done
+
+  # Unsigned: the fork has none of upstream's signing keys. dt-puya-ts checks each archive
+  # against its .sha256.txt.
+  binaries:
+    name: Binaries
+    needs: [checks, test]
+    if: github.ref_type == 'tag'
+    uses: ./.github/workflows/build-binaries.yaml
+    with:
+      python_version: "3.13"
+      package_prefix: puya-${{ needs.checks.outputs.release }}
+      allow_signing: false
+      git_ref: ${{ github.ref }}
+    secrets: {}
+
+  release:
+    name: GitHub release
+    needs: [checks, binaries]
+    if: github.ref_type == 'tag'
+    runs-on: ubuntu-latest
+    # Its required reviewers approve each release, and its deployment policy admits only
+    # v*-dt.* tags.
+    environment:
+      name: release
+      url: https://github.com/${{ github.repository }}/releases/tag/${{ github.ref_name }}
+    permissions:
+      contents: write
+    env:
+      RELEASE: ${{ needs.checks.outputs.release }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        with:
+          fetch-depth: 0
+
+      - name: Download wheels
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8
+        with:
+          name: wheels
+          path: wheels
+
+      - name: Download binaries
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8
+        with:
+          path: bdist
+          pattern: binary-artifacts-*
+          merge-multiple: true
+
+      # dt-puya-ts downloads puya-<version>-<os>_<arch>.tar.gz and its .sha256.txt
+      - name: Check the release files
+        run: |
+          for p in linux_x64 linux_arm64 macos_x64 macos_arm64 windows_x64; do
+            name="puya-$RELEASE-$p"
+            for f in "$name.tar.gz" "$name.sha256.txt"; do
+              [ -f "bdist/$f" ] || { echo "::error::$f is missing"; exit 1; }
+            done
+            # The Windows checksum file has CRLF line endings
+            expected=$(tr -d '\r' < "bdist/$name.sha256.txt" | awk '{print $1}')
+            actual=$(sha256sum "bdist/$name.tar.gz" | awk '{print $1}')
+            [ "$expected" = "$actual" ] || { echo "::error::$name.tar.gz does not match its checksum"; exit 1; }
+          done
+          find wheels -name '*.whl' -exec mv {} bdist/ \;
+          ls -l bdist
+          [ "$(ls bdist/*.whl | wc -l)" = 2 ] || { echo "::error::expected 2 wheels"; exit 1; }
+
+      - name: Create GitHub release
+        run: |
+          if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
+            echo "::notice::The $GITHUB_REF_NAME release already exists"
+            exit 0
+          fi
+          {
+            echo "dt-puya $RELEASE: the puya binaries that [dt-puya-ts](https://github.com/d13co/dt-puya-ts) downloads, and the puyapy and algorand-python wheels. Install them as described in [DTPUYA.md](https://github.com/$GITHUB_REPOSITORY/blob/$GITHUB_REF_NAME/DTPUYA.md), which also lists the changes from puya."
+            prev=$(git describe --tags --abbrev=0 --match 'v*-dt.*' "$GITHUB_REF_NAME^" 2>/dev/null || true)
+            if [ -n "$prev" ]; then
+              echo
+              echo "## Changes since $prev"
+              echo
+              git log --first-parent --format='- %s (%h)' "$prev..$GITHUB_REF_NAME"
+            fi
+          } > notes.md
+          gh release create "$GITHUB_REF_NAME" bdist/* \
+            --verify-tag --latest --title "dt-puya $RELEASE" --notes-file notes.md

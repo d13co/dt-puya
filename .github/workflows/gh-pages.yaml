@@ -6,6 +6,7 @@ on:
 
 jobs:
   build:
+    if: github.repository == 'algorandfoundation/puya' # upstream's docs site only
     runs-on: ubuntu-latest
     permissions:
       contents: read

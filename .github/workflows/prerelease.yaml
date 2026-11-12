@@ -24,6 +24,7 @@ env:
   SEMANTIC_RELEASE_DRY_RUN: ${{ inputs.dry_run && '--noop' || '' }}
 jobs:
   prepare-release:
+    if: github.repository == 'algorandfoundation/puya' # forks release with dt-puya.yml
     runs-on: ubuntu-latest
     outputs:
       version_number: ${{ steps.get_version_info.outputs.version_number }}

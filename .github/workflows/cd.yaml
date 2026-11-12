@@ -53,6 +53,7 @@ env:
   SEMANTIC_RELEASE_DRY_RUN: ${{ inputs.dry_run && '--noop' || '' }}
 jobs:
   prepare-release:
+    if: github.repository == 'algorandfoundation/puya' # forks release with dt-puya.yml
     runs-on: ubuntu-latest
     permissions:
       # IMPORTANT: this permission is mandatory for trusted publishing

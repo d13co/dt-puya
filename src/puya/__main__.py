@@ -14,7 +14,10 @@ from puya.utils import read_text_from_maybe_compressed_file
 freeze_support()
 logger = get_logger(__name__)
 
-app = cyclopts.App(version=f"puya {version("puyapy")}", help_on_error=True)
+# dt-puya: report the release form of the version (5.10.1-dt.1.0.0, the tag and the
+# binaries' names) in place of the PEP 440 local version (5.10.1+dt.1.0.0), so that
+# puya-ts can match it against its targeted puya version
+app = cyclopts.App(version=f"puya {version("puyapy").replace("+", "-", 1)}", help_on_error=True)
 
 
 @app.default()

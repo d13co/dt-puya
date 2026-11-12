@@ -2,6 +2,8 @@ name: Check Python Code
 
 on:
   pull_request:
+    # dtalgorand pull requests are tested by dt-puya.yml; several jobs here need upstream's bot
+    branches-ignore: [dtalgorand]
 
 permissions:
   pull-requests: write # needed for thollander/actions-comment-pull-request

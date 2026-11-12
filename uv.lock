@@ -62,7 +62,7 @@ wheels = [
 
 [[package]]
 name = "algorand-python"
-version = "4.0.0"
+version = "4.0.0+dt.1.0.0"
 source = { editable = "stubs" }
 
 [[package]]
@@ -1411,7 +1411,7 @@ wheels = [
 
 [[package]]
 name = "puyapy"
-version = "5.10.1"
+version = "5.10.1+dt.1.0.0"
 source = { editable = "." }
 dependencies = [
     { name = "attrs" },
