@@ -333,6 +333,13 @@ def _patch_lang_spec(lang_spec: dict[str, typing.Any]) -> None:
         "app_box_put": 0,
         "app_box_splice": 0,
         "app_box_resize": 0,
+        # time travel: the app whose state a change lookup searches
+        "tt_local_change": 1,
+        "tt_app_change": 0,
+        "tt_box_change": 0,
+        "tt_global_key_change": 0,
+        "tt_local_key_change": 1,
+        "tt_box_prefix_change": 0,
     }.items():
         _patch_arg_type(ops, op_name, arg_index, "uint64", "application")
 
@@ -356,6 +363,9 @@ def _patch_lang_spec(lang_spec: dict[str, typing.Any]) -> None:
     for op_name, arg_index in {
         "asset_holding_get": 1,
         "asset_params_get": 0,
+        # time travel: the asset whose state a change lookup searches
+        "tt_holding_change": 1,
+        "tt_asset_change": 0,
     }.items():
         _patch_arg_type(ops, op_name, arg_index, "uint64", "asset")
 
@@ -702,6 +712,23 @@ def validate_op(lang_spec: LanguageSpec, op: Op) -> None:
             assert not immediate.modifies_stack_output
 
 
+def _add_time_travel_ops(lang_spec: dict[str, typing.Any], spec_path: Path) -> None:
+    """Add the time-travel ops of dt-algorand (the tt_* ops, prefix byte 0xff), which only its
+    POST /v2/query runs. Its langspec leaves them out, as they are not part of the chain's AVM,
+    so they live in their own file: see CONTRIBUTING.md for how to regenerate it."""
+    logger.info(f"Adding time-travel ops from {spec_path}")
+    tt_ops = json.loads(spec_path.read_text(encoding="utf-8"))["Ops"]
+    names = {op["Name"] for op in lang_spec["Ops"]}
+    codes = {
+        op["Opcode"] if isinstance(op["Opcode"], int) else op["Opcode"][0]
+        for op in lang_spec["Ops"]
+    }
+    for op in tt_ops:
+        assert op["Name"] not in names, f"time-travel op {op['Name']} is already in the langspec"
+        assert op["Opcode"][0] not in codes, f"time-travel op prefix {op['Opcode'][0]} is taken"
+    lang_spec["Ops"].extend(tt_ops)
+
+
 def main() -> None:
     vcs_root = Path(__file__).parent.parent
     spec_path = vcs_root / "langspec.json"
@@ -710,6 +737,7 @@ def main() -> None:
     logger.info(f"Transforming {spec_path} to {output_path}")
 
     lang_spec_json = json.loads(spec_path.read_text(encoding="utf-8"))
+    _add_time_travel_ops(lang_spec_json, vcs_root / "langspec.timetravel.json")
     _patch_lang_spec(lang_spec_json)
     lang_spec = typing.cast("AlgorandLanguageSpec", lang_spec_json)
 

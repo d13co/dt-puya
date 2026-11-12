@@ -24,6 +24,10 @@ logger = log.get_logger(__name__)
 INDENT = " " * 4
 MIN_SUPPORTED_VERSION = min(SUPPORTED_AVM_VERSIONS)
 ALGORAND_OP_URL = "https://dev.algorand.co/reference/algorand-teal/opcodes/"
+# the time-travel ops are dt-algorand's, and documented there rather than in the AVM's docs
+TIME_TRAVEL_DOC_URL = (
+    "https://github.com/d13co/dt-algorand/blob/dtalgorand/ledger/timetravel/README.md"
+)
 
 PYTHON_ENUM_CLASS = {
     "Mimc Configurations": "MiMCConfigurations",
@@ -131,6 +135,23 @@ GROUPED_OP_CODES = [
             "app_box_replace": "replace",
             "app_box_resize": "resize",
             "app_box_splice": "splice",
+        },
+    ),
+    GroupedOpCodes(
+        name="TimeTravel",
+        doc="Move reads to a past round, or find when state changed. dt-algorand only: these ops"
+        " run only in its POST /v2/query, and simulate and blocks refuse a program with them",
+        ops={
+            "tt_seek": "seek",
+            "tt_acct_change": "acct_change",
+            "tt_holding_change": "holding_change",
+            "tt_local_change": "local_change",
+            "tt_asset_change": "asset_change",
+            "tt_app_change": "app_change",
+            "tt_box_change": "box_change",
+            "tt_global_key_change": "global_key_change",
+            "tt_local_key_change": "local_key_change",
+            "tt_box_prefix_change": "box_prefix_change",
         },
     ),
     GroupedOpCodes(
@@ -600,6 +621,10 @@ def _op_codes_for_doc_links(op_name: str) -> list[str]:
 
 
 def _algorand_doc(op: str) -> str:
+    if op == "tt_seek":
+        return f"[`{op}`]({TIME_TRAVEL_DOC_URL}#time-travel-inside-a-call)"
+    if op.startswith("tt_"):
+        return f"[`{op}`]({TIME_TRAVEL_DOC_URL}#when-state-changed)"
     return f"[`{op}`]({ALGORAND_OP_URL}#{op})"
 
 
