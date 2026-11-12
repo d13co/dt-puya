@@ -3834,6 +3834,161 @@ class Scratch:
         Native TEAL opcode: [`stores`](https://dev.algorand.co/reference/algorand-teal/opcodes/#stores)
         """
 
+class TimeTravel:
+    """
+    Move reads to a past round, or find when state changed. dt-algorand only: these ops run only in its POST /v2/query, and simulate and blocks refuse a program with them
+    Native TEAL ops: [`tt_acct_change`](https://github.com/d13co/dt-algorand/blob/dtalgorand/ledger/timetravel/README.md#when-state-changed), [`tt_app_change`](https://github.com/d13co/dt-algorand/blob/dtalgorand/ledger/timetravel/README.md#when-state-changed), [`tt_asset_change`](https://github.com/d13co/dt-algorand/blob/dtalgorand/ledger/timetravel/README.md#when-state-changed), [`tt_box_change`](https://github.com/d13co/dt-algorand/blob/dtalgorand/ledger/timetravel/README.md#when-state-changed), [`tt_box_prefix_change`](https://github.com/d13co/dt-algorand/blob/dtalgorand/ledger/timetravel/README.md#when-state-changed), [`tt_global_key_change`](https://github.com/d13co/dt-algorand/blob/dtalgorand/ledger/timetravel/README.md#when-state-changed), [`tt_holding_change`](https://github.com/d13co/dt-algorand/blob/dtalgorand/ledger/timetravel/README.md#when-state-changed), [`tt_local_change`](https://github.com/d13co/dt-algorand/blob/dtalgorand/ledger/timetravel/README.md#when-state-changed), [`tt_local_key_change`](https://github.com/d13co/dt-algorand/blob/dtalgorand/ledger/timetravel/README.md#when-state-changed), [`tt_seek`](https://github.com/d13co/dt-algorand/blob/dtalgorand/ledger/timetravel/README.md#time-travel-inside-a-call)
+    """
+    @staticmethod
+    def seek(a: UInt64 | int, /) -> None:
+        """
+        move the program's reads to the state round A left, as if it ran in the block after A. A the round the program started at returns to its own state
+        POST /v2/query only (non-standard fork feature); simulate and blocks refuse a program with it. Costs 2200 more the first time the call reaches A. Fails if A is after the query round, if the call reaches more than max-seek-rounds rounds, if the node has no state of A, or between `itxn_begin` and `itxn_submit`.
+        Min AVM version: 13
+
+        Native TEAL opcode: [`tt_seek`](https://github.com/d13co/dt-algorand/blob/dtalgorand/ledger/timetravel/README.md#time-travel-inside-a-call)
+        """
+
+    @staticmethod
+    def acct_change(a: Account, b: UInt64 | int, c: UInt64 | int, /) -> tuple[UInt64, UInt64]:
+        """
+        round X and status Y of the first change of account A's base record (balance, status, keys and totals, not its holdings, local states or params) between rounds B and C
+        POST /v2/query only (non-standard fork feature), on a node that keeps history; simulate and blocks refuse a program with it. Its last two args are the range's ends, from and to, inclusive: it searches oldest first when from <= to, else newest first. Status: 0 no change, 1 created, 2 changed, 3 deleted. Costs 20 more for each version it examined. Fails if from or to is after the query round or before the history's first round.
+        Min AVM version: 13
+
+        Native TEAL opcode: [`tt_acct_change`](https://github.com/d13co/dt-algorand/blob/dtalgorand/ledger/timetravel/README.md#when-state-changed)
+        """
+
+    @staticmethod
+    def holding_change(
+        a: Account, b: Asset | UInt64 | int, c: UInt64 | int, d: UInt64 | int, /
+    ) -> tuple[UInt64, UInt64]:
+        """
+        round X and status Y of the first change of account A's holding of asset B between rounds C and D
+        POST /v2/query only (non-standard fork feature), on a node that keeps history; simulate and blocks refuse a program with it. Its last two args are the range's ends, from and to, inclusive: it searches oldest first when from <= to, else newest first. Status: 0 no change, 1 created, 2 changed, 3 deleted. Costs 20 more for each version it examined. Fails if from or to is after the query round or before the history's first round.
+        Min AVM version: 13
+
+        Native TEAL opcode: [`tt_holding_change`](https://github.com/d13co/dt-algorand/blob/dtalgorand/ledger/timetravel/README.md#when-state-changed)
+        """
+
+    @staticmethod
+    def local_change(
+        a: Account, b: Application | UInt64 | int, c: UInt64 | int, d: UInt64 | int, /
+    ) -> tuple[UInt64, UInt64]:
+        """
+        round X and status Y of the first change of account A's local state of app B between rounds C and D
+        POST /v2/query only (non-standard fork feature), on a node that keeps history; simulate and blocks refuse a program with it. Its last two args are the range's ends, from and to, inclusive: it searches oldest first when from <= to, else newest first. Status: 0 no change, 1 created, 2 changed, 3 deleted. Costs 20 more for each version it examined. Fails if from or to is after the query round or before the history's first round.
+        Min AVM version: 13
+
+        Native TEAL opcode: [`tt_local_change`](https://github.com/d13co/dt-algorand/blob/dtalgorand/ledger/timetravel/README.md#when-state-changed)
+        """
+
+    @staticmethod
+    def asset_change(
+        a: Asset | UInt64 | int, b: UInt64 | int, c: UInt64 | int, /
+    ) -> tuple[UInt64, UInt64]:
+        """
+        round X and status Y of the first change of asset A's params between rounds B and C
+        POST /v2/query only (non-standard fork feature), on a node that keeps history; simulate and blocks refuse a program with it. Its last two args are the range's ends, from and to, inclusive: it searches oldest first when from <= to, else newest first. Status: 0 no change, 1 created, 2 changed, 3 deleted. Costs 20 more for each version it examined. Fails if from or to is after the query round or before the history's first round.
+        Min AVM version: 13
+
+        Native TEAL opcode: [`tt_asset_change`](https://github.com/d13co/dt-algorand/blob/dtalgorand/ledger/timetravel/README.md#when-state-changed)
+        """
+
+    @staticmethod
+    def app_change(
+        a: Application | UInt64 | int, b: UInt64 | int, c: UInt64 | int, /
+    ) -> tuple[UInt64, UInt64]:
+        """
+        round X and status Y of the first change of app A's params (programs, schemas and global state) between rounds B and C
+        POST /v2/query only (non-standard fork feature), on a node that keeps history; simulate and blocks refuse a program with it. Its last two args are the range's ends, from and to, inclusive: it searches oldest first when from <= to, else newest first. Status: 0 no change, 1 created, 2 changed, 3 deleted. Costs 20 more for each version it examined. Fails if from or to is after the query round or before the history's first round.
+        Min AVM version: 13
+
+        Native TEAL opcode: [`tt_app_change`](https://github.com/d13co/dt-algorand/blob/dtalgorand/ledger/timetravel/README.md#when-state-changed)
+        """
+
+    @staticmethod
+    def box_change(
+        a: Application | UInt64 | int, b: BytesBacked | bytes, c: UInt64 | int, d: UInt64 | int, /
+    ) -> tuple[UInt64, UInt64]:
+        """
+        round X and status Y of the first change of box B of app A between rounds C and D
+        POST /v2/query only (non-standard fork feature), on a node that keeps history; simulate and blocks refuse a program with it. Its last two args are the range's ends, from and to, inclusive: it searches oldest first when from <= to, else newest first. Status: 0 no change, 1 created, 2 changed, 3 deleted. Costs 20 more for each version it examined. Fails if from or to is after the query round or before the history's first round. The box's contents are not returned: seek to X and read them.
+        Min AVM version: 13
+
+        Native TEAL opcode: [`tt_box_change`](https://github.com/d13co/dt-algorand/blob/dtalgorand/ledger/timetravel/README.md#when-state-changed)
+        """
+
+    @staticmethod
+    def global_key_change_bytes(
+        a: Application | UInt64 | int, b: BytesBacked | bytes, c: UInt64 | int, d: UInt64 | int, /
+    ) -> tuple[UInt64, UInt64, Bytes]:
+        """
+        round X and status Y of the first change of key B of app A's global state between rounds C and D, and Z its new value (0 if deleted or unchanged)
+        POST /v2/query only (non-standard fork feature), on a node that keeps history; simulate and blocks refuse a program with it. Its last two args are the range's ends, from and to, inclusive: it searches oldest first when from <= to, else newest first. Status: 0 no change, 1 created, 2 changed, 3 deleted. Costs 20 more for each version it examined. Fails if from or to is after the query round or before the history's first round. A search reads at most max-scan-step-bytes of history: then status is 4, and X the round to resume from, as from. The searches of a call read at most max-call-scan-bytes in all; a search once they are spent fails the call.
+        Min AVM version: 13
+
+        Native TEAL opcode: [`tt_global_key_change`](https://github.com/d13co/dt-algorand/blob/dtalgorand/ledger/timetravel/README.md#when-state-changed)
+        """
+
+    @staticmethod
+    def global_key_change_uint64(
+        a: Application | UInt64 | int, b: BytesBacked | bytes, c: UInt64 | int, d: UInt64 | int, /
+    ) -> tuple[UInt64, UInt64, UInt64]:
+        """
+        round X and status Y of the first change of key B of app A's global state between rounds C and D, and Z its new value (0 if deleted or unchanged)
+        POST /v2/query only (non-standard fork feature), on a node that keeps history; simulate and blocks refuse a program with it. Its last two args are the range's ends, from and to, inclusive: it searches oldest first when from <= to, else newest first. Status: 0 no change, 1 created, 2 changed, 3 deleted. Costs 20 more for each version it examined. Fails if from or to is after the query round or before the history's first round. A search reads at most max-scan-step-bytes of history: then status is 4, and X the round to resume from, as from. The searches of a call read at most max-call-scan-bytes in all; a search once they are spent fails the call.
+        Min AVM version: 13
+
+        Native TEAL opcode: [`tt_global_key_change`](https://github.com/d13co/dt-algorand/blob/dtalgorand/ledger/timetravel/README.md#when-state-changed)
+        """
+
+    @staticmethod
+    def local_key_change_bytes(
+        a: Account,
+        b: Application | UInt64 | int,
+        c: BytesBacked | bytes,
+        d: UInt64 | int,
+        e: UInt64 | int,
+        /,
+    ) -> tuple[UInt64, UInt64, Bytes]:
+        """
+        round X and status Y of the first change of key C of account A's local state of app B between rounds D and E, and Z its new value (0 if deleted or unchanged)
+        POST /v2/query only (non-standard fork feature), on a node that keeps history; simulate and blocks refuse a program with it. Its last two args are the range's ends, from and to, inclusive: it searches oldest first when from <= to, else newest first. Status: 0 no change, 1 created, 2 changed, 3 deleted. Costs 20 more for each version it examined. Fails if from or to is after the query round or before the history's first round. A search reads at most max-scan-step-bytes of history: then status is 4, and X the round to resume from, as from. The searches of a call read at most max-call-scan-bytes in all; a search once they are spent fails the call.
+        Min AVM version: 13
+
+        Native TEAL opcode: [`tt_local_key_change`](https://github.com/d13co/dt-algorand/blob/dtalgorand/ledger/timetravel/README.md#when-state-changed)
+        """
+
+    @staticmethod
+    def local_key_change_uint64(
+        a: Account,
+        b: Application | UInt64 | int,
+        c: BytesBacked | bytes,
+        d: UInt64 | int,
+        e: UInt64 | int,
+        /,
+    ) -> tuple[UInt64, UInt64, UInt64]:
+        """
+        round X and status Y of the first change of key C of account A's local state of app B between rounds D and E, and Z its new value (0 if deleted or unchanged)
+        POST /v2/query only (non-standard fork feature), on a node that keeps history; simulate and blocks refuse a program with it. Its last two args are the range's ends, from and to, inclusive: it searches oldest first when from <= to, else newest first. Status: 0 no change, 1 created, 2 changed, 3 deleted. Costs 20 more for each version it examined. Fails if from or to is after the query round or before the history's first round. A search reads at most max-scan-step-bytes of history: then status is 4, and X the round to resume from, as from. The searches of a call read at most max-call-scan-bytes in all; a search once they are spent fails the call.
+        Min AVM version: 13
+
+        Native TEAL opcode: [`tt_local_key_change`](https://github.com/d13co/dt-algorand/blob/dtalgorand/ledger/timetravel/README.md#when-state-changed)
+        """
+
+    @staticmethod
+    def box_prefix_change(
+        a: Application | UInt64 | int, b: BytesBacked | bytes, c: UInt64 | int, d: UInt64 | int, /
+    ) -> tuple[UInt64, UInt64, Bytes]:
+        """
+        round X and status Y of the first change of a box of app A whose name starts with B between rounds C and D, and Z its name: of the boxes that changed in round X, the first by name
+        POST /v2/query only (non-standard fork feature), on a node that keeps history; simulate and blocks refuse a program with it. Its last two args are the range's ends, from and to, inclusive: it searches oldest first when from <= to, else newest first. Status: 0 no change, 1 created, 2 changed, 3 deleted. Costs 20 more for each version it examined. Fails if from or to is after the query round or before the history's first round. A search reads at most max-scan-step-bytes of history: then status is 4, and X the round to resume from, as from. The searches of a call read at most max-call-scan-bytes in all; a search once they are spent fails the call. The box index must reach the rounds searched.
+        Min AVM version: 13
+
+        Native TEAL opcode: [`tt_box_prefix_change`](https://github.com/d13co/dt-algorand/blob/dtalgorand/ledger/timetravel/README.md#when-state-changed)
+        """
+
 class Txn:
     """
     Get values for the current executing transaction

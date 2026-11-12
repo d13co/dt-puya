@@ -2650,6 +2650,117 @@ NAMESPACE_CLASSES: typing.Final[
             ],
         ),
     ),
+    TimeTravel=dict(
+        seek=FunctionOpMapping(
+            op_code="tt_seek",
+            args=[(pytypes.UInt64Type,)],
+        ),
+        acct_change=FunctionOpMapping(
+            op_code="tt_acct_change",
+            result=[pytypes.UInt64Type, pytypes.UInt64Type],
+            args=[(pytypes.AccountType,), (pytypes.UInt64Type,), (pytypes.UInt64Type,)],
+        ),
+        holding_change=FunctionOpMapping(
+            op_code="tt_holding_change",
+            result=[pytypes.UInt64Type, pytypes.UInt64Type],
+            args=[
+                (pytypes.AccountType,),
+                (pytypes.AssetType, pytypes.UInt64Type),
+                (pytypes.UInt64Type,),
+                (pytypes.UInt64Type,),
+            ],
+        ),
+        local_change=FunctionOpMapping(
+            op_code="tt_local_change",
+            result=[pytypes.UInt64Type, pytypes.UInt64Type],
+            args=[
+                (pytypes.AccountType,),
+                (pytypes.ApplicationType, pytypes.UInt64Type),
+                (pytypes.UInt64Type,),
+                (pytypes.UInt64Type,),
+            ],
+        ),
+        asset_change=FunctionOpMapping(
+            op_code="tt_asset_change",
+            result=[pytypes.UInt64Type, pytypes.UInt64Type],
+            args=[
+                (pytypes.AssetType, pytypes.UInt64Type),
+                (pytypes.UInt64Type,),
+                (pytypes.UInt64Type,),
+            ],
+        ),
+        app_change=FunctionOpMapping(
+            op_code="tt_app_change",
+            result=[pytypes.UInt64Type, pytypes.UInt64Type],
+            args=[
+                (pytypes.ApplicationType, pytypes.UInt64Type),
+                (pytypes.UInt64Type,),
+                (pytypes.UInt64Type,),
+            ],
+        ),
+        box_change=FunctionOpMapping(
+            op_code="tt_box_change",
+            result=[pytypes.UInt64Type, pytypes.UInt64Type],
+            args=[
+                (pytypes.ApplicationType, pytypes.UInt64Type),
+                (pytypes.BytesType, pytypes.BytesBackedType),
+                (pytypes.UInt64Type,),
+                (pytypes.UInt64Type,),
+            ],
+        ),
+        global_key_change_bytes=FunctionOpMapping(
+            op_code="tt_global_key_change",
+            result=[pytypes.UInt64Type, pytypes.UInt64Type, pytypes.BytesType],
+            args=[
+                (pytypes.ApplicationType, pytypes.UInt64Type),
+                (pytypes.BytesType, pytypes.BytesBackedType),
+                (pytypes.UInt64Type,),
+                (pytypes.UInt64Type,),
+            ],
+        ),
+        global_key_change_uint64=FunctionOpMapping(
+            op_code="tt_global_key_change",
+            result=[pytypes.UInt64Type, pytypes.UInt64Type, pytypes.UInt64Type],
+            args=[
+                (pytypes.ApplicationType, pytypes.UInt64Type),
+                (pytypes.BytesType, pytypes.BytesBackedType),
+                (pytypes.UInt64Type,),
+                (pytypes.UInt64Type,),
+            ],
+        ),
+        local_key_change_bytes=FunctionOpMapping(
+            op_code="tt_local_key_change",
+            result=[pytypes.UInt64Type, pytypes.UInt64Type, pytypes.BytesType],
+            args=[
+                (pytypes.AccountType,),
+                (pytypes.ApplicationType, pytypes.UInt64Type),
+                (pytypes.BytesType, pytypes.BytesBackedType),
+                (pytypes.UInt64Type,),
+                (pytypes.UInt64Type,),
+            ],
+        ),
+        local_key_change_uint64=FunctionOpMapping(
+            op_code="tt_local_key_change",
+            result=[pytypes.UInt64Type, pytypes.UInt64Type, pytypes.UInt64Type],
+            args=[
+                (pytypes.AccountType,),
+                (pytypes.ApplicationType, pytypes.UInt64Type),
+                (pytypes.BytesType, pytypes.BytesBackedType),
+                (pytypes.UInt64Type,),
+                (pytypes.UInt64Type,),
+            ],
+        ),
+        box_prefix_change=FunctionOpMapping(
+            op_code="tt_box_prefix_change",
+            result=[pytypes.UInt64Type, pytypes.UInt64Type, pytypes.BytesType],
+            args=[
+                (pytypes.ApplicationType, pytypes.UInt64Type),
+                (pytypes.BytesType, pytypes.BytesBackedType),
+                (pytypes.UInt64Type,),
+                (pytypes.UInt64Type,),
+            ],
+        ),
+    ),
     Txn=dict(
         sender=PropertyOpMapping(
             "txn",
