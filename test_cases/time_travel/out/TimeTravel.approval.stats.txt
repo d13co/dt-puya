@@ -1,0 +1,10 @@
+total_bytes = 738
+total_ops = 458
+constant_bytes = 204
+constant_ops = 90
+control_flow_bytes = 31
+control_flow_ops = 3
+stack_bytes = 163
+stack_ops = 108
+other_bytes = 339
+other_ops = 257
