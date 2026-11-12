@@ -1,10 +1,11 @@
 # dt-puya: differences from puya
 
-`dt-puya` is [puya](https://github.com/algorandfoundation/puya), the Algorand Python compiler (`puyapy`) and the compiler backend shared with Algorand TypeScript (`puya`), for [dt-algorand](https://github.com/d13co/dt-algorand/tree/dtalgorand), the time-travel fork of go-algorand, released on GitHub with the binaries [dt-puya-ts](https://github.com/d13co/dt-puya-ts) downloads. Everything else is upstream's: code that compiles with puya compiles with dt-puya to the same output.
+`dt-puya` is [puya](https://github.com/algorandfoundation/puya), the Algorand Python compiler (`puyapy`) and the compiler backend shared with Algorand TypeScript (`puya`), for [dt-algorand](https://github.com/d13co/dt-algorand/tree/dtalgorand), the time-travel fork of go-algorand: it compiles dt-algorand's time-travel ops, which programs run through the node's `POST /v2/query`. It is released on GitHub with the binaries [dt-puya-ts](https://github.com/d13co/dt-puya-ts) downloads. Everything else is upstream's: code that compiles with puya, and so uses no time-travel op, compiles with dt-puya to the same output.
 
 It is built on puya 5.10.1. Source and issues: [d13co/dt-puya](https://github.com/d13co/dt-puya) (branch `dtalgorand`).
 
 - [Changes](#changes)
+- [Time-travel ops](#time-travel-ops)
 - [Installing](#installing)
 - [Versions](#versions)
 - [Releasing dt-puya](#releasing-dt-puya)
@@ -13,8 +14,43 @@ It is built on puya 5.10.1. Source and issues: [d13co/dt-puya](https://github.co
 
 | Area                | puya                    | dt-puya                                                         |
 | ------------------- | ----------------------- | --------------------------------------------------------------- |
+| Time-travel ops     | none                    | `algopy.op.TimeTravel`, see [Time-travel ops](#time-travel-ops) |
 | `puya --version`    | `puya 5.10.1`           | `puya <version>`, with the `-dt.<x.y.z>` form of the version    |
 | Releases            | PyPI and GitHub, signed | GitHub only, unsigned, with a SHA-256 checksum for each binary |
+
+## Time-travel ops
+
+dt-algorand's `POST /v2/query` runs read-only calls of a program or app at past rounds. It also runs ten ops that aren't part of the chain's AVM (prefix byte `0xff`, AVM 13, app mode only): `tt_seek` moves a program's reads to a past round, and the `tt_*_change` lookups find when state changed. Simulate and blocks refuse a program that uses them, so a contract that uses them is for queries only. dt-puya has them as `algopy.op.TimeTravel`:
+
+| Method                                                                      | Op                     | Returns                                                                 |
+| --------------------------------------------------------------------------- | ---------------------- | ----------------------------------------------------------------------- |
+| `seek(round)`                                                               | `tt_seek`              | nothing: reads after it see the state at the end of `round`             |
+| `acct_change(account, from, to)`                                            | `tt_acct_change`       | `(round, status)` of the first change of the account's base record      |
+| `holding_change(account, asset, from, to)`                                  | `tt_holding_change`    | `(round, status)` of an asset holding                                   |
+| `local_change(account, app, from, to)`                                      | `tt_local_change`      | `(round, status)` of an app's local state                               |
+| `asset_change(asset, from, to)`                                             | `tt_asset_change`      | `(round, status)` of an asset's params                                  |
+| `app_change(app, from, to)`                                                 | `tt_app_change`        | `(round, status)` of an app's params                                    |
+| `box_change(app, name, from, to)`                                           | `tt_box_change`        | `(round, status)` of a box                                              |
+| `global_key_change_bytes` / `_uint64(app, key, from, to)`                   | `tt_global_key_change` | `(round, status, value)` of a global state key                          |
+| `local_key_change_bytes` / `_uint64(account, app, key, from, to)`           | `tt_local_key_change`  | `(round, status, value)` of a local state key                           |
+| `box_prefix_change(app, prefix, from, to)`                                  | `tt_box_prefix_change` | `(round, status, name)` of the first box under a name prefix to change  |
+
+The lookups search the rounds from `from` to `to`, both included: oldest first when `from <= to`, newest first otherwise. The status is 0 for no change, 1 created, 2 changed, 3 deleted. The stubs' docstrings have each op's cost and failure cases, and [dt-algorand's time-travel docs](https://github.com/d13co/dt-algorand/blob/dtalgorand/ledger/timetravel/README.md) the details.
+
+```python
+from algopy import ARC4Contract, Global, UInt64, arc4, op
+
+
+class History(ARC4Contract, avm_version=13):
+    @arc4.abimethod(readonly=True)
+    def round_at(self, rnd: UInt64) -> UInt64:
+        op.TimeTravel.seek(rnd)
+        return Global.round
+```
+
+After a seek, a program reads the state of the round it sought: global, local and box state, `Global.round` and `Global.latest_timestamp`, and blocks and `FirstValidTime` may read a different round. In a program that seeks, the optimizer doesn't reuse a state or box read, a block read, or what it knew about a box's existence across a seek, and doesn't combine a box read before a seek with a box write after it. A program without `tt_seek` compiles as before.
+
+The ops come from `langspec.timetravel.json`, which `poe gen_lang_spec` adds to the language spec; CONTRIBUTING.md has how to regenerate it from dt-algorand. `algorand-python-testing` doesn't know them; test contracts that use them with a query on a dt-algorand node.
 
 ## Installing
 
