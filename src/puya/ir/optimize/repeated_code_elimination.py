@@ -5,10 +5,10 @@ import attrs
 import networkx as nx  # type: ignore[import-untyped]
 
 from puya import log
-from puya.context import CompileContext
 from puya.errors import InternalError
 from puya.ir import models
 from puya.ir.optimize.assignments import copy_propagation
+from puya.ir.optimize.context import IROptimizationContext
 from puya.ir.optimize.dead_code_elimination import PURE_AVM_OPS
 from puya.ir.visitor import NoOpIRVisitor
 
@@ -16,11 +16,17 @@ logger = log.get_logger(__name__)
 
 
 def repeated_expression_elimination(
-    context: CompileContext, subroutine: models.Subroutine
+    context: IROptimizationContext, subroutine: models.Subroutine
 ) -> bool:
     start, dom_tree = compute_dominator_tree(subroutine)
     modified = False
-    while _recursive_rce(dom_tree, start, const_intrinsics={}, asserted=set()):
+    while _recursive_rce(
+        dom_tree,
+        start,
+        const_intrinsics={},
+        asserted=set(),
+        time_travel=context.time_travel,
+    ):
         modified = True
         copy_propagation(context, subroutine)
     return modified
@@ -32,18 +38,24 @@ def _recursive_rce(
     *,
     const_intrinsics: Mapping[object, Sequence[models.Register]],
     asserted: Set[models.Value],
+    time_travel: bool,
 ) -> bool:
     visitor = RCEVisitor(
         block=block,
         const_intrinsics=dict(const_intrinsics),
         asserted=set(asserted),
+        time_travel=time_travel,
     )
     for op in block.ops.copy():
         op.accept(visitor)
     modified = visitor.modified
     for child in dom_tree.get(block, []):
         modified |= _recursive_rce(
-            dom_tree, child, const_intrinsics=visitor.const_intrinsics, asserted=visitor.asserted
+            dom_tree,
+            child,
+            const_intrinsics=visitor.const_intrinsics,
+            asserted=visitor.asserted,
+            time_travel=time_travel,
         )
     return modified
 
@@ -81,6 +93,9 @@ class RCEVisitor(NoOpIRVisitor[None]):
     block: models.BasicBlock
     const_intrinsics: dict[object, Sequence[models.Register]]
     asserted: set[models.Value]
+    time_travel: bool = False
+    """the program seeks, which moves the rounds `block` and `FirstValidTime` may read
+    (see _time_travel.py)"""
     modified: bool = False
 
     _assignment: models.Assignment | None = None
@@ -95,7 +110,15 @@ class RCEVisitor(NoOpIRVisitor[None]):
     def visit_intrinsic_op(self, intrinsic: models.Intrinsic) -> None:
         # only consider ops with stack args because they're much more likely to
         # produce extra stack manipulations
-        if self._assignment is not None and intrinsic.args and intrinsic.op.code in PURE_AVM_OPS:
+        if (
+            self._assignment is not None
+            and intrinsic.args
+            and intrinsic.op.code in PURE_AVM_OPS
+            and not (
+                self.time_travel
+                and (intrinsic.op.code == "block" or "FirstValidTime" in intrinsic.immediates)
+            )
+        ):
             # can't use .freeze() as we want to exclude error_message for the key,
             # and evolving the intrinsic to remove the message is slow
             key = (

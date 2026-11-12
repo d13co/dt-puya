@@ -73,6 +73,11 @@ def _remove_box_exists_asserts(block: models.BasicBlock) -> bool:
                     case AVMOp.box_del:
                         # conservative assume could be deleting any box
                         box_exists.clear()
+                    case AVMOp.tt_seek:
+                        # a box may not exist at the round sought, and an exists flag read
+                        # before the seek is of the round left (see _time_travel.py)
+                        box_exists.clear()
+                        box_exists_regs.clear()
                     case AVMOp.box_get | AVMOp.box_len:
                         if targets is not None:
                             (box_key,) = source.args

@@ -22,6 +22,8 @@ from tests.utils.compile import compile_from_test_case
 def test_assemble_matches_algod(
     algod_client: au.AlgodClient, test_case: PuyaTestCase, optimization_level: int
 ) -> None:
+    if test_case.name == "time_travel" and not _algod_has_time_travel(algod_client):
+        pytest.skip("the time-travel ops need a dt-algorand algod")
     compile_result = compile_from_test_case(
         test_case, optimization_level=optimization_level, debug_level=0, output_bytecode=True
     )
@@ -39,6 +41,24 @@ def test_assemble_matches_algod(
                 assemble_and_compare_program(
                     algod_client, logic_sig, template_vars, f"{artifact.metadata.ref}-logicsig"
                 )
+
+
+_time_travel_algods = list[tuple[au.AlgodClient, bool]]()
+
+
+def _algod_has_time_travel(algod_client: au.AlgodClient) -> bool:
+    """Whether algod assembles dt-algorand's time-travel ops, which a stock algod lacks."""
+    for client, has_time_travel in _time_travel_algods:
+        if client is algod_client:
+            return has_time_travel
+    try:
+        algod_client.teal_compile(b"#pragma version 13\nint 1\ntt_seek\nint 1")
+    except Exception:
+        has_time_travel = False
+    else:
+        has_time_travel = True
+    _time_travel_algods.append((algod_client, has_time_travel))
+    return has_time_travel
 
 
 def assemble_and_compare_program(
