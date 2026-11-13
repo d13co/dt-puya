@@ -6475,6 +6475,311 @@ class AVMOp(enum.StrEnum):
     sumhash512 of value A, yields [64]byte
     """
 
+    tt_acct_change = AVMOpData(
+        op_code="tt_acct_change",
+        variants=Variant(
+            signature=OpSignature(
+                args=[PrimitiveIRType.account, PrimitiveIRType.uint64, PrimitiveIRType.uint64],
+                returns=[PrimitiveIRType.uint64, PrimitiveIRType.uint64],
+            ),
+            enum=None,
+            supported_modes=RunMode.app,
+            min_avm_version=13,
+        ),
+        immediate_types=(),
+        cost=420,
+        min_avm_version=13,
+        supported_modes=RunMode.app,
+    )
+    """
+    round X and status Y of the first change of account A's base record (balance, status, keys and
+    totals, not its holdings, local states or params) between rounds B and C
+
+    POST /v2/query only (non-standard fork feature), on a node that keeps history; simulate and
+    blocks refuse a program with it. Its last two args are the range's ends, from and to,
+    inclusive: it searches oldest first when from <= to, else newest first. Status: 0 no change, 1
+    created, 2 changed, 3 deleted. Costs 20 more for each version it examined. Fails if from or to
+    is after the query round or before the history's first round.
+    """
+
+    tt_app_change = AVMOpData(
+        op_code="tt_app_change",
+        variants=Variant(
+            signature=OpSignature(
+                args=[PrimitiveIRType.uint64, PrimitiveIRType.uint64, PrimitiveIRType.uint64],
+                returns=[PrimitiveIRType.uint64, PrimitiveIRType.uint64],
+            ),
+            enum=None,
+            supported_modes=RunMode.app,
+            min_avm_version=13,
+        ),
+        immediate_types=(),
+        cost=420,
+        min_avm_version=13,
+        supported_modes=RunMode.app,
+    )
+    """
+    round X and status Y of the first change of app A's params (programs, schemas and global state)
+    between rounds B and C
+
+    POST /v2/query only (non-standard fork feature), on a node that keeps history; simulate and
+    blocks refuse a program with it. Its last two args are the range's ends, from and to,
+    inclusive: it searches oldest first when from <= to, else newest first. Status: 0 no change, 1
+    created, 2 changed, 3 deleted. Costs 20 more for each version it examined. Fails if from or to
+    is after the query round or before the history's first round.
+    """
+
+    tt_asset_change = AVMOpData(
+        op_code="tt_asset_change",
+        variants=Variant(
+            signature=OpSignature(
+                args=[PrimitiveIRType.uint64, PrimitiveIRType.uint64, PrimitiveIRType.uint64],
+                returns=[PrimitiveIRType.uint64, PrimitiveIRType.uint64],
+            ),
+            enum=None,
+            supported_modes=RunMode.app,
+            min_avm_version=13,
+        ),
+        immediate_types=(),
+        cost=420,
+        min_avm_version=13,
+        supported_modes=RunMode.app,
+    )
+    """
+    round X and status Y of the first change of asset A's params between rounds B and C
+
+    POST /v2/query only (non-standard fork feature), on a node that keeps history; simulate and
+    blocks refuse a program with it. Its last two args are the range's ends, from and to,
+    inclusive: it searches oldest first when from <= to, else newest first. Status: 0 no change, 1
+    created, 2 changed, 3 deleted. Costs 20 more for each version it examined. Fails if from or to
+    is after the query round or before the history's first round.
+    """
+
+    tt_box_change = AVMOpData(
+        op_code="tt_box_change",
+        variants=Variant(
+            signature=OpSignature(
+                args=[
+                    PrimitiveIRType.uint64,
+                    PrimitiveIRType.box_key,
+                    PrimitiveIRType.uint64,
+                    PrimitiveIRType.uint64,
+                ],
+                returns=[PrimitiveIRType.uint64, PrimitiveIRType.uint64],
+            ),
+            enum=None,
+            supported_modes=RunMode.app,
+            min_avm_version=13,
+        ),
+        immediate_types=(),
+        cost=420,
+        min_avm_version=13,
+        supported_modes=RunMode.app,
+    )
+    """
+    round X and status Y of the first change of box B of app A between rounds C and D
+
+    POST /v2/query only (non-standard fork feature), on a node that keeps history; simulate and
+    blocks refuse a program with it. Its last two args are the range's ends, from and to,
+    inclusive: it searches oldest first when from <= to, else newest first. Status: 0 no change, 1
+    created, 2 changed, 3 deleted. Costs 20 more for each version it examined. Fails if from or to
+    is after the query round or before the history's first round. The box's contents are not
+    returned: seek to X and read them.
+    """
+
+    tt_box_prefix_change = AVMOpData(
+        op_code="tt_box_prefix_change",
+        variants=Variant(
+            signature=OpSignature(
+                args=[
+                    PrimitiveIRType.uint64,
+                    PrimitiveIRType.bytes,
+                    PrimitiveIRType.uint64,
+                    PrimitiveIRType.uint64,
+                ],
+                returns=[PrimitiveIRType.uint64, PrimitiveIRType.uint64, PrimitiveIRType.bytes],
+            ),
+            enum=None,
+            supported_modes=RunMode.app,
+            min_avm_version=13,
+        ),
+        immediate_types=(),
+        cost=420,
+        min_avm_version=13,
+        supported_modes=RunMode.app,
+    )
+    """
+    round X and status Y of the first change of a box of app A whose name starts with B between
+    rounds C and D, and Z its name: of the boxes that changed in round X, the first by name
+
+    POST /v2/query only (non-standard fork feature), on a node that keeps history; simulate and
+    blocks refuse a program with it. Its last two args are the range's ends, from and to,
+    inclusive: it searches oldest first when from <= to, else newest first. Status: 0 no change, 1
+    created, 2 changed, 3 deleted. Costs 20 more for each version it examined. Fails if from or to
+    is after the query round or before the history's first round. A search reads at most max-scan-
+    step-bytes of history: then status is 4, and X the round to resume from, as from. The searches
+    of a call read at most max-call-scan-bytes in all; a search once they are spent fails the call.
+    The box index must reach the rounds searched.
+    """
+
+    tt_global_key_change = AVMOpData(
+        op_code="tt_global_key_change",
+        variants=Variant(
+            signature=OpSignature(
+                args=[
+                    PrimitiveIRType.uint64,
+                    PrimitiveIRType.state_key,
+                    PrimitiveIRType.uint64,
+                    PrimitiveIRType.uint64,
+                ],
+                returns=[PrimitiveIRType.uint64, PrimitiveIRType.uint64, PrimitiveIRType.any],
+            ),
+            enum=None,
+            supported_modes=RunMode.app,
+            min_avm_version=13,
+        ),
+        immediate_types=(),
+        cost=420,
+        min_avm_version=13,
+        supported_modes=RunMode.app,
+    )
+    """
+    round X and status Y of the first change of key B of app A's global state between rounds C and
+    D, and Z its new value (0 if deleted or unchanged)
+
+    POST /v2/query only (non-standard fork feature), on a node that keeps history; simulate and
+    blocks refuse a program with it. Its last two args are the range's ends, from and to,
+    inclusive: it searches oldest first when from <= to, else newest first. Status: 0 no change, 1
+    created, 2 changed, 3 deleted. Costs 20 more for each version it examined. Fails if from or to
+    is after the query round or before the history's first round. A search reads at most max-scan-
+    step-bytes of history: then status is 4, and X the round to resume from, as from. The searches
+    of a call read at most max-call-scan-bytes in all; a search once they are spent fails the call.
+    """
+
+    tt_holding_change = AVMOpData(
+        op_code="tt_holding_change",
+        variants=Variant(
+            signature=OpSignature(
+                args=[
+                    PrimitiveIRType.account,
+                    PrimitiveIRType.uint64,
+                    PrimitiveIRType.uint64,
+                    PrimitiveIRType.uint64,
+                ],
+                returns=[PrimitiveIRType.uint64, PrimitiveIRType.uint64],
+            ),
+            enum=None,
+            supported_modes=RunMode.app,
+            min_avm_version=13,
+        ),
+        immediate_types=(),
+        cost=420,
+        min_avm_version=13,
+        supported_modes=RunMode.app,
+    )
+    """
+    round X and status Y of the first change of account A's holding of asset B between rounds C and
+    D
+
+    POST /v2/query only (non-standard fork feature), on a node that keeps history; simulate and
+    blocks refuse a program with it. Its last two args are the range's ends, from and to,
+    inclusive: it searches oldest first when from <= to, else newest first. Status: 0 no change, 1
+    created, 2 changed, 3 deleted. Costs 20 more for each version it examined. Fails if from or to
+    is after the query round or before the history's first round.
+    """
+
+    tt_local_change = AVMOpData(
+        op_code="tt_local_change",
+        variants=Variant(
+            signature=OpSignature(
+                args=[
+                    PrimitiveIRType.account,
+                    PrimitiveIRType.uint64,
+                    PrimitiveIRType.uint64,
+                    PrimitiveIRType.uint64,
+                ],
+                returns=[PrimitiveIRType.uint64, PrimitiveIRType.uint64],
+            ),
+            enum=None,
+            supported_modes=RunMode.app,
+            min_avm_version=13,
+        ),
+        immediate_types=(),
+        cost=420,
+        min_avm_version=13,
+        supported_modes=RunMode.app,
+    )
+    """
+    round X and status Y of the first change of account A's local state of app B between rounds C
+    and D
+
+    POST /v2/query only (non-standard fork feature), on a node that keeps history; simulate and
+    blocks refuse a program with it. Its last two args are the range's ends, from and to,
+    inclusive: it searches oldest first when from <= to, else newest first. Status: 0 no change, 1
+    created, 2 changed, 3 deleted. Costs 20 more for each version it examined. Fails if from or to
+    is after the query round or before the history's first round.
+    """
+
+    tt_local_key_change = AVMOpData(
+        op_code="tt_local_key_change",
+        variants=Variant(
+            signature=OpSignature(
+                args=[
+                    PrimitiveIRType.account,
+                    PrimitiveIRType.uint64,
+                    PrimitiveIRType.state_key,
+                    PrimitiveIRType.uint64,
+                    PrimitiveIRType.uint64,
+                ],
+                returns=[PrimitiveIRType.uint64, PrimitiveIRType.uint64, PrimitiveIRType.any],
+            ),
+            enum=None,
+            supported_modes=RunMode.app,
+            min_avm_version=13,
+        ),
+        immediate_types=(),
+        cost=420,
+        min_avm_version=13,
+        supported_modes=RunMode.app,
+    )
+    """
+    round X and status Y of the first change of key C of account A's local state of app B between
+    rounds D and E, and Z its new value (0 if deleted or unchanged)
+
+    POST /v2/query only (non-standard fork feature), on a node that keeps history; simulate and
+    blocks refuse a program with it. Its last two args are the range's ends, from and to,
+    inclusive: it searches oldest first when from <= to, else newest first. Status: 0 no change, 1
+    created, 2 changed, 3 deleted. Costs 20 more for each version it examined. Fails if from or to
+    is after the query round or before the history's first round. A search reads at most max-scan-
+    step-bytes of history: then status is 4, and X the round to resume from, as from. The searches
+    of a call read at most max-call-scan-bytes in all; a search once they are spent fails the call.
+    """
+
+    tt_seek = AVMOpData(
+        op_code="tt_seek",
+        variants=Variant(
+            signature=OpSignature(args=[PrimitiveIRType.uint64], returns=[]),
+            enum=None,
+            supported_modes=RunMode.app,
+            min_avm_version=13,
+        ),
+        immediate_types=(),
+        cost=70,
+        min_avm_version=13,
+        supported_modes=RunMode.app,
+    )
+    """
+    move the program's reads to the state round A left, as if it ran in the block after A. A the
+    round the program started at returns to its own state
+
+    POST /v2/query only (non-standard fork feature); simulate and blocks refuse a program with it.
+    The txns of the program's group then read A+1 as their FirstValid and LastValid, as do the
+    inner txns it sends, and FirstValidTime the timestamp of A; an inner txn's FirstValidTime fails
+    once a later seek's block window lacks A. Costs 2200 more the first time the call reaches A.
+    Fails if A is after the query round, if the call reaches more than max-seek-rounds rounds, if
+    the node has no state of A, or between `itxn_begin` and `itxn_submit`.
+    """
+
     txn = AVMOpData(
         op_code="txn",
         variants=DynamicVariants(

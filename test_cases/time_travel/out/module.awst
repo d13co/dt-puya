@@ -1,0 +1,205 @@
+contract TimeTravel
+{
+  method_resolution_order: (
+    algopy.arc4.ARC4Contract,
+    algopy._contract.Contract,
+  )
+  globals {
+    ['counter']: uint64
+  }
+  boxes {
+    [hex<"64617461">]: bytes
+    [hex<"6974656D73">]: arc4.dynamic_array<arc4.uint64>
+    [hex<"7074">]: test_cases.time_travel.contract.Point
+  }
+  
+  subroutine algopy.arc4.ARC4Contract.approval_program(): bool
+  {
+    if (!(txn<ApplicationID>())) {
+      this::__init__()
+    }
+    return arc4_router()
+  }
+  
+  subroutine algopy.arc4.ARC4Contract.clear_state_program(): bool
+  {
+    return true
+  }
+  
+  subroutine test_cases.time_travel.contract.TimeTravel.__init__(): void
+  {
+    GlobalState['counter']: uint64 = 0u
+  }
+  
+  abimethod test_cases.time_travel.contract.TimeTravel.round_at(rnd: uint64): uint64
+  {
+    tt_seek(rnd)
+    return global<Round>()
+  }
+  
+  abimethod test_cases.time_travel.contract.TimeTravel.round_before(rnd: uint64): uint64
+  {
+    before: uint64 = global<Round>()
+    tt_seek(rnd)
+    return before
+  }
+  
+  abimethod test_cases.time_travel.contract.TimeTravel.counter_then_and_now(rnd: uint64): tuple<uint64,uint64>
+  {
+    home: uint64 = global<Round>() - 1u
+    now: uint64 = GlobalState['counter']
+    tt_seek(rnd)
+    then: uint64 = GlobalState['counter']
+    tt_seek(home)
+    return (then, now)
+  }
+  
+  abimethod test_cases.time_travel.contract.TimeTravel.data_changed(rnd: uint64): bool
+  {
+    now: bytes = Box[hex<"64617461">]
+    tt_seek(rnd)
+    then: bytes = Box[hex<"64617461">]
+    return now[:8] != then[:8]
+  }
+  
+  abimethod test_cases.time_travel.contract.TimeTravel.first_item_changed(rnd: uint64): bool
+  {
+    now: arc4.dynamic_array<arc4.uint64> = Box[hex<"6974656D73">].copy()
+    test_cases.time_travel.contract.go_back(rnd)
+    then: arc4.dynamic_array<arc4.uint64> = Box[hex<"6974656D73">].copy()
+    return reinterpret_cast<biguint>(now[0u]) != reinterpret_cast<biguint>(then[0u])
+  }
+  
+  abimethod test_cases.time_travel.contract.TimeTravel.first_item_now(rnd: uint64): arc4.uint64
+  {
+    first: arc4.uint64 = Box[hex<"6974656D73">][0u]
+    tt_seek(rnd)
+    return first
+  }
+  
+  abimethod test_cases.time_travel.contract.TimeTravel.append_then_write_back(rnd: uint64, x: arc4.uint64): void
+  {
+    items: arc4.dynamic_array<arc4.uint64> = Box[hex<"6974656D73">].copy()
+    items.extend((x))
+    tt_seek(rnd)
+    Box[hex<"6974656D73">]: arc4.dynamic_array<arc4.uint64> = items.copy()
+  }
+  
+  abimethod test_cases.time_travel.contract.TimeTravel.set_then_write_back(rnd: uint64, x: arc4.uint64): void
+  {
+    point: test_cases.time_travel.contract.Point = Box[hex<"7074">].copy()
+    point.a: arc4.uint64 = x
+    tt_seek(rnd)
+    Box[hex<"7074">]: test_cases.time_travel.contract.Point = point.copy()
+  }
+  
+  abimethod test_cases.time_travel.contract.TimeTravel.timestamps(rnd: uint64, of: uint64): uint64
+  {
+    now: uint64 = block<BlkTimestamp>(of)
+    tt_seek(rnd)
+    then: uint64 = block<BlkTimestamp>(of)
+    return now + then
+  }
+  
+  abimethod test_cases.time_travel.contract.TimeTravel.data_existed(rnd: uint64): bytes
+  {
+    existed: bool = STATE_EXISTS(Box[hex<"64617461">])
+    tt_seek(rnd)
+    then: bytes = Box[hex<"64617461">]
+    assert(existed)
+    return then
+  }
+  
+  abimethod test_cases.time_travel.contract.TimeTravel.data_existed_before_call(rnd: uint64): bytes
+  {
+    existed: bool = STATE_EXISTS(Box[hex<"64617461">])
+    test_cases.time_travel.contract.go_back_not_inlined(rnd)
+    then: bytes = Box[hex<"64617461">]
+    assert(existed)
+    return then
+  }
+  
+  abimethod test_cases.time_travel.contract.TimeTravel.data_existed_before_delete(): bytes
+  {
+    existed: bool = STATE_EXISTS(Box[hex<"64617461">])
+    STATE_DELETE(Box[hex<"64617461">])
+    assert(existed)
+    return Box[hex<"64617461">]
+  }
+  
+  abimethod test_cases.time_travel.contract.TimeTravel.first_item_if(first: bool): arc4.uint64
+  {
+    items: arc4.dynamic_array<arc4.uint64> = Box[hex<"6974656D73">].copy()
+    if (first) {
+      return items[0u]
+    }
+    return items[1u]
+  }
+  
+  abimethod test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now(i: uint64, rnd: uint64): uint64
+  {
+    now: uint64 = gtxns<FirstValid>(group_transaction(index=i, type=any))
+    tt_seek(rnd)
+    then: uint64 = gtxns<FirstValid>(group_transaction(index=i, type=any))
+    return now + then
+  }
+  
+  abimethod test_cases.time_travel.contract.TimeTravel.data_exists_then(rnd: uint64): bool
+  {
+    assert(checked_maybe(box_len(hex<"64617461">)) != 0u)
+    tt_seek(rnd)
+    return STATE_EXISTS(Box[hex<"64617461">])
+  }
+  
+  abimethod test_cases.time_travel.contract.TimeTravel.changes(acct: account, asset: asset, app: application, from_: uint64, to: uint64): uint64
+  {
+    total: uint64 = 0u
+    (rnd, status): tuple<uint64,uint64> = tt_acct_change(acct, from_, to)
+    total += rnd + status
+    (rnd, status): tuple<uint64,uint64> = tt_holding_change(acct, asset, from_, to)
+    total += rnd + status
+    (rnd, status): tuple<uint64,uint64> = tt_local_change(acct, app, from_, to)
+    total += rnd + status
+    (rnd, status): tuple<uint64,uint64> = tt_asset_change(asset, from_, to)
+    total += rnd + status
+    (rnd, status): tuple<uint64,uint64> = tt_app_change(app, from_, to)
+    total += rnd + status
+    (rnd, status): tuple<uint64,uint64> = tt_box_change(app, hex<"64617461">, from_, to)
+    total += rnd + status
+    (rnd, status, value): tuple<uint64,uint64,uint64> = tt_global_key_change(app, hex<"636F756E746572">, from_, to)
+    total += rnd + status + value
+    (rnd, status, name): tuple<uint64,uint64,bytes> = tt_global_key_change(app, hex<"6E616D65">, from_, to)
+    total += rnd + status
+    if (status == SINGLE_EVAL(id=0, source=(1u, 2u))[0] or status == SINGLE_EVAL(id=0)[1]) {
+      total += len(name)
+    }
+    (rnd, status, value): tuple<uint64,uint64,uint64> = tt_local_key_change(acct, app, hex<"6E">, from_, to)
+    total += rnd + status + value
+    (rnd, status, name): tuple<uint64,uint64,bytes> = tt_local_key_change(acct, app, hex<"73">, from_, to)
+    total += rnd + status
+    if (status == SINGLE_EVAL(id=1, source=(1u, 2u))[0] or status == SINGLE_EVAL(id=1)[1]) {
+      total += len(name)
+    }
+    (rnd, status, name): tuple<uint64,uint64,bytes> = tt_box_prefix_change(app, hex<"6974">, from_, to)
+    total += rnd + status + len(name)
+    return total
+  }
+  
+  baremethod test_cases.time_travel.contract.TimeTravel.__algopy_default_create(): void
+  {
+  }
+  
+  subroutine algopy._contract.Contract.__init__(): void
+  {
+  }
+}
+
+subroutine go_back(rnd: uint64): void
+{
+  tt_seek(rnd)
+}
+
+subroutine go_back_not_inlined(rnd: uint64): void
+{
+  tt_seek(rnd)
+}

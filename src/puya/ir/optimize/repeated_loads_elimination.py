@@ -207,6 +207,12 @@ class _StateTrackingVisitor(NoOpIRVisitor[None]):
                 self._cache_box_len(key=key, length=len_)
             case AVMOp.box_del | AVMOp.box_splice | AVMOp.box_resize | AVMOp.box_replace:
                 self._invalidate(_StateType.box)
+            case AVMOp.tt_seek:
+                # reads after a seek are of another round, and writes before it stay on the round
+                # the program left, which it may seek back to (see _time_travel.py)
+                self._invalidate(_StateType.box)
+                self._invalidate(_StateType.app_global)
+                self._invalidate(_StateType.app_local)
 
     @typing.override
     def visit_invoke_subroutine(self, callsub: models.InvokeSubroutine) -> None:

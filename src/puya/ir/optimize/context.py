@@ -1,4 +1,4 @@
-from collections.abc import Mapping
+from collections.abc import Mapping, Set
 
 import attrs
 
@@ -15,3 +15,6 @@ class IROptimizationContext(ArtifactCompileContext):
     """src -> dst pairs that can/should be inlined"""
     constant_with_constant_args: dict[str, bool] = attrs.field(factory=dict)
     embedded_funcs: Mapping[PuyaLibIR, models.Subroutine]
+    seeking_subroutines: Set[str] = frozenset()
+    """ids of the subroutines that may run tt_seek, which moves the program's reads to a past
+    round (see _time_travel.py)"""

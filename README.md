@@ -1,9 +1,10 @@
 # dt-puya
 
-> This is `dt-puya`, a fork of [puya](https://github.com/algorandfoundation/puya) 5.10.1, the Algorand Python compiler and the compiler backend of Algorand TypeScript, for [dt-algorand](https://github.com/d13co/dt-algorand/tree/dtalgorand), the time-travel fork of go-algorand. Everything else is upstream's. The upstream README follows below.
+> This is `dt-puya`, a fork of [puya](https://github.com/algorandfoundation/puya) 5.10.1, the Algorand Python compiler and the compiler backend of Algorand TypeScript, for [dt-algorand](https://github.com/d13co/dt-algorand/tree/dtalgorand), the time-travel fork of go-algorand, with its time-travel ops. Everything else is upstream's. The upstream README follows below.
 
 ## dt-puya: the main changes
 
+- **Time-travel ops**: `algopy.op.TimeTravel` has dt-algorand's `tt_seek`, which moves a program's reads to a past round, and the `tt_*_change` lookups, which find when an account, holding, local state, asset, app, box, state key or box name prefix changed. Programs run them through dt-algorand's `POST /v2/query`. Where a program may seek, the optimizer keeps reads on their side of the seek.
 - **Releases on GitHub only**: each `v<version>` tag, such as [v5.10.1-dt.1.0.0](https://github.com/d13co/dt-puya/releases/tag/v5.10.1-dt.1.0.0), has the puya binaries that [dt-puya-ts](https://github.com/d13co/dt-puya-ts) downloads, and the `puyapy` and `algorand-python` wheels. Nothing is on PyPI.
 - **Versions**: `<puya version>-dt.<x.y.z>`, which `puya --version` prints.
 

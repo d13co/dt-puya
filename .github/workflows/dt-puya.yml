@@ -222,8 +222,18 @@ jobs:
 
       - name: Create GitHub release
         run: |
+          # A rerun, after a release whose upload failed, uploads the files it lacks. It never
+          # replaces a file already published: a rebuilt binary differs from it byte for byte,
+          # and would change the checksum dt-puya-ts and users checked
           if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
-            echo "::notice::The $GITHUB_REF_NAME release already exists"
+            have=$(gh release view "$GITHUB_REF_NAME" --json assets --jq '.assets[].name' | sort)
+            missing=$(comm -23 <(cd bdist && ls | sort) <(echo "$have"))
+            if [ -z "$missing" ]; then
+              echo "::notice::The $GITHUB_REF_NAME release already has every file"
+            else
+              echo "::notice::The $GITHUB_REF_NAME release already exists, uploading the files it lacks:" $missing
+              (cd bdist && echo "$missing" | xargs gh release upload "$GITHUB_REF_NAME")
+            fi
             exit 0
           fi
           {
@@ -238,3 +248,10 @@ jobs:
           } > notes.md
           gh release create "$GITHUB_REF_NAME" bdist/* \
             --verify-tag --latest --title "dt-puya $RELEASE" --notes-file notes.md
+
+      - name: Check the release has every file
+        run: |
+          want=$(cd bdist && ls | sort)
+          have=$(gh release view "$GITHUB_REF_NAME" --json assets --jq '.assets[].name' | sort)
+          missing=$(comm -23 <(echo "$want") <(echo "$have"))
+          [ -z "$missing" ] || { echo "::error::The release lacks: $missing"; exit 1; }

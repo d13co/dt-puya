@@ -1,0 +1,451 @@
+main algopy.arc4.ARC4Contract.approval_program:
+    block@0: // L1
+        let tmp%0#0: bool = (txn ApplicationID)
+        goto tmp%0#0 ? block@2 : block@1
+    block@1: // call __init___L1
+        (app_global_put "counter" 0u)
+        goto block@2
+    block@2: // after_if_else_L1
+        let tmp%0#1: uint64 = (txn NumAppArgs)
+        goto tmp%0#1 ? block@4 : block@25
+    block@4: // abi_routing_L29
+        let tmp%2#0: uint64 = (txn OnCompletion)
+        let tmp%3#0: bool = (! tmp%2#0)
+        (assert tmp%3#0)
+        let tmp%4#0: uint64 = (txn ApplicationID)
+        (assert tmp%4#0)
+        let tmp%6#0: bytes = (txna ApplicationArgs 0)
+        switch tmp%6#0 {method "round_at(uint64)uint64" => block@6, method "round_before(uint64)uint64" => block@7, method "counter_then_and_now(uint64)(uint64,uint64)" => block@8, method "data_changed(uint64)bool" => block@9, method "first_item_changed(uint64)bool" => block@10, method "first_item_now(uint64)uint64" => block@11, method "append_then_write_back(uint64,uint64)void" => block@12, method "set_then_write_back(uint64,uint64)void" => block@13, method "timestamps(uint64,uint64)uint64" => block@14, method "data_existed(uint64)byte[]" => block@15, method "data_existed_before_call(uint64)byte[]" => block@16, method "data_existed_before_delete()byte[]" => block@17, method "first_item_if(bool)uint64" => block@18, method "first_valid_then_and_now(uint64,uint64)uint64" => block@19, method "data_exists_then(uint64)bool" => block@20, method "changes(address,uint64,uint64,uint64,uint64)uint64" => block@21, * => block@24}
+    block@6: // round_at_route_L36
+        test_cases.time_travel.contract.TimeTravel.round_at[routing]()
+        goto block@24
+    block@7: // round_before_route_L41
+        test_cases.time_travel.contract.TimeTravel.round_before[routing]()
+        goto block@24
+    block@8: // counter_then_and_now_route_L47
+        test_cases.time_travel.contract.TimeTravel.counter_then_and_now[routing]()
+        goto block@24
+    block@9: // data_changed_route_L56
+        test_cases.time_travel.contract.TimeTravel.data_changed[routing]()
+        goto block@24
+    block@10: // first_item_changed_route_L63
+        test_cases.time_travel.contract.TimeTravel.first_item_changed[routing]()
+        goto block@24
+    block@11: // first_item_now_route_L70
+        test_cases.time_travel.contract.TimeTravel.first_item_now[routing]()
+        goto block@24
+    block@12: // append_then_write_back_route_L76
+        test_cases.time_travel.contract.TimeTravel.append_then_write_back[routing]()
+        goto block@24
+    block@13: // set_then_write_back_route_L83
+        test_cases.time_travel.contract.TimeTravel.set_then_write_back[routing]()
+        goto block@24
+    block@14: // timestamps_route_L90
+        test_cases.time_travel.contract.TimeTravel.timestamps[routing]()
+        goto block@24
+    block@15: // data_existed_route_L97
+        test_cases.time_travel.contract.TimeTravel.data_existed[routing]()
+        goto block@24
+    block@16: // data_existed_before_call_route_L105
+        test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing]()
+        goto block@24
+    block@17: // data_existed_before_delete_route_L113
+        test_cases.time_travel.contract.TimeTravel.data_existed_before_delete[routing]()
+        goto block@24
+    block@18: // first_item_if_route_L120
+        test_cases.time_travel.contract.TimeTravel.first_item_if[routing]()
+        goto block@24
+    block@19: // first_valid_then_and_now_route_L128
+        test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]()
+        goto block@24
+    block@20: // data_exists_then_route_L135
+        test_cases.time_travel.contract.TimeTravel.data_exists_then[routing]()
+        goto block@24
+    block@21: // changes_route_L141
+        test_cases.time_travel.contract.TimeTravel.changes[routing]()
+        goto block@24
+    block@24: // after_if_else_L29
+        fail
+    block@25: // __algopy_default_create_L1
+        let tmp%7#0: uint64 = (txn OnCompletion)
+        let tmp%8#0: bool = (! tmp%7#0)
+        let tmp%9#0: uint64 = (txn ApplicationID)
+        let tmp%10#0: bool = (! tmp%9#0)
+        let tmp%11#0: bool = (&& tmp%8#0 tmp%10#0)
+        (assert tmp%11#0)
+        exit 1u
+
+subroutine test_cases.time_travel.contract.go_back_not_inlined(rnd: uint64) -> void:
+    block@0: // L182
+        (tt_seek rnd#0)
+        return 
+
+subroutine test_cases.time_travel.contract.TimeTravel.round_at[routing]() -> void:
+    block@0: // L36
+        let tmp%0#0: bytes = (txna ApplicationArgs 1)
+        let len%0#0: uint64 = (len tmp%0#0)
+        let eq%0#0: bool = (== len%0#0 8u)
+        (assert eq%0#0) // invalid number of bytes for arc4.uint64
+        let rnd#0: uint64 = (btoi tmp%0#0)
+        (tt_seek rnd#0)
+        let tmp%0#1: uint64 = (global Round)
+        let aggregate%val_as_bytes%0#0: bytes[8] = (itob tmp%0#1)
+        let tmp%4#0: bytes = (concat 0x151f7c75 aggregate%val_as_bytes%0#0)
+        (log tmp%4#0)
+        exit 1u
+
+subroutine test_cases.time_travel.contract.TimeTravel.round_before[routing]() -> void:
+    block@0: // L41
+        let tmp%0#0: bytes = (txna ApplicationArgs 1)
+        let len%0#0: uint64 = (len tmp%0#0)
+        let eq%0#0: bool = (== len%0#0 8u)
+        (assert eq%0#0) // invalid number of bytes for arc4.uint64
+        let rnd#0: uint64 = (btoi tmp%0#0)
+        let before#0: uint64 = (global Round)
+        (tt_seek rnd#0)
+        let aggregate%val_as_bytes%0#0: bytes[8] = (itob before#0)
+        let tmp%4#0: bytes = (concat 0x151f7c75 aggregate%val_as_bytes%0#0)
+        (log tmp%4#0)
+        exit 1u
+
+subroutine test_cases.time_travel.contract.TimeTravel.counter_then_and_now[routing]() -> void:
+    block@0: // L47
+        let tmp%0#0: bytes = (txna ApplicationArgs 1)
+        let len%0#0: uint64 = (len tmp%0#0)
+        let eq%0#0: bool = (== len%0#0 8u)
+        (assert eq%0#0) // invalid number of bytes for arc4.uint64
+        let rnd#0: uint64 = (btoi tmp%0#0)
+        let tmp%0#1: uint64 = (global Round)
+        let home#0: uint64 = (- tmp%0#1 1u)
+        let (now#0: uint64, maybe_exists%0#0: bool) = (app_global_get_ex 0u "counter")
+        (assert maybe_exists%0#0) // check self.counter exists
+        (tt_seek rnd#0)
+        let (then#0: uint64, maybe_exists%1#0: bool) = (app_global_get_ex 0u "counter")
+        (assert maybe_exists%1#0) // check self.counter exists
+        (tt_seek home#0)
+        let aggregate%val_as_bytes%0#0: bytes[8] = (itob then#0)
+        let aggregate%val_as_bytes%1#0: bytes[8] = (itob now#0)
+        let aggregate%head%1#0: bytes = (concat aggregate%val_as_bytes%0#0 aggregate%val_as_bytes%1#0)
+        let tmp%5#0: bytes = (concat 0x151f7c75 aggregate%head%1#0)
+        (log tmp%5#0)
+        exit 1u
+
+subroutine test_cases.time_travel.contract.TimeTravel.data_changed[routing]() -> void:
+    block@0: // L56
+        let tmp%0#0: bytes = (txna ApplicationArgs 1)
+        let len%0#0: uint64 = (len tmp%0#0)
+        let eq%0#0: bool = (== len%0#0 8u)
+        (assert eq%0#0) // invalid number of bytes for arc4.uint64
+        let rnd#0: uint64 = (btoi tmp%0#0)
+        let (now#0: bytes, aggregate%box_get%1#0: bool) = (box_get 0x64617461)
+        (assert aggregate%box_get%1#0) // check self.data exists
+        (tt_seek rnd#0)
+        let length%0#0: uint64 = (len now#0)
+        let is_out_of_bounds%0#0: bool = (>= 8u length%0#0)
+        let bounded_index%0#0: uint64 = (select 8u length%0#0 is_out_of_bounds%0#0)
+        let tmp%0#0: bytes = (substring3 now#0 0u bounded_index%0#0)
+        let (box%box_len%0#0: uint64, box%exists%0#0: bool) = (box_len 0x64617461)
+        (assert box%exists%0#0) // check self.data exists
+        let is_out_of_bounds%1#0: bool = (>= 8u box%box_len%0#0)
+        let bounded_index%1#0: uint64 = (select 8u box%box_len%0#0 is_out_of_bounds%1#0)
+        let box%box_extract%0#0: bytes = (box_extract 0x64617461 0u bounded_index%1#0)
+        let tmp%2#1: bool = (!= tmp%0#0 box%box_extract%0#0)
+        let aggregate%encoded_bool%0#0: bytes[1] = (setbit 0x00 0u tmp%2#1)
+        let tmp%4#0: bytes = (concat 0x151f7c75 aggregate%encoded_bool%0#0)
+        (log tmp%4#0)
+        exit 1u
+
+subroutine test_cases.time_travel.contract.TimeTravel.first_item_changed[routing]() -> void:
+    block@0: // L63
+        let tmp%0#0: bytes = (txna ApplicationArgs 1)
+        let len%0#0: uint64 = (len tmp%0#0)
+        let eq%0#0: bool = (== len%0#0 8u)
+        (assert eq%0#0) // invalid number of bytes for arc4.uint64
+        let rnd#0: uint64 = (btoi tmp%0#0)
+        let (now#0: Encoded(len+uint64[]), aggregate%box_get%1#0: bool) = (box_get 0x6974656d73)
+        (assert aggregate%box_get%1#0) // check self.items exists
+        (tt_seek rnd#0)
+        let aggregate%encoded_element%0#0: bytes = ((extract 2 8) now#0)
+        let box%box_extract%0#0: Encoded(uint64) = (box_extract 0x6974656d73 2u 8u) // on error: index out of bounds
+        let tmp%0#1: bool = (b!= aggregate%encoded_element%0#0 box%box_extract%0#0)
+        let aggregate%encoded_bool%0#0: bytes[1] = (setbit 0x00 0u tmp%0#1)
+        let tmp%4#0: bytes = (concat 0x151f7c75 aggregate%encoded_bool%0#0)
+        (log tmp%4#0)
+        exit 1u
+
+subroutine test_cases.time_travel.contract.TimeTravel.first_item_now[routing]() -> void:
+    block@0: // L70
+        let tmp%0#0: bytes = (txna ApplicationArgs 1)
+        let len%0#0: uint64 = (len tmp%0#0)
+        let eq%0#0: bool = (== len%0#0 8u)
+        (assert eq%0#0) // invalid number of bytes for arc4.uint64
+        let rnd#0: uint64 = (btoi tmp%0#0)
+        let first#0: Encoded(uint64) = (box_extract 0x6974656d73 2u 8u) // on error: index out of bounds
+        (tt_seek rnd#0)
+        let tmp%3#0: bytes = (concat 0x151f7c75 first#0)
+        (log tmp%3#0)
+        exit 1u
+
+subroutine test_cases.time_travel.contract.TimeTravel.append_then_write_back[routing]() -> void:
+    block@0: // L76
+        let tmp%0#0: bytes = (txna ApplicationArgs 1)
+        let len%0#0: uint64 = (len tmp%0#0)
+        let eq%0#0: bool = (== len%0#0 8u)
+        (assert eq%0#0) // invalid number of bytes for arc4.uint64
+        let rnd#0: uint64 = (btoi tmp%0#0)
+        let x#0: Encoded(uint64) = (txna ApplicationArgs 2)
+        let len%1#0: uint64 = (len x#0)
+        let eq%1#0: bool = (== len%1#0 8u)
+        (assert eq%1#0) // invalid number of bytes for arc4.uint64
+        let (items#0: Encoded(len+uint64[]), aggregate%box_get%1#0: bool) = (box_get 0x6974656d73)
+        (assert aggregate%box_get%1#0) // check self.items exists
+        let array_length#0: uint64 = (extract_uint16 items#0 0u)
+        let new_array_length#0: uint64 = (+ array_length#0 1u)
+        let tmp%0#0: bytes = (itob new_array_length#0)
+        let new_len_u16#0: bytes = ((extract 6 0) tmp%0#0)
+        let result#0: bytes = ((replace2 0) items#0 new_len_u16#0)
+        let items#0: Encoded(len+uint64[]) = (concat result#0 x#0)
+        (tt_seek rnd#0)
+        (box_del 0x6974656d73)
+        (box_put 0x6974656d73 items#0)
+        exit 1u
+
+subroutine test_cases.time_travel.contract.TimeTravel.set_then_write_back[routing]() -> void:
+    block@0: // L83
+        let tmp%0#0: bytes = (txna ApplicationArgs 1)
+        let len%0#0: uint64 = (len tmp%0#0)
+        let eq%0#0: bool = (== len%0#0 8u)
+        (assert eq%0#0) // invalid number of bytes for arc4.uint64
+        let rnd#0: uint64 = (btoi tmp%0#0)
+        let x#0: Encoded(uint64) = (txna ApplicationArgs 2)
+        let len%1#0: uint64 = (len x#0)
+        let eq%1#0: bool = (== len%1#0 8u)
+        (assert eq%1#0) // invalid number of bytes for arc4.uint64
+        let (point#0: Encoded(uint64,uint64), aggregate%box_get%1#0: bool) = (box_get 0x7074)
+        (assert aggregate%box_get%1#0) // check self.point exists
+        let point#0: Encoded(uint64,uint64) = ((replace2 0) point#0 x#0)
+        (tt_seek rnd#0)
+        (box_put 0x7074 point#0)
+        exit 1u
+
+subroutine test_cases.time_travel.contract.TimeTravel.timestamps[routing]() -> void:
+    block@0: // L90
+        let tmp%0#0: bytes = (txna ApplicationArgs 1)
+        let len%0#0: uint64 = (len tmp%0#0)
+        let eq%0#0: bool = (== len%0#0 8u)
+        (assert eq%0#0) // invalid number of bytes for arc4.uint64
+        let rnd#0: uint64 = (btoi tmp%0#0)
+        let tmp%2#0: bytes = (txna ApplicationArgs 2)
+        let len%1#0: uint64 = (len tmp%2#0)
+        let eq%1#0: bool = (== len%1#0 8u)
+        (assert eq%1#0) // invalid number of bytes for arc4.uint64
+        let of#0: uint64 = (btoi tmp%2#0)
+        let now#0: uint64 = ((block BlkTimestamp) of#0)
+        (tt_seek rnd#0)
+        let then#0: uint64 = ((block BlkTimestamp) of#0)
+        let tmp%2#1: uint64 = (+ now#0 then#0)
+        let aggregate%val_as_bytes%0#0: bytes[8] = (itob tmp%2#1)
+        let tmp%6#0: bytes = (concat 0x151f7c75 aggregate%val_as_bytes%0#0)
+        (log tmp%6#0)
+        exit 1u
+
+subroutine test_cases.time_travel.contract.TimeTravel.data_existed[routing]() -> void:
+    block@0: // L97
+        let tmp%0#0: bytes = (txna ApplicationArgs 1)
+        let len%0#0: uint64 = (len tmp%0#0)
+        let eq%0#0: bool = (== len%0#0 8u)
+        (assert eq%0#0) // invalid number of bytes for arc4.uint64
+        let rnd#0: uint64 = (btoi tmp%0#0)
+        let (_%0#0: uint64, existed#0: bool) = (box_len 0x64617461)
+        (tt_seek rnd#0)
+        let (then#0: bytes, aggregate%box_get%1#0: bool) = (box_get 0x64617461)
+        (assert aggregate%box_get%1#0) // check self.data exists
+        (assert existed#0)
+        let aggregate%length%0#0: uint64 = (len then#0)
+        let aggregate%as_bytes%0#0: bytes[8] = (itob aggregate%length%0#0)
+        let aggregate%length_uint16%0#0: bytes = ((extract 6 2) aggregate%as_bytes%0#0)
+        let aggregate%encoded_value%0#0: bytes = (concat aggregate%length_uint16%0#0 then#0)
+        let tmp%4#0: bytes = (concat 0x151f7c75 aggregate%encoded_value%0#0)
+        (log tmp%4#0)
+        exit 1u
+
+subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing]() -> void:
+    block@0: // L105
+        let tmp%0#0: bytes = (txna ApplicationArgs 1)
+        let len%0#0: uint64 = (len tmp%0#0)
+        let eq%0#0: bool = (== len%0#0 8u)
+        (assert eq%0#0) // invalid number of bytes for arc4.uint64
+        let rnd#0: uint64 = (btoi tmp%0#0)
+        let (_%0#0: uint64, existed#0: bool) = (box_len 0x64617461)
+        test_cases.time_travel.contract.go_back_not_inlined(rnd#0)
+        let (then#0: bytes, aggregate%box_get%1#0: bool) = (box_get 0x64617461)
+        (assert aggregate%box_get%1#0) // check self.data exists
+        (assert existed#0)
+        let aggregate%length%0#0: uint64 = (len then#0)
+        let aggregate%as_bytes%0#0: bytes[8] = (itob aggregate%length%0#0)
+        let aggregate%length_uint16%0#0: bytes = ((extract 6 2) aggregate%as_bytes%0#0)
+        let aggregate%encoded_value%0#0: bytes = (concat aggregate%length_uint16%0#0 then#0)
+        let tmp%4#0: bytes = (concat 0x151f7c75 aggregate%encoded_value%0#0)
+        (log tmp%4#0)
+        exit 1u
+
+subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_delete[routing]() -> void:
+    block@0: // L113
+        let (_%0#0: uint64, existed#0: bool) = (box_len 0x64617461)
+        (box_del 0x64617461)
+        (assert existed#0)
+        let (aggregate%box_get%0#0: bytes, aggregate%box_get%1#0: bool) = (box_get 0x64617461)
+        (assert aggregate%box_get%1#0) // check self.data exists
+        let aggregate%length%0#0: uint64 = (len aggregate%box_get%0#0)
+        let aggregate%as_bytes%0#0: bytes[8] = (itob aggregate%length%0#0)
+        let aggregate%length_uint16%0#0: bytes = ((extract 6 2) aggregate%as_bytes%0#0)
+        let aggregate%encoded_value%0#0: bytes = (concat aggregate%length_uint16%0#0 aggregate%box_get%0#0)
+        let tmp%2#0: bytes = (concat 0x151f7c75 aggregate%encoded_value%0#0)
+        (log tmp%2#0)
+        exit 1u
+
+subroutine test_cases.time_travel.contract.TimeTravel.first_item_if[routing]() -> void:
+    block@0: // L120
+        let tmp%0#0: bytes = (txna ApplicationArgs 1)
+        let len%0#0: uint64 = (len tmp%0#0)
+        let eq%0#0: bool = (== len%0#0 1u)
+        (assert eq%0#0) // invalid number of bytes for arc4.bool
+        let first#0: bool = (getbit tmp%0#0 0u)
+        goto first#0 ? block@2 : block@3
+    block@2: // if_body_L125
+        let box%box_extract%0#0: Encoded(uint64) = (box_extract 0x6974656d73 2u 8u) // on error: index out of bounds
+        let tmp%2#0: Encoded(uint64) = box%box_extract%0#0
+        goto block@4
+    block@3: // after_if_else_L124
+        let box%box_extract%1#0: Encoded(uint64) = (box_extract 0x6974656d73 10u 8u) // on error: index out of bounds
+        let tmp%2#0: Encoded(uint64) = box%box_extract%1#0
+        goto block@4
+    block@4: // after_inlined_test_cases.time_travel.contract.TimeTravel.first_item_if_L120
+        let tmp%3#0: bytes = (concat 0x151f7c75 tmp%2#0)
+        (log tmp%3#0)
+        exit 1u
+
+subroutine test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]() -> void:
+    block@0: // L128
+        let tmp%0#0: bytes = (txna ApplicationArgs 1)
+        let len%0#0: uint64 = (len tmp%0#0)
+        let eq%0#0: bool = (== len%0#0 8u)
+        (assert eq%0#0) // invalid number of bytes for arc4.uint64
+        let i#0: uint64 = (btoi tmp%0#0)
+        let tmp%2#0: bytes = (txna ApplicationArgs 2)
+        let len%1#0: uint64 = (len tmp%2#0)
+        let eq%1#0: bool = (== len%1#0 8u)
+        (assert eq%1#0) // invalid number of bytes for arc4.uint64
+        let rnd#0: uint64 = (btoi tmp%2#0)
+        let now#0: uint64 = ((gtxns FirstValid) i#0)
+        (tt_seek rnd#0)
+        let then#0: uint64 = ((gtxns FirstValid) i#0)
+        let tmp%2#1: uint64 = (+ now#0 then#0)
+        let aggregate%val_as_bytes%0#0: bytes[8] = (itob tmp%2#1)
+        let tmp%6#0: bytes = (concat 0x151f7c75 aggregate%val_as_bytes%0#0)
+        (log tmp%6#0)
+        exit 1u
+
+subroutine test_cases.time_travel.contract.TimeTravel.data_exists_then[routing]() -> void:
+    block@0: // L135
+        let tmp%0#0: bytes = (txna ApplicationArgs 1)
+        let len%0#0: uint64 = (len tmp%0#0)
+        let eq%0#0: bool = (== len%0#0 8u)
+        (assert eq%0#0) // invalid number of bytes for arc4.uint64
+        let rnd#0: uint64 = (btoi tmp%0#0)
+        let (value%0#0: uint64, check%0#0: bool) = (box_len 0x64617461)
+        (assert check%0#0) // check self.data exists
+        (assert value%0#0)
+        (tt_seek rnd#0)
+        let (_%0#0: uint64, maybe_exists%0#0: bool) = (box_len 0x64617461)
+        let aggregate%encoded_bool%0#0: bytes[1] = (setbit 0x00 0u maybe_exists%0#0)
+        let tmp%4#0: bytes = (concat 0x151f7c75 aggregate%encoded_bool%0#0)
+        (log tmp%4#0)
+        exit 1u
+
+subroutine test_cases.time_travel.contract.TimeTravel.changes[routing]() -> void:
+    block@0: // L141
+        let acct#0: account = (txna ApplicationArgs 1)
+        let len%0#0: uint64 = (len acct#0)
+        let eq%0#0: bool = (== len%0#0 32u)
+        (assert eq%0#0) // invalid number of bytes for arc4.static_array<arc4.uint8, 32>
+        let tmp%2#0: bytes = (txna ApplicationArgs 2)
+        let len%1#0: uint64 = (len tmp%2#0)
+        let eq%1#0: bool = (== len%1#0 8u)
+        (assert eq%1#0) // invalid number of bytes for arc4.uint64
+        let asset#0: uint64 = (btoi tmp%2#0)
+        let tmp%4#0: bytes = (txna ApplicationArgs 3)
+        let len%2#0: uint64 = (len tmp%4#0)
+        let eq%2#0: bool = (== len%2#0 8u)
+        (assert eq%2#0) // invalid number of bytes for arc4.uint64
+        let app#0: uint64 = (btoi tmp%4#0)
+        let tmp%6#0: bytes = (txna ApplicationArgs 4)
+        let len%3#0: uint64 = (len tmp%6#0)
+        let eq%3#0: bool = (== len%3#0 8u)
+        (assert eq%3#0) // invalid number of bytes for arc4.uint64
+        let from_#0: uint64 = (btoi tmp%6#0)
+        let tmp%8#0: bytes = (txna ApplicationArgs 5)
+        let len%4#0: uint64 = (len tmp%8#0)
+        let eq%4#0: bool = (== len%4#0 8u)
+        (assert eq%4#0) // invalid number of bytes for arc4.uint64
+        let to#0: uint64 = (btoi tmp%8#0)
+        let (rnd#0: uint64, status#0: uint64) = (tt_acct_change acct#0 from_#0 to#0)
+        let total#1: uint64 = (+ rnd#0 status#0)
+        let (rnd#0: uint64, status#0: uint64) = (tt_holding_change acct#0 asset#0 from_#0 to#0)
+        let tmp%6#1: uint64 = (+ rnd#0 status#0)
+        let total#1: uint64 = (+ total#1 tmp%6#1)
+        let (rnd#0: uint64, status#0: uint64) = (tt_local_change acct#0 app#0 from_#0 to#0)
+        let tmp%10#1: uint64 = (+ rnd#0 status#0)
+        let total#1: uint64 = (+ total#1 tmp%10#1)
+        let (rnd#0: uint64, status#0: uint64) = (tt_asset_change asset#0 from_#0 to#0)
+        let tmp%14#0: uint64 = (+ rnd#0 status#0)
+        let total#1: uint64 = (+ total#1 tmp%14#0)
+        let (rnd#0: uint64, status#0: uint64) = (tt_app_change app#0 from_#0 to#0)
+        let tmp%18#0: uint64 = (+ rnd#0 status#0)
+        let total#1: uint64 = (+ total#1 tmp%18#0)
+        let (rnd#0: uint64, status#0: uint64) = (tt_box_change app#0 0x64617461 from_#0 to#0)
+        let tmp%22#0: uint64 = (+ rnd#0 status#0)
+        let total#1: uint64 = (+ total#1 tmp%22#0)
+        let (rnd#0: uint64, status#0: uint64, value#0: uint64) = (tt_global_key_change app#0 0x636f756e746572 from_#0 to#0)
+        let tmp%27#0: uint64 = (+ rnd#0 status#0)
+        let tmp%28#0: uint64 = (+ tmp%27#0 value#0)
+        let total#1: uint64 = (+ total#1 tmp%28#0)
+        let (rnd#0: uint64, status#0: uint64, name#0: bytes) = (tt_global_key_change app#0 0x6e616d65 from_#0 to#0)
+        let tmp%33#0: uint64 = (+ rnd#0 status#0)
+        let total#1: uint64 = (+ total#1 tmp%33#0)
+        let tmp%35#0: bool = (== status#0 1u)
+        goto tmp%35#0 ? block@3 : block@2
+    block@2: // or_contd_L163
+        let tmp%36#0: bool = (== status#0 2u)
+        goto tmp%36#0 ? block@3 : block@4
+    block@3: // if_body_L164
+        let tmp%37#0: uint64 = (len name#0)
+        let total#1: uint64 = (+ total#1 tmp%37#0)
+        goto block@4
+    block@4: // after_if_else_L163
+        let (rnd#0: uint64, status#0: uint64, value#0: uint64) = (tt_local_key_change acct#0 app#0 0x6e from_#0 to#0)
+        let tmp%42#0: uint64 = (+ rnd#0 status#0)
+        let tmp%43#0: uint64 = (+ tmp%42#0 value#0)
+        let total#1: uint64 = (+ total#1 tmp%43#0)
+        let (rnd#0: uint64, status#0: uint64, name#0: bytes) = (tt_local_key_change acct#0 app#0 0x73 from_#0 to#0)
+        let tmp%48#0: uint64 = (+ rnd#0 status#0)
+        let total#1: uint64 = (+ total#1 tmp%48#0)
+        let tmp%50#0: bool = (== status#0 1u)
+        goto tmp%50#0 ? block@6 : block@5
+    block@5: // or_contd_L170
+        let tmp%51#0: bool = (== status#0 2u)
+        goto tmp%51#0 ? block@6 : block@7
+    block@6: // if_body_L171
+        let tmp%52#0: uint64 = (len name#0)
+        let total#1: uint64 = (+ total#1 tmp%52#0)
+        goto block@7
+    block@7: // after_if_else_L170
+        let (rnd#0: uint64, status#0: uint64, name#0: bytes) = (tt_box_prefix_change app#0 0x6974 from_#0 to#0)
+        let tmp%57#0: uint64 = (+ rnd#0 status#0)
+        let tmp%58#0: uint64 = (len name#0)
+        let tmp%59#0: uint64 = (+ tmp%57#0 tmp%58#0)
+        let total#1: uint64 = (+ total#1 tmp%59#0)
+        let aggregate%val_as_bytes%0#0: bytes[8] = (itob total#1)
+        let tmp%12#0: bytes = (concat 0x151f7c75 aggregate%val_as_bytes%0#0)
+        (log tmp%12#0)
+        exit 1u

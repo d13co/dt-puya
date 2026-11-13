@@ -459,6 +459,7 @@ STUB_SYMTABLES: typing.Final[Mapping[str, Mapping[str, SymbolData]]] = {
         "ITxnCreate": SymbolData(fullname="algopy.op.ITxnCreate", module_public=True),
         "JsonRef": SymbolData(fullname="algopy.op.JsonRef", module_public=True),
         "Scratch": SymbolData(fullname="algopy.op.Scratch", module_public=True),
+        "TimeTravel": SymbolData(fullname="algopy.op.TimeTravel", module_public=True),
         "Txn": SymbolData(fullname="algopy.op.Txn", module_public=True),
         "VoterParamsGet": SymbolData(fullname="algopy.op.VoterParamsGet", module_public=True),
     },

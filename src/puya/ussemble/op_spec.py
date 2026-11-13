@@ -1097,4 +1097,20 @@ OP_SPECS = {
         immediates=[ImmediateEnum(codes={"BN254t2": 0, "BLS12_381t2": 1})],
         sub_code=None,
     ),
+    "tt_seek": OpSpec(name="tt_seek", code=255, immediates=[], sub_code=1),
+    "tt_acct_change": OpSpec(name="tt_acct_change", code=255, immediates=[], sub_code=16),
+    "tt_holding_change": OpSpec(name="tt_holding_change", code=255, immediates=[], sub_code=17),
+    "tt_local_change": OpSpec(name="tt_local_change", code=255, immediates=[], sub_code=18),
+    "tt_asset_change": OpSpec(name="tt_asset_change", code=255, immediates=[], sub_code=19),
+    "tt_app_change": OpSpec(name="tt_app_change", code=255, immediates=[], sub_code=20),
+    "tt_box_change": OpSpec(name="tt_box_change", code=255, immediates=[], sub_code=21),
+    "tt_global_key_change": OpSpec(
+        name="tt_global_key_change", code=255, immediates=[], sub_code=22
+    ),
+    "tt_local_key_change": OpSpec(
+        name="tt_local_key_change", code=255, immediates=[], sub_code=23
+    ),
+    "tt_box_prefix_change": OpSpec(
+        name="tt_box_prefix_change", code=255, immediates=[], sub_code=24
+    ),
 }
