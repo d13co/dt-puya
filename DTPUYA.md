@@ -1,6 +1,6 @@
 # dt-puya: differences from puya
 
-`dt-puya` is [puya](https://github.com/algorandfoundation/puya), the Algorand Python compiler (`puyapy`) and the compiler backend shared with Algorand TypeScript (`puya`), for [dt-algorand](https://github.com/d13co/dt-algorand/tree/dtalgorand), the time-travel fork of go-algorand: it compiles dt-algorand's time-travel ops, which programs run through the node's `POST /v2/query`. It is released on GitHub with the binaries [dt-puya-ts](https://github.com/d13co/dt-puya-ts) downloads. Everything else is upstream's: code that compiles with puya, and so uses no time-travel op, compiles with dt-puya to the same output.
+`dt-puya` is [puya](https://github.com/algorandfoundation/puya), the Algorand Python compiler (`puyapy`) and the compiler backend shared with Algorand TypeScript (`puya`), for [dt-algorand](https://github.com/d13co/dt-algorand/tree/dtalgorand), the time-travel fork of go-algorand: it compiles dt-algorand's time-travel ops, which programs run through the node's `POST /v2/query`. It is released on GitHub with the binaries [dt-puya-ts](https://github.com/d13co/dt-puya-ts) downloads. Everything else is upstream's: code that compiles with puya, and so uses no time-travel op, compiles with dt-puya to the same output, apart from the box exists assert fix in [Changes](#changes).
 
 It is built on puya 5.10.1. Source and issues: [d13co/dt-puya](https://github.com/d13co/dt-puya) (branch `dtalgorand`).
 
@@ -17,6 +17,7 @@ It is built on puya 5.10.1. Source and issues: [d13co/dt-puya](https://github.co
 | Time-travel ops     | none                    | `algopy.op.TimeTravel`, see [Time-travel ops](#time-travel-ops) |
 | `puya --version`    | `puya 5.10.1`           | `puya <version>`, with the `-dt.<x.y.z>` form of the version    |
 | Releases            | PyPI and GitHub, signed | GitHub only, unsigned, with a SHA-256 checksum for each binary |
+| Box exists asserts  | after a `box_del` or a call, asserting an exists flag read before it drops a later box read's exists assert | keeps it |
 
 ## Time-travel ops
 
@@ -48,7 +49,7 @@ class History(ARC4Contract, avm_version=13):
         return Global.round  # rnd + 1
 ```
 
-After a seek to a round, a program reads the ledger as it was at the end of that round, as if it ran in the next block: global, local and box state, balances, holdings, and account, asset and app params. `Global.round` is the round after it and `Global.latest_timestamp` its timestamp, and the txns of the program's group read the round after it as their `FirstValid` and `LastValid`, and its timestamp as `FirstValidTime`. In a program that seeks, the optimizer doesn't reuse a state or box read, a block or `FirstValid`/`LastValid`/`FirstValidTime` read, or what it knew about a box's existence across a seek or a call that may seek, and doesn't combine a box read before a seek with a box write after it. A program without `tt_seek` compiles as before.
+After a seek to a round, a program reads the ledger as it was at the end of that round, as if it ran in the next block: global, local and box state, balances, holdings, and account, asset and app params. `Global.round` is the round after it and `Global.latest_timestamp` its timestamp, and the txns of the program's group read the round after it as their `FirstValid` and `LastValid`, and its timestamp as `FirstValidTime`. In a subroutine that may seek, one that runs `tt_seek` or calls one that may, the optimizer doesn't reuse a state or box read, a block or `FirstValid`/`LastValid`/`FirstValidTime` read, or what it knew about a box's existence across a seek or a call that may seek, and doesn't combine a box read before a seek with a box write after it. Other subroutines, and programs without `tt_seek`, compile as before.
 
 The ops come from `langspec.timetravel.json`, which `poe gen_lang_spec` adds to the language spec; CONTRIBUTING.md has how to regenerate it from dt-algorand. `algorand-python-testing` doesn't know them; test contracts that use them with a query on a dt-algorand node.
 
@@ -100,7 +101,7 @@ GitHub Actions releases dt-puya, with [`.github/workflows/dt-puya.yml`](.github/
 2. Set it in `pyproject.toml` (`<puya version>+dt.<x.y.z>`) and `stubs/pyproject.toml` (`<stubs version>+dt.<x.y.z>`), run `uv lock`, then `python scripts/dt_release.py update`. The script sets the version in the tags, binary and wheel names in `README.md` and this file.
 3. `poe gen`, `pre-commit run --all-files` and `pytest`.
 4. Merge to `dtalgorand` (through a pull request), then tag the merge commit and push the tag: `git tag v<version>` and `git push <remote> v<version>`.
-5. The workflow checks that the tag is on `dtalgorand` and matches the versions in `pyproject.toml`, `stubs/pyproject.toml`, `uv.lock` and the docs (`python scripts/dt_release.py check v<version>` runs the same check locally), and that `puya --version` prints the version. After the tests and the binaries, the `release` job waits for approval, then creates the release. If the release already exists, it is left as it is.
+5. The workflow checks that the tag is on `dtalgorand` and matches the versions in `pyproject.toml`, `stubs/pyproject.toml`, `uv.lock` and the docs (`python scripts/dt_release.py check v<version>` runs the same check locally), and that `puya --version` prints the version. After the tests and the binaries, the `release` job waits for approval, then creates the release. If the release already exists, as on a rerun after an upload failed, it uploads only the files the release lacks: a file already published is never replaced, so its checksum never changes.
 6. Point dt-puya-ts at the new version (its `targetedPuyaVersion`) and release it.
 
 ### One-time setup

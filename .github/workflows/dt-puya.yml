@@ -222,10 +222,18 @@ jobs:
 
       - name: Create GitHub release
         run: |
-          # A rerun, after a release whose upload failed, uploads the files again
+          # A rerun, after a release whose upload failed, uploads the files it lacks. It never
+          # replaces a file already published: a rebuilt binary differs from it byte for byte,
+          # and would change the checksum dt-puya-ts and users checked
           if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
-            echo "::notice::The $GITHUB_REF_NAME release already exists, uploading its files again"
-            gh release upload "$GITHUB_REF_NAME" bdist/* --clobber
+            have=$(gh release view "$GITHUB_REF_NAME" --json assets --jq '.assets[].name' | sort)
+            missing=$(comm -23 <(cd bdist && ls | sort) <(echo "$have"))
+            if [ -z "$missing" ]; then
+              echo "::notice::The $GITHUB_REF_NAME release already has every file"
+            else
+              echo "::notice::The $GITHUB_REF_NAME release already exists, uploading the files it lacks:" $missing
+              (cd bdist && echo "$missing" | xargs gh release upload "$GITHUB_REF_NAME")
+            fi
             exit 0
           fi
           {

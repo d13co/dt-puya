@@ -1,32 +1,28 @@
 from puya import log
+from puya.context import CompileContext
 from puya.ir import models
 from puya.ir.avm_ops import AVMOp
-from puya.ir.optimize.context import IROptimizationContext
 from puya.utils import set_add
 
 logger = log.get_logger(__name__)
 
 
-def minimize_box_exist_asserts(
-    context: IROptimizationContext, subroutine: models.Subroutine
-) -> bool:
+def minimize_box_exist_asserts(_context: CompileContext, subroutine: models.Subroutine) -> bool:
     modified = False
     for block in subroutine.body:
-        if _remove_box_exists_asserts(block, time_travel=context.time_travel):
+        if _remove_box_exists_asserts(block):
             modified = True
     return modified
 
 
-def _remove_box_exists_asserts(block: models.BasicBlock, *, time_travel: bool) -> bool:
+def _remove_box_exists_asserts(block: models.BasicBlock) -> bool:
     #   for any box op that returns an exist flag that is asserted
     #   can remove any asserts after the first one as long as the box register is the same
     #   and no box_del op is called
-    #   begin block | subroutine call
-    #       exist state of all box keys are unknown
+    #   begin block | subroutine call | box_del | tt_seek
+    #       exist state of all box keys are unknown, and exist flags read before are stale
     #   box_create | box_extract | box_put | box_replace | box_resize | box_splice key
     #       set box key as known to exist
-    #   box_del key
-    #       sett box key as known to not exist
     #   box_get | box_len
     #       if unknown if box exists then keep the assert, assume box exists after assert
     #       if known that box exists then remove any asserts
@@ -59,11 +55,9 @@ def _remove_box_exists_asserts(block: models.BasicBlock, *, time_travel: bool) -
 
             if isinstance(source, models.InvokeSubroutine):
                 if not source.target.pure:
+                    # the call may delete a box, or seek (see _time_travel.py)
                     box_exists.clear()
-                    if time_travel:
-                        # the call may seek, after which an exists flag read before it is of
-                        # the round left (see _time_travel.py)
-                        box_exists_regs.clear()
+                    box_exists_regs.clear()
             elif isinstance(source, models.Intrinsic):
                 match source.op:
                     case (
@@ -76,12 +70,11 @@ def _remove_box_exists_asserts(block: models.BasicBlock, *, time_travel: bool) -
                     ):
                         box_key = source.args[0]
                         box_exists.add(box_key)
-                    case AVMOp.box_del:
-                        # conservative assume could be deleting any box
-                        box_exists.clear()
-                    case AVMOp.tt_seek:
-                        # a box may not exist at the round sought, and an exists flag read
-                        # before the seek is of the round left (see _time_travel.py)
+                    case AVMOp.box_del | AVMOp.tt_seek:
+                        # conservative assume could be deleting any box, or that it doesn't
+                        # exist at the round sought (see _time_travel.py); an exists flag read
+                        # before either no longer says whether the box exists, so asserting it
+                        # mustn't mark the box as existing
                         box_exists.clear()
                         box_exists_regs.clear()
                     case AVMOp.box_get | AVMOp.box_len:

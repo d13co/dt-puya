@@ -1,5 +1,5 @@
 import typing
-from collections.abc import Mapping, Sequence
+from collections.abc import Sequence, Set
 
 import attrs
 
@@ -12,7 +12,7 @@ from puya.ir.avm_ops import AVMOp
 from puya.ir.encodings import ArrayEncoding, BoolEncoding, Encoding, TupleEncoding
 from puya.ir.mutating_register_context import MutatingRegisterContext
 from puya.ir.op_utils import OpFactory
-from puya.ir.optimize._time_travel import unsought_box_reads
+from puya.ir.optimize._time_travel import is_seek, may_seek
 from puya.ir.optimize.context import IROptimizationContext
 from puya.ir.types_ import EncodedType, PrimitiveIRType
 from puya.ir.visitor import NoOpIRVisitor
@@ -46,7 +46,7 @@ def replace_aggregate_box_ops(
         aggregates=aggregates,
         subroutine=subroutine,
         embedded_funcs=context.embedded_funcs,
-        unsought_box_reads=unsought_box_reads(subroutine) if context.time_travel else None,
+        seeking_subroutines=context.seeking_subroutines,
     )
     for block in subroutine.body:
         replacer.visit_block(block)
@@ -150,21 +150,48 @@ class _AddInplaceBoxReadWritesVisitor(MutatingRegisterContext):
     """
 
     aggregates: _AggregateCollector
-    unsought_box_reads: Mapping[int, tuple[object, frozenset[models.Register]]] | None = None
-    """in a program that seeks, the box reads no seek may have come after, at each op and the
-    value each assignment assigns (see _time_travel.py)"""
+    seeking_subroutines: Set[str] = frozenset()
+    """ids of the subroutines that may seek (see _time_travel.py)"""
     modified: bool = False
+    _unsought_reads: set[models.Value] = attrs.field(factory=set, init=False)
+    """in a subroutine that may seek, the box reads earlier in the block being visited with no
+    seek, nor call that may seek, since"""
 
-    def _box_read(self, register: models.Value, site: object) -> models.BoxRead | None:
-        """The box read of register, if it may be combined with site, which reads the box there.
+    def _box_read(self, register: models.Value) -> models.BoxRead | None:
+        """The box read of register, if it may be combined with the op being visited, which then
+        reads the box there.
 
         After a seek, the box is that of another round, so a read from before it stays a read."""
         box_read = self.aggregates.box_reads.get(register)
-        if box_read is not None and self.unsought_box_reads is not None:
-            known_site, unsought = self.unsought_box_reads.get(id(site), (None, frozenset()))
-            if known_site is not site or register not in unsought:
-                return None
+        if (
+            box_read is not None
+            and self.subroutine.id in self.seeking_subroutines
+            and register not in self._unsought_reads
+        ):
+            return None
         return box_read
+
+    @typing.override
+    def visit_block(self, block: models.BasicBlock) -> None:
+        self._unsought_reads.clear()
+        super().visit_block(block)
+
+    @typing.override
+    def visit_assignment(self, ass: models.Assignment) -> models.Assignment | None:
+        source = ass.source
+        result = super().visit_assignment(ass)
+        if isinstance(source, models.BoxRead):
+            self._unsought_reads.update(ass.targets)
+        return result
+
+    @typing.override
+    def visit_invoke_subroutine(
+        self, callsub: models.InvokeSubroutine
+    ) -> models.ValueProvider | models.Op | None:
+        result = super().visit_invoke_subroutine(callsub)
+        if may_seek(callsub, self.seeking_subroutines):
+            self._unsought_reads.clear()
+        return result
 
     def visit_array_length(self, length: models.ArrayLength) -> models.ValueProvider | None:
         if not length.array_encoding.length_header:
@@ -182,7 +209,7 @@ class _AddInplaceBoxReadWritesVisitor(MutatingRegisterContext):
             maybe_box_register = maybe_extract_value.base
             extract_location = maybe_extract_value.source_location
 
-        box_read = self._box_read(maybe_box_register, length)
+        box_read = self._box_read(maybe_box_register)
         if box_read is None:
             return None
 
@@ -206,7 +233,7 @@ class _AddInplaceBoxReadWritesVisitor(MutatingRegisterContext):
 
     def visit_extract_value(self, read: models.ExtractValue) -> models.ValueProvider | None:
         # find box read
-        box_read = self._box_read(read.base, read)
+        box_read = self._box_read(read.base)
         if box_read is None:
             return None
 
@@ -250,7 +277,10 @@ class _AddInplaceBoxReadWritesVisitor(MutatingRegisterContext):
         return new_read
 
     def visit_intrinsic_op(self, intrinsic: models.Intrinsic) -> models.ValueProvider | None:
-        if _is_box_read_intrinsic_op(intrinsic):
+        if is_seek(intrinsic):
+            self._unsought_reads.clear()
+            return None
+        elif _is_box_read_intrinsic_op(intrinsic):
             return self._handle_intrinsic_read(intrinsic)
         elif _is_box_len_intrinsic_op(intrinsic):
             return self._handle_intrinsic_len(intrinsic)
@@ -265,7 +295,7 @@ class _AddInplaceBoxReadWritesVisitor(MutatingRegisterContext):
             return None
 
         # find corresponding read
-        read_src = self._box_read(mutation.base, write)
+        read_src = self._box_read(mutation.base)
         if read_src is None:
             return None
 
@@ -324,7 +354,7 @@ class _AddInplaceBoxReadWritesVisitor(MutatingRegisterContext):
 
     def _handle_intrinsic_read(self, intrinsic: models.Intrinsic) -> models.ValueProvider | None:
         # find box read
-        box_read = self._box_read(intrinsic.args[0], intrinsic)
+        box_read = self._box_read(intrinsic.args[0])
         if box_read is None:
             return None
 
@@ -362,7 +392,7 @@ class _AddInplaceBoxReadWritesVisitor(MutatingRegisterContext):
 
     def _handle_intrinsic_len(self, intrinsic: models.Intrinsic) -> models.ValueProvider | None:
         # find box read
-        box_read = self._box_read(intrinsic.args[0], intrinsic)
+        box_read = self._box_read(intrinsic.args[0])
         if box_read is None:
             return None
 

@@ -119,6 +119,23 @@ contract TimeTravel
     return then
   }
   
+  abimethod test_cases.time_travel.contract.TimeTravel.data_existed_before_delete(): bytes
+  {
+    existed: bool = STATE_EXISTS(Box[hex<"64617461">])
+    STATE_DELETE(Box[hex<"64617461">])
+    assert(existed)
+    return Box[hex<"64617461">]
+  }
+  
+  abimethod test_cases.time_travel.contract.TimeTravel.first_item_if(first: bool): arc4.uint64
+  {
+    items: arc4.dynamic_array<arc4.uint64> = Box[hex<"6974656D73">].copy()
+    if (first) {
+      return items[0u]
+    }
+    return items[1u]
+  }
+  
   abimethod test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now(i: uint64, rnd: uint64): uint64
   {
     now: uint64 = gtxns<FirstValid>(group_transaction(index=i, type=any))
@@ -152,11 +169,17 @@ contract TimeTravel
     (rnd, status, value): tuple<uint64,uint64,uint64> = tt_global_key_change(app, hex<"636F756E746572">, from_, to)
     total += rnd + status + value
     (rnd, status, name): tuple<uint64,uint64,bytes> = tt_global_key_change(app, hex<"6E616D65">, from_, to)
-    total += rnd + status + len(name)
+    total += rnd + status
+    if (status == SINGLE_EVAL(id=0, source=(1u, 2u))[0] or status == SINGLE_EVAL(id=0)[1]) {
+      total += len(name)
+    }
     (rnd, status, value): tuple<uint64,uint64,uint64> = tt_local_key_change(acct, app, hex<"6E">, from_, to)
     total += rnd + status + value
     (rnd, status, name): tuple<uint64,uint64,bytes> = tt_local_key_change(acct, app, hex<"73">, from_, to)
-    total += rnd + status + len(name)
+    total += rnd + status
+    if (status == SINGLE_EVAL(id=1, source=(1u, 2u))[0] or status == SINGLE_EVAL(id=1)[1]) {
+      total += len(name)
+    }
     (rnd, status, name): tuple<uint64,uint64,bytes> = tt_box_prefix_change(app, hex<"6974">, from_, to)
     total += rnd + status + len(name)
     return total

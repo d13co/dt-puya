@@ -7,7 +7,7 @@ from puya.context import ArtifactCompileContext
 from puya.errors import InternalError
 from puya.ir import models
 from puya.ir._puya_lib import PuyaLibIR
-from puya.ir.optimize._time_travel import program_seeks
+from puya.ir.optimize._time_travel import seeking_subroutines
 from puya.ir.optimize.add_box_extract_replace import replace_aggregate_box_ops
 from puya.ir.optimize.assignments import copy_propagation, encode_decode_pair_elimination
 from puya.ir.optimize.collapse_blocks import merge_blocks, remove_linear_jumps
@@ -147,12 +147,12 @@ def optimize_program_ir(
         context,
         expand_all_bytes=context.options.expand_all_bytes,
         embedded_funcs={PuyaLibIR(s.id): s for s in program.subroutines if s.id in PuyaLibIR},
-        time_travel=program_seeks(program),
     )
     for pass_num in range(1, MAX_PASSES + 1):
         program_modified = False
         logger.debug(f"Begin optimization pass {pass_num}/{MAX_PASSES}")
         analyse_subroutines_for_inlining(opt_context, program)
+        opt_context.seeking_subroutines = seeking_subroutines(program)
         for subroutine in program.all_subroutines:
             logger.debug(f"Optimizing subroutine {subroutine.id}")
             for optimizer in pipeline:

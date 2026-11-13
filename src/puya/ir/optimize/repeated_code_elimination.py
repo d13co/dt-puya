@@ -25,7 +25,7 @@ def repeated_expression_elimination(
         start,
         const_intrinsics={},
         asserted=set(),
-        time_travel=context.time_travel,
+        time_travel=subroutine.id in context.seeking_subroutines,
     ):
         modified = True
         copy_propagation(context, subroutine)
@@ -98,8 +98,8 @@ class RCEVisitor(NoOpIRVisitor[None]):
     const_intrinsics: dict[object, Sequence[models.Register]]
     asserted: set[models.Value]
     time_travel: bool = False
-    """the program seeks, which moves the rounds `block` reads and the group's `FirstValid`,
-    `LastValid` and `FirstValidTime` (see _time_travel.py)"""
+    """the subroutine may seek, which moves the rounds `block` reads and the group's
+    `FirstValid`, `LastValid` and `FirstValidTime` (see _time_travel.py)"""
     modified: bool = False
 
     _assignment: models.Assignment | None = None

@@ -6,6 +6,8 @@
 main:
     intcblock 8 1 0 2
     bytecblock 0x151f7c75 0x64617461 0x6974656d73 0x636f756e746572 0x00 0x7074
+    intc_2 // 0
+    pushbytes ""
     txn ApplicationID
     bnz main_after_if_else@2
     bytec_3 // "counter"
@@ -14,20 +16,20 @@ main:
 
 main_after_if_else@2:
     txn NumAppArgs
-    bz main___algopy_default_create@23
+    bz main___algopy_default_create@25
     txn OnCompletion
     !
     assert
     txn ApplicationID
     assert
-    pushbytess 0x324c6a50 0x27135e52 0xe0dabb12 0x744eef4f 0x73a731a6 0x6ca1c380 0x98852240 0x022a0d7b 0x77561254 0xdddbbccf 0x4c61a8af 0xee9fa79c 0xdf0664cf 0xfbb80e0f // method "round_at(uint64)uint64", method "round_before(uint64)uint64", method "counter_then_and_now(uint64)(uint64,uint64)", method "data_changed(uint64)bool", method "first_item_changed(uint64)bool", method "first_item_now(uint64)uint64", method "append_then_write_back(uint64,uint64)void", method "set_then_write_back(uint64,uint64)void", method "timestamps(uint64,uint64)uint64", method "data_existed(uint64)byte[]", method "data_existed_before_call(uint64)byte[]", method "first_valid_then_and_now(uint64,uint64)uint64", method "data_exists_then(uint64)bool", method "changes(address,uint64,uint64,uint64,uint64)uint64"
+    pushbytess 0x324c6a50 0x27135e52 0xe0dabb12 0x744eef4f 0x73a731a6 0x6ca1c380 0x98852240 0x022a0d7b 0x77561254 0xdddbbccf 0x4c61a8af 0x7395f240 0xd48086c0 0xee9fa79c 0xdf0664cf 0xfbb80e0f // method "round_at(uint64)uint64", method "round_before(uint64)uint64", method "counter_then_and_now(uint64)(uint64,uint64)", method "data_changed(uint64)bool", method "first_item_changed(uint64)bool", method "first_item_now(uint64)uint64", method "append_then_write_back(uint64,uint64)void", method "set_then_write_back(uint64,uint64)void", method "timestamps(uint64,uint64)uint64", method "data_existed(uint64)byte[]", method "data_existed_before_call(uint64)byte[]", method "data_existed_before_delete()byte[]", method "first_item_if(bool)uint64", method "first_valid_then_and_now(uint64,uint64)uint64", method "data_exists_then(uint64)bool", method "changes(address,uint64,uint64,uint64,uint64)uint64"
     txna ApplicationArgs 0
-    match main_round_at_route@6 main_round_before_route@7 main_counter_then_and_now_route@8 main_data_changed_route@9 main_first_item_changed_route@10 main_first_item_now_route@11 main_append_then_write_back_route@12 main_set_then_write_back_route@13 main_timestamps_route@14 main_data_existed_route@15 main_data_existed_before_call_route@16 main_first_valid_then_and_now_route@17 main_data_exists_then_route@18 main_changes_route@19
+    match main_round_at_route@6 main_round_before_route@7 main_counter_then_and_now_route@8 main_data_changed_route@9 main_first_item_changed_route@10 main_first_item_now_route@11 main_append_then_write_back_route@12 main_set_then_write_back_route@13 main_timestamps_route@14 main_data_existed_route@15 main_data_existed_before_call_route@16 main_data_existed_before_delete_route@17 main_first_item_if_route@18 main_first_valid_then_and_now_route@19 main_data_exists_then_route@20 main_changes_route@21
     err
 
-main_changes_route@19:
+main_changes_route@21:
     txna ApplicationArgs 1
-    dup
+    dupn 2
     len
     pushint 32
     ==
@@ -46,6 +48,9 @@ main_changes_route@19:
     ==
     assert // invalid number of bytes for arc4.uint64
     btoi
+    dup
+    cover 2
+    cover 3
     txna ApplicationArgs 4
     dup
     len
@@ -53,6 +58,8 @@ main_changes_route@19:
     ==
     assert // invalid number of bytes for arc4.uint64
     btoi
+    dup
+    cover 5
     txna ApplicationArgs 5
     dup
     len
@@ -60,26 +67,28 @@ main_changes_route@19:
     ==
     assert // invalid number of bytes for arc4.uint64
     btoi
+    dup
+    cover 7
     dig 4
     dig 2
     dig 2
     tt_acct_change
     +
     dig 5
-    dig 5
+    dig 4
     dig 4
     dig 4
     tt_holding_change
     +
     +
+    uncover 5
     dig 5
-    dig 4
     dig 4
     dig 4
     tt_local_change
     +
     +
-    uncover 4
+    uncover 3
     dig 3
     dig 3
     tt_asset_change
@@ -107,42 +116,84 @@ main_changes_route@19:
     +
     +
     +
-    dig 3
-    pushbytes 0x6e616d65
-    dig 4
-    dig 4
-    tt_global_key_change
-    cover 2
-    +
-    swap
-    len
-    +
-    +
-    dig 4
-    dig 4
-    pushbytes 0x6e
-    dig 5
-    dig 5
-    tt_local_key_change
-    cover 2
-    +
-    +
-    +
-    uncover 4
-    dig 4
-    pushbytes 0x73
-    dig 5
-    dig 5
-    tt_local_key_change
-    cover 2
-    +
-    swap
-    len
-    +
-    +
     uncover 3
-    pushbytes 0x6974
+    pushbytes 0x6e616d65
     uncover 4
+    uncover 4
+    tt_global_key_change
+    bury 9
+    dup
+    cover 2
+    bury 8
+    dig 1
+    +
+    uncover 2
+    +
+    swap
+    intc_1 // 1
+    ==
+    bnz main_if_body@30
+    dig 5
+    intc_3 // 2
+    ==
+    bz main_after_if_else@31
+
+main_if_body@30:
+    dig 6
+    len
+    +
+
+main_after_if_else@31:
+    uncover 4
+    dup
+    dig 3
+    dup
+    cover 3
+    pushbytes 0x6e
+    dig 7
+    dup
+    cover 6
+    dig 10
+    dup
+    cover 8
+    tt_local_key_change
+    cover 2
+    +
+    +
+    uncover 5
+    +
+    swap
+    uncover 2
+    pushbytes 0x73
+    uncover 4
+    uncover 5
+    tt_local_key_change
+    bury 8
+    dup
+    cover 2
+    bury 7
+    dig 1
+    +
+    uncover 2
+    +
+    swap
+    intc_1 // 1
+    ==
+    bnz main_if_body@33
+    dig 4
+    intc_3 // 2
+    ==
+    bz main_after_if_else@34
+
+main_if_body@33:
+    dig 5
+    len
+    +
+
+main_after_if_else@34:
+    swap
+    pushbytes 0x6974
+    uncover 3
     uncover 4
     tt_box_prefix_change
     cover 2
@@ -159,7 +210,7 @@ main_changes_route@19:
     intc_1 // 1
     return
 
-main_data_exists_then_route@18:
+main_data_exists_then_route@20:
     txna ApplicationArgs 1
     dup
     len
@@ -186,7 +237,7 @@ main_data_exists_then_route@18:
     intc_1 // 1
     return
 
-main_first_valid_then_and_now_route@17:
+main_first_valid_then_and_now_route@19:
     txna ApplicationArgs 1
     dup
     len
@@ -209,6 +260,60 @@ main_first_valid_then_and_now_route@17:
     gtxns FirstValid
     +
     itob
+    bytec_0 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+main_first_item_if_route@18:
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_1 // 1
+    ==
+    assert // invalid number of bytes for arc4.bool
+    intc_2 // 0
+    getbit
+    bz main_after_if_else@42
+    bytec_2 // 0x6974656d73
+    intc_3 // 2
+    intc_0 // 8
+    box_extract // on error: index out of bounds
+
+main_after_inlined_test_cases.time_travel.contract.TimeTravel.first_item_if@43:
+    bytec_0 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+main_after_if_else@42:
+    bytec_2 // 0x6974656d73
+    pushint 10
+    intc_0 // 8
+    box_extract // on error: index out of bounds
+    b main_after_inlined_test_cases.time_travel.contract.TimeTravel.first_item_if@43
+
+main_data_existed_before_delete_route@17:
+    bytec_1 // 0x64617461
+    box_len
+    bury 1
+    bytec_1 // 0x64617461
+    box_del
+    pop
+    assert
+    bytec_1 // 0x64617461
+    box_get
+    assert // check self.data exists
+    dup
+    len
+    itob
+    extract 6 2
+    swap
+    concat
     bytec_0 // 0x151f7c75
     swap
     concat
@@ -544,7 +649,7 @@ main_round_at_route@6:
     intc_1 // 1
     return
 
-main___algopy_default_create@23:
+main___algopy_default_create@25:
     txn OnCompletion
     !
     txn ApplicationID

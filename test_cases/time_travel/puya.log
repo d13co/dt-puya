@@ -465,6 +465,10 @@ debug: Sealing block@20
 debug: Terminated block@20
 debug: Sealing block@21
 debug: Terminated block@21
+debug: Sealing block@22
+debug: Terminated block@22
+debug: Sealing block@23
+debug: Terminated block@23
 debug: Building IR for function test_cases.time_travel.contract.TimeTravel.round_at[routing]
 debug: Sealing block@0
 debug: Terminated block@0
@@ -496,6 +500,12 @@ debug: Building IR for function test_cases.time_travel.contract.TimeTravel.data_
 debug: Sealing block@0
 debug: Terminated block@0
 debug: Building IR for function test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing]
+debug: Sealing block@0
+debug: Terminated block@0
+debug: Building IR for function test_cases.time_travel.contract.TimeTravel.data_existed_before_delete[routing]
+debug: Sealing block@0
+debug: Terminated block@0
+debug: Building IR for function test_cases.time_travel.contract.TimeTravel.first_item_if[routing]
 debug: Sealing block@0
 debug: Terminated block@0
 debug: Building IR for function test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]
@@ -543,6 +553,16 @@ debug: Terminated block@0
 debug: Building IR for function test_cases.time_travel.contract.TimeTravel.data_existed_before_call
 debug: Sealing block@0
 debug: Terminated block@0
+debug: Building IR for function test_cases.time_travel.contract.TimeTravel.data_existed_before_delete
+debug: Sealing block@0
+debug: Terminated block@0
+debug: Building IR for function test_cases.time_travel.contract.TimeTravel.first_item_if
+debug: Sealing block@0
+debug: Terminated block@0
+debug: Sealing block@1
+debug: Terminated block@1
+debug: Sealing block@2
+debug: Terminated block@2
 debug: Building IR for function test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now
 debug: Sealing block@0
 debug: Terminated block@0
@@ -552,6 +572,132 @@ debug: Terminated block@0
 debug: Building IR for function test_cases.time_travel.contract.TimeTravel.changes
 debug: Sealing block@0
 debug: Terminated block@0
+debug: Sealing block@1
+debug: Terminated block@1
+debug: Sealing block@2
+debug: Created Phi assignment: let total#9: uint64 = undefined while trying to resolve 'total' in block@2
+debug: Added total#8 to Phi node: let total#9: uint64 = φ(total#8 <- block@0) in block@0
+debug: Added total#8 to Phi node: let total#9: uint64 = φ(total#8 <- block@0, total#8 <- block@1) in block@1
+debug: Replacing trivial Phi node: let total#9: uint64 = φ(total#8 <- block@0, total#8 <- block@1) (total#9) with total#8
+debug: Deleting Phi assignment: let total#9: uint64 = φ(total#8 <- block@0, total#8 <- block@1)
+debug: Replaced trivial Phi node: let total#9: uint64 = φ(total#8 <- block@0, total#8 <- block@1) (total#9) with total#8 in current definition for 1 blocks
+debug: Created Phi assignment: let name#1: bytes = undefined while trying to resolve 'name' in block@2
+debug: Added name#0 to Phi node: let name#1: bytes = φ(name#0 <- block@0) in block@0
+debug: Added name#0 to Phi node: let name#1: bytes = φ(name#0 <- block@0, name#0 <- block@1) in block@1
+debug: Replacing trivial Phi node: let name#1: bytes = φ(name#0 <- block@0, name#0 <- block@1) (name#1) with name#0
+debug: Deleting Phi assignment: let name#1: bytes = φ(name#0 <- block@0, name#0 <- block@1)
+debug: Replaced trivial Phi node: let name#1: bytes = φ(name#0 <- block@0, name#0 <- block@1) (name#1) with name#0 in current definition for 1 blocks
+debug: Terminated block@2
+debug: Sealing block@3
+debug: Created Phi assignment: let acct#1: account = undefined while trying to resolve 'acct' in block@3
+debug: Added acct#0 to Phi node: let acct#1: account = φ(acct#0 <- block@1) in block@1
+debug: Created Phi assignment: let acct#2: account = undefined while trying to resolve 'acct' in block@2
+debug: Added acct#0 to Phi node: let acct#2: account = φ(acct#0 <- block@0) in block@0
+debug: Added acct#0 to Phi node: let acct#2: account = φ(acct#0 <- block@0, acct#0 <- block@1) in block@1
+debug: Replacing trivial Phi node: let acct#2: account = φ(acct#0 <- block@0, acct#0 <- block@1) (acct#2) with acct#0
+debug: Deleting Phi assignment: let acct#2: account = φ(acct#0 <- block@0, acct#0 <- block@1)
+debug: Replaced trivial Phi node: let acct#2: account = φ(acct#0 <- block@0, acct#0 <- block@1) (acct#2) with acct#0 in current definition for 1 blocks
+debug: Added acct#0 to Phi node: let acct#1: account = φ(acct#0 <- block@1, acct#0 <- block@2) in block@2
+debug: Replacing trivial Phi node: let acct#1: account = φ(acct#0 <- block@1, acct#0 <- block@2) (acct#1) with acct#0
+debug: Deleting Phi assignment: let acct#1: account = φ(acct#0 <- block@1, acct#0 <- block@2)
+debug: Replaced trivial Phi node: let acct#1: account = φ(acct#0 <- block@1, acct#0 <- block@2) (acct#1) with acct#0 in current definition for 1 blocks
+debug: Created Phi assignment: let app#1: uint64 = undefined while trying to resolve 'app' in block@3
+debug: Added app#0 to Phi node: let app#1: uint64 = φ(app#0 <- block@1) in block@1
+debug: Created Phi assignment: let app#2: uint64 = undefined while trying to resolve 'app' in block@2
+debug: Added app#0 to Phi node: let app#2: uint64 = φ(app#0 <- block@0) in block@0
+debug: Added app#0 to Phi node: let app#2: uint64 = φ(app#0 <- block@0, app#0 <- block@1) in block@1
+debug: Replacing trivial Phi node: let app#2: uint64 = φ(app#0 <- block@0, app#0 <- block@1) (app#2) with app#0
+debug: Deleting Phi assignment: let app#2: uint64 = φ(app#0 <- block@0, app#0 <- block@1)
+debug: Replaced trivial Phi node: let app#2: uint64 = φ(app#0 <- block@0, app#0 <- block@1) (app#2) with app#0 in current definition for 1 blocks
+debug: Added app#0 to Phi node: let app#1: uint64 = φ(app#0 <- block@1, app#0 <- block@2) in block@2
+debug: Replacing trivial Phi node: let app#1: uint64 = φ(app#0 <- block@1, app#0 <- block@2) (app#1) with app#0
+debug: Deleting Phi assignment: let app#1: uint64 = φ(app#0 <- block@1, app#0 <- block@2)
+debug: Replaced trivial Phi node: let app#1: uint64 = φ(app#0 <- block@1, app#0 <- block@2) (app#1) with app#0 in current definition for 1 blocks
+debug: Created Phi assignment: let from_#1: uint64 = undefined while trying to resolve 'from_' in block@3
+debug: Added from_#0 to Phi node: let from_#1: uint64 = φ(from_#0 <- block@1) in block@1
+debug: Created Phi assignment: let from_#2: uint64 = undefined while trying to resolve 'from_' in block@2
+debug: Added from_#0 to Phi node: let from_#2: uint64 = φ(from_#0 <- block@0) in block@0
+debug: Added from_#0 to Phi node: let from_#2: uint64 = φ(from_#0 <- block@0, from_#0 <- block@1) in block@1
+debug: Replacing trivial Phi node: let from_#2: uint64 = φ(from_#0 <- block@0, from_#0 <- block@1) (from_#2) with from_#0
+debug: Deleting Phi assignment: let from_#2: uint64 = φ(from_#0 <- block@0, from_#0 <- block@1)
+debug: Replaced trivial Phi node: let from_#2: uint64 = φ(from_#0 <- block@0, from_#0 <- block@1) (from_#2) with from_#0 in current definition for 1 blocks
+debug: Added from_#0 to Phi node: let from_#1: uint64 = φ(from_#0 <- block@1, from_#0 <- block@2) in block@2
+debug: Replacing trivial Phi node: let from_#1: uint64 = φ(from_#0 <- block@1, from_#0 <- block@2) (from_#1) with from_#0
+debug: Deleting Phi assignment: let from_#1: uint64 = φ(from_#0 <- block@1, from_#0 <- block@2)
+debug: Replaced trivial Phi node: let from_#1: uint64 = φ(from_#0 <- block@1, from_#0 <- block@2) (from_#1) with from_#0 in current definition for 1 blocks
+debug: Created Phi assignment: let to#1: uint64 = undefined while trying to resolve 'to' in block@3
+debug: Added to#0 to Phi node: let to#1: uint64 = φ(to#0 <- block@1) in block@1
+debug: Created Phi assignment: let to#2: uint64 = undefined while trying to resolve 'to' in block@2
+debug: Added to#0 to Phi node: let to#2: uint64 = φ(to#0 <- block@0) in block@0
+debug: Added to#0 to Phi node: let to#2: uint64 = φ(to#0 <- block@0, to#0 <- block@1) in block@1
+debug: Replacing trivial Phi node: let to#2: uint64 = φ(to#0 <- block@0, to#0 <- block@1) (to#2) with to#0
+debug: Deleting Phi assignment: let to#2: uint64 = φ(to#0 <- block@0, to#0 <- block@1)
+debug: Replaced trivial Phi node: let to#2: uint64 = φ(to#0 <- block@0, to#0 <- block@1) (to#2) with to#0 in current definition for 1 blocks
+debug: Added to#0 to Phi node: let to#1: uint64 = φ(to#0 <- block@1, to#0 <- block@2) in block@2
+debug: Replacing trivial Phi node: let to#1: uint64 = φ(to#0 <- block@1, to#0 <- block@2) (to#1) with to#0
+debug: Deleting Phi assignment: let to#1: uint64 = φ(to#0 <- block@1, to#0 <- block@2)
+debug: Replaced trivial Phi node: let to#1: uint64 = φ(to#0 <- block@1, to#0 <- block@2) (to#1) with to#0 in current definition for 1 blocks
+debug: Created Phi assignment: let total#11: uint64 = undefined while trying to resolve 'total' in block@3
+debug: Added total#8 to Phi node: let total#11: uint64 = φ(total#8 <- block@1) in block@1
+debug: Added total#10 to Phi node: let total#11: uint64 = φ(total#8 <- block@1, total#10 <- block@2) in block@2
+debug: Terminated block@3
+debug: Sealing block@4
+debug: Terminated block@4
+debug: Sealing block@5
+debug: Created Phi assignment: let total#14: uint64 = undefined while trying to resolve 'total' in block@5
+debug: Added total#13 to Phi node: let total#14: uint64 = φ(total#13 <- block@3) in block@3
+debug: Added total#13 to Phi node: let total#14: uint64 = φ(total#13 <- block@3, total#13 <- block@4) in block@4
+debug: Replacing trivial Phi node: let total#14: uint64 = φ(total#13 <- block@3, total#13 <- block@4) (total#14) with total#13
+debug: Deleting Phi assignment: let total#14: uint64 = φ(total#13 <- block@3, total#13 <- block@4)
+debug: Replaced trivial Phi node: let total#14: uint64 = φ(total#13 <- block@3, total#13 <- block@4) (total#14) with total#13 in current definition for 1 blocks
+debug: Created Phi assignment: let name#3: bytes = undefined while trying to resolve 'name' in block@5
+debug: Added name#2 to Phi node: let name#3: bytes = φ(name#2 <- block@3) in block@3
+debug: Added name#2 to Phi node: let name#3: bytes = φ(name#2 <- block@3, name#2 <- block@4) in block@4
+debug: Replacing trivial Phi node: let name#3: bytes = φ(name#2 <- block@3, name#2 <- block@4) (name#3) with name#2
+debug: Deleting Phi assignment: let name#3: bytes = φ(name#2 <- block@3, name#2 <- block@4)
+debug: Replaced trivial Phi node: let name#3: bytes = φ(name#2 <- block@3, name#2 <- block@4) (name#3) with name#2 in current definition for 1 blocks
+debug: Terminated block@5
+debug: Sealing block@6
+debug: Created Phi assignment: let app#3: uint64 = undefined while trying to resolve 'app' in block@6
+debug: Added app#0 to Phi node: let app#3: uint64 = φ(app#0 <- block@4) in block@4
+debug: Created Phi assignment: let app#4: uint64 = undefined while trying to resolve 'app' in block@5
+debug: Added app#0 to Phi node: let app#4: uint64 = φ(app#0 <- block@3) in block@3
+debug: Added app#0 to Phi node: let app#4: uint64 = φ(app#0 <- block@3, app#0 <- block@4) in block@4
+debug: Replacing trivial Phi node: let app#4: uint64 = φ(app#0 <- block@3, app#0 <- block@4) (app#4) with app#0
+debug: Deleting Phi assignment: let app#4: uint64 = φ(app#0 <- block@3, app#0 <- block@4)
+debug: Replaced trivial Phi node: let app#4: uint64 = φ(app#0 <- block@3, app#0 <- block@4) (app#4) with app#0 in current definition for 1 blocks
+debug: Added app#0 to Phi node: let app#3: uint64 = φ(app#0 <- block@4, app#0 <- block@5) in block@5
+debug: Replacing trivial Phi node: let app#3: uint64 = φ(app#0 <- block@4, app#0 <- block@5) (app#3) with app#0
+debug: Deleting Phi assignment: let app#3: uint64 = φ(app#0 <- block@4, app#0 <- block@5)
+debug: Replaced trivial Phi node: let app#3: uint64 = φ(app#0 <- block@4, app#0 <- block@5) (app#3) with app#0 in current definition for 1 blocks
+debug: Created Phi assignment: let from_#3: uint64 = undefined while trying to resolve 'from_' in block@6
+debug: Added from_#0 to Phi node: let from_#3: uint64 = φ(from_#0 <- block@4) in block@4
+debug: Created Phi assignment: let from_#4: uint64 = undefined while trying to resolve 'from_' in block@5
+debug: Added from_#0 to Phi node: let from_#4: uint64 = φ(from_#0 <- block@3) in block@3
+debug: Added from_#0 to Phi node: let from_#4: uint64 = φ(from_#0 <- block@3, from_#0 <- block@4) in block@4
+debug: Replacing trivial Phi node: let from_#4: uint64 = φ(from_#0 <- block@3, from_#0 <- block@4) (from_#4) with from_#0
+debug: Deleting Phi assignment: let from_#4: uint64 = φ(from_#0 <- block@3, from_#0 <- block@4)
+debug: Replaced trivial Phi node: let from_#4: uint64 = φ(from_#0 <- block@3, from_#0 <- block@4) (from_#4) with from_#0 in current definition for 1 blocks
+debug: Added from_#0 to Phi node: let from_#3: uint64 = φ(from_#0 <- block@4, from_#0 <- block@5) in block@5
+debug: Replacing trivial Phi node: let from_#3: uint64 = φ(from_#0 <- block@4, from_#0 <- block@5) (from_#3) with from_#0
+debug: Deleting Phi assignment: let from_#3: uint64 = φ(from_#0 <- block@4, from_#0 <- block@5)
+debug: Replaced trivial Phi node: let from_#3: uint64 = φ(from_#0 <- block@4, from_#0 <- block@5) (from_#3) with from_#0 in current definition for 1 blocks
+debug: Created Phi assignment: let to#3: uint64 = undefined while trying to resolve 'to' in block@6
+debug: Added to#0 to Phi node: let to#3: uint64 = φ(to#0 <- block@4) in block@4
+debug: Created Phi assignment: let to#4: uint64 = undefined while trying to resolve 'to' in block@5
+debug: Added to#0 to Phi node: let to#4: uint64 = φ(to#0 <- block@3) in block@3
+debug: Added to#0 to Phi node: let to#4: uint64 = φ(to#0 <- block@3, to#0 <- block@4) in block@4
+debug: Replacing trivial Phi node: let to#4: uint64 = φ(to#0 <- block@3, to#0 <- block@4) (to#4) with to#0
+debug: Deleting Phi assignment: let to#4: uint64 = φ(to#0 <- block@3, to#0 <- block@4)
+debug: Replaced trivial Phi node: let to#4: uint64 = φ(to#0 <- block@3, to#0 <- block@4) (to#4) with to#0 in current definition for 1 blocks
+debug: Added to#0 to Phi node: let to#3: uint64 = φ(to#0 <- block@4, to#0 <- block@5) in block@5
+debug: Replacing trivial Phi node: let to#3: uint64 = φ(to#0 <- block@4, to#0 <- block@5) (to#3) with to#0
+debug: Deleting Phi assignment: let to#3: uint64 = φ(to#0 <- block@4, to#0 <- block@5)
+debug: Replaced trivial Phi node: let to#3: uint64 = φ(to#0 <- block@4, to#0 <- block@5) (to#3) with to#0 in current definition for 1 blocks
+debug: Created Phi assignment: let total#16: uint64 = undefined while trying to resolve 'total' in block@6
+debug: Added total#13 to Phi node: let total#16: uint64 = φ(total#13 <- block@4) in block@4
+debug: Added total#15 to Phi node: let total#16: uint64 = φ(total#13 <- block@4, total#15 <- block@5) in block@5
+debug: Terminated block@6
 debug: Building IR for function test_cases.time_travel.contract.TimeTravel.__algopy_default_create
 debug: Sealing block@0
 debug: Terminated block@0
@@ -632,6 +778,8 @@ debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.set
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.timestamps[routing]
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.data_existed[routing]
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing]
+debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_delete[routing]
+debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.first_item_if[routing]
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.data_exists_then[routing]
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.changes[routing]
@@ -647,6 +795,8 @@ debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.set
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.timestamps
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.data_existed
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_call
+debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_delete
+debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.first_item_if
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.data_exists_then
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.changes
@@ -674,6 +824,8 @@ debug: marking single-use function test_cases.time_travel.contract.TimeTravel.se
 debug: marking single-use function test_cases.time_travel.contract.TimeTravel.timestamps for inlining
 debug: marking single-use function test_cases.time_travel.contract.TimeTravel.data_existed for inlining
 debug: marking single-use function test_cases.time_travel.contract.TimeTravel.data_existed_before_call for inlining
+debug: marking single-use function test_cases.time_travel.contract.TimeTravel.data_existed_before_delete for inlining
+debug: marking single-use function test_cases.time_travel.contract.TimeTravel.first_item_if for inlining
 debug: marking single-use function test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now for inlining
 debug: marking single-use function test_cases.time_travel.contract.TimeTravel.data_exists_then for inlining
 debug: marking single-use function test_cases.time_travel.contract.TimeTravel.changes for inlining
@@ -694,23 +846,23 @@ debug: Optimizer: Inner Txn Field Replacer
 debug: Optimizer: Replace Compiled References
 debug: Optimizer: Simplify Control Ops
 debug: simplifying exit 0 to err
-debug: simplified terminator of block@24 from exit 0u to fail
+debug: simplified terminator of block@26 from exit 0u to fail
 debug: Optimizer: Merge Blocks
-debug: Replaced predecessor block@26 with block@1 in block@27
-debug: Merged linear block@26 into block@1
-debug: Replaced predecessor block@27 with block@1 in block@2
-debug: Merged linear block@27 into block@1
-debug: Replaced predecessor block@3 with block@2 in block@23
+debug: Replaced predecessor block@28 with block@1 in block@29
+debug: Merged linear block@28 into block@1
+debug: Replaced predecessor block@29 with block@1 in block@2
+debug: Merged linear block@29 into block@1
+debug: Replaced predecessor block@3 with block@2 in block@25
 debug: Replaced predecessor block@3 with block@2 in block@4
 debug: Merged linear block@3 into block@2
-debug: Merged linear block@24 into block@22
+debug: Merged linear block@26 into block@24
 debug: Optimizer: Remove Linear Jumps
-debug: Removing jump block block@20
-debug: Removing jump block block@21
-debug: branching to block@20 will be replaced with block@22
-debug: branching to block@21 will be replaced with block@22
+debug: Removing jump block block@22
+debug: Removing jump block block@23
+debug: branching to block@22 will be replaced with block@24
+debug: branching to block@23 will be replaced with block@24
 debug: Optimizer: Remove Unreachable Blocks
-debug: Removing unreachable block: block@25
+debug: Removing unreachable block: block@27
 debug: Optimizer: Repeated Expression Elimination
 debug: Optimizer: Encode Decode Pair Elimination
 debug: Optimizer: Merge Chained Aggregate Reads
@@ -1557,17 +1709,17 @@ debug: Optimizer: Inner Txn Field Replacer
 debug: Optimizer: Replace Compiled References
 debug: Optimizer: Simplify Control Ops
 debug: simplifying exit 0 to err
-debug: simplified terminator of block@21 from exit 0u to fail
+debug: simplified terminator of block@23 from exit 0u to fail
 debug: Optimizer: Merge Blocks
-debug: Replaced predecessor block@22 with block@20 in block@23
-debug: Merged linear block@22 into block@20
-debug: Merged linear block@23 into block@20
-debug: Merged linear block@21 into block@19
+debug: Replaced predecessor block@24 with block@22 in block@25
+debug: Merged linear block@24 into block@22
+debug: Merged linear block@25 into block@22
+debug: Merged linear block@23 into block@21
 debug: Optimizer: Remove Linear Jumps
-debug: Removing jump block block@17
-debug: Removing jump block block@18
-debug: branching to block@17 will be replaced with block@19
-debug: branching to block@18 will be replaced with block@19
+debug: Removing jump block block@19
+debug: Removing jump block block@20
+debug: branching to block@19 will be replaced with block@21
+debug: branching to block@20 will be replaced with block@21
 debug: Optimizer: Remove Unreachable Blocks
 debug: Optimizer: Repeated Expression Elimination
 debug: Optimizer: Encode Decode Pair Elimination
@@ -1960,9 +2112,75 @@ debug: Optimizer: Merge Chained Aggregate Reads
 debug: Optimizer: Replace Aggregate Box Ops
 debug: Optimizer: Minimize Box Exist Asserts
 debug: Optimizer: Constant Reads And Unobserved Writes Elimination
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_delete[routing]
+debug: Optimizer: Perform Subroutine Inlining
+time_travel/contract.py:113:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.data_existed_before_delete in test_cases.time_travel.contract.TimeTravel.data_existed_before_delete[routing]
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Copy Propagation
+debug: Found equivalence set: maybe_exists%0#0, existed#0
+debug: selected existed#0 from equivalence set
+debug: Found equivalence set: storage_value%0#0, tmp%0#0
+debug: selected storage_value%0#0 from equivalence set
+debug: Copy propagation made 2 modifications
+debug: Optimizer: Elide Itxn Field Calls
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Intrinsic Simplifier
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Simplify Control Ops
+debug: Optimizer: Merge Blocks
+debug: Replaced predecessor block@1 with block@0 in block@2
+debug: Merged linear block@1 into block@0
+debug: Merged linear block@2 into block@0
+debug: Optimizer: Remove Linear Jumps
+debug: Optimizer: Remove Unreachable Blocks
+debug: Optimizer: Repeated Expression Elimination
+debug: Optimizer: Encode Decode Pair Elimination
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizer: Minimize Box Exist Asserts
+debug: Optimizer: Constant Reads And Unobserved Writes Elimination
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.first_item_if[routing]
+debug: Optimizer: Perform Subroutine Inlining
+time_travel/contract.py:120:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.first_item_if in test_cases.time_travel.contract.TimeTravel.first_item_if[routing]
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Copy Propagation
+debug: Found equivalence set: tmp%0#0, as_Encoded(bool8)%0#0
+debug: selected tmp%0#0 from equivalence set
+debug: Found equivalence set: tmp%1#0, first#0
+debug: selected first#0 from equivalence set
+debug: Found equivalence set: storage_value%0#0, items#0
+debug: selected items#0 from equivalence set
+debug: Copy propagation made 3 modifications
+debug: Optimizer: Elide Itxn Field Calls
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Intrinsic Simplifier
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Simplify Control Ops
+debug: Optimizer: Merge Blocks
+debug: Replaced predecessor block@1 with block@0 in block@3
+debug: Replaced predecessor block@1 with block@0 in block@2
+debug: Merged linear block@1 into block@0
+debug: Optimizer: Remove Linear Jumps
+debug: Optimizer: Remove Unreachable Blocks
+debug: Optimizer: Repeated Expression Elimination
+debug: Optimizer: Encode Decode Pair Elimination
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+time_travel/contract.py:125:20 debug: combined BoxRead `items#0 = box_read(0x6974656d73)`
+and ExtractValue `extract_value(items#0, 0u)`
+into box%box_extract%0#0
+time_travel/contract.py:126:16 debug: combined BoxRead `items#0 = box_read(0x6974656d73)`
+and ExtractValue `extract_value(items#0, 1u)`
+into box%box_extract%1#0
+debug: Optimizer: Minimize Box Exist Asserts
+debug: Optimizer: Constant Reads And Unobserved Writes Elimination
 debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]
 debug: Optimizer: Perform Subroutine Inlining
-time_travel/contract.py:113:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now in test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]
+time_travel/contract.py:128:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now in test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]
 debug: Optimizer: Split Parallel Copies
 debug: Optimizer: Constant Replacer
 debug: Optimizer: Copy Propagation
@@ -2001,7 +2219,7 @@ debug: Optimizer: Minimize Box Exist Asserts
 debug: Optimizer: Constant Reads And Unobserved Writes Elimination
 debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.data_exists_then[routing]
 debug: Optimizer: Perform Subroutine Inlining
-time_travel/contract.py:120:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.data_exists_then in test_cases.time_travel.contract.TimeTravel.data_exists_then[routing]
+time_travel/contract.py:135:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.data_exists_then in test_cases.time_travel.contract.TimeTravel.data_exists_then[routing]
 debug: Optimizer: Split Parallel Copies
 debug: Optimizer: Constant Replacer
 debug: Optimizer: Copy Propagation
@@ -2032,7 +2250,7 @@ debug: Optimizer: Minimize Box Exist Asserts
 debug: Optimizer: Constant Reads And Unobserved Writes Elimination
 debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.changes[routing]
 debug: Optimizer: Perform Subroutine Inlining
-time_travel/contract.py:126:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.changes in test_cases.time_travel.contract.TimeTravel.changes[routing]
+time_travel/contract.py:141:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.changes in test_cases.time_travel.contract.TimeTravel.changes[routing]
 debug: Optimizer: Split Parallel Copies
 debug: Optimizer: Constant Replacer
 debug: Optimizer: Copy Propagation
@@ -2106,33 +2324,37 @@ debug: Found equivalence set: tmp%31#0, status#7
 debug: selected status#7 from equivalence set
 debug: Found equivalence set: tmp%32#0, name#0
 debug: selected name#0 from equivalence set
-debug: Found equivalence set: tmp%36#0, total#8
+debug: Found equivalence set: tmp%34#0, total#8
 debug: selected total#8 from equivalence set
-debug: Found equivalence set: tmp%37#0, rnd#8
-debug: selected rnd#8 from equivalence set
-debug: Found equivalence set: tmp%38#0, status#8
-debug: selected status#8 from equivalence set
-debug: Found equivalence set: tmp%39#0, value#1
-debug: selected value#1 from equivalence set
-debug: Found equivalence set: tmp%42#0, total#9
-debug: selected total#9 from equivalence set
-debug: Found equivalence set: tmp%43#0, rnd#9
-debug: selected rnd#9 from equivalence set
-debug: Found equivalence set: tmp%44#0, status#9
-debug: selected status#9 from equivalence set
-debug: Found equivalence set: tmp%45#0, name#1
-debug: selected name#1 from equivalence set
-debug: Found equivalence set: tmp%49#0, total#10
+debug: Found equivalence set: tmp%38#0, total#10
 debug: selected total#10 from equivalence set
-debug: Found equivalence set: tmp%50#0, rnd#10
-debug: selected rnd#10 from equivalence set
-debug: Found equivalence set: tmp%51#0, status#10
-debug: selected status#10 from equivalence set
-debug: Found equivalence set: tmp%52#0, name#2
+debug: Found equivalence set: tmp%39#0, rnd#8
+debug: selected rnd#8 from equivalence set
+debug: Found equivalence set: tmp%40#0, status#8
+debug: selected status#8 from equivalence set
+debug: Found equivalence set: tmp%41#0, value#1
+debug: selected value#1 from equivalence set
+debug: Found equivalence set: tmp%44#0, total#12
+debug: selected total#12 from equivalence set
+debug: Found equivalence set: tmp%45#0, rnd#9
+debug: selected rnd#9 from equivalence set
+debug: Found equivalence set: tmp%46#0, status#9
+debug: selected status#9 from equivalence set
+debug: Found equivalence set: tmp%47#0, name#2
 debug: selected name#2 from equivalence set
-debug: Found equivalence set: tmp%56#0, total#11, tmp%10#0
-debug: selected total#11 from equivalence set
-debug: Copy propagation made 49 modifications
+debug: Found equivalence set: tmp%49#0, total#13
+debug: selected total#13 from equivalence set
+debug: Found equivalence set: tmp%53#0, total#15
+debug: selected total#15 from equivalence set
+debug: Found equivalence set: tmp%54#0, rnd#10
+debug: selected rnd#10 from equivalence set
+debug: Found equivalence set: tmp%55#0, status#10
+debug: selected status#10 from equivalence set
+debug: Found equivalence set: tmp%56#0, name#4
+debug: selected name#4 from equivalence set
+debug: Found equivalence set: tmp%60#0, total#17, tmp%10#0
+debug: selected total#17 from equivalence set
+debug: Copy propagation made 51 modifications
 debug: Optimizer: Elide Itxn Field Calls
 debug: Optimizer: Remove Unused Variables
 debug: Removing unused variable total#0
@@ -2143,8 +2365,9 @@ debug: Optimizer: Replace Compiled References
 debug: Optimizer: Simplify Control Ops
 debug: Optimizer: Merge Blocks
 debug: Replaced predecessor block@1 with block@0 in block@2
+debug: Replaced predecessor block@1 with block@0 in block@3
 debug: Merged linear block@1 into block@0
-debug: Merged linear block@2 into block@0
+debug: Merged linear block@8 into block@7
 debug: Optimizer: Remove Linear Jumps
 debug: Optimizer: Remove Unreachable Blocks
 debug: Optimizer: Repeated Expression Elimination
@@ -2459,6 +2682,58 @@ debug: Optimizer: Merge Chained Aggregate Reads
 debug: Optimizer: Replace Aggregate Box Ops
 debug: Optimizer: Minimize Box Exist Asserts
 debug: Optimizer: Constant Reads And Unobserved Writes Elimination
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_delete
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Copy Propagation
+debug: Found equivalence set: maybe_exists%0#0, existed#0
+debug: selected existed#0 from equivalence set
+debug: Copy propagation made 1 modifications
+debug: Optimizer: Elide Itxn Field Calls
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Intrinsic Simplifier
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Simplify Control Ops
+debug: Optimizer: Merge Blocks
+debug: Optimizer: Remove Linear Jumps
+debug: Optimizer: Remove Unreachable Blocks
+debug: Optimizer: Repeated Expression Elimination
+debug: Optimizer: Encode Decode Pair Elimination
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizer: Minimize Box Exist Asserts
+debug: Optimizer: Constant Reads And Unobserved Writes Elimination
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.first_item_if
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Copy Propagation
+debug: Found equivalence set: storage_value%0#0, items#0
+debug: selected items#0 from equivalence set
+debug: Copy propagation made 1 modifications
+debug: Optimizer: Elide Itxn Field Calls
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Intrinsic Simplifier
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Simplify Control Ops
+debug: Optimizer: Merge Blocks
+debug: Optimizer: Remove Linear Jumps
+debug: Optimizer: Remove Unreachable Blocks
+debug: Optimizer: Repeated Expression Elimination
+debug: Optimizer: Encode Decode Pair Elimination
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+time_travel/contract.py:125:20 debug: combined BoxRead `items#0 = box_read(0x6974656d73)`
+and ExtractValue `extract_value(items#0, 0u)`
+into box%box_extract%0#0
+time_travel/contract.py:126:16 debug: combined BoxRead `items#0 = box_read(0x6974656d73)`
+and ExtractValue `extract_value(items#0, 1u)`
+into box%box_extract%1#0
+debug: Optimizer: Minimize Box Exist Asserts
+debug: Optimizer: Constant Reads And Unobserved Writes Elimination
 debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now
 debug: Optimizer: Perform Subroutine Inlining
 debug: Optimizer: Split Parallel Copies
@@ -2559,33 +2834,37 @@ debug: Found equivalence set: tmp%31#0, status#7
 debug: selected status#7 from equivalence set
 debug: Found equivalence set: tmp%32#0, name#0
 debug: selected name#0 from equivalence set
-debug: Found equivalence set: tmp%36#0, total#8
+debug: Found equivalence set: tmp%34#0, total#8
 debug: selected total#8 from equivalence set
-debug: Found equivalence set: tmp%37#0, rnd#8
-debug: selected rnd#8 from equivalence set
-debug: Found equivalence set: tmp%38#0, status#8
-debug: selected status#8 from equivalence set
-debug: Found equivalence set: tmp%39#0, value#1
-debug: selected value#1 from equivalence set
-debug: Found equivalence set: tmp%42#0, total#9
-debug: selected total#9 from equivalence set
-debug: Found equivalence set: tmp%43#0, rnd#9
-debug: selected rnd#9 from equivalence set
-debug: Found equivalence set: tmp%44#0, status#9
-debug: selected status#9 from equivalence set
-debug: Found equivalence set: tmp%45#0, name#1
-debug: selected name#1 from equivalence set
-debug: Found equivalence set: tmp%49#0, total#10
+debug: Found equivalence set: tmp%38#0, total#10
 debug: selected total#10 from equivalence set
-debug: Found equivalence set: tmp%50#0, rnd#10
-debug: selected rnd#10 from equivalence set
-debug: Found equivalence set: tmp%51#0, status#10
-debug: selected status#10 from equivalence set
-debug: Found equivalence set: tmp%52#0, name#2
+debug: Found equivalence set: tmp%39#0, rnd#8
+debug: selected rnd#8 from equivalence set
+debug: Found equivalence set: tmp%40#0, status#8
+debug: selected status#8 from equivalence set
+debug: Found equivalence set: tmp%41#0, value#1
+debug: selected value#1 from equivalence set
+debug: Found equivalence set: tmp%44#0, total#12
+debug: selected total#12 from equivalence set
+debug: Found equivalence set: tmp%45#0, rnd#9
+debug: selected rnd#9 from equivalence set
+debug: Found equivalence set: tmp%46#0, status#9
+debug: selected status#9 from equivalence set
+debug: Found equivalence set: tmp%47#0, name#2
 debug: selected name#2 from equivalence set
-debug: Found equivalence set: tmp%56#0, total#11
-debug: selected total#11 from equivalence set
-debug: Copy propagation made 38 modifications
+debug: Found equivalence set: tmp%49#0, total#13
+debug: selected total#13 from equivalence set
+debug: Found equivalence set: tmp%53#0, total#15
+debug: selected total#15 from equivalence set
+debug: Found equivalence set: tmp%54#0, rnd#10
+debug: selected rnd#10 from equivalence set
+debug: Found equivalence set: tmp%55#0, status#10
+debug: selected status#10 from equivalence set
+debug: Found equivalence set: tmp%56#0, name#4
+debug: selected name#4 from equivalence set
+debug: Found equivalence set: tmp%60#0, total#17
+debug: selected total#17 from equivalence set
+debug: Copy propagation made 40 modifications
 debug: Optimizer: Elide Itxn Field Calls
 debug: Optimizer: Remove Unused Variables
 debug: Removing unused variable total#0
@@ -2638,6 +2917,8 @@ debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.set
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.timestamps
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.data_existed
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_call
+debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_delete
+debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.first_item_if
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.data_exists_then
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.changes
@@ -2660,7 +2941,7 @@ debug: Optimizer: Inner Txn Field Replacer
 debug: Optimizer: Replace Compiled References
 debug: Optimizer: Simplify Control Ops
 debug: inlining condition branch to err block into an assert true
-debug: simplified terminator of block@4 from goto tmp%4#0 ? block@5 : block@22 to goto block@5
+debug: simplified terminator of block@4 from goto tmp%4#0 ? block@5 : block@24 to goto block@5
 debug: Optimizer: Merge Blocks
 debug: Replaced predecessor block@5 with block@4 in block@6
 debug: Replaced predecessor block@5 with block@4 in block@7
@@ -2676,11 +2957,13 @@ debug: Replaced predecessor block@5 with block@4 in block@16
 debug: Replaced predecessor block@5 with block@4 in block@17
 debug: Replaced predecessor block@5 with block@4 in block@18
 debug: Replaced predecessor block@5 with block@4 in block@19
-debug: Replaced predecessor block@5 with block@4 in block@22
+debug: Replaced predecessor block@5 with block@4 in block@20
+debug: Replaced predecessor block@5 with block@4 in block@21
+debug: Replaced predecessor block@5 with block@4 in block@24
 debug: Merged linear block@5 into block@4
-debug: Replaced predecessor block@24 with block@23 in block@25
-debug: Merged linear block@24 into block@23
-debug: Merged linear block@25 into block@23
+debug: Replaced predecessor block@26 with block@25 in block@27
+debug: Merged linear block@26 into block@25
+debug: Merged linear block@27 into block@25
 debug: Optimizer: Remove Linear Jumps
 debug: Optimizer: Remove Unreachable Blocks
 debug: Optimizer: Repeated Expression Elimination
@@ -3314,6 +3597,58 @@ debug: Optimizer: Copy Propagation
 debug: Optimizer: Elide Itxn Field Calls
 debug: Optimizer: Remove Unused Variables
 debug: Optimizer: Intrinsic Simplifier
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Simplify Control Ops
+debug: Optimizer: Merge Blocks
+debug: Optimizer: Remove Linear Jumps
+debug: Optimizer: Remove Unreachable Blocks
+debug: Optimizer: Repeated Expression Elimination
+debug: Optimizer: Encode Decode Pair Elimination
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizer: Minimize Box Exist Asserts
+debug: Optimizer: Constant Reads And Unobserved Writes Elimination
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_delete[routing]
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Copy Propagation
+debug: Optimizer: Elide Itxn Field Calls
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Intrinsic Simplifier
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Simplify Control Ops
+debug: Optimizer: Merge Blocks
+debug: Optimizer: Remove Linear Jumps
+debug: Optimizer: Remove Unreachable Blocks
+debug: Optimizer: Repeated Expression Elimination
+debug: Optimizer: Encode Decode Pair Elimination
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizer: Minimize Box Exist Asserts
+debug: Optimizer: Constant Reads And Unobserved Writes Elimination
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.first_item_if[routing]
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Copy Propagation
+debug: Found equivalence set: box%box_extract%0#0, array_item%0#0
+debug: selected box%box_extract%0#0 from equivalence set
+debug: Found equivalence set: box%box_extract%1#0, array_item%1#0
+debug: selected box%box_extract%1#0 from equivalence set
+debug: Copy propagation made 2 modifications
+debug: Optimizer: Elide Itxn Field Calls
+debug: Optimizer: Remove Unused Variables
+debug: Removing unused variable items#0
+debug: Optimizer: Intrinsic Simplifier
+debug: Simplified (+ 0u 2u) to 2u
+debug: Simplified (* 0u 8u) to 0u
+debug: Simplified (+ 2u 0u) to 2u
+debug: Simplified (+ 0u 2u) to 2u
+debug: Simplified (* 1u 8u) to 8u
+debug: Simplified (+ 2u 8u) to 10u
 debug: Optimizer: Inner Txn Field Replacer
 debug: Optimizer: Replace Compiled References
 debug: Optimizer: Simplify Control Ops
@@ -4005,6 +4340,52 @@ debug: Optimizer: Merge Chained Aggregate Reads
 debug: Optimizer: Replace Aggregate Box Ops
 debug: Optimizer: Minimize Box Exist Asserts
 debug: Optimizer: Constant Reads And Unobserved Writes Elimination
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_delete[routing]
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Copy Propagation
+debug: Optimizer: Elide Itxn Field Calls
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Intrinsic Simplifier
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Simplify Control Ops
+debug: Optimizer: Merge Blocks
+debug: Optimizer: Remove Linear Jumps
+debug: Optimizer: Remove Unreachable Blocks
+debug: Optimizer: Repeated Expression Elimination
+debug: Optimizer: Encode Decode Pair Elimination
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizer: Minimize Box Exist Asserts
+debug: Optimizer: Constant Reads And Unobserved Writes Elimination
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.first_item_if[routing]
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Copy Propagation
+debug: Optimizer: Elide Itxn Field Calls
+debug: Optimizer: Remove Unused Variables
+debug: Removing unused variable box%add%0#0
+debug: Removing unused variable box%element_offset%0#0
+debug: Removing unused variable box%offset%0#0
+debug: Removing unused variable box%add%1#0
+debug: Removing unused variable box%element_offset%1#0
+debug: Removing unused variable box%offset%1#0
+debug: Optimizer: Intrinsic Simplifier
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Simplify Control Ops
+debug: Optimizer: Merge Blocks
+debug: Optimizer: Remove Linear Jumps
+debug: Optimizer: Remove Unreachable Blocks
+debug: Optimizer: Repeated Expression Elimination
+debug: Optimizer: Encode Decode Pair Elimination
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizer: Minimize Box Exist Asserts
+debug: Optimizer: Constant Reads And Unobserved Writes Elimination
 debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]
 debug: Optimizer: Perform Subroutine Inlining
 debug: Optimizer: Split Parallel Copies
@@ -4629,6 +5010,46 @@ debug: Optimizer: Replace Aggregate Box Ops
 debug: Optimizer: Minimize Box Exist Asserts
 debug: Optimizer: Constant Reads And Unobserved Writes Elimination
 debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing]
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Copy Propagation
+debug: Optimizer: Elide Itxn Field Calls
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Intrinsic Simplifier
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Simplify Control Ops
+debug: Optimizer: Merge Blocks
+debug: Optimizer: Remove Linear Jumps
+debug: Optimizer: Remove Unreachable Blocks
+debug: Optimizer: Repeated Expression Elimination
+debug: Optimizer: Encode Decode Pair Elimination
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizer: Minimize Box Exist Asserts
+debug: Optimizer: Constant Reads And Unobserved Writes Elimination
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_delete[routing]
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Copy Propagation
+debug: Optimizer: Elide Itxn Field Calls
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Intrinsic Simplifier
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Simplify Control Ops
+debug: Optimizer: Merge Blocks
+debug: Optimizer: Remove Linear Jumps
+debug: Optimizer: Remove Unreachable Blocks
+debug: Optimizer: Repeated Expression Elimination
+debug: Optimizer: Encode Decode Pair Elimination
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizer: Minimize Box Exist Asserts
+debug: Optimizer: Constant Reads And Unobserved Writes Elimination
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.first_item_if[routing]
 debug: Optimizer: Perform Subroutine Inlining
 debug: Optimizer: Split Parallel Copies
 debug: Optimizer: Constant Replacer
@@ -5379,6 +5800,54 @@ debug: Optimizer: Merge Chained Aggregate Reads
 debug: Optimizer: Replace Aggregate Box Ops
 debug: Optimizer: Minimize Box Exist Asserts
 debug: Optimizer: Constant Reads And Unobserved Writes Elimination
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_delete[routing]
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Copy Propagation
+debug: Found equivalence set: aggregate%box_get%0#0, storage_value%0#0
+debug: selected aggregate%box_get%0#0 from equivalence set
+debug: Found equivalence set: aggregate%encoded_value%0#0, aggregate%as_Encoded(len+uint8[])%0#0, tmp%1#0
+debug: selected aggregate%encoded_value%0#0 from equivalence set
+debug: Copy propagation made 3 modifications
+debug: Optimizer: Elide Itxn Field Calls
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Intrinsic Simplifier
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Simplify Control Ops
+debug: Optimizer: Merge Blocks
+debug: Optimizer: Remove Linear Jumps
+debug: Optimizer: Remove Unreachable Blocks
+debug: Optimizer: Repeated Expression Elimination
+debug: Optimizer: Encode Decode Pair Elimination
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizer: Minimize Box Exist Asserts
+debug: Optimizer: Constant Reads And Unobserved Writes Elimination
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.first_item_if[routing]
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Copy Propagation
+debug: Found equivalence set: aggregate%get_bit%0#0, first#0
+debug: selected first#0 from equivalence set
+debug: Copy propagation made 1 modifications
+debug: Optimizer: Elide Itxn Field Calls
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Intrinsic Simplifier
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Simplify Control Ops
+debug: Optimizer: Merge Blocks
+debug: Optimizer: Remove Linear Jumps
+debug: Optimizer: Remove Unreachable Blocks
+debug: Optimizer: Repeated Expression Elimination
+debug: Optimizer: Encode Decode Pair Elimination
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizer: Minimize Box Exist Asserts
+debug: Optimizer: Constant Reads And Unobserved Writes Elimination
 debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]
 debug: Optimizer: Perform Subroutine Inlining
 debug: Optimizer: Split Parallel Copies
@@ -5736,6 +6205,46 @@ debug: Optimizer: Merge Chained Aggregate Reads
 debug: Optimizer: Replace Aggregate Box Ops
 debug: Optimizer: Minimize Box Exist Asserts
 debug: Optimizer: Constant Reads And Unobserved Writes Elimination
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_delete[routing]
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Copy Propagation
+debug: Optimizer: Elide Itxn Field Calls
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Intrinsic Simplifier
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Simplify Control Ops
+debug: Optimizer: Merge Blocks
+debug: Optimizer: Remove Linear Jumps
+debug: Optimizer: Remove Unreachable Blocks
+debug: Optimizer: Repeated Expression Elimination
+debug: Optimizer: Encode Decode Pair Elimination
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizer: Minimize Box Exist Asserts
+debug: Optimizer: Constant Reads And Unobserved Writes Elimination
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.first_item_if[routing]
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Copy Propagation
+debug: Optimizer: Elide Itxn Field Calls
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Intrinsic Simplifier
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Simplify Control Ops
+debug: Optimizer: Merge Blocks
+debug: Optimizer: Remove Linear Jumps
+debug: Optimizer: Remove Unreachable Blocks
+debug: Optimizer: Repeated Expression Elimination
+debug: Optimizer: Encode Decode Pair Elimination
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizer: Minimize Box Exist Asserts
+debug: Optimizer: Constant Reads And Unobserved Writes Elimination
 debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]
 debug: Optimizer: Perform Subroutine Inlining
 debug: Optimizer: Split Parallel Copies
@@ -6058,6 +6567,46 @@ debug: Optimizer: Merge Chained Aggregate Reads
 debug: Optimizer: Replace Aggregate Box Ops
 debug: Optimizer: Minimize Box Exist Asserts
 debug: Optimizer: Constant Reads And Unobserved Writes Elimination
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_delete[routing]
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Copy Propagation
+debug: Optimizer: Elide Itxn Field Calls
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Intrinsic Simplifier
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Simplify Control Ops
+debug: Optimizer: Merge Blocks
+debug: Optimizer: Remove Linear Jumps
+debug: Optimizer: Remove Unreachable Blocks
+debug: Optimizer: Repeated Expression Elimination
+debug: Optimizer: Encode Decode Pair Elimination
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizer: Minimize Box Exist Asserts
+debug: Optimizer: Constant Reads And Unobserved Writes Elimination
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.first_item_if[routing]
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Copy Propagation
+debug: Optimizer: Elide Itxn Field Calls
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Intrinsic Simplifier
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Simplify Control Ops
+debug: Optimizer: Merge Blocks
+debug: Optimizer: Remove Linear Jumps
+debug: Optimizer: Remove Unreachable Blocks
+debug: Optimizer: Repeated Expression Elimination
+debug: Optimizer: Encode Decode Pair Elimination
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizer: Minimize Box Exist Asserts
+debug: Optimizer: Constant Reads And Unobserved Writes Elimination
 debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]
 debug: Optimizer: Perform Subroutine Inlining
 debug: Optimizer: Split Parallel Copies
@@ -6144,7 +6693,7 @@ debug: Optimizer: Constant Reads And Unobserved Writes Elimination
 debug: No optimizations performed in pass 1, ending loop
 debug: removing local static slots in approval program of test_cases.time_travel.contract.TimeTravel
 debug: auto reserving slots in algopy.arc4.ARC4Contract.approval_program, []
-time_travel/contract.py:161:2 debug: auto reserving slots in test_cases.time_travel.contract.go_back_not_inlined, []
+time_travel/contract.py:182:2 debug: auto reserving slots in test_cases.time_travel.contract.go_back_not_inlined, []
 time_travel/contract.py:36:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.round_at[routing], []
 time_travel/contract.py:41:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.round_before[routing], []
 time_travel/contract.py:47:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.counter_then_and_now[routing], []
@@ -6156,9 +6705,11 @@ time_travel/contract.py:83:6 debug: auto reserving slots in test_cases.time_trav
 time_travel/contract.py:90:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.timestamps[routing], []
 time_travel/contract.py:97:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.data_existed[routing], []
 time_travel/contract.py:105:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing], []
-time_travel/contract.py:113:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing], []
-time_travel/contract.py:120:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.data_exists_then[routing], []
-time_travel/contract.py:126:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.changes[routing], []
+time_travel/contract.py:113:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.data_existed_before_delete[routing], []
+time_travel/contract.py:120:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.first_item_if[routing], []
+time_travel/contract.py:128:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing], []
+time_travel/contract.py:135:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.data_exists_then[routing], []
+time_travel/contract.py:141:6 debug: auto reserving slots in test_cases.time_travel.contract.TimeTravel.changes[routing], []
 debug: Slot allocation not required
 debug: Output IR to time_travel/out/TimeTravel.ir/TimeTravel.approval.300.ssa.slot.ir
 debug: removing local static slots in clear program of test_cases.time_travel.contract.TimeTravel
@@ -6167,19 +6718,19 @@ debug: Slot allocation not required
 debug: Output IR to time_travel/out/TimeTravel.ir/TimeTravel.clear.300.ssa.slot.ir
 debug: Performing SSA IR destructuring for algopy.arc4.ARC4Contract.approval_program
 debug: splitting critical edge block@0->block@2
-debug: Replaced predecessor block@0 with block@24 in block@2
-debug: splitting critical edge block@4->block@22
-debug: Replaced predecessor block@4 with block@25 in block@22
+debug: Replaced predecessor block@0 with block@26 in block@2
+debug: splitting critical edge block@4->block@24
+debug: Replaced predecessor block@4 with block@27 in block@24
 debug: Converting to CSSA
 debug: Removing Phi nodes
 debug: Coalescing local variables in algopy.arc4.ARC4Contract.approval_program using strategy 'root_operand'
 debug: Coalescing resulted in 0 replacement/s
 debug: Sequentializing parallel copies in algopy.arc4.ARC4Contract.approval_program
 debug: Performing post-SSA optimizations at level 1
-debug: Removing jump block block@24
-debug: Removing jump block block@25
-debug: branching to block@24 will be replaced with block@2
-debug: branching to block@25 will be replaced with block@22
+debug: Removing jump block block@26
+debug: Removing jump block block@27
+debug: branching to block@26 will be replaced with block@2
+debug: branching to block@27 will be replaced with block@24
 debug: Performing SSA IR destructuring for test_cases.time_travel.contract.go_back_not_inlined
 debug: Converting to CSSA
 debug: Removing Phi nodes
@@ -6268,6 +6819,20 @@ debug: Coalescing local variables in test_cases.time_travel.contract.TimeTravel.
 debug: Coalescing resulted in 0 replacement/s
 debug: Sequentializing parallel copies in test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing]
 debug: Performing post-SSA optimizations at level 1
+debug: Performing SSA IR destructuring for test_cases.time_travel.contract.TimeTravel.data_existed_before_delete[routing]
+debug: Converting to CSSA
+debug: Removing Phi nodes
+debug: Coalescing local variables in test_cases.time_travel.contract.TimeTravel.data_existed_before_delete[routing] using strategy 'root_operand'
+debug: Coalescing resulted in 0 replacement/s
+debug: Sequentializing parallel copies in test_cases.time_travel.contract.TimeTravel.data_existed_before_delete[routing]
+debug: Performing post-SSA optimizations at level 1
+debug: Performing SSA IR destructuring for test_cases.time_travel.contract.TimeTravel.first_item_if[routing]
+debug: Converting to CSSA
+debug: Removing Phi nodes
+debug: Coalescing local variables in test_cases.time_travel.contract.TimeTravel.first_item_if[routing] using strategy 'root_operand'
+debug: Coalescing resulted in 0 replacement/s
+debug: Sequentializing parallel copies in test_cases.time_travel.contract.TimeTravel.first_item_if[routing]
+debug: Performing post-SSA optimizations at level 1
 debug: Performing SSA IR destructuring for test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]
 debug: Converting to CSSA
 debug: Removing Phi nodes
@@ -6283,17 +6848,41 @@ debug: Coalescing resulted in 0 replacement/s
 debug: Sequentializing parallel copies in test_cases.time_travel.contract.TimeTravel.data_exists_then[routing]
 debug: Performing post-SSA optimizations at level 1
 debug: Performing SSA IR destructuring for test_cases.time_travel.contract.TimeTravel.changes[routing]
+debug: splitting critical edge block@0->block@3
+debug: Replaced predecessor block@0 with block@8 in block@3
+debug: splitting critical edge block@2->block@4
+debug: Replaced predecessor block@2 with block@9 in block@4
+debug: splitting critical edge block@2->block@3
+debug: Replaced predecessor block@2 with block@10 in block@3
+debug: splitting critical edge block@4->block@6
+debug: Replaced predecessor block@4 with block@11 in block@6
+debug: splitting critical edge block@5->block@7
+debug: Replaced predecessor block@5 with block@12 in block@7
+debug: splitting critical edge block@5->block@6
+debug: Replaced predecessor block@5 with block@13 in block@6
 debug: Converting to CSSA
 debug: Removing Phi nodes
 debug: Coalescing local variables in test_cases.time_travel.contract.TimeTravel.changes[routing] using strategy 'root_operand'
 debug: Coalescing rnd#0 with [rnd#1, rnd#2, rnd#3, rnd#4, rnd#5, rnd#6, rnd#7, rnd#8, rnd#9, rnd#10]
 debug: Coalescing status#0 with [status#1, status#2, status#3, status#4, status#5, status#6, status#7, status#8, status#9, status#10]
-debug: Coalescing total#1 with [total#2, total#3, total#4, total#5, total#6, total#7, total#8, total#9, total#10, total#11]
+debug: Coalescing total#1 with [total#2, total#3, total#4, total#5, total#6, total#7, total#8, total#11, total#10, total#12, total#13, total#16, total#15, total#17]
 debug: Coalescing value#0 with [value#1]
-debug: Coalescing name#0 with [name#1, name#2]
-debug: Coalescing resulted in 66 replacement/s
+debug: Coalescing name#0 with [name#2, name#4]
+debug: Coalescing resulted in 82 replacement/s
 debug: Sequentializing parallel copies in test_cases.time_travel.contract.TimeTravel.changes[routing]
 debug: Performing post-SSA optimizations at level 1
+debug: Removing jump block block@8
+debug: Removing jump block block@9
+debug: Removing jump block block@10
+debug: Removing jump block block@11
+debug: Removing jump block block@12
+debug: Removing jump block block@13
+debug: branching to block@8 will be replaced with block@3
+debug: branching to block@9 will be replaced with block@4
+debug: branching to block@10 will be replaced with block@3
+debug: branching to block@11 will be replaced with block@6
+debug: branching to block@12 will be replaced with block@7
+debug: branching to block@13 will be replaced with block@6
 debug: Output IR to time_travel/out/TimeTravel.ir/TimeTravel.approval.400.destructured.ir
 debug: Performing SSA IR destructuring for algopy.arc4.ARC4Contract.clear_state_program
 debug: Converting to CSSA
@@ -6314,17 +6903,17 @@ debug: Replaced main_abi_routing@4.ops[7]: 'v-load tmp%3#0' with 'l-load tmp%3#0
 debug: Inserted main_abi_routing@4.ops[10]: 'l-store-copy tmp%4#0 0'
 debug: Replaced main_abi_routing@4.ops[12]: 'v-load tmp%4#0' with 'l-load tmp%4#0'
 debug: Inserted main_abi_routing@4.ops[15]: 'l-store-copy tmp%6#0 0'
-debug: Replaced main_abi_routing@4.ops[31]: 'v-load tmp%6#0' with 'l-load tmp%6#0'
-debug: Inserted main___algopy_default_create@23.ops[1]: 'l-store-copy tmp%7#0 0'
-debug: Replaced main___algopy_default_create@23.ops[3]: 'v-load tmp%7#0' with 'l-load tmp%7#0'
-debug: Inserted main___algopy_default_create@23.ops[7]: 'l-store-copy tmp%9#0 0'
-debug: Replaced main___algopy_default_create@23.ops[9]: 'v-load tmp%9#0' with 'l-load tmp%9#0'
-debug: Inserted main___algopy_default_create@23.ops[15]: 'l-store-copy tmp%11#0 0'
-debug: Replaced main___algopy_default_create@23.ops[17]: 'v-load tmp%11#0' with 'l-load tmp%11#0'
-debug: Inserted main___algopy_default_create@23.ops[11]: 'l-store-copy tmp%10#0 0'
-debug: Replaced main___algopy_default_create@23.ops[14]: 'v-load tmp%10#0' with 'l-load tmp%10#0'
-debug: Inserted main___algopy_default_create@23.ops[5]: 'l-store-copy tmp%8#0 0'
-debug: Replaced main___algopy_default_create@23.ops[14]: 'v-load tmp%8#0' with 'l-load tmp%8#0'
+debug: Replaced main_abi_routing@4.ops[33]: 'v-load tmp%6#0' with 'l-load tmp%6#0'
+debug: Inserted main___algopy_default_create@25.ops[1]: 'l-store-copy tmp%7#0 0'
+debug: Replaced main___algopy_default_create@25.ops[3]: 'v-load tmp%7#0' with 'l-load tmp%7#0'
+debug: Inserted main___algopy_default_create@25.ops[7]: 'l-store-copy tmp%9#0 0'
+debug: Replaced main___algopy_default_create@25.ops[9]: 'v-load tmp%9#0' with 'l-load tmp%9#0'
+debug: Inserted main___algopy_default_create@25.ops[15]: 'l-store-copy tmp%11#0 0'
+debug: Replaced main___algopy_default_create@25.ops[17]: 'v-load tmp%11#0' with 'l-load tmp%11#0'
+debug: Inserted main___algopy_default_create@25.ops[11]: 'l-store-copy tmp%10#0 0'
+debug: Replaced main___algopy_default_create@25.ops[14]: 'v-load tmp%10#0' with 'l-load tmp%10#0'
+debug: Inserted main___algopy_default_create@25.ops[5]: 'l-store-copy tmp%8#0 0'
+debug: Replaced main___algopy_default_create@25.ops[14]: 'v-load tmp%8#0' with 'l-load tmp%8#0'
 debug: Inserted round_at_block@0.ops[1]: 'l-store-copy tmp%0#0 0'
 debug: Replaced round_at_block@0.ops[3]: 'v-load tmp%0#0' with 'l-load tmp%0#0'
 debug: Inserted round_at_block@0.ops[5]: 'l-store-copy len%0#0 0'
@@ -6617,6 +7206,40 @@ debug: Inserted data_existed_before_call_block@0.ops[21]: 'l-store-copy existed#
 debug: Replaced data_existed_before_call_block@0.ops[34]: 'v-load existed#0' with 'l-load existed#0'
 debug: Inserted data_existed_before_call_block@0.ops[37]: 'l-store-copy then#0 0'
 debug: Replaced data_existed_before_call_block@0.ops[50]: 'v-load then#0' with 'l-load then#0'
+debug: Inserted data_existed_before_delete_block@0.ops[17]: 'l-store-copy aggregate%length%0#0 0'
+debug: Replaced data_existed_before_delete_block@0.ops[19]: 'v-load aggregate%length%0#0' with 'l-load aggregate%length%0#0'
+debug: Inserted data_existed_before_delete_block@0.ops[21]: 'l-store-copy aggregate%as_bytes%0#0 0'
+debug: Replaced data_existed_before_delete_block@0.ops[23]: 'v-load aggregate%as_bytes%0#0' with 'l-load aggregate%as_bytes%0#0'
+debug: Inserted data_existed_before_delete_block@0.ops[25]: 'l-store-copy aggregate%length_uint16%0#0 0'
+debug: Replaced data_existed_before_delete_block@0.ops[27]: 'v-load aggregate%length_uint16%0#0' with 'l-load aggregate%length_uint16%0#0'
+debug: Inserted data_existed_before_delete_block@0.ops[34]: 'l-store-copy tmp%2#0 0'
+debug: Replaced data_existed_before_delete_block@0.ops[36]: 'v-load tmp%2#0' with 'l-load tmp%2#0'
+debug: Inserted data_existed_before_delete_block@0.ops[11]: 'l-store-copy aggregate%box_get%1#0 1'
+debug: Replaced data_existed_before_delete_block@0.ops[14]: 'v-load aggregate%box_get%1#0' with 'l-load aggregate%box_get%1#0'
+debug: Inserted data_existed_before_delete_block@0.ops[31]: 'l-store-copy aggregate%encoded_value%0#0 0'
+debug: Replaced data_existed_before_delete_block@0.ops[34]: 'v-load aggregate%encoded_value%0#0' with 'l-load aggregate%encoded_value%0#0'
+debug: Inserted data_existed_before_delete_block@0.ops[13]: 'l-store-copy aggregate%box_get%0#0 1'
+debug: Replaced data_existed_before_delete_block@0.ops[17]: 'v-load aggregate%box_get%0#0' with 'l-load aggregate%box_get%0#0'
+debug: Inserted data_existed_before_delete_block@0.ops[2]: 'l-store-copy existed#0 1'
+debug: Replaced data_existed_before_delete_block@0.ops[8]: 'v-load existed#0' with 'l-load existed#0'
+debug: Inserted data_existed_before_delete_block@0.ops[19]: 'l-store-copy aggregate%box_get%0#0 0'
+debug: Replaced data_existed_before_delete_block@0.ops[32]: 'v-load aggregate%box_get%0#0' with 'l-load aggregate%box_get%0#0'
+debug: Inserted first_item_if_block@0.ops[1]: 'l-store-copy tmp%0#0 0'
+debug: Replaced first_item_if_block@0.ops[3]: 'v-load tmp%0#0' with 'l-load tmp%0#0'
+debug: Inserted first_item_if_block@0.ops[5]: 'l-store-copy len%0#0 0'
+debug: Replaced first_item_if_block@0.ops[7]: 'v-load len%0#0' with 'l-load len%0#0'
+debug: Inserted first_item_if_block@0.ops[10]: 'l-store-copy eq%0#0 0'
+debug: Replaced first_item_if_block@0.ops[12]: 'v-load eq%0#0' with 'l-load eq%0#0'
+debug: Inserted first_item_if_block@0.ops[17]: 'l-store-copy first#0 0'
+debug: Replaced first_item_if_block@0.ops[19]: 'v-load first#0' with 'l-load first#0'
+debug: Inserted first_item_if_block@0.ops[4]: 'l-store-copy tmp%0#0 0'
+debug: Replaced first_item_if_block@0.ops[15]: 'v-load tmp%0#0' with 'l-load tmp%0#0'
+debug: Inserted first_item_if_if_body@2.ops[4]: 'l-store-copy box%box_extract%0#0 0'
+debug: Replaced first_item_if_if_body@2.ops[6]: 'v-load box%box_extract%0#0' with 'l-load box%box_extract%0#0'
+debug: Inserted first_item_if_after_if_else@3.ops[4]: 'l-store-copy box%box_extract%1#0 0'
+debug: Replaced first_item_if_after_if_else@3.ops[6]: 'v-load box%box_extract%1#0' with 'l-load box%box_extract%1#0'
+debug: Inserted first_item_if_after_inlined_test_cases.time_travel.contract.TimeTravel.first_item_if@4.ops[3]: 'l-store-copy tmp%3#0 0'
+debug: Replaced first_item_if_after_inlined_test_cases.time_travel.contract.TimeTravel.first_item_if@4.ops[5]: 'v-load tmp%3#0' with 'l-load tmp%3#0'
 debug: Inserted first_valid_then_and_now_block@0.ops[1]: 'l-store-copy tmp%0#0 0'
 debug: Replaced first_valid_then_and_now_block@0.ops[3]: 'v-load tmp%0#0' with 'l-load tmp%0#0'
 debug: Inserted first_valid_then_and_now_block@0.ops[5]: 'l-store-copy len%0#0 0'
@@ -6717,18 +7340,8 @@ debug: Inserted changes_block@0.ops[183]: 'l-store-copy tmp%27#0 0'
 debug: Replaced changes_block@0.ops[185]: 'v-load tmp%27#0' with 'l-load tmp%27#0'
 debug: Inserted changes_block@0.ops[200]: 'l-store-copy rnd#0 0'
 debug: Replaced changes_block@0.ops[202]: 'v-load rnd#0' with 'l-load rnd#0'
-debug: Inserted changes_block@0.ops[225]: 'l-store-copy rnd#0 0'
-debug: Replaced changes_block@0.ops[227]: 'v-load rnd#0' with 'l-load rnd#0'
-debug: Inserted changes_block@0.ops[230]: 'l-store-copy tmp%40#0 0'
-debug: Replaced changes_block@0.ops[232]: 'v-load tmp%40#0' with 'l-load tmp%40#0'
-debug: Inserted changes_block@0.ops[248]: 'l-store-copy rnd#0 0'
-debug: Replaced changes_block@0.ops[250]: 'v-load rnd#0' with 'l-load rnd#0'
-debug: Inserted changes_block@0.ops[272]: 'l-store-copy rnd#0 0'
-debug: Replaced changes_block@0.ops[274]: 'v-load rnd#0' with 'l-load rnd#0'
-debug: Inserted changes_block@0.ops[288]: 'l-store-copy total#1 0'
-debug: Replaced changes_block@0.ops[290]: 'v-load total#1' with 'l-load total#1'
-debug: Inserted changes_block@0.ops[296]: 'l-store-copy tmp%12#0 0'
-debug: Replaced changes_block@0.ops[298]: 'v-load tmp%12#0' with 'l-load tmp%12#0'
+debug: Inserted changes_block@0.ops[213]: 'l-store-copy tmp%35#0 0'
+debug: Replaced changes_block@0.ops[215]: 'v-load tmp%35#0' with 'l-load tmp%35#0'
 debug: Inserted changes_block@0.ops[104]: 'l-store-copy tmp%6#1 0'
 debug: Replaced changes_block@0.ops[107]: 'v-load tmp%6#1' with 'l-load tmp%6#1'
 debug: Inserted changes_block@0.ops[121]: 'l-store-copy tmp%10#1 0'
@@ -6741,22 +7354,8 @@ debug: Inserted changes_block@0.ops[170]: 'l-store-copy tmp%22#0 0'
 debug: Replaced changes_block@0.ops[173]: 'v-load tmp%22#0' with 'l-load tmp%22#0'
 debug: Inserted changes_block@0.ops[193]: 'l-store-copy tmp%28#0 0'
 debug: Replaced changes_block@0.ops[196]: 'v-load tmp%28#0' with 'l-load tmp%28#0'
-debug: Inserted changes_block@0.ops[214]: 'l-store-copy tmp%34#0 0'
-debug: Replaced changes_block@0.ops[217]: 'v-load tmp%34#0' with 'l-load tmp%34#0'
-debug: Inserted changes_block@0.ops[219]: 'l-store-copy tmp%35#0 0'
-debug: Replaced changes_block@0.ops[222]: 'v-load tmp%35#0' with 'l-load tmp%35#0'
-debug: Inserted changes_block@0.ops[243]: 'l-store-copy tmp%41#0 0'
-debug: Replaced changes_block@0.ops[246]: 'v-load tmp%41#0' with 'l-load tmp%41#0'
-debug: Inserted changes_block@0.ops[265]: 'l-store-copy tmp%47#0 0'
-debug: Replaced changes_block@0.ops[268]: 'v-load tmp%47#0' with 'l-load tmp%47#0'
-debug: Inserted changes_block@0.ops[270]: 'l-store-copy tmp%48#0 0'
-debug: Replaced changes_block@0.ops[273]: 'v-load tmp%48#0' with 'l-load tmp%48#0'
-debug: Inserted changes_block@0.ops[291]: 'l-store-copy tmp%54#0 0'
-debug: Replaced changes_block@0.ops[294]: 'v-load tmp%54#0' with 'l-load tmp%54#0'
-debug: Inserted changes_block@0.ops[296]: 'l-store-copy tmp%55#0 0'
-debug: Replaced changes_block@0.ops[299]: 'v-load tmp%55#0' with 'l-load tmp%55#0'
-debug: Inserted changes_block@0.ops[305]: 'l-store-copy aggregate%val_as_bytes%0#0 0'
-debug: Replaced changes_block@0.ops[308]: 'v-load aggregate%val_as_bytes%0#0' with 'l-load aggregate%val_as_bytes%0#0'
+debug: Inserted changes_block@0.ops[211]: 'l-store-copy tmp%33#0 0'
+debug: Replaced changes_block@0.ops[214]: 'v-load tmp%33#0' with 'l-load tmp%33#0'
 debug: Inserted changes_block@0.ops[81]: 'l-store-copy to#0 0'
 debug: Replaced changes_block@0.ops[85]: 'v-load to#0' with 'l-load to#0'
 debug: Inserted changes_block@0.ops[87]: 'l-store-copy status#0 1'
@@ -6775,28 +7374,10 @@ debug: Inserted changes_block@0.ops[189]: 'l-store-copy status#0 1'
 debug: Replaced changes_block@0.ops[194]: 'v-load status#0' with 'l-load status#0'
 debug: Inserted changes_block@0.ops[213]: 'l-store-copy status#0 1'
 debug: Replaced changes_block@0.ops[218]: 'v-load status#0' with 'l-load status#0'
-debug: Inserted changes_block@0.ops[241]: 'l-store-copy status#0 1'
-debug: Replaced changes_block@0.ops[246]: 'v-load status#0' with 'l-load status#0'
-debug: Inserted changes_block@0.ops[266]: 'l-store-copy status#0 1'
-debug: Replaced changes_block@0.ops[271]: 'v-load status#0' with 'l-load status#0'
-debug: Inserted changes_block@0.ops[293]: 'l-store-copy status#0 1'
-debug: Replaced changes_block@0.ops[298]: 'v-load status#0' with 'l-load status#0'
-debug: Inserted changes_block@0.ops[220]: 'l-store-copy tmp%33#0 0'
-debug: Replaced changes_block@0.ops[226]: 'v-load tmp%33#0' with 'l-load tmp%33#0'
-debug: Inserted changes_block@0.ops[274]: 'l-store-copy tmp%46#0 0'
-debug: Replaced changes_block@0.ops[280]: 'v-load tmp%46#0' with 'l-load tmp%46#0'
-debug: Inserted changes_block@0.ops[302]: 'l-store-copy tmp%53#0 0'
-debug: Replaced changes_block@0.ops[308]: 'v-load tmp%53#0' with 'l-load tmp%53#0'
-debug: Inserted changes_block@0.ops[212]: 'l-store-copy name#0 2'
-debug: Replaced changes_block@0.ops[223]: 'v-load name#0' with 'l-load name#0'
-debug: Inserted changes_block@0.ops[267]: 'l-store-copy name#0 2'
-debug: Replaced changes_block@0.ops[278]: 'v-load name#0' with 'l-load name#0'
-debug: Inserted changes_block@0.ops[296]: 'l-store-copy name#0 2'
-debug: Replaced changes_block@0.ops[307]: 'v-load name#0' with 'l-load name#0'
+debug: Inserted changes_block@0.ops[219]: 'l-store-copy status#0 1'
+debug: Replaced changes_block@0.ops[227]: 'v-load status#0' with 'l-load status#0'
 debug: Inserted changes_block@0.ops[188]: 'l-store-copy value#0 2'
 debug: Replaced changes_block@0.ops[200]: 'v-load value#0' with 'l-load value#0'
-debug: Inserted changes_block@0.ops[243]: 'l-store-copy value#0 2'
-debug: Replaced changes_block@0.ops[255]: 'v-load value#0' with 'l-load value#0'
 debug: Inserted changes_block@0.ops[18]: 'l-store-copy tmp%2#0 0'
 debug: Replaced changes_block@0.ops[29]: 'v-load tmp%2#0' with 'l-load tmp%2#0'
 debug: Inserted changes_block@0.ops[36]: 'l-store-copy tmp%4#0 0'
@@ -6821,6 +7402,8 @@ debug: Inserted changes_block@0.ops[120]: 'l-store-copy total#1 0'
 debug: Replaced changes_block@0.ops[136]: 'v-load total#1' with 'l-load total#1'
 debug: Inserted changes_block@0.ops[175]: 'l-store-copy total#1 0'
 debug: Replaced changes_block@0.ops[191]: 'v-load total#1' with 'l-load total#1'
+debug: Inserted changes_block@0.ops[219]: 'l-store-copy total#1 0'
+debug: Replaced changes_block@0.ops[237]: 'v-load total#1' with 'l-load total#1'
 debug: Inserted changes_block@0.ops[125]: 'l-store-copy from_#0 3'
 debug: Replaced changes_block@0.ops[143]: 'v-load from_#0' with 'l-load from_#0'
 debug: Inserted changes_block@0.ops[127]: 'l-store-copy to#0 5'
@@ -6851,40 +7434,12 @@ debug: Inserted changes_block@0.ops[67]: 'l-store-copy from_#0 0'
 debug: Replaced changes_block@0.ops[90]: 'v-load from_#0' with 'l-load from_#0'
 debug: Inserted changes_block@0.ops[208]: 'l-store-copy total#1 3'
 debug: Replaced changes_block@0.ops[231]: 'v-load total#1' with 'l-load total#1'
-debug: Inserted changes_block@0.ops[263]: 'l-store-copy total#1 0'
-debug: Replaced changes_block@0.ops[287]: 'v-load total#1' with 'l-load total#1'
 debug: Inserted changes_block@0.ops[211]: 'l-store-copy app#0 3'
-debug: Replaced changes_block@0.ops[236]: 'v-load app#0' with 'l-load app#0'
+debug: Replaced changes_block@0.ops[237]: 'v-load app#0' with 'l-load app#0'
 debug: Inserted changes_block@0.ops[214]: 'l-store-copy from_#0 5'
-debug: Replaced changes_block@0.ops[239]: 'v-load from_#0' with 'l-load from_#0'
+debug: Replaced changes_block@0.ops[240]: 'v-load from_#0' with 'l-load from_#0'
 debug: Inserted changes_block@0.ops[216]: 'l-store-copy to#0 6'
-debug: Replaced changes_block@0.ops[241]: 'v-load to#0' with 'l-load to#0'
-debug: Inserted changes_block@0.ops[237]: 'l-store-copy total#1 3'
-debug: Replaced changes_block@0.ops[264]: 'v-load total#1' with 'l-load total#1'
-debug: Inserted changes_block@0.ops[324]: 'l-store-copy total#1 0'
-debug: Replaced changes_block@0.ops[351]: 'v-load total#1' with 'l-load total#1'
-debug: Inserted changes_block@0.ops[270]: 'l-store-copy acct#0 1'
-debug: Replaced changes_block@0.ops[296]: 'v-load acct#0' with 'l-load acct#0'
-debug: Inserted changes_block@0.ops[272]: 'l-store-copy app#0 3'
-debug: Replaced changes_block@0.ops[298]: 'v-load app#0' with 'l-load app#0'
-debug: Inserted changes_block@0.ops[275]: 'l-store-copy from_#0 6'
-debug: Replaced changes_block@0.ops[301]: 'v-load from_#0' with 'l-load from_#0'
-debug: Inserted changes_block@0.ops[277]: 'l-store-copy to#0 8'
-debug: Replaced changes_block@0.ops[303]: 'v-load to#0' with 'l-load to#0'
-debug: Inserted changes_block@0.ops[298]: 'l-store-copy total#1 4'
-debug: Replaced changes_block@0.ops[326]: 'v-load total#1' with 'l-load total#1'
-debug: Inserted changes_block@0.ops[302]: 'l-store-copy app#0 4'
-debug: Replaced changes_block@0.ops[332]: 'v-load app#0' with 'l-load app#0'
-debug: Inserted changes_block@0.ops[305]: 'l-store-copy from_#0 6'
-debug: Replaced changes_block@0.ops[335]: 'v-load from_#0' with 'l-load from_#0'
-debug: Inserted changes_block@0.ops[307]: 'l-store-copy to#0 7'
-debug: Replaced changes_block@0.ops[337]: 'v-load to#0' with 'l-load to#0'
-debug: Inserted changes_block@0.ops[240]: 'l-store-copy app#0 3'
-debug: Replaced changes_block@0.ops[272]: 'v-load app#0' with 'l-load app#0'
-debug: Inserted changes_block@0.ops[243]: 'l-store-copy from_#0 5'
-debug: Replaced changes_block@0.ops[276]: 'v-load from_#0' with 'l-load from_#0'
-debug: Inserted changes_block@0.ops[245]: 'l-store-copy to#0 6'
-debug: Replaced changes_block@0.ops[279]: 'v-load to#0' with 'l-load to#0'
+debug: Replaced changes_block@0.ops[242]: 'v-load to#0' with 'l-load to#0'
 debug: Inserted changes_block@0.ops[128]: 'l-store-copy app#0 4'
 debug: Replaced changes_block@0.ops[168]: 'v-load app#0' with 'l-load app#0'
 debug: Inserted changes_block@0.ops[107]: 'l-store-copy asset#0 5'
@@ -6895,9 +7450,87 @@ debug: Inserted changes_block@0.ops[50]: 'l-store-copy app#0 1'
 debug: Replaced changes_block@0.ops[130]: 'v-load app#0' with 'l-load app#0'
 debug: Inserted changes_block@0.ops[4]: 'l-store-copy acct#0 0'
 debug: Replaced changes_block@0.ops[91]: 'v-load acct#0' with 'l-load acct#0'
-debug: Inserted changes_block@0.ops[131]: 'l-store-copy acct#0 5'
-debug: Replaced changes_block@0.ops[278]: 'v-load acct#0' with 'l-load acct#0'
+debug: Inserted changes_or_contd@2.ops[3]: 'l-store-copy tmp%36#0 0'
+debug: Replaced changes_or_contd@2.ops[5]: 'v-load tmp%36#0' with 'l-load tmp%36#0'
+debug: Inserted changes_if_body@3.ops[2]: 'l-store-copy tmp%37#0 0'
+debug: Replaced changes_if_body@3.ops[5]: 'v-load tmp%37#0' with 'l-load tmp%37#0'
+debug: Inserted changes_after_if_else@4.ops[8]: 'l-store-copy rnd#0 0'
+debug: Replaced changes_after_if_else@4.ops[10]: 'v-load rnd#0' with 'l-load rnd#0'
+debug: Inserted changes_after_if_else@4.ops[13]: 'l-store-copy tmp%42#0 0'
+debug: Replaced changes_after_if_else@4.ops[15]: 'v-load tmp%42#0' with 'l-load tmp%42#0'
+debug: Inserted changes_after_if_else@4.ops[31]: 'l-store-copy rnd#0 0'
+debug: Replaced changes_after_if_else@4.ops[33]: 'v-load rnd#0' with 'l-load rnd#0'
+debug: Inserted changes_after_if_else@4.ops[44]: 'l-store-copy tmp%50#0 0'
+debug: Replaced changes_after_if_else@4.ops[46]: 'v-load tmp%50#0' with 'l-load tmp%50#0'
+debug: Inserted changes_after_if_else@4.ops[18]: 'l-store-copy tmp%43#0 0'
+debug: Replaced changes_after_if_else@4.ops[21]: 'v-load tmp%43#0' with 'l-load tmp%43#0'
+debug: Inserted changes_after_if_else@4.ops[37]: 'l-store-copy tmp%48#0 0'
+debug: Replaced changes_after_if_else@4.ops[40]: 'v-load tmp%48#0' with 'l-load tmp%48#0'
+debug: Inserted changes_after_if_else@4.ops[7]: 'l-store-copy status#0 1'
+debug: Replaced changes_after_if_else@4.ops[12]: 'v-load status#0' with 'l-load status#0'
+debug: Inserted changes_after_if_else@4.ops[32]: 'l-store-copy status#0 1'
+debug: Replaced changes_after_if_else@4.ops[37]: 'v-load status#0' with 'l-load status#0'
+debug: Inserted changes_after_if_else@4.ops[38]: 'l-store-copy status#0 1'
+debug: Replaced changes_after_if_else@4.ops[46]: 'v-load status#0' with 'l-load status#0'
+debug: Inserted changes_after_if_else@4.ops[6]: 'l-store-copy value#0 2'
+debug: Replaced changes_after_if_else@4.ops[18]: 'v-load value#0' with 'l-load value#0'
+debug: Inserted changes_after_if_else@4.ops[25]: 'l-store-copy total#1 0'
+debug: Replaced changes_after_if_else@4.ops[44]: 'v-load total#1' with 'l-load total#1'
+debug: Inserted changes_after_if_else@4.ops[1]: 'l-store-copy acct#0 0'
+debug: Replaced changes_after_if_else@4.ops[28]: 'v-load acct#0' with 'l-load acct#0'
+debug: Inserted changes_after_if_else@4.ops[3]: 'l-store-copy app#0 2'
+debug: Replaced changes_after_if_else@4.ops[30]: 'v-load app#0' with 'l-load app#0'
+debug: Inserted changes_after_if_else@4.ops[6]: 'l-store-copy from_#0 5'
+debug: Replaced changes_after_if_else@4.ops[33]: 'v-load from_#0' with 'l-load from_#0'
+debug: Inserted changes_after_if_else@4.ops[8]: 'l-store-copy to#0 7'
+debug: Replaced changes_after_if_else@4.ops[35]: 'v-load to#0' with 'l-load to#0'
+debug: Inserted changes_or_contd@5.ops[3]: 'l-store-copy tmp%51#0 0'
+debug: Replaced changes_or_contd@5.ops[5]: 'v-load tmp%51#0' with 'l-load tmp%51#0'
+debug: Inserted changes_if_body@6.ops[2]: 'l-store-copy tmp%52#0 0'
+debug: Replaced changes_if_body@6.ops[5]: 'v-load tmp%52#0' with 'l-load tmp%52#0'
+debug: Inserted changes_after_if_else@7.ops[7]: 'l-store-copy rnd#0 0'
+debug: Replaced changes_after_if_else@7.ops[9]: 'v-load rnd#0' with 'l-load rnd#0'
+debug: Inserted changes_after_if_else@7.ops[23]: 'l-store-copy total#1 0'
+debug: Replaced changes_after_if_else@7.ops[25]: 'v-load total#1' with 'l-load total#1'
+debug: Inserted changes_after_if_else@7.ops[31]: 'l-store-copy tmp%12#0 0'
+debug: Replaced changes_after_if_else@7.ops[33]: 'v-load tmp%12#0' with 'l-load tmp%12#0'
+debug: Inserted changes_after_if_else@7.ops[15]: 'l-store-copy tmp%58#0 0'
+debug: Replaced changes_after_if_else@7.ops[18]: 'v-load tmp%58#0' with 'l-load tmp%58#0'
+debug: Inserted changes_after_if_else@7.ops[20]: 'l-store-copy tmp%59#0 0'
+debug: Replaced changes_after_if_else@7.ops[23]: 'v-load tmp%59#0' with 'l-load tmp%59#0'
+debug: Inserted changes_after_if_else@7.ops[29]: 'l-store-copy aggregate%val_as_bytes%0#0 0'
+debug: Replaced changes_after_if_else@7.ops[32]: 'v-load aggregate%val_as_bytes%0#0' with 'l-load aggregate%val_as_bytes%0#0'
+debug: Inserted changes_after_if_else@7.ops[6]: 'l-store-copy status#0 1'
+debug: Replaced changes_after_if_else@7.ops[11]: 'v-load status#0' with 'l-load status#0'
+debug: Inserted changes_after_if_else@7.ops[13]: 'l-store-copy tmp%57#0 0'
+debug: Replaced changes_after_if_else@7.ops[19]: 'v-load tmp%57#0' with 'l-load tmp%57#0'
+debug: Inserted changes_after_if_else@7.ops[5]: 'l-store-copy name#0 2'
+debug: Replaced changes_after_if_else@7.ops[16]: 'v-load name#0' with 'l-load name#0'
 debug: Found 3 edge set/s for algopy.arc4.ARC4Contract.approval_program
+debug: Found 2 edge set/s for test_cases.time_travel.contract.TimeTravel.first_item_if[routing]
+debug: Allocated to x-stack: tmp%2#0
+debug: shared x-stack for first_item_if_if_body@2 -> first_item_if_after_inlined_test_cases.time_travel.contract.TimeTravel.first_item_if@4: tmp%2#0
+debug: shared x-stack for first_item_if_after_if_else@3 -> first_item_if_after_inlined_test_cases.time_travel.contract.TimeTravel.first_item_if@4: tmp%2#0
+debug: Found 2 edge set/s for test_cases.time_travel.contract.TimeTravel.changes[routing]
+debug: Allocated to x-stack: acct#0, app#0, from_#0, to#0, total#1
+debug: shared x-stack for changes_block@0 -> changes_or_contd@2: acct#0, to#0, from_#0, app#0, total#1
+debug: shared x-stack for changes_block@0 -> changes_if_body@3: acct#0, to#0, from_#0, app#0, total#1
+debug: shared x-stack for changes_block@0 -> changes_after_if_else@4: acct#0, to#0, from_#0, app#0, total#1
+debug: shared x-stack for changes_or_contd@2 -> changes_or_contd@2: acct#0, to#0, from_#0, app#0, total#1
+debug: shared x-stack for changes_or_contd@2 -> changes_if_body@3: acct#0, to#0, from_#0, app#0, total#1
+debug: shared x-stack for changes_or_contd@2 -> changes_after_if_else@4: acct#0, to#0, from_#0, app#0, total#1
+debug: shared x-stack for changes_if_body@3 -> changes_or_contd@2: acct#0, to#0, from_#0, app#0, total#1
+debug: shared x-stack for changes_if_body@3 -> changes_if_body@3: acct#0, to#0, from_#0, app#0, total#1
+debug: shared x-stack for changes_if_body@3 -> changes_after_if_else@4: acct#0, to#0, from_#0, app#0, total#1
+debug: shared x-stack for changes_after_if_else@4 -> changes_or_contd@5: to#0, from_#0, app#0, total#1
+debug: shared x-stack for changes_after_if_else@4 -> changes_if_body@6: to#0, from_#0, app#0, total#1
+debug: shared x-stack for changes_after_if_else@4 -> changes_after_if_else@7: to#0, from_#0, app#0, total#1
+debug: shared x-stack for changes_or_contd@5 -> changes_or_contd@5: to#0, from_#0, app#0, total#1
+debug: shared x-stack for changes_or_contd@5 -> changes_if_body@6: to#0, from_#0, app#0, total#1
+debug: shared x-stack for changes_or_contd@5 -> changes_after_if_else@7: to#0, from_#0, app#0, total#1
+debug: shared x-stack for changes_if_body@6 -> changes_or_contd@5: to#0, from_#0, app#0, total#1
+debug: shared x-stack for changes_if_body@6 -> changes_if_body@6: to#0, from_#0, app#0, total#1
+debug: shared x-stack for changes_if_body@6 -> changes_after_if_else@7: to#0, from_#0, app#0, total#1
 debug: algopy.arc4.ARC4Contract.approval_program f-stack entry: []
 debug: algopy.arc4.ARC4Contract.approval_program f-stack on first store: []
 debug: test_cases.time_travel.contract.go_back_not_inlined f-stack entry: []
@@ -6924,16 +7557,20 @@ debug: test_cases.time_travel.contract.TimeTravel.data_existed[routing] f-stack 
 debug: test_cases.time_travel.contract.TimeTravel.data_existed[routing] f-stack on first store: []
 debug: test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing] f-stack entry: []
 debug: test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing] f-stack on first store: []
+debug: test_cases.time_travel.contract.TimeTravel.data_existed_before_delete[routing] f-stack entry: []
+debug: test_cases.time_travel.contract.TimeTravel.data_existed_before_delete[routing] f-stack on first store: []
+debug: test_cases.time_travel.contract.TimeTravel.first_item_if[routing] f-stack entry: []
+debug: test_cases.time_travel.contract.TimeTravel.first_item_if[routing] f-stack on first store: []
 debug: test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing] f-stack entry: []
 debug: test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing] f-stack on first store: []
 debug: test_cases.time_travel.contract.TimeTravel.data_exists_then[routing] f-stack entry: []
 debug: test_cases.time_travel.contract.TimeTravel.data_exists_then[routing] f-stack on first store: []
 debug: test_cases.time_travel.contract.TimeTravel.changes[routing] f-stack entry: []
-debug: test_cases.time_travel.contract.TimeTravel.changes[routing] f-stack on first store: []
+debug: test_cases.time_travel.contract.TimeTravel.changes[routing] f-stack on first store: ['name#0', 'status#0']
 debug: algopy.arc4.ARC4Contract.clear_state_program f-stack entry: []
 debug: algopy.arc4.ARC4Contract.clear_state_program f-stack on first store: []
 debug: optimizing TEAL subroutine ops algopy.arc4.ARC4Contract.approval_program() -> uint64:
-time_travel/contract.py:161:2 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.go_back_not_inlined(rnd: uint64) -> void:
+time_travel/contract.py:182:2 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.go_back_not_inlined(rnd: uint64) -> void:
 time_travel/contract.py:36:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.round_at[routing]() -> void:
 time_travel/contract.py:41:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.round_before[routing]() -> void:
 time_travel/contract.py:47:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.counter_then_and_now[routing]() -> void:
@@ -6945,28 +7582,32 @@ time_travel/contract.py:83:6 debug: optimizing TEAL subroutine ops test_cases.ti
 time_travel/contract.py:90:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.timestamps[routing]() -> void:
 time_travel/contract.py:97:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.data_existed[routing]() -> void:
 time_travel/contract.py:105:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing]() -> void:
-time_travel/contract.py:113:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]() -> void:
-time_travel/contract.py:120:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.data_exists_then[routing]() -> void:
-time_travel/contract.py:126:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.changes[routing]() -> void:
+time_travel/contract.py:113:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.data_existed_before_delete[routing]() -> void:
+time_travel/contract.py:120:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.first_item_if[routing]() -> void:
+time_travel/contract.py:128:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]() -> void:
+time_travel/contract.py:135:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.data_exists_then[routing]() -> void:
+time_travel/contract.py:141:6 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.TimeTravel.changes[routing]() -> void:
 debug: optimizing TEAL subroutine blocks algopy.arc4.ARC4Contract.approval_program() -> uint64:
-debug: replacing `b main_after_if_else@22` with `err`
-debug: replacing `b main_after_if_else@22` with `err`
-debug: replacing `b main_after_if_else@22` with `err`
-debug: replacing `b main_after_if_else@22` with `err`
-debug: replacing `b main_after_if_else@22` with `err`
-debug: replacing `b main_after_if_else@22` with `err`
-debug: replacing `b main_after_if_else@22` with `err`
-debug: replacing `b main_after_if_else@22` with `err`
-debug: replacing `b main_after_if_else@22` with `err`
-debug: replacing `b main_after_if_else@22` with `err`
-debug: replacing `b main_after_if_else@22` with `err`
-debug: replacing `b main_after_if_else@22` with `err`
-debug: replacing `b main_after_if_else@22` with `err`
-debug: replacing `b main_after_if_else@22` with `err`
+debug: replacing `b main_after_if_else@24` with `err`
+debug: replacing `b main_after_if_else@24` with `err`
+debug: replacing `b main_after_if_else@24` with `err`
+debug: replacing `b main_after_if_else@24` with `err`
+debug: replacing `b main_after_if_else@24` with `err`
+debug: replacing `b main_after_if_else@24` with `err`
+debug: replacing `b main_after_if_else@24` with `err`
+debug: replacing `b main_after_if_else@24` with `err`
+debug: replacing `b main_after_if_else@24` with `err`
+debug: replacing `b main_after_if_else@24` with `err`
+debug: replacing `b main_after_if_else@24` with `err`
+debug: replacing `b main_after_if_else@24` with `err`
+debug: replacing `b main_after_if_else@24` with `err`
+debug: replacing `b main_after_if_else@24` with `err`
+debug: replacing `b main_after_if_else@24` with `err`
+debug: replacing `b main_after_if_else@24` with `err`
 debug: inlining single reference block main_block@0 into main
 debug: inlining single reference block main_call___init__@1 into main
 debug: inlining single reference block main_abi_routing@4 into main_after_if_else@2
-debug: inlining single reference block main_after_if_else@22 into main_after_if_else@2
+debug: inlining single reference block main_after_if_else@24 into main_after_if_else@2
 debug: removing jump-chain block main_round_at_route@6
 debug: removing jump-chain block main_round_before_route@7
 debug: removing jump-chain block main_counter_then_and_now_route@8
@@ -6978,9 +7619,11 @@ debug: removing jump-chain block main_set_then_write_back_route@13
 debug: removing jump-chain block main_timestamps_route@14
 debug: removing jump-chain block main_data_existed_route@15
 debug: removing jump-chain block main_data_existed_before_call_route@16
-debug: removing jump-chain block main_first_valid_then_and_now_route@17
-debug: removing jump-chain block main_data_exists_then_route@18
-debug: removing jump-chain block main_changes_route@19
+debug: removing jump-chain block main_data_existed_before_delete_route@17
+debug: removing jump-chain block main_first_item_if_route@18
+debug: removing jump-chain block main_first_valid_then_and_now_route@19
+debug: removing jump-chain block main_data_exists_then_route@20
+debug: removing jump-chain block main_changes_route@21
 debug: branching to main_round_at_route@6 will be replaced with round_at
 debug: branching to main_round_before_route@7 will be replaced with round_before
 debug: branching to main_counter_then_and_now_route@8 will be replaced with counter_then_and_now
@@ -6992,11 +7635,13 @@ debug: branching to main_set_then_write_back_route@13 will be replaced with set_
 debug: branching to main_timestamps_route@14 will be replaced with timestamps
 debug: branching to main_data_existed_route@15 will be replaced with data_existed
 debug: branching to main_data_existed_before_call_route@16 will be replaced with data_existed_before_call
-debug: branching to main_first_valid_then_and_now_route@17 will be replaced with first_valid_then_and_now
-debug: branching to main_data_exists_then_route@18 will be replaced with data_exists_then
-debug: branching to main_changes_route@19 will be replaced with changes
+debug: branching to main_data_existed_before_delete_route@17 will be replaced with data_existed_before_delete
+debug: branching to main_first_item_if_route@18 will be replaced with first_item_if
+debug: branching to main_first_valid_then_and_now_route@19 will be replaced with first_valid_then_and_now
+debug: branching to main_data_exists_then_route@20 will be replaced with data_exists_then
+debug: branching to main_changes_route@21 will be replaced with changes
 debug: removing explicit jump to fall-through block main_after_if_else@2
-time_travel/contract.py:161:2 debug: optimizing TEAL subroutine blocks test_cases.time_travel.contract.go_back_not_inlined(rnd: uint64) -> void:
+time_travel/contract.py:182:2 debug: optimizing TEAL subroutine blocks test_cases.time_travel.contract.go_back_not_inlined(rnd: uint64) -> void:
 debug: inlining single reference block go_back_not_inlined_block@0 into go_back_not_inlined
 time_travel/contract.py:36:6 debug: optimizing TEAL subroutine blocks test_cases.time_travel.contract.TimeTravel.round_at[routing]() -> void:
 debug: inlining single reference block round_at_block@0 into round_at
@@ -7020,12 +7665,24 @@ time_travel/contract.py:97:6 debug: optimizing TEAL subroutine blocks test_cases
 debug: inlining single reference block data_existed_block@0 into data_existed
 time_travel/contract.py:105:6 debug: optimizing TEAL subroutine blocks test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing]() -> void:
 debug: inlining single reference block data_existed_before_call_block@0 into data_existed_before_call
-time_travel/contract.py:113:6 debug: optimizing TEAL subroutine blocks test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]() -> void:
+time_travel/contract.py:113:6 debug: optimizing TEAL subroutine blocks test_cases.time_travel.contract.TimeTravel.data_existed_before_delete[routing]() -> void:
+debug: inlining single reference block data_existed_before_delete_block@0 into data_existed_before_delete
+time_travel/contract.py:120:6 debug: optimizing TEAL subroutine blocks test_cases.time_travel.contract.TimeTravel.first_item_if[routing]() -> void:
+debug: inlining single reference block first_item_if_block@0 into first_item_if
+debug: inlining single reference block first_item_if_if_body@2 into first_item_if
+debug: removing explicit jump to fall-through block first_item_if_after_inlined_test_cases.time_travel.contract.TimeTravel.first_item_if@4
+time_travel/contract.py:128:6 debug: optimizing TEAL subroutine blocks test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]() -> void:
 debug: inlining single reference block first_valid_then_and_now_block@0 into first_valid_then_and_now
-time_travel/contract.py:120:6 debug: optimizing TEAL subroutine blocks test_cases.time_travel.contract.TimeTravel.data_exists_then[routing]() -> void:
+time_travel/contract.py:135:6 debug: optimizing TEAL subroutine blocks test_cases.time_travel.contract.TimeTravel.data_exists_then[routing]() -> void:
 debug: inlining single reference block data_exists_then_block@0 into data_exists_then
-time_travel/contract.py:126:6 debug: optimizing TEAL subroutine blocks test_cases.time_travel.contract.TimeTravel.changes[routing]() -> void:
+time_travel/contract.py:141:6 debug: optimizing TEAL subroutine blocks test_cases.time_travel.contract.TimeTravel.changes[routing]() -> void:
 debug: inlining single reference block changes_block@0 into changes
+debug: inlining single reference block changes_or_contd@2 into changes
+debug: inlining single reference block changes_or_contd@5 into changes_after_if_else@4
+debug: removing explicit jump to fall-through block changes_if_body@3
+debug: removing explicit jump to fall-through block changes_after_if_else@4
+debug: removing explicit jump to fall-through block changes_if_body@6
+debug: removing explicit jump to fall-through block changes_after_if_else@7
 debug: optimizing TEAL subroutine ops algopy.arc4.ARC4Contract.clear_state_program() -> uint64:
 debug: optimizing TEAL subroutine blocks algopy.arc4.ARC4Contract.clear_state_program() -> uint64:
 debug: inlining single reference block main_block@0 into main

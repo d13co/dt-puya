@@ -464,6 +464,10 @@ debug: Sealing block@20
 debug: Terminated block@20
 debug: Sealing block@21
 debug: Terminated block@21
+debug: Sealing block@22
+debug: Terminated block@22
+debug: Sealing block@23
+debug: Terminated block@23
 debug: Building IR for function test_cases.time_travel.contract.TimeTravel.round_at[routing]
 debug: Sealing block@0
 debug: Terminated block@0
@@ -495,6 +499,12 @@ debug: Building IR for function test_cases.time_travel.contract.TimeTravel.data_
 debug: Sealing block@0
 debug: Terminated block@0
 debug: Building IR for function test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing]
+debug: Sealing block@0
+debug: Terminated block@0
+debug: Building IR for function test_cases.time_travel.contract.TimeTravel.data_existed_before_delete[routing]
+debug: Sealing block@0
+debug: Terminated block@0
+debug: Building IR for function test_cases.time_travel.contract.TimeTravel.first_item_if[routing]
 debug: Sealing block@0
 debug: Terminated block@0
 debug: Building IR for function test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]
@@ -542,6 +552,16 @@ debug: Terminated block@0
 debug: Building IR for function test_cases.time_travel.contract.TimeTravel.data_existed_before_call
 debug: Sealing block@0
 debug: Terminated block@0
+debug: Building IR for function test_cases.time_travel.contract.TimeTravel.data_existed_before_delete
+debug: Sealing block@0
+debug: Terminated block@0
+debug: Building IR for function test_cases.time_travel.contract.TimeTravel.first_item_if
+debug: Sealing block@0
+debug: Terminated block@0
+debug: Sealing block@1
+debug: Terminated block@1
+debug: Sealing block@2
+debug: Terminated block@2
 debug: Building IR for function test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now
 debug: Sealing block@0
 debug: Terminated block@0
@@ -551,6 +571,132 @@ debug: Terminated block@0
 debug: Building IR for function test_cases.time_travel.contract.TimeTravel.changes
 debug: Sealing block@0
 debug: Terminated block@0
+debug: Sealing block@1
+debug: Terminated block@1
+debug: Sealing block@2
+debug: Created Phi assignment: let total#9: uint64 = undefined while trying to resolve 'total' in block@2
+debug: Added total#8 to Phi node: let total#9: uint64 = φ(total#8 <- block@0) in block@0
+debug: Added total#8 to Phi node: let total#9: uint64 = φ(total#8 <- block@0, total#8 <- block@1) in block@1
+debug: Replacing trivial Phi node: let total#9: uint64 = φ(total#8 <- block@0, total#8 <- block@1) (total#9) with total#8
+debug: Deleting Phi assignment: let total#9: uint64 = φ(total#8 <- block@0, total#8 <- block@1)
+debug: Replaced trivial Phi node: let total#9: uint64 = φ(total#8 <- block@0, total#8 <- block@1) (total#9) with total#8 in current definition for 1 blocks
+debug: Created Phi assignment: let name#1: bytes = undefined while trying to resolve 'name' in block@2
+debug: Added name#0 to Phi node: let name#1: bytes = φ(name#0 <- block@0) in block@0
+debug: Added name#0 to Phi node: let name#1: bytes = φ(name#0 <- block@0, name#0 <- block@1) in block@1
+debug: Replacing trivial Phi node: let name#1: bytes = φ(name#0 <- block@0, name#0 <- block@1) (name#1) with name#0
+debug: Deleting Phi assignment: let name#1: bytes = φ(name#0 <- block@0, name#0 <- block@1)
+debug: Replaced trivial Phi node: let name#1: bytes = φ(name#0 <- block@0, name#0 <- block@1) (name#1) with name#0 in current definition for 1 blocks
+debug: Terminated block@2
+debug: Sealing block@3
+debug: Created Phi assignment: let acct#1: account = undefined while trying to resolve 'acct' in block@3
+debug: Added acct#0 to Phi node: let acct#1: account = φ(acct#0 <- block@1) in block@1
+debug: Created Phi assignment: let acct#2: account = undefined while trying to resolve 'acct' in block@2
+debug: Added acct#0 to Phi node: let acct#2: account = φ(acct#0 <- block@0) in block@0
+debug: Added acct#0 to Phi node: let acct#2: account = φ(acct#0 <- block@0, acct#0 <- block@1) in block@1
+debug: Replacing trivial Phi node: let acct#2: account = φ(acct#0 <- block@0, acct#0 <- block@1) (acct#2) with acct#0
+debug: Deleting Phi assignment: let acct#2: account = φ(acct#0 <- block@0, acct#0 <- block@1)
+debug: Replaced trivial Phi node: let acct#2: account = φ(acct#0 <- block@0, acct#0 <- block@1) (acct#2) with acct#0 in current definition for 1 blocks
+debug: Added acct#0 to Phi node: let acct#1: account = φ(acct#0 <- block@1, acct#0 <- block@2) in block@2
+debug: Replacing trivial Phi node: let acct#1: account = φ(acct#0 <- block@1, acct#0 <- block@2) (acct#1) with acct#0
+debug: Deleting Phi assignment: let acct#1: account = φ(acct#0 <- block@1, acct#0 <- block@2)
+debug: Replaced trivial Phi node: let acct#1: account = φ(acct#0 <- block@1, acct#0 <- block@2) (acct#1) with acct#0 in current definition for 1 blocks
+debug: Created Phi assignment: let app#1: uint64 = undefined while trying to resolve 'app' in block@3
+debug: Added app#0 to Phi node: let app#1: uint64 = φ(app#0 <- block@1) in block@1
+debug: Created Phi assignment: let app#2: uint64 = undefined while trying to resolve 'app' in block@2
+debug: Added app#0 to Phi node: let app#2: uint64 = φ(app#0 <- block@0) in block@0
+debug: Added app#0 to Phi node: let app#2: uint64 = φ(app#0 <- block@0, app#0 <- block@1) in block@1
+debug: Replacing trivial Phi node: let app#2: uint64 = φ(app#0 <- block@0, app#0 <- block@1) (app#2) with app#0
+debug: Deleting Phi assignment: let app#2: uint64 = φ(app#0 <- block@0, app#0 <- block@1)
+debug: Replaced trivial Phi node: let app#2: uint64 = φ(app#0 <- block@0, app#0 <- block@1) (app#2) with app#0 in current definition for 1 blocks
+debug: Added app#0 to Phi node: let app#1: uint64 = φ(app#0 <- block@1, app#0 <- block@2) in block@2
+debug: Replacing trivial Phi node: let app#1: uint64 = φ(app#0 <- block@1, app#0 <- block@2) (app#1) with app#0
+debug: Deleting Phi assignment: let app#1: uint64 = φ(app#0 <- block@1, app#0 <- block@2)
+debug: Replaced trivial Phi node: let app#1: uint64 = φ(app#0 <- block@1, app#0 <- block@2) (app#1) with app#0 in current definition for 1 blocks
+debug: Created Phi assignment: let from_#1: uint64 = undefined while trying to resolve 'from_' in block@3
+debug: Added from_#0 to Phi node: let from_#1: uint64 = φ(from_#0 <- block@1) in block@1
+debug: Created Phi assignment: let from_#2: uint64 = undefined while trying to resolve 'from_' in block@2
+debug: Added from_#0 to Phi node: let from_#2: uint64 = φ(from_#0 <- block@0) in block@0
+debug: Added from_#0 to Phi node: let from_#2: uint64 = φ(from_#0 <- block@0, from_#0 <- block@1) in block@1
+debug: Replacing trivial Phi node: let from_#2: uint64 = φ(from_#0 <- block@0, from_#0 <- block@1) (from_#2) with from_#0
+debug: Deleting Phi assignment: let from_#2: uint64 = φ(from_#0 <- block@0, from_#0 <- block@1)
+debug: Replaced trivial Phi node: let from_#2: uint64 = φ(from_#0 <- block@0, from_#0 <- block@1) (from_#2) with from_#0 in current definition for 1 blocks
+debug: Added from_#0 to Phi node: let from_#1: uint64 = φ(from_#0 <- block@1, from_#0 <- block@2) in block@2
+debug: Replacing trivial Phi node: let from_#1: uint64 = φ(from_#0 <- block@1, from_#0 <- block@2) (from_#1) with from_#0
+debug: Deleting Phi assignment: let from_#1: uint64 = φ(from_#0 <- block@1, from_#0 <- block@2)
+debug: Replaced trivial Phi node: let from_#1: uint64 = φ(from_#0 <- block@1, from_#0 <- block@2) (from_#1) with from_#0 in current definition for 1 blocks
+debug: Created Phi assignment: let to#1: uint64 = undefined while trying to resolve 'to' in block@3
+debug: Added to#0 to Phi node: let to#1: uint64 = φ(to#0 <- block@1) in block@1
+debug: Created Phi assignment: let to#2: uint64 = undefined while trying to resolve 'to' in block@2
+debug: Added to#0 to Phi node: let to#2: uint64 = φ(to#0 <- block@0) in block@0
+debug: Added to#0 to Phi node: let to#2: uint64 = φ(to#0 <- block@0, to#0 <- block@1) in block@1
+debug: Replacing trivial Phi node: let to#2: uint64 = φ(to#0 <- block@0, to#0 <- block@1) (to#2) with to#0
+debug: Deleting Phi assignment: let to#2: uint64 = φ(to#0 <- block@0, to#0 <- block@1)
+debug: Replaced trivial Phi node: let to#2: uint64 = φ(to#0 <- block@0, to#0 <- block@1) (to#2) with to#0 in current definition for 1 blocks
+debug: Added to#0 to Phi node: let to#1: uint64 = φ(to#0 <- block@1, to#0 <- block@2) in block@2
+debug: Replacing trivial Phi node: let to#1: uint64 = φ(to#0 <- block@1, to#0 <- block@2) (to#1) with to#0
+debug: Deleting Phi assignment: let to#1: uint64 = φ(to#0 <- block@1, to#0 <- block@2)
+debug: Replaced trivial Phi node: let to#1: uint64 = φ(to#0 <- block@1, to#0 <- block@2) (to#1) with to#0 in current definition for 1 blocks
+debug: Created Phi assignment: let total#11: uint64 = undefined while trying to resolve 'total' in block@3
+debug: Added total#8 to Phi node: let total#11: uint64 = φ(total#8 <- block@1) in block@1
+debug: Added total#10 to Phi node: let total#11: uint64 = φ(total#8 <- block@1, total#10 <- block@2) in block@2
+debug: Terminated block@3
+debug: Sealing block@4
+debug: Terminated block@4
+debug: Sealing block@5
+debug: Created Phi assignment: let total#14: uint64 = undefined while trying to resolve 'total' in block@5
+debug: Added total#13 to Phi node: let total#14: uint64 = φ(total#13 <- block@3) in block@3
+debug: Added total#13 to Phi node: let total#14: uint64 = φ(total#13 <- block@3, total#13 <- block@4) in block@4
+debug: Replacing trivial Phi node: let total#14: uint64 = φ(total#13 <- block@3, total#13 <- block@4) (total#14) with total#13
+debug: Deleting Phi assignment: let total#14: uint64 = φ(total#13 <- block@3, total#13 <- block@4)
+debug: Replaced trivial Phi node: let total#14: uint64 = φ(total#13 <- block@3, total#13 <- block@4) (total#14) with total#13 in current definition for 1 blocks
+debug: Created Phi assignment: let name#3: bytes = undefined while trying to resolve 'name' in block@5
+debug: Added name#2 to Phi node: let name#3: bytes = φ(name#2 <- block@3) in block@3
+debug: Added name#2 to Phi node: let name#3: bytes = φ(name#2 <- block@3, name#2 <- block@4) in block@4
+debug: Replacing trivial Phi node: let name#3: bytes = φ(name#2 <- block@3, name#2 <- block@4) (name#3) with name#2
+debug: Deleting Phi assignment: let name#3: bytes = φ(name#2 <- block@3, name#2 <- block@4)
+debug: Replaced trivial Phi node: let name#3: bytes = φ(name#2 <- block@3, name#2 <- block@4) (name#3) with name#2 in current definition for 1 blocks
+debug: Terminated block@5
+debug: Sealing block@6
+debug: Created Phi assignment: let app#3: uint64 = undefined while trying to resolve 'app' in block@6
+debug: Added app#0 to Phi node: let app#3: uint64 = φ(app#0 <- block@4) in block@4
+debug: Created Phi assignment: let app#4: uint64 = undefined while trying to resolve 'app' in block@5
+debug: Added app#0 to Phi node: let app#4: uint64 = φ(app#0 <- block@3) in block@3
+debug: Added app#0 to Phi node: let app#4: uint64 = φ(app#0 <- block@3, app#0 <- block@4) in block@4
+debug: Replacing trivial Phi node: let app#4: uint64 = φ(app#0 <- block@3, app#0 <- block@4) (app#4) with app#0
+debug: Deleting Phi assignment: let app#4: uint64 = φ(app#0 <- block@3, app#0 <- block@4)
+debug: Replaced trivial Phi node: let app#4: uint64 = φ(app#0 <- block@3, app#0 <- block@4) (app#4) with app#0 in current definition for 1 blocks
+debug: Added app#0 to Phi node: let app#3: uint64 = φ(app#0 <- block@4, app#0 <- block@5) in block@5
+debug: Replacing trivial Phi node: let app#3: uint64 = φ(app#0 <- block@4, app#0 <- block@5) (app#3) with app#0
+debug: Deleting Phi assignment: let app#3: uint64 = φ(app#0 <- block@4, app#0 <- block@5)
+debug: Replaced trivial Phi node: let app#3: uint64 = φ(app#0 <- block@4, app#0 <- block@5) (app#3) with app#0 in current definition for 1 blocks
+debug: Created Phi assignment: let from_#3: uint64 = undefined while trying to resolve 'from_' in block@6
+debug: Added from_#0 to Phi node: let from_#3: uint64 = φ(from_#0 <- block@4) in block@4
+debug: Created Phi assignment: let from_#4: uint64 = undefined while trying to resolve 'from_' in block@5
+debug: Added from_#0 to Phi node: let from_#4: uint64 = φ(from_#0 <- block@3) in block@3
+debug: Added from_#0 to Phi node: let from_#4: uint64 = φ(from_#0 <- block@3, from_#0 <- block@4) in block@4
+debug: Replacing trivial Phi node: let from_#4: uint64 = φ(from_#0 <- block@3, from_#0 <- block@4) (from_#4) with from_#0
+debug: Deleting Phi assignment: let from_#4: uint64 = φ(from_#0 <- block@3, from_#0 <- block@4)
+debug: Replaced trivial Phi node: let from_#4: uint64 = φ(from_#0 <- block@3, from_#0 <- block@4) (from_#4) with from_#0 in current definition for 1 blocks
+debug: Added from_#0 to Phi node: let from_#3: uint64 = φ(from_#0 <- block@4, from_#0 <- block@5) in block@5
+debug: Replacing trivial Phi node: let from_#3: uint64 = φ(from_#0 <- block@4, from_#0 <- block@5) (from_#3) with from_#0
+debug: Deleting Phi assignment: let from_#3: uint64 = φ(from_#0 <- block@4, from_#0 <- block@5)
+debug: Replaced trivial Phi node: let from_#3: uint64 = φ(from_#0 <- block@4, from_#0 <- block@5) (from_#3) with from_#0 in current definition for 1 blocks
+debug: Created Phi assignment: let to#3: uint64 = undefined while trying to resolve 'to' in block@6
+debug: Added to#0 to Phi node: let to#3: uint64 = φ(to#0 <- block@4) in block@4
+debug: Created Phi assignment: let to#4: uint64 = undefined while trying to resolve 'to' in block@5
+debug: Added to#0 to Phi node: let to#4: uint64 = φ(to#0 <- block@3) in block@3
+debug: Added to#0 to Phi node: let to#4: uint64 = φ(to#0 <- block@3, to#0 <- block@4) in block@4
+debug: Replacing trivial Phi node: let to#4: uint64 = φ(to#0 <- block@3, to#0 <- block@4) (to#4) with to#0
+debug: Deleting Phi assignment: let to#4: uint64 = φ(to#0 <- block@3, to#0 <- block@4)
+debug: Replaced trivial Phi node: let to#4: uint64 = φ(to#0 <- block@3, to#0 <- block@4) (to#4) with to#0 in current definition for 1 blocks
+debug: Added to#0 to Phi node: let to#3: uint64 = φ(to#0 <- block@4, to#0 <- block@5) in block@5
+debug: Replacing trivial Phi node: let to#3: uint64 = φ(to#0 <- block@4, to#0 <- block@5) (to#3) with to#0
+debug: Deleting Phi assignment: let to#3: uint64 = φ(to#0 <- block@4, to#0 <- block@5)
+debug: Replaced trivial Phi node: let to#3: uint64 = φ(to#0 <- block@4, to#0 <- block@5) (to#3) with to#0 in current definition for 1 blocks
+debug: Created Phi assignment: let total#16: uint64 = undefined while trying to resolve 'total' in block@6
+debug: Added total#13 to Phi node: let total#16: uint64 = φ(total#13 <- block@4) in block@4
+debug: Added total#15 to Phi node: let total#16: uint64 = φ(total#13 <- block@4, total#15 <- block@5) in block@5
+debug: Terminated block@6
 debug: Building IR for function test_cases.time_travel.contract.TimeTravel.__algopy_default_create
 debug: Sealing block@0
 debug: Terminated block@0
@@ -631,6 +777,8 @@ debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.set
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.timestamps[routing]
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.data_existed[routing]
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing]
+debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_delete[routing]
+debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.first_item_if[routing]
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.data_exists_then[routing]
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.changes[routing]
@@ -646,6 +794,8 @@ debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.set
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.timestamps
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.data_existed
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_call
+debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_delete
+debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.first_item_if
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.data_exists_then
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.changes
@@ -670,6 +820,8 @@ debug: marking single-use function test_cases.time_travel.contract.TimeTravel.se
 debug: marking single-use function test_cases.time_travel.contract.TimeTravel.timestamps[routing] for inlining
 debug: marking single-use function test_cases.time_travel.contract.TimeTravel.data_existed[routing] for inlining
 debug: marking single-use function test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing] for inlining
+debug: marking single-use function test_cases.time_travel.contract.TimeTravel.data_existed_before_delete[routing] for inlining
+debug: marking single-use function test_cases.time_travel.contract.TimeTravel.first_item_if[routing] for inlining
 debug: marking single-use function test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing] for inlining
 debug: marking single-use function test_cases.time_travel.contract.TimeTravel.data_exists_then[routing] for inlining
 debug: marking single-use function test_cases.time_travel.contract.TimeTravel.changes[routing] for inlining
@@ -685,6 +837,8 @@ debug: marking single-use function test_cases.time_travel.contract.TimeTravel.se
 debug: marking single-use function test_cases.time_travel.contract.TimeTravel.timestamps for inlining
 debug: marking single-use function test_cases.time_travel.contract.TimeTravel.data_existed for inlining
 debug: marking single-use function test_cases.time_travel.contract.TimeTravel.data_existed_before_call for inlining
+debug: marking single-use function test_cases.time_travel.contract.TimeTravel.data_existed_before_delete for inlining
+debug: marking single-use function test_cases.time_travel.contract.TimeTravel.first_item_if for inlining
 debug: marking single-use function test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now for inlining
 debug: marking single-use function test_cases.time_travel.contract.TimeTravel.data_exists_then for inlining
 debug: marking single-use function test_cases.time_travel.contract.TimeTravel.changes for inlining
@@ -705,23 +859,23 @@ debug: Optimizer: Inner Txn Field Replacer
 debug: Optimizer: Replace Compiled References
 debug: Optimizer: Simplify Control Ops
 debug: simplifying exit 0 to err
-debug: simplified terminator of block@24 from exit 0u to fail
+debug: simplified terminator of block@26 from exit 0u to fail
 debug: Optimizer: Merge Blocks
-debug: Replaced predecessor block@26 with block@1 in block@27
-debug: Merged linear block@26 into block@1
-debug: Replaced predecessor block@27 with block@1 in block@2
-debug: Merged linear block@27 into block@1
-debug: Replaced predecessor block@3 with block@2 in block@23
+debug: Replaced predecessor block@28 with block@1 in block@29
+debug: Merged linear block@28 into block@1
+debug: Replaced predecessor block@29 with block@1 in block@2
+debug: Merged linear block@29 into block@1
+debug: Replaced predecessor block@3 with block@2 in block@25
 debug: Replaced predecessor block@3 with block@2 in block@4
 debug: Merged linear block@3 into block@2
-debug: Merged linear block@24 into block@22
+debug: Merged linear block@26 into block@24
 debug: Optimizer: Remove Linear Jumps
-debug: Removing jump block block@20
-debug: Removing jump block block@21
-debug: branching to block@20 will be replaced with block@22
-debug: branching to block@21 will be replaced with block@22
+debug: Removing jump block block@22
+debug: Removing jump block block@23
+debug: branching to block@22 will be replaced with block@24
+debug: branching to block@23 will be replaced with block@24
 debug: Optimizer: Remove Unreachable Blocks
-debug: Removing unreachable block: block@25
+debug: Removing unreachable block: block@27
 debug: Optimizer: Repeated Expression Elimination
 debug: Optimizer: Encode Decode Pair Elimination
 debug: Optimizer: Merge Chained Aggregate Reads
@@ -1555,9 +1709,11 @@ debug: Optimizer: Constant Reads And Unobserved Writes Elimination
 debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.__puya_arc4_router__
 debug: Optimizer: Perform Subroutine Inlining
 debug: inlining call to test_cases.time_travel.contract.TimeTravel.__algopy_default_create in test_cases.time_travel.contract.TimeTravel.__puya_arc4_router__
-time_travel/contract.py:126:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.changes[routing] in test_cases.time_travel.contract.TimeTravel.__puya_arc4_router__
-time_travel/contract.py:120:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.data_exists_then[routing] in test_cases.time_travel.contract.TimeTravel.__puya_arc4_router__
-time_travel/contract.py:113:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing] in test_cases.time_travel.contract.TimeTravel.__puya_arc4_router__
+time_travel/contract.py:141:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.changes[routing] in test_cases.time_travel.contract.TimeTravel.__puya_arc4_router__
+time_travel/contract.py:135:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.data_exists_then[routing] in test_cases.time_travel.contract.TimeTravel.__puya_arc4_router__
+time_travel/contract.py:128:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing] in test_cases.time_travel.contract.TimeTravel.__puya_arc4_router__
+time_travel/contract.py:120:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.first_item_if[routing] in test_cases.time_travel.contract.TimeTravel.__puya_arc4_router__
+time_travel/contract.py:113:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.data_existed_before_delete[routing] in test_cases.time_travel.contract.TimeTravel.__puya_arc4_router__
 time_travel/contract.py:105:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing] in test_cases.time_travel.contract.TimeTravel.__puya_arc4_router__
 time_travel/contract.py:97:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.data_existed[routing] in test_cases.time_travel.contract.TimeTravel.__puya_arc4_router__
 time_travel/contract.py:90:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.timestamps[routing] in test_cases.time_travel.contract.TimeTravel.__puya_arc4_router__
@@ -1572,33 +1728,35 @@ time_travel/contract.py:36:6 debug: inlining call to test_cases.time_travel.cont
 debug: Optimizer: Split Parallel Copies
 debug: Optimizer: Constant Replacer
 debug: Optimizer: Copy Propagation
-debug: Found equivalence set: tmp%0#14, as_Encoded(uint64)%0#13
+debug: Found equivalence set: tmp%0#16, as_Encoded(uint64)%0#13
+debug: selected tmp%0#16 from equivalence set
+debug: Found equivalence set: tmp%0#15, as_Encoded(uint64)%0#12
+debug: selected tmp%0#15 from equivalence set
+debug: Found equivalence set: tmp%0#14, as_Encoded(uint64)%0#11
 debug: selected tmp%0#14 from equivalence set
-debug: Found equivalence set: tmp%0#13, as_Encoded(uint64)%0#12
+debug: Found equivalence set: tmp%0#13, as_Encoded(uint64)%0#10
 debug: selected tmp%0#13 from equivalence set
-debug: Found equivalence set: tmp%0#12, as_Encoded(uint64)%0#11
+debug: Found equivalence set: tmp%0#12, as_Encoded(uint64)%0#9
 debug: selected tmp%0#12 from equivalence set
-debug: Found equivalence set: tmp%0#11, as_Encoded(uint64)%0#10
+debug: Found equivalence set: tmp%0#11, as_Encoded(uint64)%0#8
 debug: selected tmp%0#11 from equivalence set
-debug: Found equivalence set: tmp%0#10, as_Encoded(uint64)%0#9
+debug: Found equivalence set: tmp%0#10, as_Encoded(uint64)%0#7
 debug: selected tmp%0#10 from equivalence set
-debug: Found equivalence set: tmp%0#9, as_Encoded(uint64)%0#8
+debug: Found equivalence set: tmp%2#10, as_Encoded(uint64)%1#4
+debug: selected tmp%2#10 from equivalence set
+debug: Found equivalence set: tmp%0#9, as_Encoded(uint64)%0#6
 debug: selected tmp%0#9 from equivalence set
-debug: Found equivalence set: tmp%0#8, as_Encoded(uint64)%0#7
+debug: Found equivalence set: tmp%2#9, as_Encoded(uint64)%1#3
+debug: selected tmp%2#9 from equivalence set
+debug: Found equivalence set: tmp%0#8, as_Encoded(uint64)%0#5
 debug: selected tmp%0#8 from equivalence set
-debug: Found equivalence set: tmp%2#8, as_Encoded(uint64)%1#4
+debug: Found equivalence set: tmp%2#8, as_Encoded(uint64)%1#2
 debug: selected tmp%2#8 from equivalence set
-debug: Found equivalence set: tmp%0#7, as_Encoded(uint64)%0#6
+debug: Found equivalence set: tmp%0#7, as_Encoded(uint64)%0#4
 debug: selected tmp%0#7 from equivalence set
-debug: Found equivalence set: tmp%2#7, as_Encoded(uint64)%1#3
-debug: selected tmp%2#7 from equivalence set
-debug: Found equivalence set: tmp%0#6, as_Encoded(uint64)%0#5
+debug: Found equivalence set: tmp%0#6, as_Encoded(uint64)%0#3
 debug: selected tmp%0#6 from equivalence set
-debug: Found equivalence set: tmp%2#6, as_Encoded(uint64)%1#2
-debug: selected tmp%2#6 from equivalence set
-debug: Found equivalence set: tmp%0#5, as_Encoded(uint64)%0#4
-debug: selected tmp%0#5 from equivalence set
-debug: Found equivalence set: tmp%0#4, as_Encoded(uint64)%0#3
+debug: Found equivalence set: tmp%0#4, as_Encoded(bool8)%0#0
 debug: selected tmp%0#4 from equivalence set
 debug: Found equivalence set: tmp%0#3, as_Encoded(uint64)%0#2
 debug: selected tmp%0#3 from equivalence set
@@ -1616,7 +1774,7 @@ debug: Found equivalence set: tmp%6#1, as_Encoded(uint64)%2#0
 debug: selected tmp%6#1 from equivalence set
 debug: Found equivalence set: tmp%8#1, as_Encoded(uint64)%3#0
 debug: selected tmp%8#1 from equivalence set
-debug: Copy propagation made 22 modifications
+debug: Copy propagation made 23 modifications
 debug: Optimizer: Elide Itxn Field Calls
 debug: Optimizer: Remove Unused Variables
 debug: Optimizer: Intrinsic Simplifier
@@ -1627,27 +1785,32 @@ debug: Optimizer: Inner Txn Field Replacer
 debug: Optimizer: Replace Compiled References
 debug: Optimizer: Simplify Control Ops
 debug: simplifying exit 0 to err
-debug: simplified terminator of block@21 from exit 0u to fail
+debug: simplified terminator of block@23 from exit 0u to fail
 debug: Optimizer: Merge Blocks
-debug: Merged linear block@50 into block@3
-debug: Merged linear block@48 into block@4
-debug: Merged linear block@46 into block@5
-debug: Merged linear block@44 into block@6
-debug: Merged linear block@42 into block@7
-debug: Merged linear block@40 into block@8
-debug: Merged linear block@38 into block@9
-debug: Merged linear block@36 into block@10
-debug: Merged linear block@34 into block@11
-debug: Merged linear block@32 into block@12
-debug: Merged linear block@30 into block@13
-debug: Merged linear block@28 into block@14
-debug: Merged linear block@26 into block@15
-debug: Merged linear block@24 into block@16
-debug: Replaced predecessor block@22 with block@20 in block@23
-debug: Merged linear block@22 into block@20
-debug: Merged linear block@23 into block@20
-debug: Merged linear block@21 into block@19
+debug: Merged linear block@56 into block@3
+debug: Merged linear block@54 into block@4
+debug: Merged linear block@52 into block@5
+debug: Merged linear block@50 into block@6
+debug: Merged linear block@48 into block@7
+debug: Merged linear block@46 into block@8
+debug: Merged linear block@44 into block@9
+debug: Merged linear block@42 into block@10
+debug: Merged linear block@40 into block@11
+debug: Merged linear block@38 into block@12
+debug: Merged linear block@36 into block@13
+debug: Merged linear block@34 into block@14
+debug: Merged linear block@32 into block@15
+debug: Merged linear block@30 into block@16
+debug: Merged linear block@28 into block@17
+debug: Merged linear block@26 into block@18
+debug: Replaced predecessor block@24 with block@22 in block@25
+debug: Merged linear block@24 into block@22
+debug: Merged linear block@25 into block@22
+debug: Merged linear block@23 into block@21
 debug: Optimizer: Remove Linear Jumps
+debug: Removing jump block block@57
+debug: Removing jump block block@55
+debug: Removing jump block block@53
 debug: Removing jump block block@51
 debug: Removing jump block block@49
 debug: Removing jump block block@47
@@ -1661,25 +1824,26 @@ debug: Removing jump block block@33
 debug: Removing jump block block@31
 debug: Removing jump block block@29
 debug: Removing jump block block@27
-debug: Removing jump block block@25
-debug: Removing jump block block@17
-debug: Removing jump block block@18
-debug: branching to block@51 will be replaced with block@19
-debug: branching to block@49 will be replaced with block@19
-debug: branching to block@47 will be replaced with block@19
-debug: branching to block@45 will be replaced with block@19
-debug: branching to block@43 will be replaced with block@19
-debug: branching to block@41 will be replaced with block@19
-debug: branching to block@39 will be replaced with block@19
-debug: branching to block@37 will be replaced with block@19
-debug: branching to block@35 will be replaced with block@19
-debug: branching to block@33 will be replaced with block@19
-debug: branching to block@31 will be replaced with block@19
-debug: branching to block@29 will be replaced with block@19
-debug: branching to block@27 will be replaced with block@19
-debug: branching to block@25 will be replaced with block@19
-debug: branching to block@17 will be replaced with block@19
-debug: branching to block@18 will be replaced with block@19
+debug: Removing jump block block@19
+debug: Removing jump block block@20
+debug: branching to block@57 will be replaced with block@21
+debug: branching to block@55 will be replaced with block@21
+debug: branching to block@53 will be replaced with block@21
+debug: branching to block@51 will be replaced with block@21
+debug: branching to block@49 will be replaced with block@21
+debug: branching to block@47 will be replaced with block@21
+debug: branching to block@45 will be replaced with block@21
+debug: branching to block@43 will be replaced with block@21
+debug: branching to block@41 will be replaced with block@21
+debug: branching to block@39 will be replaced with block@21
+debug: branching to block@37 will be replaced with block@21
+debug: branching to block@35 will be replaced with block@21
+debug: branching to block@33 will be replaced with block@21
+debug: branching to block@31 will be replaced with block@21
+debug: branching to block@29 will be replaced with block@21
+debug: branching to block@27 will be replaced with block@21
+debug: branching to block@19 will be replaced with block@21
+debug: branching to block@20 will be replaced with block@21
 debug: Optimizer: Remove Unreachable Blocks
 debug: Optimizer: Repeated Expression Elimination
 debug: Optimizer: Encode Decode Pair Elimination
@@ -2072,9 +2236,75 @@ debug: Optimizer: Merge Chained Aggregate Reads
 debug: Optimizer: Replace Aggregate Box Ops
 debug: Optimizer: Minimize Box Exist Asserts
 debug: Optimizer: Constant Reads And Unobserved Writes Elimination
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_delete[routing]
+debug: Optimizer: Perform Subroutine Inlining
+time_travel/contract.py:113:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.data_existed_before_delete in test_cases.time_travel.contract.TimeTravel.data_existed_before_delete[routing]
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Copy Propagation
+debug: Found equivalence set: maybe_exists%0#0, existed#0
+debug: selected existed#0 from equivalence set
+debug: Found equivalence set: storage_value%0#0, tmp%0#0
+debug: selected storage_value%0#0 from equivalence set
+debug: Copy propagation made 2 modifications
+debug: Optimizer: Elide Itxn Field Calls
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Intrinsic Simplifier
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Simplify Control Ops
+debug: Optimizer: Merge Blocks
+debug: Replaced predecessor block@1 with block@0 in block@2
+debug: Merged linear block@1 into block@0
+debug: Merged linear block@2 into block@0
+debug: Optimizer: Remove Linear Jumps
+debug: Optimizer: Remove Unreachable Blocks
+debug: Optimizer: Repeated Expression Elimination
+debug: Optimizer: Encode Decode Pair Elimination
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizer: Minimize Box Exist Asserts
+debug: Optimizer: Constant Reads And Unobserved Writes Elimination
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.first_item_if[routing]
+debug: Optimizer: Perform Subroutine Inlining
+time_travel/contract.py:120:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.first_item_if in test_cases.time_travel.contract.TimeTravel.first_item_if[routing]
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Copy Propagation
+debug: Found equivalence set: tmp%0#0, as_Encoded(bool8)%0#0
+debug: selected tmp%0#0 from equivalence set
+debug: Found equivalence set: tmp%1#0, first#0
+debug: selected first#0 from equivalence set
+debug: Found equivalence set: storage_value%0#0, items#0
+debug: selected items#0 from equivalence set
+debug: Copy propagation made 3 modifications
+debug: Optimizer: Elide Itxn Field Calls
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Intrinsic Simplifier
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Simplify Control Ops
+debug: Optimizer: Merge Blocks
+debug: Replaced predecessor block@1 with block@0 in block@3
+debug: Replaced predecessor block@1 with block@0 in block@2
+debug: Merged linear block@1 into block@0
+debug: Optimizer: Remove Linear Jumps
+debug: Optimizer: Remove Unreachable Blocks
+debug: Optimizer: Repeated Expression Elimination
+debug: Optimizer: Encode Decode Pair Elimination
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+time_travel/contract.py:125:20 debug: combined BoxRead `items#0 = box_read(0x6974656d73)`
+and ExtractValue `extract_value(items#0, 0u)`
+into box%box_extract%0#0
+time_travel/contract.py:126:16 debug: combined BoxRead `items#0 = box_read(0x6974656d73)`
+and ExtractValue `extract_value(items#0, 1u)`
+into box%box_extract%1#0
+debug: Optimizer: Minimize Box Exist Asserts
+debug: Optimizer: Constant Reads And Unobserved Writes Elimination
 debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]
 debug: Optimizer: Perform Subroutine Inlining
-time_travel/contract.py:113:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now in test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]
+time_travel/contract.py:128:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now in test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]
 debug: Optimizer: Split Parallel Copies
 debug: Optimizer: Constant Replacer
 debug: Optimizer: Copy Propagation
@@ -2113,7 +2343,7 @@ debug: Optimizer: Minimize Box Exist Asserts
 debug: Optimizer: Constant Reads And Unobserved Writes Elimination
 debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.data_exists_then[routing]
 debug: Optimizer: Perform Subroutine Inlining
-time_travel/contract.py:120:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.data_exists_then in test_cases.time_travel.contract.TimeTravel.data_exists_then[routing]
+time_travel/contract.py:135:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.data_exists_then in test_cases.time_travel.contract.TimeTravel.data_exists_then[routing]
 debug: Optimizer: Split Parallel Copies
 debug: Optimizer: Constant Replacer
 debug: Optimizer: Copy Propagation
@@ -2144,7 +2374,7 @@ debug: Optimizer: Minimize Box Exist Asserts
 debug: Optimizer: Constant Reads And Unobserved Writes Elimination
 debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.changes[routing]
 debug: Optimizer: Perform Subroutine Inlining
-time_travel/contract.py:126:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.changes in test_cases.time_travel.contract.TimeTravel.changes[routing]
+time_travel/contract.py:141:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.changes in test_cases.time_travel.contract.TimeTravel.changes[routing]
 debug: Optimizer: Split Parallel Copies
 debug: Optimizer: Constant Replacer
 debug: Optimizer: Copy Propagation
@@ -2218,33 +2448,37 @@ debug: Found equivalence set: tmp%31#0, status#7
 debug: selected status#7 from equivalence set
 debug: Found equivalence set: tmp%32#0, name#0
 debug: selected name#0 from equivalence set
-debug: Found equivalence set: tmp%36#0, total#8
+debug: Found equivalence set: tmp%34#0, total#8
 debug: selected total#8 from equivalence set
-debug: Found equivalence set: tmp%37#0, rnd#8
-debug: selected rnd#8 from equivalence set
-debug: Found equivalence set: tmp%38#0, status#8
-debug: selected status#8 from equivalence set
-debug: Found equivalence set: tmp%39#0, value#1
-debug: selected value#1 from equivalence set
-debug: Found equivalence set: tmp%42#0, total#9
-debug: selected total#9 from equivalence set
-debug: Found equivalence set: tmp%43#0, rnd#9
-debug: selected rnd#9 from equivalence set
-debug: Found equivalence set: tmp%44#0, status#9
-debug: selected status#9 from equivalence set
-debug: Found equivalence set: tmp%45#0, name#1
-debug: selected name#1 from equivalence set
-debug: Found equivalence set: tmp%49#0, total#10
+debug: Found equivalence set: tmp%38#0, total#10
 debug: selected total#10 from equivalence set
-debug: Found equivalence set: tmp%50#0, rnd#10
-debug: selected rnd#10 from equivalence set
-debug: Found equivalence set: tmp%51#0, status#10
-debug: selected status#10 from equivalence set
-debug: Found equivalence set: tmp%52#0, name#2
+debug: Found equivalence set: tmp%39#0, rnd#8
+debug: selected rnd#8 from equivalence set
+debug: Found equivalence set: tmp%40#0, status#8
+debug: selected status#8 from equivalence set
+debug: Found equivalence set: tmp%41#0, value#1
+debug: selected value#1 from equivalence set
+debug: Found equivalence set: tmp%44#0, total#12
+debug: selected total#12 from equivalence set
+debug: Found equivalence set: tmp%45#0, rnd#9
+debug: selected rnd#9 from equivalence set
+debug: Found equivalence set: tmp%46#0, status#9
+debug: selected status#9 from equivalence set
+debug: Found equivalence set: tmp%47#0, name#2
 debug: selected name#2 from equivalence set
-debug: Found equivalence set: tmp%56#0, total#11, tmp%10#0
-debug: selected total#11 from equivalence set
-debug: Copy propagation made 49 modifications
+debug: Found equivalence set: tmp%49#0, total#13
+debug: selected total#13 from equivalence set
+debug: Found equivalence set: tmp%53#0, total#15
+debug: selected total#15 from equivalence set
+debug: Found equivalence set: tmp%54#0, rnd#10
+debug: selected rnd#10 from equivalence set
+debug: Found equivalence set: tmp%55#0, status#10
+debug: selected status#10 from equivalence set
+debug: Found equivalence set: tmp%56#0, name#4
+debug: selected name#4 from equivalence set
+debug: Found equivalence set: tmp%60#0, total#17, tmp%10#0
+debug: selected total#17 from equivalence set
+debug: Copy propagation made 51 modifications
 debug: Optimizer: Elide Itxn Field Calls
 debug: Optimizer: Remove Unused Variables
 debug: Removing unused variable total#0
@@ -2255,8 +2489,9 @@ debug: Optimizer: Replace Compiled References
 debug: Optimizer: Simplify Control Ops
 debug: Optimizer: Merge Blocks
 debug: Replaced predecessor block@1 with block@0 in block@2
+debug: Replaced predecessor block@1 with block@0 in block@3
 debug: Merged linear block@1 into block@0
-debug: Merged linear block@2 into block@0
+debug: Merged linear block@8 into block@7
 debug: Optimizer: Remove Linear Jumps
 debug: Optimizer: Remove Unreachable Blocks
 debug: Optimizer: Repeated Expression Elimination
@@ -2571,6 +2806,58 @@ debug: Optimizer: Merge Chained Aggregate Reads
 debug: Optimizer: Replace Aggregate Box Ops
 debug: Optimizer: Minimize Box Exist Asserts
 debug: Optimizer: Constant Reads And Unobserved Writes Elimination
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_delete
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Copy Propagation
+debug: Found equivalence set: maybe_exists%0#0, existed#0
+debug: selected existed#0 from equivalence set
+debug: Copy propagation made 1 modifications
+debug: Optimizer: Elide Itxn Field Calls
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Intrinsic Simplifier
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Simplify Control Ops
+debug: Optimizer: Merge Blocks
+debug: Optimizer: Remove Linear Jumps
+debug: Optimizer: Remove Unreachable Blocks
+debug: Optimizer: Repeated Expression Elimination
+debug: Optimizer: Encode Decode Pair Elimination
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizer: Minimize Box Exist Asserts
+debug: Optimizer: Constant Reads And Unobserved Writes Elimination
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.first_item_if
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Copy Propagation
+debug: Found equivalence set: storage_value%0#0, items#0
+debug: selected items#0 from equivalence set
+debug: Copy propagation made 1 modifications
+debug: Optimizer: Elide Itxn Field Calls
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Intrinsic Simplifier
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Simplify Control Ops
+debug: Optimizer: Merge Blocks
+debug: Optimizer: Remove Linear Jumps
+debug: Optimizer: Remove Unreachable Blocks
+debug: Optimizer: Repeated Expression Elimination
+debug: Optimizer: Encode Decode Pair Elimination
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+time_travel/contract.py:125:20 debug: combined BoxRead `items#0 = box_read(0x6974656d73)`
+and ExtractValue `extract_value(items#0, 0u)`
+into box%box_extract%0#0
+time_travel/contract.py:126:16 debug: combined BoxRead `items#0 = box_read(0x6974656d73)`
+and ExtractValue `extract_value(items#0, 1u)`
+into box%box_extract%1#0
+debug: Optimizer: Minimize Box Exist Asserts
+debug: Optimizer: Constant Reads And Unobserved Writes Elimination
 debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now
 debug: Optimizer: Perform Subroutine Inlining
 debug: Optimizer: Split Parallel Copies
@@ -2671,33 +2958,37 @@ debug: Found equivalence set: tmp%31#0, status#7
 debug: selected status#7 from equivalence set
 debug: Found equivalence set: tmp%32#0, name#0
 debug: selected name#0 from equivalence set
-debug: Found equivalence set: tmp%36#0, total#8
+debug: Found equivalence set: tmp%34#0, total#8
 debug: selected total#8 from equivalence set
-debug: Found equivalence set: tmp%37#0, rnd#8
-debug: selected rnd#8 from equivalence set
-debug: Found equivalence set: tmp%38#0, status#8
-debug: selected status#8 from equivalence set
-debug: Found equivalence set: tmp%39#0, value#1
-debug: selected value#1 from equivalence set
-debug: Found equivalence set: tmp%42#0, total#9
-debug: selected total#9 from equivalence set
-debug: Found equivalence set: tmp%43#0, rnd#9
-debug: selected rnd#9 from equivalence set
-debug: Found equivalence set: tmp%44#0, status#9
-debug: selected status#9 from equivalence set
-debug: Found equivalence set: tmp%45#0, name#1
-debug: selected name#1 from equivalence set
-debug: Found equivalence set: tmp%49#0, total#10
+debug: Found equivalence set: tmp%38#0, total#10
 debug: selected total#10 from equivalence set
-debug: Found equivalence set: tmp%50#0, rnd#10
-debug: selected rnd#10 from equivalence set
-debug: Found equivalence set: tmp%51#0, status#10
-debug: selected status#10 from equivalence set
-debug: Found equivalence set: tmp%52#0, name#2
+debug: Found equivalence set: tmp%39#0, rnd#8
+debug: selected rnd#8 from equivalence set
+debug: Found equivalence set: tmp%40#0, status#8
+debug: selected status#8 from equivalence set
+debug: Found equivalence set: tmp%41#0, value#1
+debug: selected value#1 from equivalence set
+debug: Found equivalence set: tmp%44#0, total#12
+debug: selected total#12 from equivalence set
+debug: Found equivalence set: tmp%45#0, rnd#9
+debug: selected rnd#9 from equivalence set
+debug: Found equivalence set: tmp%46#0, status#9
+debug: selected status#9 from equivalence set
+debug: Found equivalence set: tmp%47#0, name#2
 debug: selected name#2 from equivalence set
-debug: Found equivalence set: tmp%56#0, total#11
-debug: selected total#11 from equivalence set
-debug: Copy propagation made 38 modifications
+debug: Found equivalence set: tmp%49#0, total#13
+debug: selected total#13 from equivalence set
+debug: Found equivalence set: tmp%53#0, total#15
+debug: selected total#15 from equivalence set
+debug: Found equivalence set: tmp%54#0, rnd#10
+debug: selected rnd#10 from equivalence set
+debug: Found equivalence set: tmp%55#0, status#10
+debug: selected status#10 from equivalence set
+debug: Found equivalence set: tmp%56#0, name#4
+debug: selected name#4 from equivalence set
+debug: Found equivalence set: tmp%60#0, total#17
+debug: selected total#17 from equivalence set
+debug: Copy propagation made 40 modifications
 debug: Optimizer: Elide Itxn Field Calls
 debug: Optimizer: Remove Unused Variables
 debug: Removing unused variable total#0
@@ -2750,6 +3041,8 @@ debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.set
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.timestamps
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.data_existed
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_call
+debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_delete
+debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.first_item_if
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.data_exists_then
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.changes
@@ -2767,15 +3060,19 @@ debug: marking single-use function test_cases.time_travel.contract.TimeTravel.se
 debug: marking single-use function test_cases.time_travel.contract.TimeTravel.timestamps[routing] for inlining
 debug: marking single-use function test_cases.time_travel.contract.TimeTravel.data_existed[routing] for inlining
 debug: marking single-use function test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing] for inlining
+debug: marking single-use function test_cases.time_travel.contract.TimeTravel.data_existed_before_delete[routing] for inlining
+debug: marking single-use function test_cases.time_travel.contract.TimeTravel.first_item_if[routing] for inlining
 debug: marking single-use function test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing] for inlining
 debug: marking single-use function test_cases.time_travel.contract.TimeTravel.data_exists_then[routing] for inlining
 debug: marking single-use function test_cases.time_travel.contract.TimeTravel.changes[routing] for inlining
 debug: Optimizing subroutine algopy.arc4.ARC4Contract.approval_program
 debug: Optimizer: Perform Subroutine Inlining
 debug: inlining call to test_cases.time_travel.contract.TimeTravel.__algopy_default_create in algopy.arc4.ARC4Contract.approval_program
-time_travel/contract.py:126:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.changes[routing] in algopy.arc4.ARC4Contract.approval_program
-time_travel/contract.py:120:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.data_exists_then[routing] in algopy.arc4.ARC4Contract.approval_program
-time_travel/contract.py:113:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing] in algopy.arc4.ARC4Contract.approval_program
+time_travel/contract.py:141:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.changes[routing] in algopy.arc4.ARC4Contract.approval_program
+time_travel/contract.py:135:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.data_exists_then[routing] in algopy.arc4.ARC4Contract.approval_program
+time_travel/contract.py:128:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing] in algopy.arc4.ARC4Contract.approval_program
+time_travel/contract.py:120:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.first_item_if[routing] in algopy.arc4.ARC4Contract.approval_program
+time_travel/contract.py:113:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.data_existed_before_delete[routing] in algopy.arc4.ARC4Contract.approval_program
 time_travel/contract.py:105:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing] in algopy.arc4.ARC4Contract.approval_program
 time_travel/contract.py:97:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.data_existed[routing] in algopy.arc4.ARC4Contract.approval_program
 time_travel/contract.py:90:6 debug: inlining call to test_cases.time_travel.contract.TimeTravel.timestamps[routing] in algopy.arc4.ARC4Contract.approval_program
@@ -2792,22 +3089,27 @@ debug: Optimizer: Constant Replacer
 debug: Optimizer: Copy Propagation
 debug: Found equivalence set: box%box_len%0#0, length%1#0
 debug: selected box%box_len%0#0 from equivalence set
-debug: Found equivalence set: box%box_extract%0#2, tmp%1#3
+debug: Found equivalence set: box%box_extract%0#3, tmp%1#4
+debug: selected box%box_extract%0#3 from equivalence set
+debug: Found equivalence set: box%box_extract%0#2, array_item%1#1
 debug: selected box%box_extract%0#2 from equivalence set
-debug: Found equivalence set: box%box_extract%0#1, array_item%1#0
-debug: selected box%box_extract%0#1 from equivalence set
-debug: Found equivalence set: box%box_extract%0#0, first#0
-debug: selected first#0 from equivalence set
+debug: Found equivalence set: box%box_extract%0#1, first#1
+debug: selected first#1 from equivalence set
+debug: Found equivalence set: box%box_extract%0#0, array_item%0#0
+debug: selected box%box_extract%0#0 from equivalence set
+debug: Found equivalence set: box%box_extract%1#0, array_item%1#0
+debug: selected box%box_extract%1#0 from equivalence set
 debug: Found equivalence set: tmp%2#2, total#1
 debug: selected total#1 from equivalence set
-debug: Copy propagation made 7 modifications
+debug: Copy propagation made 9 modifications
 debug: Optimizer: Elide Itxn Field Calls
 debug: Optimizer: Remove Unused Variables
 debug: Removing unused variable tmp%1#1
 debug: Removing unused variable tmp%5#0
 debug: Removing unused variable then#5
 debug: Removing unused variable then#4
-debug: Removing unused variable storage_value%0#0
+debug: Removing unused variable storage_value%0#1
+debug: Removing unused variable items#0
 debug: Removing unused variable tmp%0#4
 debug: Optimizer: Intrinsic Simplifier
 debug: Simplified (- bounded_index%1#0 0u) to bounded_index%1#0
@@ -2817,11 +3119,17 @@ debug: Simplified (+ 2u 0u) to 2u
 debug: Simplified (+ 0u 2u) to 2u
 debug: Simplified (* 0u 8u) to 0u
 debug: Simplified (+ 2u 0u) to 2u
+debug: Simplified (+ 0u 2u) to 2u
+debug: Simplified (* 0u 8u) to 0u
+debug: Simplified (+ 2u 0u) to 2u
+debug: Simplified (+ 0u 2u) to 2u
+debug: Simplified (* 1u 8u) to 8u
+debug: Simplified (+ 2u 8u) to 10u
 debug: Optimizer: Inner Txn Field Replacer
 debug: Optimizer: Replace Compiled References
 debug: Optimizer: Simplify Control Ops
 debug: inlining condition branch to err block into an assert true
-debug: simplified terminator of block@4 from goto tmp%4#0 ? block@5 : block@22 to goto block@5
+debug: simplified terminator of block@4 from goto tmp%4#0 ? block@5 : block@24 to goto block@5
 debug: Optimizer: Merge Blocks
 debug: Replaced predecessor block@5 with block@4 in block@6
 debug: Replaced predecessor block@5 with block@4 in block@7
@@ -2837,54 +3145,66 @@ debug: Replaced predecessor block@5 with block@4 in block@16
 debug: Replaced predecessor block@5 with block@4 in block@17
 debug: Replaced predecessor block@5 with block@4 in block@18
 debug: Replaced predecessor block@5 with block@4 in block@19
-debug: Replaced predecessor block@5 with block@4 in block@22
+debug: Replaced predecessor block@5 with block@4 in block@20
+debug: Replaced predecessor block@5 with block@4 in block@21
+debug: Replaced predecessor block@5 with block@4 in block@24
 debug: Merged linear block@5 into block@4
-debug: Merged linear block@52 into block@6
-debug: Merged linear block@50 into block@7
-debug: Merged linear block@48 into block@8
-debug: Merged linear block@46 into block@9
-debug: Merged linear block@44 into block@10
-debug: Merged linear block@42 into block@11
-debug: Merged linear block@40 into block@12
-debug: Merged linear block@38 into block@13
-debug: Merged linear block@36 into block@14
-debug: Merged linear block@34 into block@15
-debug: Merged linear block@32 into block@16
-debug: Merged linear block@30 into block@17
-debug: Merged linear block@28 into block@18
-debug: Merged linear block@26 into block@19
-debug: Replaced predecessor block@24 with block@23 in block@25
-debug: Merged linear block@24 into block@23
-debug: Merged linear block@25 into block@23
+debug: Merged linear block@67 into block@6
+debug: Merged linear block@65 into block@7
+debug: Merged linear block@63 into block@8
+debug: Merged linear block@61 into block@9
+debug: Merged linear block@59 into block@10
+debug: Merged linear block@57 into block@11
+debug: Merged linear block@55 into block@12
+debug: Merged linear block@53 into block@13
+debug: Merged linear block@51 into block@14
+debug: Merged linear block@49 into block@15
+debug: Merged linear block@47 into block@16
+debug: Merged linear block@45 into block@17
+debug: Replaced predecessor block@40 with block@18 in block@42
+debug: Replaced predecessor block@40 with block@18 in block@41
+debug: Merged linear block@40 into block@18
+debug: Merged linear block@38 into block@19
+debug: Merged linear block@36 into block@20
+debug: Replaced predecessor block@28 with block@21 in block@29
+debug: Replaced predecessor block@28 with block@21 in block@30
+debug: Merged linear block@28 into block@21
+debug: Replaced predecessor block@26 with block@25 in block@27
+debug: Merged linear block@26 into block@25
+debug: Merged linear block@27 into block@25
 debug: Optimizer: Remove Linear Jumps
-debug: Removing jump block block@53
-debug: Removing jump block block@51
-debug: Removing jump block block@49
-debug: Removing jump block block@47
-debug: Removing jump block block@45
-debug: Removing jump block block@43
-debug: Removing jump block block@41
+debug: Removing jump block block@68
+debug: Removing jump block block@66
+debug: Removing jump block block@64
+debug: Removing jump block block@62
+debug: Removing jump block block@60
+debug: Removing jump block block@58
+debug: Removing jump block block@56
+debug: Removing jump block block@54
+debug: Removing jump block block@52
+debug: Removing jump block block@50
+debug: Removing jump block block@48
+debug: Removing jump block block@46
+debug: Removing jump block block@44
 debug: Removing jump block block@39
 debug: Removing jump block block@37
 debug: Removing jump block block@35
-debug: Removing jump block block@33
-debug: Removing jump block block@31
-debug: Removing jump block block@29
-debug: Removing jump block block@27
-debug: branching to block@53 will be replaced with block@22
-debug: branching to block@51 will be replaced with block@22
-debug: branching to block@49 will be replaced with block@22
-debug: branching to block@47 will be replaced with block@22
-debug: branching to block@45 will be replaced with block@22
-debug: branching to block@43 will be replaced with block@22
-debug: branching to block@41 will be replaced with block@22
-debug: branching to block@39 will be replaced with block@22
-debug: branching to block@37 will be replaced with block@22
-debug: branching to block@35 will be replaced with block@22
-debug: branching to block@33 will be replaced with block@22
-debug: branching to block@31 will be replaced with block@22
-debug: branching to block@29 will be replaced with block@22
-debug: branching to block@27 will be replaced with block@22
+debug: branching to block@68 will be replaced with block@24
+debug: branching to block@66 will be replaced with block@24
+debug: branching to block@64 will be replaced with block@24
+debug: branching to block@62 will be replaced with block@24
+debug: branching to block@60 will be replaced with block@24
+debug: branching to block@58 will be replaced with block@24
+debug: branching to block@56 will be replaced with block@24
+debug: branching to block@54 will be replaced with block@24
+debug: branching to block@52 will be replaced with block@24
+debug: branching to block@50 will be replaced with block@24
+debug: branching to block@48 will be replaced with block@24
+debug: branching to block@46 will be replaced with block@24
+debug: branching to block@44 will be replaced with block@24
+debug: branching to block@39 will be replaced with block@24
+debug: branching to block@37 will be replaced with block@24
+debug: branching to block@35 will be replaced with block@24
 debug: Optimizer: Remove Unreachable Blocks
 debug: Optimizer: Repeated Expression Elimination
 debug: Optimizer: Encode Decode Pair Elimination
@@ -3529,6 +3849,58 @@ debug: Optimizer: Merge Chained Aggregate Reads
 debug: Optimizer: Replace Aggregate Box Ops
 debug: Optimizer: Minimize Box Exist Asserts
 debug: Optimizer: Constant Reads And Unobserved Writes Elimination
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_delete[routing]
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Copy Propagation
+debug: Optimizer: Elide Itxn Field Calls
+debug: Optimizer: Remove Unused Variables
+debug: Optimizer: Intrinsic Simplifier
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Simplify Control Ops
+debug: Optimizer: Merge Blocks
+debug: Optimizer: Remove Linear Jumps
+debug: Optimizer: Remove Unreachable Blocks
+debug: Optimizer: Repeated Expression Elimination
+debug: Optimizer: Encode Decode Pair Elimination
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizer: Minimize Box Exist Asserts
+debug: Optimizer: Constant Reads And Unobserved Writes Elimination
+debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.first_item_if[routing]
+debug: Optimizer: Perform Subroutine Inlining
+debug: Optimizer: Split Parallel Copies
+debug: Optimizer: Constant Replacer
+debug: Optimizer: Copy Propagation
+debug: Found equivalence set: box%box_extract%0#0, array_item%0#0
+debug: selected box%box_extract%0#0 from equivalence set
+debug: Found equivalence set: box%box_extract%1#0, array_item%1#0
+debug: selected box%box_extract%1#0 from equivalence set
+debug: Copy propagation made 2 modifications
+debug: Optimizer: Elide Itxn Field Calls
+debug: Optimizer: Remove Unused Variables
+debug: Removing unused variable items#0
+debug: Optimizer: Intrinsic Simplifier
+debug: Simplified (+ 0u 2u) to 2u
+debug: Simplified (* 0u 8u) to 0u
+debug: Simplified (+ 2u 0u) to 2u
+debug: Simplified (+ 0u 2u) to 2u
+debug: Simplified (* 1u 8u) to 8u
+debug: Simplified (+ 2u 8u) to 10u
+debug: Optimizer: Inner Txn Field Replacer
+debug: Optimizer: Replace Compiled References
+debug: Optimizer: Simplify Control Ops
+debug: Optimizer: Merge Blocks
+debug: Optimizer: Remove Linear Jumps
+debug: Optimizer: Remove Unreachable Blocks
+debug: Optimizer: Repeated Expression Elimination
+debug: Optimizer: Encode Decode Pair Elimination
+debug: Optimizer: Merge Chained Aggregate Reads
+debug: Optimizer: Replace Aggregate Box Ops
+debug: Optimizer: Minimize Box Exist Asserts
+debug: Optimizer: Constant Reads And Unobserved Writes Elimination
 debug: Optimizing subroutine test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]
 debug: Optimizer: Perform Subroutine Inlining
 debug: Optimizer: Split Parallel Copies
@@ -3625,6 +3997,8 @@ debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.set
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.timestamps[routing]
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.data_existed[routing]
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_call[routing]
+debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.data_existed_before_delete[routing]
+debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.first_item_if[routing]
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.data_exists_then[routing]
 debug: removing unused subroutine test_cases.time_travel.contract.TimeTravel.changes[routing]
@@ -3645,20 +4019,26 @@ debug: selected rnd#19 from equivalence set
 debug: Copy propagation made 1 modifications
 debug: Optimizer: Elide Itxn Field Calls
 debug: Optimizer: Remove Unused Variables
+debug: Removing unused variable box%add%0#2
+debug: Removing unused variable box%element_offset%0#2
+debug: Removing unused variable box%offset%0#2
 debug: Removing unused variable box%add%0#1
 debug: Removing unused variable box%element_offset%0#1
 debug: Removing unused variable box%offset%0#1
 debug: Removing unused variable box%add%0#0
 debug: Removing unused variable box%element_offset%0#0
 debug: Removing unused variable box%offset%0#0
+debug: Removing unused variable box%add%1#0
+debug: Removing unused variable box%element_offset%1#0
+debug: Removing unused variable box%offset%1#0
 debug: Optimizer: Intrinsic Simplifier
 debug: Optimizer: Inner Txn Field Replacer
 debug: Optimizer: Replace Compiled References
 debug: Optimizer: Simplify Control Ops
 debug: Optimizer: Merge Blocks
-debug: Replaced predecessor block@24 with block@10 in block@25
-debug: Merged linear block@24 into block@10
-debug: Merged linear block@25 into block@10
+debug: Replaced predecessor block@44 with block@10 in block@45
+debug: Merged linear block@44 into block@10
+debug: Merged linear block@45 into block@10
 debug: Optimizer: Remove Linear Jumps
 debug: Optimizer: Remove Unreachable Blocks
 debug: Optimizer: Repeated Expression Elimination
@@ -4425,9 +4805,9 @@ time_travel/contract.py:79:9 debug: inlining call to _puya_lib.arc4.dynamic_arra
 debug: Optimizer: Split Parallel Copies
 debug: Optimizer: Constant Replacer
 debug: Optimizer: Copy Propagation
-debug: Found equivalence set: aggregate%val_as_bytes%0#0, aggregate%as_Encoded(uint64)%0#0, tmp%3#8
+debug: Found equivalence set: aggregate%val_as_bytes%0#0, aggregate%as_Encoded(uint64)%0#0, tmp%3#9
 debug: selected aggregate%val_as_bytes%0#0 from equivalence set
-debug: Found equivalence set: aggregate%val_as_bytes%1#0, aggregate%as_Encoded(uint64)%1#0, tmp%3#7
+debug: Found equivalence set: aggregate%val_as_bytes%1#0, aggregate%as_Encoded(uint64)%1#0, tmp%3#8
 debug: selected aggregate%val_as_bytes%1#0 from equivalence set
 debug: Found equivalence set: aggregate%val_as_bytes%2#0, aggregate%as_Encoded(uint64)%2#0
 debug: selected aggregate%val_as_bytes%2#0 from equivalence set
@@ -4437,20 +4817,20 @@ debug: Found equivalence set: aggregate%head%1#0, aggregate%as_Encoded(uint64,ui
 debug: selected aggregate%head%1#0 from equivalence set
 debug: Found equivalence set: aggregate%box_get%0#0, now#3
 debug: selected now#3 from equivalence set
-debug: Found equivalence set: aggregate%encoded_bool%0#0, aggregate%as_Encoded(bool8)%0#0, tmp%3#6
+debug: Found equivalence set: aggregate%encoded_bool%0#0, aggregate%as_Encoded(bool8)%0#0, tmp%3#7
 debug: selected aggregate%encoded_bool%0#0 from equivalence set
 debug: Found equivalence set: aggregate%box_get%2#0, now#2
 debug: selected now#2 from equivalence set
-debug: Found equivalence set: aggregate%encoded_element%0#0, array_item%0#0
+debug: Found equivalence set: aggregate%encoded_element%0#0, array_item%0#1
 debug: selected aggregate%encoded_element%0#0 from equivalence set
-debug: Found equivalence set: aggregate%encoded_bool%1#0, aggregate%as_Encoded(bool8)%1#0, tmp%3#5
+debug: Found equivalence set: aggregate%encoded_bool%1#0, aggregate%as_Encoded(bool8)%1#0, tmp%3#6
 debug: selected aggregate%encoded_bool%1#0 from equivalence set
-debug: Found equivalence set: aggregate%box_get%4#0, items#0, array#0
-debug: selected items#0 from equivalence set
-debug: Found equivalence set: aggregate%head%2#0, aggregate%as_Encoded(uint64[])%0#0, tmp%0#11, new_items_bytes#0
-debug: selected new_items_bytes#0 from equivalence set
-debug: Found equivalence set: tmp%4#10, items#1
+debug: Found equivalence set: aggregate%box_get%4#0, items#1, array#0
 debug: selected items#1 from equivalence set
+debug: Found equivalence set: aggregate%head%2#0, aggregate%as_Encoded(uint64[])%0#0, tmp%0#12, new_items_bytes#0
+debug: selected new_items_bytes#0 from equivalence set
+debug: Found equivalence set: tmp%4#10, items#2
+debug: selected items#2 from equivalence set
 debug: Found equivalence set: aggregate%box_get%6#0, point#0
 debug: selected point#0 from equivalence set
 debug: Found equivalence set: aggregate%updated_data%0#0, point#1
@@ -4459,12 +4839,18 @@ debug: Found equivalence set: aggregate%val_as_bytes%4#0, aggregate%as_Encoded(u
 debug: selected aggregate%val_as_bytes%4#0 from equivalence set
 debug: Found equivalence set: aggregate%box_get%8#0, then#2
 debug: selected then#2 from equivalence set
-debug: Found equivalence set: aggregate%encoded_value%0#0, aggregate%as_Encoded(len+uint8[])%0#0, tmp%3#3
+debug: Found equivalence set: aggregate%encoded_value%0#0, aggregate%as_Encoded(len+uint8[])%0#0, tmp%3#4
 debug: selected aggregate%encoded_value%0#0 from equivalence set
 debug: Found equivalence set: aggregate%box_get%10#0, then#1
 debug: selected then#1 from equivalence set
-debug: Found equivalence set: aggregate%encoded_value%1#0, aggregate%as_Encoded(len+uint8[])%1#0, tmp%3#2
+debug: Found equivalence set: aggregate%encoded_value%1#0, aggregate%as_Encoded(len+uint8[])%1#0, tmp%3#3
 debug: selected aggregate%encoded_value%1#0 from equivalence set
+debug: Found equivalence set: aggregate%box_get%12#0, storage_value%0#0
+debug: selected aggregate%box_get%12#0 from equivalence set
+debug: Found equivalence set: aggregate%encoded_value%2#0, aggregate%as_Encoded(len+uint8[])%2#0, tmp%1#2
+debug: selected aggregate%encoded_value%2#0 from equivalence set
+debug: Found equivalence set: aggregate%get_bit%0#0, first#0
+debug: selected first#0 from equivalence set
 debug: Found equivalence set: aggregate%val_as_bytes%5#0, aggregate%as_Encoded(uint64)%5#0, tmp%5#1
 debug: selected aggregate%val_as_bytes%5#0 from equivalence set
 debug: Found equivalence set: aggregate%encoded_bool%2#0, aggregate%as_Encoded(bool8)%2#0, tmp%3#1
@@ -4473,7 +4859,7 @@ debug: Found equivalence set: tmp%0#2, acct#0
 debug: selected acct#0 from equivalence set
 debug: Found equivalence set: aggregate%val_as_bytes%6#0, aggregate%as_Encoded(uint64)%6#0, tmp%11#1
 debug: selected aggregate%val_as_bytes%6#0 from equivalence set
-debug: Copy propagation made 27 modifications
+debug: Copy propagation made 31 modifications
 debug: Optimizer: Elide Itxn Field Calls
 debug: Optimizer: Remove Unused Variables
 debug: Removing unused variable new_items_count#0
@@ -4488,9 +4874,9 @@ debug: Optimizer: Inner Txn Field Replacer
 debug: Optimizer: Replace Compiled References
 debug: Optimizer: Simplify Control Ops
 debug: Optimizer: Merge Blocks
-debug: Replaced predecessor block@24 with block@12 in block@25
-debug: Merged linear block@24 into block@12
-debug: Merged linear block@25 into block@12
+debug: Replaced predecessor block@44 with block@12 in block@45
+debug: Merged linear block@44 into block@12
+debug: Merged linear block@45 into block@12
 debug: Optimizer: Remove Linear Jumps
 debug: Optimizer: Remove Unreachable Blocks
 debug: Optimizer: Repeated Expression Elimination
@@ -4971,49 +5357,74 @@ debug: Optimizer: Constant Reads And Unobserved Writes Elimination
 debug: No optimizations performed in pass 1, ending loop
 debug: removing local static slots in approval program of test_cases.time_travel.contract.TimeTravel
 debug: auto reserving slots in algopy.arc4.ARC4Contract.approval_program, []
-time_travel/contract.py:161:2 debug: auto reserving slots in test_cases.time_travel.contract.go_back_not_inlined, []
+time_travel/contract.py:182:2 debug: auto reserving slots in test_cases.time_travel.contract.go_back_not_inlined, []
 debug: Slot allocation not required
 debug: removing local static slots in clear program of test_cases.time_travel.contract.TimeTravel
 debug: auto reserving slots in algopy.arc4.ARC4Contract.clear_state_program, []
 debug: Slot allocation not required
 debug: Performing SSA IR destructuring for algopy.arc4.ARC4Contract.approval_program
 debug: splitting critical edge block@0->block@2
-debug: Replaced predecessor block@0 with block@24 in block@2
+debug: Replaced predecessor block@0 with block@44 in block@2
+debug: splitting critical edge block@21->block@30
+debug: Replaced predecessor block@21 with block@45 in block@30
+debug: splitting critical edge block@29->block@31
+debug: Replaced predecessor block@29 with block@46 in block@31
+debug: splitting critical edge block@29->block@30
+debug: Replaced predecessor block@29 with block@47 in block@30
+debug: splitting critical edge block@31->block@33
+debug: Replaced predecessor block@31 with block@48 in block@33
+debug: splitting critical edge block@32->block@34
+debug: Replaced predecessor block@32 with block@49 in block@34
+debug: splitting critical edge block@32->block@33
+debug: Replaced predecessor block@32 with block@50 in block@33
 debug: Converting to CSSA
 debug: Removing Phi nodes
 debug: Coalescing local variables in algopy.arc4.ARC4Contract.approval_program using strategy 'root_operand'
-debug: Coalescing tmp%0#0 with [tmp%0#14]
-debug: Coalescing tmp%0#1 with [tmp%0#21, tmp%0#18]
-debug: Coalescing tmp%2#0 with [tmp%2#6, tmp%2#4]
+debug: Coalescing tmp%0#0 with [tmp%0#15]
+debug: Coalescing tmp%0#1 with [tmp%0#22, tmp%0#19]
+debug: Coalescing tmp%2#0 with [tmp%2#8, tmp%2#4]
 debug: Coalescing tmp%6#0 with [tmp%6#4, tmp%6#3, tmp%6#1]
-debug: Coalescing tmp%0#3 with [tmp%0#20, tmp%0#19, tmp%0#17, tmp%0#15, tmp%0#16, tmp%0#13, tmp%0#12, tmp%0#10, tmp%0#23, tmp%0#9, tmp%0#8, tmp%0#7, tmp%0#6, tmp%0#5]
-debug: Coalescing len%0#0 with [len%0#13, len%0#12, len%0#11, len%0#10, len%0#9, len%0#8, len%0#7, len%0#6, len%0#5, len%0#4, len%0#3, len%0#2, len%0#1]
-debug: Coalescing eq%0#0 with [eq%0#13, eq%0#12, eq%0#11, eq%0#10, eq%0#9, eq%0#8, eq%0#7, eq%0#6, eq%0#5, eq%0#4, eq%0#3, eq%0#2, eq%0#1]
+debug: Coalescing tmp%0#3 with [tmp%0#21, tmp%0#20, tmp%0#18, tmp%0#16, tmp%0#17, tmp%0#14, tmp%0#13, tmp%0#11, tmp%0#24, tmp%0#10, tmp%0#9, tmp%0#8, tmp%0#7, tmp%0#6, tmp%0#5]
+debug: Coalescing len%0#0 with [len%0#14, len%0#13, len%0#12, len%0#11, len%0#10, len%0#9, len%0#8, len%0#7, len%0#6, len%0#5, len%0#4, len%0#3, len%0#2, len%0#1]
+debug: Coalescing eq%0#0 with [eq%0#14, eq%0#13, eq%0#12, eq%0#11, eq%0#10, eq%0#9, eq%0#8, eq%0#7, eq%0#6, eq%0#5, eq%0#4, eq%0#3, eq%0#2, eq%0#1]
 debug: Coalescing rnd#0 with [rnd#23, rnd#22, rnd#21, rnd#20, rnd#19, rnd#18, rnd#17, rnd#16, rnd#15, rnd#14, rnd#13, rnd#12, rnd#11, rnd#1, rnd#2, rnd#3, rnd#4, rnd#5, rnd#6, rnd#7, rnd#8, rnd#9, rnd#10]
 debug: Coalescing tmp%4#1 with [tmp%4#9, tmp%4#8, tmp%4#6, tmp%4#5, tmp%4#4, tmp%4#3, tmp%4#2]
 debug: Coalescing now#0 with [now#4, now#1]
 debug: Coalescing maybe_exists%0#0 with [maybe_exists%0#1]
 debug: Coalescing then#0 with [then#6, then#3]
 debug: Coalescing now#2 with [now#3, now#2]
-debug: Coalescing box%box_extract%0#1 with [box%box_extract%0#2, box%box_extract%0#1]
+debug: Coalescing box%box_extract%0#0 with [box%box_extract%0#3, box%box_extract%0#2, box%box_extract%0#0]
+debug: Coalescing tmp%3#2 with [tmp%3#5]
 debug: Coalescing x#0 with [x#1]
 debug: Coalescing len%1#0 with [len%1#4, len%1#3, len%1#2, len%1#1]
 debug: Coalescing eq%1#0 with [eq%1#4, eq%1#3, eq%1#2, eq%1#1]
-debug: Coalescing items#0 with [items#1]
+debug: Coalescing items#1 with [items#2]
 debug: Coalescing point#0 with [point#1]
-debug: Coalescing tmp%2#1 with [tmp%2#5, tmp%2#3]
-debug: Coalescing _%0#0 with [_%0#2, _%0#1]
-debug: Coalescing existed#0 with [existed#1]
+debug: Coalescing tmp%2#1 with [tmp%2#7, tmp%2#6, tmp%2#5, tmp%2#3]
+debug: Coalescing _%0#0 with [_%0#3, _%0#2, _%0#1]
+debug: Coalescing existed#0 with [existed#2, existed#1]
 debug: Coalescing then#1 with [then#2]
 debug: Coalescing status#0 with [status#1, status#2, status#3, status#4, status#5, status#6, status#7, status#8, status#9, status#10]
-debug: Coalescing total#1 with [total#2, total#3, total#4, total#5, total#6, total#7, total#8, total#9, total#10, total#11]
+debug: Coalescing total#1 with [total#2, total#3, total#4, total#5, total#6, total#7, total#8, total#11, total#10, total#12, total#13, total#16, total#15, total#17]
 debug: Coalescing value#0 with [value#1]
-debug: Coalescing name#0 with [name#1, name#2]
-debug: Coalescing resulted in 270 replacement/s
+debug: Coalescing name#0 with [name#2, name#4]
+debug: Coalescing resulted in 305 replacement/s
 debug: Sequentializing parallel copies in algopy.arc4.ARC4Contract.approval_program
 debug: Performing post-SSA optimizations at level 2
-debug: Removing jump block block@24
-debug: branching to block@24 will be replaced with block@2
+debug: Removing jump block block@44
+debug: Removing jump block block@45
+debug: Removing jump block block@46
+debug: Removing jump block block@47
+debug: Removing jump block block@48
+debug: Removing jump block block@49
+debug: Removing jump block block@50
+debug: branching to block@44 will be replaced with block@2
+debug: branching to block@45 will be replaced with block@30
+debug: branching to block@46 will be replaced with block@31
+debug: branching to block@47 will be replaced with block@30
+debug: branching to block@48 will be replaced with block@33
+debug: branching to block@49 will be replaced with block@34
+debug: branching to block@50 will be replaced with block@33
 debug: Performing SSA IR destructuring for test_cases.time_travel.contract.go_back_not_inlined
 debug: Converting to CSSA
 debug: Removing Phi nodes
@@ -5041,7 +5452,7 @@ debug: Replaced main_abi_routing@4.ops[7]: 'v-load tmp%3#0' with 'l-load tmp%3#0
 debug: Inserted main_abi_routing@4.ops[10]: 'l-store-copy tmp%4#0 0'
 debug: Replaced main_abi_routing@4.ops[12]: 'v-load tmp%4#0' with 'l-load tmp%4#0'
 debug: Inserted main_abi_routing@4.ops[15]: 'l-store-copy tmp%6#0 0'
-debug: Replaced main_abi_routing@4.ops[31]: 'v-load tmp%6#0' with 'l-load tmp%6#0'
+debug: Replaced main_abi_routing@4.ops[33]: 'v-load tmp%6#0' with 'l-load tmp%6#0'
 debug: Inserted main_round_at_route@6.ops[1]: 'l-store-copy tmp%0#3 0'
 debug: Replaced main_round_at_route@6.ops[3]: 'v-load tmp%0#3' with 'l-load tmp%0#3'
 debug: Inserted main_round_at_route@6.ops[5]: 'l-store-copy len%0#0 0'
@@ -5118,8 +5529,8 @@ debug: Inserted main_data_changed_route@9.ops[28]: 'l-store-copy length%0#0 0'
 debug: Replaced main_data_changed_route@9.ops[31]: 'v-load length%0#0' with 'l-load length%0#0'
 debug: Inserted main_data_changed_route@9.ops[46]: 'l-store-copy box%exists%0#0 1'
 debug: Replaced main_data_changed_route@9.ops[49]: 'v-load box%exists%0#0' with 'l-load box%exists%0#0'
-debug: Inserted main_data_changed_route@9.ops[64]: 'l-store-copy box%box_extract%0#1 0'
-debug: Replaced main_data_changed_route@9.ops[67]: 'v-load box%box_extract%0#1' with 'l-load box%box_extract%0#1'
+debug: Inserted main_data_changed_route@9.ops[64]: 'l-store-copy box%box_extract%0#0 0'
+debug: Replaced main_data_changed_route@9.ops[67]: 'v-load box%box_extract%0#0' with 'l-load box%box_extract%0#0'
 debug: Inserted main_data_changed_route@9.ops[74]: 'l-store-copy aggregate%encoded_bool%0#0 0'
 debug: Replaced main_data_changed_route@9.ops[77]: 'v-load aggregate%encoded_bool%0#0' with 'l-load aggregate%encoded_bool%0#0'
 debug: Inserted main_data_changed_route@9.ops[33]: 'l-store-copy is_out_of_bounds%0#0 0'
@@ -5130,8 +5541,8 @@ debug: Inserted main_data_changed_route@9.ops[56]: 'l-store-copy is_out_of_bound
 debug: Replaced main_data_changed_route@9.ops[60]: 'v-load is_out_of_bounds%1#0' with 'l-load is_out_of_bounds%1#0'
 debug: Inserted main_data_changed_route@9.ops[62]: 'l-store-copy bounded_index%1#0 0'
 debug: Replaced main_data_changed_route@9.ops[66]: 'v-load bounded_index%1#0' with 'l-load bounded_index%1#0'
-debug: Inserted main_data_changed_route@9.ops[73]: 'l-store-copy tmp%2#8 0'
-debug: Replaced main_data_changed_route@9.ops[77]: 'v-load tmp%2#8' with 'l-load tmp%2#8'
+debug: Inserted main_data_changed_route@9.ops[73]: 'l-store-copy tmp%2#10 0'
+debug: Replaced main_data_changed_route@9.ops[77]: 'v-load tmp%2#10' with 'l-load tmp%2#10'
 debug: Inserted main_data_changed_route@9.ops[32]: 'l-store-copy length%0#0 1'
 debug: Replaced main_data_changed_route@9.ops[37]: 'v-load length%0#0' with 'l-load length%0#0'
 debug: Inserted main_data_changed_route@9.ops[51]: 'l-store-copy box%box_len%0#0 1'
@@ -5158,8 +5569,8 @@ debug: Inserted main_first_item_changed_route@10.ops[45]: 'l-store-copy tmp%4#1 
 debug: Replaced main_first_item_changed_route@10.ops[47]: 'v-load tmp%4#1' with 'l-load tmp%4#1'
 debug: Inserted main_first_item_changed_route@10.ops[19]: 'l-store-copy aggregate%box_get%3#0 1'
 debug: Replaced main_first_item_changed_route@10.ops[22]: 'v-load aggregate%box_get%3#0' with 'l-load aggregate%box_get%3#0'
-debug: Inserted main_first_item_changed_route@10.ops[33]: 'l-store-copy box%box_extract%0#1 0'
-debug: Replaced main_first_item_changed_route@10.ops[36]: 'v-load box%box_extract%0#1' with 'l-load box%box_extract%0#1'
+debug: Inserted main_first_item_changed_route@10.ops[33]: 'l-store-copy box%box_extract%0#0 0'
+debug: Replaced main_first_item_changed_route@10.ops[36]: 'v-load box%box_extract%0#0' with 'l-load box%box_extract%0#0'
 debug: Inserted main_first_item_changed_route@10.ops[43]: 'l-store-copy aggregate%encoded_bool%1#0 0'
 debug: Replaced main_first_item_changed_route@10.ops[46]: 'v-load aggregate%encoded_bool%1#0' with 'l-load aggregate%encoded_bool%1#0'
 debug: Inserted main_first_item_changed_route@10.ops[38]: 'l-store-copy tmp%0#0 0'
@@ -5178,10 +5589,10 @@ debug: Inserted main_first_item_now_route@11.ops[5]: 'l-store-copy len%0#0 0'
 debug: Replaced main_first_item_now_route@11.ops[7]: 'v-load len%0#0' with 'l-load len%0#0'
 debug: Inserted main_first_item_now_route@11.ops[10]: 'l-store-copy eq%0#0 0'
 debug: Replaced main_first_item_now_route@11.ops[12]: 'v-load eq%0#0' with 'l-load eq%0#0'
-debug: Inserted main_first_item_now_route@11.ops[27]: 'l-store-copy tmp%3#4 0'
-debug: Replaced main_first_item_now_route@11.ops[29]: 'v-load tmp%3#4' with 'l-load tmp%3#4'
-debug: Inserted main_first_item_now_route@11.ops[21]: 'l-store-copy first#0 0'
-debug: Replaced main_first_item_now_route@11.ops[26]: 'v-load first#0' with 'l-load first#0'
+debug: Inserted main_first_item_now_route@11.ops[27]: 'l-store-copy tmp%3#2 0'
+debug: Replaced main_first_item_now_route@11.ops[29]: 'v-load tmp%3#2' with 'l-load tmp%3#2'
+debug: Inserted main_first_item_now_route@11.ops[21]: 'l-store-copy first#1 0'
+debug: Replaced main_first_item_now_route@11.ops[26]: 'v-load first#1' with 'l-load first#1'
 debug: Inserted main_first_item_now_route@11.ops[16]: 'l-store-copy rnd#0 0'
 debug: Replaced main_first_item_now_route@11.ops[24]: 'v-load rnd#0' with 'l-load rnd#0'
 debug: Inserted main_first_item_now_route@11.ops[4]: 'l-store-copy tmp%0#3 0'
@@ -5210,14 +5621,14 @@ debug: Inserted main_append_then_write_back_route@12.ops[33]: 'l-store-copy aggr
 debug: Replaced main_append_then_write_back_route@12.ops[36]: 'v-load aggregate%box_get%5#0' with 'l-load aggregate%box_get%5#0'
 debug: Inserted main_append_then_write_back_route@12.ops[54]: 'l-store-copy new_len_u16#0 0'
 debug: Replaced main_append_then_write_back_route@12.ops[57]: 'v-load new_len_u16#0' with 'l-load new_len_u16#0'
-debug: Inserted main_append_then_write_back_route@12.ops[35]: 'l-store-copy items#0 1'
-debug: Replaced main_append_then_write_back_route@12.ops[39]: 'v-load items#0' with 'l-load items#0'
-debug: Inserted main_append_then_write_back_route@12.ops[65]: 'l-store-copy items#0 0'
-debug: Replaced main_append_then_write_back_route@12.ops[73]: 'v-load items#0' with 'l-load items#0'
+debug: Inserted main_append_then_write_back_route@12.ops[35]: 'l-store-copy items#1 1'
+debug: Replaced main_append_then_write_back_route@12.ops[39]: 'v-load items#1' with 'l-load items#1'
+debug: Inserted main_append_then_write_back_route@12.ops[65]: 'l-store-copy items#1 0'
+debug: Replaced main_append_then_write_back_route@12.ops[73]: 'v-load items#1' with 'l-load items#1'
 debug: Inserted main_append_then_write_back_route@12.ops[4]: 'l-store-copy tmp%0#3 0'
 debug: Replaced main_append_then_write_back_route@12.ops[15]: 'v-load tmp%0#3' with 'l-load tmp%0#3'
-debug: Inserted main_append_then_write_back_route@12.ops[41]: 'l-store-copy items#0 0'
-debug: Replaced main_append_then_write_back_route@12.ops[59]: 'v-load items#0' with 'l-load items#0'
+debug: Inserted main_append_then_write_back_route@12.ops[41]: 'l-store-copy items#1 0'
+debug: Replaced main_append_then_write_back_route@12.ops[59]: 'v-load items#1' with 'l-load items#1'
 debug: Inserted main_append_then_write_back_route@12.ops[22]: 'l-store-copy x#0 0'
 debug: Replaced main_append_then_write_back_route@12.ops[66]: 'v-load x#0' with 'l-load x#0'
 debug: Inserted main_append_then_write_back_route@12.ops[17]: 'l-store-copy rnd#0 0'
@@ -5334,312 +5745,361 @@ debug: Inserted main_data_existed_before_call_route@16.ops[21]: 'l-store-copy ex
 debug: Replaced main_data_existed_before_call_route@16.ops[34]: 'v-load existed#0' with 'l-load existed#0'
 debug: Inserted main_data_existed_before_call_route@16.ops[37]: 'l-store-copy then#1 0'
 debug: Replaced main_data_existed_before_call_route@16.ops[50]: 'v-load then#1' with 'l-load then#1'
-debug: Inserted main_first_valid_then_and_now_route@17.ops[1]: 'l-store-copy tmp%0#3 0'
-debug: Replaced main_first_valid_then_and_now_route@17.ops[3]: 'v-load tmp%0#3' with 'l-load tmp%0#3'
-debug: Inserted main_first_valid_then_and_now_route@17.ops[5]: 'l-store-copy len%0#0 0'
-debug: Replaced main_first_valid_then_and_now_route@17.ops[7]: 'v-load len%0#0' with 'l-load len%0#0'
-debug: Inserted main_first_valid_then_and_now_route@17.ops[10]: 'l-store-copy eq%0#0 0'
-debug: Replaced main_first_valid_then_and_now_route@17.ops[12]: 'v-load eq%0#0' with 'l-load eq%0#0'
-debug: Inserted main_first_valid_then_and_now_route@17.ops[18]: 'l-store-copy tmp%2#1 0'
-debug: Replaced main_first_valid_then_and_now_route@17.ops[20]: 'v-load tmp%2#1' with 'l-load tmp%2#1'
-debug: Inserted main_first_valid_then_and_now_route@17.ops[22]: 'l-store-copy len%1#0 0'
-debug: Replaced main_first_valid_then_and_now_route@17.ops[24]: 'v-load len%1#0' with 'l-load len%1#0'
-debug: Inserted main_first_valid_then_and_now_route@17.ops[27]: 'l-store-copy eq%1#0 0'
-debug: Replaced main_first_valid_then_and_now_route@17.ops[29]: 'v-load eq%1#0' with 'l-load eq%1#0'
-debug: Inserted main_first_valid_then_and_now_route@17.ops[45]: 'l-store-copy tmp%2#0 0'
-debug: Replaced main_first_valid_then_and_now_route@17.ops[47]: 'v-load tmp%2#0' with 'l-load tmp%2#0'
-debug: Inserted main_first_valid_then_and_now_route@17.ops[53]: 'l-store-copy tmp%6#0 0'
-debug: Replaced main_first_valid_then_and_now_route@17.ops[55]: 'v-load tmp%6#0' with 'l-load tmp%6#0'
-debug: Inserted main_first_valid_then_and_now_route@17.ops[41]: 'l-store-copy then#0 0'
-debug: Replaced main_first_valid_then_and_now_route@17.ops[44]: 'v-load then#0' with 'l-load then#0'
-debug: Inserted main_first_valid_then_and_now_route@17.ops[50]: 'l-store-copy aggregate%val_as_bytes%5#0 0'
-debug: Replaced main_first_valid_then_and_now_route@17.ops[53]: 'v-load aggregate%val_as_bytes%5#0' with 'l-load aggregate%val_as_bytes%5#0'
-debug: Inserted main_first_valid_then_and_now_route@17.ops[33]: 'l-store-copy rnd#0 0'
-debug: Replaced main_first_valid_then_and_now_route@17.ops[38]: 'v-load rnd#0' with 'l-load rnd#0'
-debug: Inserted main_first_valid_then_and_now_route@17.ops[36]: 'l-store-copy i#0 1'
-debug: Replaced main_first_valid_then_and_now_route@17.ops[41]: 'v-load i#0' with 'l-load i#0'
-debug: Inserted main_first_valid_then_and_now_route@17.ops[38]: 'l-store-copy now#0 2'
-debug: Replaced main_first_valid_then_and_now_route@17.ops[46]: 'v-load now#0' with 'l-load now#0'
-debug: Inserted main_first_valid_then_and_now_route@17.ops[4]: 'l-store-copy tmp%0#3 0'
-debug: Replaced main_first_valid_then_and_now_route@17.ops[15]: 'v-load tmp%0#3' with 'l-load tmp%0#3'
-debug: Inserted main_first_valid_then_and_now_route@17.ops[22]: 'l-store-copy tmp%2#1 0'
-debug: Replaced main_first_valid_then_and_now_route@17.ops[33]: 'v-load tmp%2#1' with 'l-load tmp%2#1'
-debug: Inserted main_first_valid_then_and_now_route@17.ops[17]: 'l-store-copy i#0 0'
-debug: Replaced main_first_valid_then_and_now_route@17.ops[38]: 'v-load i#0' with 'l-load i#0'
-debug: Inserted main_data_exists_then_route@18.ops[1]: 'l-store-copy tmp%0#3 0'
-debug: Replaced main_data_exists_then_route@18.ops[3]: 'v-load tmp%0#3' with 'l-load tmp%0#3'
-debug: Inserted main_data_exists_then_route@18.ops[5]: 'l-store-copy len%0#0 0'
-debug: Replaced main_data_exists_then_route@18.ops[7]: 'v-load len%0#0' with 'l-load len%0#0'
-debug: Inserted main_data_exists_then_route@18.ops[10]: 'l-store-copy eq%0#0 0'
-debug: Replaced main_data_exists_then_route@18.ops[12]: 'v-load eq%0#0' with 'l-load eq%0#0'
-debug: Inserted main_data_exists_then_route@18.ops[39]: 'l-store-copy tmp%4#1 0'
-debug: Replaced main_data_exists_then_route@18.ops[41]: 'v-load tmp%4#1' with 'l-load tmp%4#1'
-debug: Inserted main_data_exists_then_route@18.ops[19]: 'l-store-copy check%0#0 1'
-debug: Replaced main_data_exists_then_route@18.ops[22]: 'v-load check%0#0' with 'l-load check%0#0'
-debug: Inserted main_data_exists_then_route@18.ops[36]: 'l-store-copy aggregate%encoded_bool%2#0 0'
-debug: Replaced main_data_exists_then_route@18.ops[39]: 'v-load aggregate%encoded_bool%2#0' with 'l-load aggregate%encoded_bool%2#0'
-debug: Inserted main_data_exists_then_route@18.ops[21]: 'l-store-copy value%0#0 1'
-debug: Replaced main_data_exists_then_route@18.ops[25]: 'v-load value%0#0' with 'l-load value%0#0'
-debug: Inserted main_data_exists_then_route@18.ops[31]: 'l-store-copy maybe_exists%0#0 1'
-debug: Replaced main_data_exists_then_route@18.ops[36]: 'v-load maybe_exists%0#0' with 'l-load maybe_exists%0#0'
-debug: Inserted main_data_exists_then_route@18.ops[4]: 'l-store-copy tmp%0#3 0'
-debug: Replaced main_data_exists_then_route@18.ops[15]: 'v-load tmp%0#3' with 'l-load tmp%0#3'
-debug: Inserted main_data_exists_then_route@18.ops[17]: 'l-store-copy rnd#0 0'
-debug: Replaced main_data_exists_then_route@18.ops[29]: 'v-load rnd#0' with 'l-load rnd#0'
-debug: Inserted main_changes_route@19.ops[1]: 'l-store-copy acct#0 0'
-debug: Replaced main_changes_route@19.ops[3]: 'v-load acct#0' with 'l-load acct#0'
-debug: Inserted main_changes_route@19.ops[5]: 'l-store-copy len%0#0 0'
-debug: Replaced main_changes_route@19.ops[7]: 'v-load len%0#0' with 'l-load len%0#0'
-debug: Inserted main_changes_route@19.ops[10]: 'l-store-copy eq%0#0 0'
-debug: Replaced main_changes_route@19.ops[12]: 'v-load eq%0#0' with 'l-load eq%0#0'
-debug: Inserted main_changes_route@19.ops[15]: 'l-store-copy tmp%2#1 0'
-debug: Replaced main_changes_route@19.ops[17]: 'v-load tmp%2#1' with 'l-load tmp%2#1'
-debug: Inserted main_changes_route@19.ops[19]: 'l-store-copy len%1#0 0'
-debug: Replaced main_changes_route@19.ops[21]: 'v-load len%1#0' with 'l-load len%1#0'
-debug: Inserted main_changes_route@19.ops[24]: 'l-store-copy eq%1#0 0'
-debug: Replaced main_changes_route@19.ops[26]: 'v-load eq%1#0' with 'l-load eq%1#0'
-debug: Inserted main_changes_route@19.ops[32]: 'l-store-copy tmp%4#1 0'
-debug: Replaced main_changes_route@19.ops[34]: 'v-load tmp%4#1' with 'l-load tmp%4#1'
-debug: Inserted main_changes_route@19.ops[36]: 'l-store-copy len%2#0 0'
-debug: Replaced main_changes_route@19.ops[38]: 'v-load len%2#0' with 'l-load len%2#0'
-debug: Inserted main_changes_route@19.ops[41]: 'l-store-copy eq%2#0 0'
-debug: Replaced main_changes_route@19.ops[43]: 'v-load eq%2#0' with 'l-load eq%2#0'
-debug: Inserted main_changes_route@19.ops[49]: 'l-store-copy tmp%6#0 0'
-debug: Replaced main_changes_route@19.ops[51]: 'v-load tmp%6#0' with 'l-load tmp%6#0'
-debug: Inserted main_changes_route@19.ops[53]: 'l-store-copy len%3#0 0'
-debug: Replaced main_changes_route@19.ops[55]: 'v-load len%3#0' with 'l-load len%3#0'
-debug: Inserted main_changes_route@19.ops[58]: 'l-store-copy eq%3#0 0'
-debug: Replaced main_changes_route@19.ops[60]: 'v-load eq%3#0' with 'l-load eq%3#0'
-debug: Inserted main_changes_route@19.ops[66]: 'l-store-copy tmp%8#1 0'
-debug: Replaced main_changes_route@19.ops[68]: 'v-load tmp%8#1' with 'l-load tmp%8#1'
-debug: Inserted main_changes_route@19.ops[70]: 'l-store-copy len%4#0 0'
-debug: Replaced main_changes_route@19.ops[72]: 'v-load len%4#0' with 'l-load len%4#0'
-debug: Inserted main_changes_route@19.ops[75]: 'l-store-copy eq%4#0 0'
-debug: Replaced main_changes_route@19.ops[77]: 'v-load eq%4#0' with 'l-load eq%4#0'
-debug: Inserted main_changes_route@19.ops[87]: 'l-store-copy rnd#0 0'
-debug: Replaced main_changes_route@19.ops[89]: 'v-load rnd#0' with 'l-load rnd#0'
-debug: Inserted main_changes_route@19.ops[99]: 'l-store-copy rnd#0 0'
-debug: Replaced main_changes_route@19.ops[101]: 'v-load rnd#0' with 'l-load rnd#0'
-debug: Inserted main_changes_route@19.ops[115]: 'l-store-copy rnd#0 0'
-debug: Replaced main_changes_route@19.ops[117]: 'v-load rnd#0' with 'l-load rnd#0'
-debug: Inserted main_changes_route@19.ops[130]: 'l-store-copy rnd#0 0'
-debug: Replaced main_changes_route@19.ops[132]: 'v-load rnd#0' with 'l-load rnd#0'
-debug: Inserted main_changes_route@19.ops[145]: 'l-store-copy rnd#0 0'
-debug: Replaced main_changes_route@19.ops[147]: 'v-load rnd#0' with 'l-load rnd#0'
-debug: Inserted main_changes_route@19.ops[161]: 'l-store-copy rnd#0 0'
-debug: Replaced main_changes_route@19.ops[163]: 'v-load rnd#0' with 'l-load rnd#0'
-debug: Inserted main_changes_route@19.ops[178]: 'l-store-copy rnd#0 0'
-debug: Replaced main_changes_route@19.ops[180]: 'v-load rnd#0' with 'l-load rnd#0'
-debug: Inserted main_changes_route@19.ops[183]: 'l-store-copy tmp%27#0 0'
-debug: Replaced main_changes_route@19.ops[185]: 'v-load tmp%27#0' with 'l-load tmp%27#0'
-debug: Inserted main_changes_route@19.ops[200]: 'l-store-copy rnd#0 0'
-debug: Replaced main_changes_route@19.ops[202]: 'v-load rnd#0' with 'l-load rnd#0'
-debug: Inserted main_changes_route@19.ops[225]: 'l-store-copy rnd#0 0'
-debug: Replaced main_changes_route@19.ops[227]: 'v-load rnd#0' with 'l-load rnd#0'
-debug: Inserted main_changes_route@19.ops[230]: 'l-store-copy tmp%40#0 0'
-debug: Replaced main_changes_route@19.ops[232]: 'v-load tmp%40#0' with 'l-load tmp%40#0'
-debug: Inserted main_changes_route@19.ops[248]: 'l-store-copy rnd#0 0'
-debug: Replaced main_changes_route@19.ops[250]: 'v-load rnd#0' with 'l-load rnd#0'
-debug: Inserted main_changes_route@19.ops[272]: 'l-store-copy rnd#0 0'
-debug: Replaced main_changes_route@19.ops[274]: 'v-load rnd#0' with 'l-load rnd#0'
-debug: Inserted main_changes_route@19.ops[288]: 'l-store-copy total#1 0'
-debug: Replaced main_changes_route@19.ops[290]: 'v-load total#1' with 'l-load total#1'
-debug: Inserted main_changes_route@19.ops[296]: 'l-store-copy tmp%12#0 0'
-debug: Replaced main_changes_route@19.ops[298]: 'v-load tmp%12#0' with 'l-load tmp%12#0'
-debug: Inserted main_changes_route@19.ops[104]: 'l-store-copy tmp%6#2 0'
-debug: Replaced main_changes_route@19.ops[107]: 'v-load tmp%6#2' with 'l-load tmp%6#2'
-debug: Inserted main_changes_route@19.ops[121]: 'l-store-copy tmp%10#2 0'
-debug: Replaced main_changes_route@19.ops[124]: 'v-load tmp%10#2' with 'l-load tmp%10#2'
-debug: Inserted main_changes_route@19.ops[137]: 'l-store-copy tmp%14#0 0'
-debug: Replaced main_changes_route@19.ops[140]: 'v-load tmp%14#0' with 'l-load tmp%14#0'
-debug: Inserted main_changes_route@19.ops[153]: 'l-store-copy tmp%18#0 0'
-debug: Replaced main_changes_route@19.ops[156]: 'v-load tmp%18#0' with 'l-load tmp%18#0'
-debug: Inserted main_changes_route@19.ops[170]: 'l-store-copy tmp%22#0 0'
-debug: Replaced main_changes_route@19.ops[173]: 'v-load tmp%22#0' with 'l-load tmp%22#0'
-debug: Inserted main_changes_route@19.ops[193]: 'l-store-copy tmp%28#0 0'
-debug: Replaced main_changes_route@19.ops[196]: 'v-load tmp%28#0' with 'l-load tmp%28#0'
-debug: Inserted main_changes_route@19.ops[214]: 'l-store-copy tmp%34#0 0'
-debug: Replaced main_changes_route@19.ops[217]: 'v-load tmp%34#0' with 'l-load tmp%34#0'
-debug: Inserted main_changes_route@19.ops[219]: 'l-store-copy tmp%35#0 0'
-debug: Replaced main_changes_route@19.ops[222]: 'v-load tmp%35#0' with 'l-load tmp%35#0'
-debug: Inserted main_changes_route@19.ops[243]: 'l-store-copy tmp%41#0 0'
-debug: Replaced main_changes_route@19.ops[246]: 'v-load tmp%41#0' with 'l-load tmp%41#0'
-debug: Inserted main_changes_route@19.ops[265]: 'l-store-copy tmp%47#0 0'
-debug: Replaced main_changes_route@19.ops[268]: 'v-load tmp%47#0' with 'l-load tmp%47#0'
-debug: Inserted main_changes_route@19.ops[270]: 'l-store-copy tmp%48#0 0'
-debug: Replaced main_changes_route@19.ops[273]: 'v-load tmp%48#0' with 'l-load tmp%48#0'
-debug: Inserted main_changes_route@19.ops[291]: 'l-store-copy tmp%54#0 0'
-debug: Replaced main_changes_route@19.ops[294]: 'v-load tmp%54#0' with 'l-load tmp%54#0'
-debug: Inserted main_changes_route@19.ops[296]: 'l-store-copy tmp%55#0 0'
-debug: Replaced main_changes_route@19.ops[299]: 'v-load tmp%55#0' with 'l-load tmp%55#0'
-debug: Inserted main_changes_route@19.ops[305]: 'l-store-copy aggregate%val_as_bytes%6#0 0'
-debug: Replaced main_changes_route@19.ops[308]: 'v-load aggregate%val_as_bytes%6#0' with 'l-load aggregate%val_as_bytes%6#0'
-debug: Inserted main_changes_route@19.ops[81]: 'l-store-copy to#0 0'
-debug: Replaced main_changes_route@19.ops[85]: 'v-load to#0' with 'l-load to#0'
-debug: Inserted main_changes_route@19.ops[87]: 'l-store-copy status#0 1'
-debug: Replaced main_changes_route@19.ops[92]: 'v-load status#0' with 'l-load status#0'
-debug: Inserted main_changes_route@19.ops[100]: 'l-store-copy status#0 1'
-debug: Replaced main_changes_route@19.ops[105]: 'v-load status#0' with 'l-load status#0'
-debug: Inserted main_changes_route@19.ops[118]: 'l-store-copy status#0 1'
-debug: Replaced main_changes_route@19.ops[123]: 'v-load status#0' with 'l-load status#0'
-debug: Inserted main_changes_route@19.ops[135]: 'l-store-copy status#0 1'
-debug: Replaced main_changes_route@19.ops[140]: 'v-load status#0' with 'l-load status#0'
-debug: Inserted main_changes_route@19.ops[152]: 'l-store-copy status#0 1'
-debug: Replaced main_changes_route@19.ops[157]: 'v-load status#0' with 'l-load status#0'
-debug: Inserted main_changes_route@19.ops[170]: 'l-store-copy status#0 1'
-debug: Replaced main_changes_route@19.ops[175]: 'v-load status#0' with 'l-load status#0'
-debug: Inserted main_changes_route@19.ops[189]: 'l-store-copy status#0 1'
-debug: Replaced main_changes_route@19.ops[194]: 'v-load status#0' with 'l-load status#0'
-debug: Inserted main_changes_route@19.ops[213]: 'l-store-copy status#0 1'
-debug: Replaced main_changes_route@19.ops[218]: 'v-load status#0' with 'l-load status#0'
-debug: Inserted main_changes_route@19.ops[241]: 'l-store-copy status#0 1'
-debug: Replaced main_changes_route@19.ops[246]: 'v-load status#0' with 'l-load status#0'
-debug: Inserted main_changes_route@19.ops[266]: 'l-store-copy status#0 1'
-debug: Replaced main_changes_route@19.ops[271]: 'v-load status#0' with 'l-load status#0'
-debug: Inserted main_changes_route@19.ops[293]: 'l-store-copy status#0 1'
-debug: Replaced main_changes_route@19.ops[298]: 'v-load status#0' with 'l-load status#0'
-debug: Inserted main_changes_route@19.ops[220]: 'l-store-copy tmp%33#0 0'
-debug: Replaced main_changes_route@19.ops[226]: 'v-load tmp%33#0' with 'l-load tmp%33#0'
-debug: Inserted main_changes_route@19.ops[274]: 'l-store-copy tmp%46#0 0'
-debug: Replaced main_changes_route@19.ops[280]: 'v-load tmp%46#0' with 'l-load tmp%46#0'
-debug: Inserted main_changes_route@19.ops[302]: 'l-store-copy tmp%53#0 0'
-debug: Replaced main_changes_route@19.ops[308]: 'v-load tmp%53#0' with 'l-load tmp%53#0'
-debug: Inserted main_changes_route@19.ops[212]: 'l-store-copy name#0 2'
-debug: Replaced main_changes_route@19.ops[223]: 'v-load name#0' with 'l-load name#0'
-debug: Inserted main_changes_route@19.ops[267]: 'l-store-copy name#0 2'
-debug: Replaced main_changes_route@19.ops[278]: 'v-load name#0' with 'l-load name#0'
-debug: Inserted main_changes_route@19.ops[296]: 'l-store-copy name#0 2'
-debug: Replaced main_changes_route@19.ops[307]: 'v-load name#0' with 'l-load name#0'
-debug: Inserted main_changes_route@19.ops[188]: 'l-store-copy value#0 2'
-debug: Replaced main_changes_route@19.ops[200]: 'v-load value#0' with 'l-load value#0'
-debug: Inserted main_changes_route@19.ops[243]: 'l-store-copy value#0 2'
-debug: Replaced main_changes_route@19.ops[255]: 'v-load value#0' with 'l-load value#0'
-debug: Inserted main_changes_route@19.ops[18]: 'l-store-copy tmp%2#1 0'
-debug: Replaced main_changes_route@19.ops[29]: 'v-load tmp%2#1' with 'l-load tmp%2#1'
-debug: Inserted main_changes_route@19.ops[36]: 'l-store-copy tmp%4#1 0'
-debug: Replaced main_changes_route@19.ops[47]: 'v-load tmp%4#1' with 'l-load tmp%4#1'
-debug: Inserted main_changes_route@19.ops[54]: 'l-store-copy tmp%6#0 0'
-debug: Replaced main_changes_route@19.ops[65]: 'v-load tmp%6#0' with 'l-load tmp%6#0'
-debug: Inserted main_changes_route@19.ops[72]: 'l-store-copy tmp%8#1 0'
-debug: Replaced main_changes_route@19.ops[83]: 'v-load tmp%8#1' with 'l-load tmp%8#1'
-debug: Inserted main_changes_route@19.ops[88]: 'l-store-copy acct#0 1'
-debug: Replaced main_changes_route@19.ops[100]: 'v-load acct#0' with 'l-load acct#0'
-debug: Inserted main_changes_route@19.ops[90]: 'l-store-copy from_#0 3'
-debug: Replaced main_changes_route@19.ops[103]: 'v-load from_#0' with 'l-load from_#0'
-debug: Inserted main_changes_route@19.ops[92]: 'l-store-copy to#0 4'
-debug: Replaced main_changes_route@19.ops[105]: 'v-load to#0' with 'l-load to#0'
-debug: Inserted main_changes_route@19.ops[137]: 'l-store-copy total#1 0'
-debug: Replaced main_changes_route@19.ops[152]: 'v-load total#1' with 'l-load total#1'
-debug: Inserted main_changes_route@19.ops[155]: 'l-store-copy total#1 0'
-debug: Replaced main_changes_route@19.ops[170]: 'v-load total#1' with 'l-load total#1'
-debug: Inserted main_changes_route@19.ops[101]: 'l-store-copy total#1 3'
-debug: Replaced main_changes_route@19.ops[117]: 'v-load total#1' with 'l-load total#1'
-debug: Inserted main_changes_route@19.ops[120]: 'l-store-copy total#1 0'
-debug: Replaced main_changes_route@19.ops[136]: 'v-load total#1' with 'l-load total#1'
-debug: Inserted main_changes_route@19.ops[175]: 'l-store-copy total#1 0'
-debug: Replaced main_changes_route@19.ops[191]: 'v-load total#1' with 'l-load total#1'
-debug: Inserted main_changes_route@19.ops[125]: 'l-store-copy from_#0 3'
-debug: Replaced main_changes_route@19.ops[143]: 'v-load from_#0' with 'l-load from_#0'
-debug: Inserted main_changes_route@19.ops[127]: 'l-store-copy to#0 5'
-debug: Replaced main_changes_route@19.ops[145]: 'v-load to#0' with 'l-load to#0'
-debug: Inserted main_changes_route@19.ops[145]: 'l-store-copy from_#0 3'
-debug: Replaced main_changes_route@19.ops[163]: 'v-load from_#0' with 'l-load from_#0'
-debug: Inserted main_changes_route@19.ops[147]: 'l-store-copy to#0 4'
-debug: Replaced main_changes_route@19.ops[165]: 'v-load to#0' with 'l-load to#0'
-debug: Inserted main_changes_route@19.ops[164]: 'l-store-copy app#0 3'
-debug: Replaced main_changes_route@19.ops[182]: 'v-load app#0' with 'l-load app#0'
-debug: Inserted main_changes_route@19.ops[104]: 'l-store-copy acct#0 3'
-debug: Replaced main_changes_route@19.ops[123]: 'v-load acct#0' with 'l-load acct#0'
-debug: Inserted main_changes_route@19.ops[107]: 'l-store-copy from_#0 5'
-debug: Replaced main_changes_route@19.ops[126]: 'v-load from_#0' with 'l-load from_#0'
-debug: Inserted main_changes_route@19.ops[109]: 'l-store-copy to#0 6'
-debug: Replaced main_changes_route@19.ops[129]: 'v-load to#0' with 'l-load to#0'
-debug: Inserted main_changes_route@19.ops[169]: 'l-store-copy from_#0 4'
-debug: Replaced main_changes_route@19.ops[188]: 'v-load from_#0' with 'l-load from_#0'
-debug: Inserted main_changes_route@19.ops[171]: 'l-store-copy to#0 5'
-debug: Replaced main_changes_route@19.ops[190]: 'v-load to#0' with 'l-load to#0'
-debug: Inserted main_changes_route@19.ops[188]: 'l-store-copy app#0 3'
-debug: Replaced main_changes_route@19.ops[206]: 'v-load app#0' with 'l-load app#0'
-debug: Inserted main_changes_route@19.ops[191]: 'l-store-copy from_#0 5'
-debug: Replaced main_changes_route@19.ops[209]: 'v-load from_#0' with 'l-load from_#0'
-debug: Inserted main_changes_route@19.ops[193]: 'l-store-copy to#0 6'
-debug: Replaced main_changes_route@19.ops[211]: 'v-load to#0' with 'l-load to#0'
-debug: Inserted main_changes_route@19.ops[67]: 'l-store-copy from_#0 0'
-debug: Replaced main_changes_route@19.ops[90]: 'v-load from_#0' with 'l-load from_#0'
-debug: Inserted main_changes_route@19.ops[208]: 'l-store-copy total#1 3'
-debug: Replaced main_changes_route@19.ops[231]: 'v-load total#1' with 'l-load total#1'
-debug: Inserted main_changes_route@19.ops[263]: 'l-store-copy total#1 0'
-debug: Replaced main_changes_route@19.ops[287]: 'v-load total#1' with 'l-load total#1'
-debug: Inserted main_changes_route@19.ops[211]: 'l-store-copy app#0 3'
-debug: Replaced main_changes_route@19.ops[236]: 'v-load app#0' with 'l-load app#0'
-debug: Inserted main_changes_route@19.ops[214]: 'l-store-copy from_#0 5'
-debug: Replaced main_changes_route@19.ops[239]: 'v-load from_#0' with 'l-load from_#0'
-debug: Inserted main_changes_route@19.ops[216]: 'l-store-copy to#0 6'
-debug: Replaced main_changes_route@19.ops[241]: 'v-load to#0' with 'l-load to#0'
-debug: Inserted main_changes_route@19.ops[237]: 'l-store-copy total#1 3'
-debug: Replaced main_changes_route@19.ops[264]: 'v-load total#1' with 'l-load total#1'
-debug: Inserted main_changes_route@19.ops[324]: 'l-store-copy total#1 0'
-debug: Replaced main_changes_route@19.ops[351]: 'v-load total#1' with 'l-load total#1'
-debug: Inserted main_changes_route@19.ops[270]: 'l-store-copy acct#0 1'
-debug: Replaced main_changes_route@19.ops[296]: 'v-load acct#0' with 'l-load acct#0'
-debug: Inserted main_changes_route@19.ops[272]: 'l-store-copy app#0 3'
-debug: Replaced main_changes_route@19.ops[298]: 'v-load app#0' with 'l-load app#0'
-debug: Inserted main_changes_route@19.ops[275]: 'l-store-copy from_#0 6'
-debug: Replaced main_changes_route@19.ops[301]: 'v-load from_#0' with 'l-load from_#0'
-debug: Inserted main_changes_route@19.ops[277]: 'l-store-copy to#0 8'
-debug: Replaced main_changes_route@19.ops[303]: 'v-load to#0' with 'l-load to#0'
-debug: Inserted main_changes_route@19.ops[298]: 'l-store-copy total#1 4'
-debug: Replaced main_changes_route@19.ops[326]: 'v-load total#1' with 'l-load total#1'
-debug: Inserted main_changes_route@19.ops[302]: 'l-store-copy app#0 4'
-debug: Replaced main_changes_route@19.ops[332]: 'v-load app#0' with 'l-load app#0'
-debug: Inserted main_changes_route@19.ops[305]: 'l-store-copy from_#0 6'
-debug: Replaced main_changes_route@19.ops[335]: 'v-load from_#0' with 'l-load from_#0'
-debug: Inserted main_changes_route@19.ops[307]: 'l-store-copy to#0 7'
-debug: Replaced main_changes_route@19.ops[337]: 'v-load to#0' with 'l-load to#0'
-debug: Inserted main_changes_route@19.ops[240]: 'l-store-copy app#0 3'
-debug: Replaced main_changes_route@19.ops[272]: 'v-load app#0' with 'l-load app#0'
-debug: Inserted main_changes_route@19.ops[243]: 'l-store-copy from_#0 5'
-debug: Replaced main_changes_route@19.ops[276]: 'v-load from_#0' with 'l-load from_#0'
-debug: Inserted main_changes_route@19.ops[245]: 'l-store-copy to#0 6'
-debug: Replaced main_changes_route@19.ops[279]: 'v-load to#0' with 'l-load to#0'
-debug: Inserted main_changes_route@19.ops[128]: 'l-store-copy app#0 4'
-debug: Replaced main_changes_route@19.ops[168]: 'v-load app#0' with 'l-load app#0'
-debug: Inserted main_changes_route@19.ops[107]: 'l-store-copy asset#0 5'
-debug: Replaced main_changes_route@19.ops[149]: 'v-load asset#0' with 'l-load asset#0'
-debug: Inserted main_changes_route@19.ops[31]: 'l-store-copy asset#0 0'
-debug: Replaced main_changes_route@19.ops[107]: 'v-load asset#0' with 'l-load asset#0'
-debug: Inserted main_changes_route@19.ops[50]: 'l-store-copy app#0 1'
-debug: Replaced main_changes_route@19.ops[130]: 'v-load app#0' with 'l-load app#0'
-debug: Inserted main_changes_route@19.ops[4]: 'l-store-copy acct#0 0'
-debug: Replaced main_changes_route@19.ops[91]: 'v-load acct#0' with 'l-load acct#0'
-debug: Inserted main_changes_route@19.ops[131]: 'l-store-copy acct#0 5'
-debug: Replaced main_changes_route@19.ops[278]: 'v-load acct#0' with 'l-load acct#0'
-debug: Inserted main___algopy_default_create@23.ops[1]: 'l-store-copy tmp%7#0 0'
-debug: Replaced main___algopy_default_create@23.ops[3]: 'v-load tmp%7#0' with 'l-load tmp%7#0'
-debug: Inserted main___algopy_default_create@23.ops[7]: 'l-store-copy tmp%9#0 0'
-debug: Replaced main___algopy_default_create@23.ops[9]: 'v-load tmp%9#0' with 'l-load tmp%9#0'
-debug: Inserted main___algopy_default_create@23.ops[15]: 'l-store-copy tmp%11#0 0'
-debug: Replaced main___algopy_default_create@23.ops[17]: 'v-load tmp%11#0' with 'l-load tmp%11#0'
-debug: Inserted main___algopy_default_create@23.ops[11]: 'l-store-copy tmp%10#0 0'
-debug: Replaced main___algopy_default_create@23.ops[14]: 'v-load tmp%10#0' with 'l-load tmp%10#0'
-debug: Inserted main___algopy_default_create@23.ops[5]: 'l-store-copy tmp%8#0 0'
-debug: Replaced main___algopy_default_create@23.ops[14]: 'v-load tmp%8#0' with 'l-load tmp%8#0'
-debug: Found 3 edge set/s for algopy.arc4.ARC4Contract.approval_program
-debug: algopy.arc4.ARC4Contract.approval_program f-stack entry: []
+debug: Inserted main_data_existed_before_delete_route@17.ops[17]: 'l-store-copy aggregate%length%2#0 0'
+debug: Replaced main_data_existed_before_delete_route@17.ops[19]: 'v-load aggregate%length%2#0' with 'l-load aggregate%length%2#0'
+debug: Inserted main_data_existed_before_delete_route@17.ops[21]: 'l-store-copy aggregate%as_bytes%2#0 0'
+debug: Replaced main_data_existed_before_delete_route@17.ops[23]: 'v-load aggregate%as_bytes%2#0' with 'l-load aggregate%as_bytes%2#0'
+debug: Inserted main_data_existed_before_delete_route@17.ops[25]: 'l-store-copy aggregate%length_uint16%2#0 0'
+debug: Replaced main_data_existed_before_delete_route@17.ops[27]: 'v-load aggregate%length_uint16%2#0' with 'l-load aggregate%length_uint16%2#0'
+debug: Inserted main_data_existed_before_delete_route@17.ops[34]: 'l-store-copy tmp%2#1 0'
+debug: Replaced main_data_existed_before_delete_route@17.ops[36]: 'v-load tmp%2#1' with 'l-load tmp%2#1'
+debug: Inserted main_data_existed_before_delete_route@17.ops[11]: 'l-store-copy aggregate%box_get%13#0 1'
+debug: Replaced main_data_existed_before_delete_route@17.ops[14]: 'v-load aggregate%box_get%13#0' with 'l-load aggregate%box_get%13#0'
+debug: Inserted main_data_existed_before_delete_route@17.ops[31]: 'l-store-copy aggregate%encoded_value%2#0 0'
+debug: Replaced main_data_existed_before_delete_route@17.ops[34]: 'v-load aggregate%encoded_value%2#0' with 'l-load aggregate%encoded_value%2#0'
+debug: Inserted main_data_existed_before_delete_route@17.ops[13]: 'l-store-copy aggregate%box_get%12#0 1'
+debug: Replaced main_data_existed_before_delete_route@17.ops[17]: 'v-load aggregate%box_get%12#0' with 'l-load aggregate%box_get%12#0'
+debug: Inserted main_data_existed_before_delete_route@17.ops[2]: 'l-store-copy existed#0 1'
+debug: Replaced main_data_existed_before_delete_route@17.ops[8]: 'v-load existed#0' with 'l-load existed#0'
+debug: Inserted main_data_existed_before_delete_route@17.ops[19]: 'l-store-copy aggregate%box_get%12#0 0'
+debug: Replaced main_data_existed_before_delete_route@17.ops[32]: 'v-load aggregate%box_get%12#0' with 'l-load aggregate%box_get%12#0'
+debug: Inserted main_first_item_if_route@18.ops[1]: 'l-store-copy tmp%0#3 0'
+debug: Replaced main_first_item_if_route@18.ops[3]: 'v-load tmp%0#3' with 'l-load tmp%0#3'
+debug: Inserted main_first_item_if_route@18.ops[5]: 'l-store-copy len%0#0 0'
+debug: Replaced main_first_item_if_route@18.ops[7]: 'v-load len%0#0' with 'l-load len%0#0'
+debug: Inserted main_first_item_if_route@18.ops[10]: 'l-store-copy eq%0#0 0'
+debug: Replaced main_first_item_if_route@18.ops[12]: 'v-load eq%0#0' with 'l-load eq%0#0'
+debug: Inserted main_first_item_if_route@18.ops[17]: 'l-store-copy first#0 0'
+debug: Replaced main_first_item_if_route@18.ops[19]: 'v-load first#0' with 'l-load first#0'
+debug: Inserted main_first_item_if_route@18.ops[4]: 'l-store-copy tmp%0#3 0'
+debug: Replaced main_first_item_if_route@18.ops[15]: 'v-load tmp%0#3' with 'l-load tmp%0#3'
+debug: Inserted main_if_body@41.ops[4]: 'l-store-copy box%box_extract%0#0 0'
+debug: Replaced main_if_body@41.ops[6]: 'v-load box%box_extract%0#0' with 'l-load box%box_extract%0#0'
+debug: Inserted main_after_if_else@42.ops[4]: 'l-store-copy box%box_extract%1#0 0'
+debug: Replaced main_after_if_else@42.ops[6]: 'v-load box%box_extract%1#0' with 'l-load box%box_extract%1#0'
+debug: Inserted main_after_inlined_test_cases.time_travel.contract.TimeTravel.first_item_if@43.ops[3]: 'l-store-copy tmp%3#2 0'
+debug: Replaced main_after_inlined_test_cases.time_travel.contract.TimeTravel.first_item_if@43.ops[5]: 'v-load tmp%3#2' with 'l-load tmp%3#2'
+debug: Inserted main_first_valid_then_and_now_route@19.ops[1]: 'l-store-copy tmp%0#3 0'
+debug: Replaced main_first_valid_then_and_now_route@19.ops[3]: 'v-load tmp%0#3' with 'l-load tmp%0#3'
+debug: Inserted main_first_valid_then_and_now_route@19.ops[5]: 'l-store-copy len%0#0 0'
+debug: Replaced main_first_valid_then_and_now_route@19.ops[7]: 'v-load len%0#0' with 'l-load len%0#0'
+debug: Inserted main_first_valid_then_and_now_route@19.ops[10]: 'l-store-copy eq%0#0 0'
+debug: Replaced main_first_valid_then_and_now_route@19.ops[12]: 'v-load eq%0#0' with 'l-load eq%0#0'
+debug: Inserted main_first_valid_then_and_now_route@19.ops[18]: 'l-store-copy tmp%2#1 0'
+debug: Replaced main_first_valid_then_and_now_route@19.ops[20]: 'v-load tmp%2#1' with 'l-load tmp%2#1'
+debug: Inserted main_first_valid_then_and_now_route@19.ops[22]: 'l-store-copy len%1#0 0'
+debug: Replaced main_first_valid_then_and_now_route@19.ops[24]: 'v-load len%1#0' with 'l-load len%1#0'
+debug: Inserted main_first_valid_then_and_now_route@19.ops[27]: 'l-store-copy eq%1#0 0'
+debug: Replaced main_first_valid_then_and_now_route@19.ops[29]: 'v-load eq%1#0' with 'l-load eq%1#0'
+debug: Inserted main_first_valid_then_and_now_route@19.ops[45]: 'l-store-copy tmp%2#0 0'
+debug: Replaced main_first_valid_then_and_now_route@19.ops[47]: 'v-load tmp%2#0' with 'l-load tmp%2#0'
+debug: Inserted main_first_valid_then_and_now_route@19.ops[53]: 'l-store-copy tmp%6#0 0'
+debug: Replaced main_first_valid_then_and_now_route@19.ops[55]: 'v-load tmp%6#0' with 'l-load tmp%6#0'
+debug: Inserted main_first_valid_then_and_now_route@19.ops[41]: 'l-store-copy then#0 0'
+debug: Replaced main_first_valid_then_and_now_route@19.ops[44]: 'v-load then#0' with 'l-load then#0'
+debug: Inserted main_first_valid_then_and_now_route@19.ops[50]: 'l-store-copy aggregate%val_as_bytes%5#0 0'
+debug: Replaced main_first_valid_then_and_now_route@19.ops[53]: 'v-load aggregate%val_as_bytes%5#0' with 'l-load aggregate%val_as_bytes%5#0'
+debug: Inserted main_first_valid_then_and_now_route@19.ops[33]: 'l-store-copy rnd#0 0'
+debug: Replaced main_first_valid_then_and_now_route@19.ops[38]: 'v-load rnd#0' with 'l-load rnd#0'
+debug: Inserted main_first_valid_then_and_now_route@19.ops[36]: 'l-store-copy i#0 1'
+debug: Replaced main_first_valid_then_and_now_route@19.ops[41]: 'v-load i#0' with 'l-load i#0'
+debug: Inserted main_first_valid_then_and_now_route@19.ops[38]: 'l-store-copy now#0 2'
+debug: Replaced main_first_valid_then_and_now_route@19.ops[46]: 'v-load now#0' with 'l-load now#0'
+debug: Inserted main_first_valid_then_and_now_route@19.ops[4]: 'l-store-copy tmp%0#3 0'
+debug: Replaced main_first_valid_then_and_now_route@19.ops[15]: 'v-load tmp%0#3' with 'l-load tmp%0#3'
+debug: Inserted main_first_valid_then_and_now_route@19.ops[22]: 'l-store-copy tmp%2#1 0'
+debug: Replaced main_first_valid_then_and_now_route@19.ops[33]: 'v-load tmp%2#1' with 'l-load tmp%2#1'
+debug: Inserted main_first_valid_then_and_now_route@19.ops[17]: 'l-store-copy i#0 0'
+debug: Replaced main_first_valid_then_and_now_route@19.ops[38]: 'v-load i#0' with 'l-load i#0'
+debug: Inserted main_data_exists_then_route@20.ops[1]: 'l-store-copy tmp%0#3 0'
+debug: Replaced main_data_exists_then_route@20.ops[3]: 'v-load tmp%0#3' with 'l-load tmp%0#3'
+debug: Inserted main_data_exists_then_route@20.ops[5]: 'l-store-copy len%0#0 0'
+debug: Replaced main_data_exists_then_route@20.ops[7]: 'v-load len%0#0' with 'l-load len%0#0'
+debug: Inserted main_data_exists_then_route@20.ops[10]: 'l-store-copy eq%0#0 0'
+debug: Replaced main_data_exists_then_route@20.ops[12]: 'v-load eq%0#0' with 'l-load eq%0#0'
+debug: Inserted main_data_exists_then_route@20.ops[39]: 'l-store-copy tmp%4#1 0'
+debug: Replaced main_data_exists_then_route@20.ops[41]: 'v-load tmp%4#1' with 'l-load tmp%4#1'
+debug: Inserted main_data_exists_then_route@20.ops[19]: 'l-store-copy check%0#0 1'
+debug: Replaced main_data_exists_then_route@20.ops[22]: 'v-load check%0#0' with 'l-load check%0#0'
+debug: Inserted main_data_exists_then_route@20.ops[36]: 'l-store-copy aggregate%encoded_bool%2#0 0'
+debug: Replaced main_data_exists_then_route@20.ops[39]: 'v-load aggregate%encoded_bool%2#0' with 'l-load aggregate%encoded_bool%2#0'
+debug: Inserted main_data_exists_then_route@20.ops[21]: 'l-store-copy value%0#0 1'
+debug: Replaced main_data_exists_then_route@20.ops[25]: 'v-load value%0#0' with 'l-load value%0#0'
+debug: Inserted main_data_exists_then_route@20.ops[31]: 'l-store-copy maybe_exists%0#0 1'
+debug: Replaced main_data_exists_then_route@20.ops[36]: 'v-load maybe_exists%0#0' with 'l-load maybe_exists%0#0'
+debug: Inserted main_data_exists_then_route@20.ops[4]: 'l-store-copy tmp%0#3 0'
+debug: Replaced main_data_exists_then_route@20.ops[15]: 'v-load tmp%0#3' with 'l-load tmp%0#3'
+debug: Inserted main_data_exists_then_route@20.ops[17]: 'l-store-copy rnd#0 0'
+debug: Replaced main_data_exists_then_route@20.ops[29]: 'v-load rnd#0' with 'l-load rnd#0'
+debug: Inserted main_changes_route@21.ops[1]: 'l-store-copy acct#0 0'
+debug: Replaced main_changes_route@21.ops[3]: 'v-load acct#0' with 'l-load acct#0'
+debug: Inserted main_changes_route@21.ops[5]: 'l-store-copy len%0#0 0'
+debug: Replaced main_changes_route@21.ops[7]: 'v-load len%0#0' with 'l-load len%0#0'
+debug: Inserted main_changes_route@21.ops[10]: 'l-store-copy eq%0#0 0'
+debug: Replaced main_changes_route@21.ops[12]: 'v-load eq%0#0' with 'l-load eq%0#0'
+debug: Inserted main_changes_route@21.ops[15]: 'l-store-copy tmp%2#1 0'
+debug: Replaced main_changes_route@21.ops[17]: 'v-load tmp%2#1' with 'l-load tmp%2#1'
+debug: Inserted main_changes_route@21.ops[19]: 'l-store-copy len%1#0 0'
+debug: Replaced main_changes_route@21.ops[21]: 'v-load len%1#0' with 'l-load len%1#0'
+debug: Inserted main_changes_route@21.ops[24]: 'l-store-copy eq%1#0 0'
+debug: Replaced main_changes_route@21.ops[26]: 'v-load eq%1#0' with 'l-load eq%1#0'
+debug: Inserted main_changes_route@21.ops[32]: 'l-store-copy tmp%4#1 0'
+debug: Replaced main_changes_route@21.ops[34]: 'v-load tmp%4#1' with 'l-load tmp%4#1'
+debug: Inserted main_changes_route@21.ops[36]: 'l-store-copy len%2#0 0'
+debug: Replaced main_changes_route@21.ops[38]: 'v-load len%2#0' with 'l-load len%2#0'
+debug: Inserted main_changes_route@21.ops[41]: 'l-store-copy eq%2#0 0'
+debug: Replaced main_changes_route@21.ops[43]: 'v-load eq%2#0' with 'l-load eq%2#0'
+debug: Inserted main_changes_route@21.ops[49]: 'l-store-copy tmp%6#0 0'
+debug: Replaced main_changes_route@21.ops[51]: 'v-load tmp%6#0' with 'l-load tmp%6#0'
+debug: Inserted main_changes_route@21.ops[53]: 'l-store-copy len%3#0 0'
+debug: Replaced main_changes_route@21.ops[55]: 'v-load len%3#0' with 'l-load len%3#0'
+debug: Inserted main_changes_route@21.ops[58]: 'l-store-copy eq%3#0 0'
+debug: Replaced main_changes_route@21.ops[60]: 'v-load eq%3#0' with 'l-load eq%3#0'
+debug: Inserted main_changes_route@21.ops[66]: 'l-store-copy tmp%8#1 0'
+debug: Replaced main_changes_route@21.ops[68]: 'v-load tmp%8#1' with 'l-load tmp%8#1'
+debug: Inserted main_changes_route@21.ops[70]: 'l-store-copy len%4#0 0'
+debug: Replaced main_changes_route@21.ops[72]: 'v-load len%4#0' with 'l-load len%4#0'
+debug: Inserted main_changes_route@21.ops[75]: 'l-store-copy eq%4#0 0'
+debug: Replaced main_changes_route@21.ops[77]: 'v-load eq%4#0' with 'l-load eq%4#0'
+debug: Inserted main_changes_route@21.ops[87]: 'l-store-copy rnd#0 0'
+debug: Replaced main_changes_route@21.ops[89]: 'v-load rnd#0' with 'l-load rnd#0'
+debug: Inserted main_changes_route@21.ops[99]: 'l-store-copy rnd#0 0'
+debug: Replaced main_changes_route@21.ops[101]: 'v-load rnd#0' with 'l-load rnd#0'
+debug: Inserted main_changes_route@21.ops[115]: 'l-store-copy rnd#0 0'
+debug: Replaced main_changes_route@21.ops[117]: 'v-load rnd#0' with 'l-load rnd#0'
+debug: Inserted main_changes_route@21.ops[130]: 'l-store-copy rnd#0 0'
+debug: Replaced main_changes_route@21.ops[132]: 'v-load rnd#0' with 'l-load rnd#0'
+debug: Inserted main_changes_route@21.ops[145]: 'l-store-copy rnd#0 0'
+debug: Replaced main_changes_route@21.ops[147]: 'v-load rnd#0' with 'l-load rnd#0'
+debug: Inserted main_changes_route@21.ops[161]: 'l-store-copy rnd#0 0'
+debug: Replaced main_changes_route@21.ops[163]: 'v-load rnd#0' with 'l-load rnd#0'
+debug: Inserted main_changes_route@21.ops[178]: 'l-store-copy rnd#0 0'
+debug: Replaced main_changes_route@21.ops[180]: 'v-load rnd#0' with 'l-load rnd#0'
+debug: Inserted main_changes_route@21.ops[183]: 'l-store-copy tmp%27#0 0'
+debug: Replaced main_changes_route@21.ops[185]: 'v-load tmp%27#0' with 'l-load tmp%27#0'
+debug: Inserted main_changes_route@21.ops[200]: 'l-store-copy rnd#0 0'
+debug: Replaced main_changes_route@21.ops[202]: 'v-load rnd#0' with 'l-load rnd#0'
+debug: Inserted main_changes_route@21.ops[213]: 'l-store-copy tmp%35#0 0'
+debug: Replaced main_changes_route@21.ops[215]: 'v-load tmp%35#0' with 'l-load tmp%35#0'
+debug: Inserted main_changes_route@21.ops[104]: 'l-store-copy tmp%6#2 0'
+debug: Replaced main_changes_route@21.ops[107]: 'v-load tmp%6#2' with 'l-load tmp%6#2'
+debug: Inserted main_changes_route@21.ops[121]: 'l-store-copy tmp%10#2 0'
+debug: Replaced main_changes_route@21.ops[124]: 'v-load tmp%10#2' with 'l-load tmp%10#2'
+debug: Inserted main_changes_route@21.ops[137]: 'l-store-copy tmp%14#0 0'
+debug: Replaced main_changes_route@21.ops[140]: 'v-load tmp%14#0' with 'l-load tmp%14#0'
+debug: Inserted main_changes_route@21.ops[153]: 'l-store-copy tmp%18#0 0'
+debug: Replaced main_changes_route@21.ops[156]: 'v-load tmp%18#0' with 'l-load tmp%18#0'
+debug: Inserted main_changes_route@21.ops[170]: 'l-store-copy tmp%22#0 0'
+debug: Replaced main_changes_route@21.ops[173]: 'v-load tmp%22#0' with 'l-load tmp%22#0'
+debug: Inserted main_changes_route@21.ops[193]: 'l-store-copy tmp%28#0 0'
+debug: Replaced main_changes_route@21.ops[196]: 'v-load tmp%28#0' with 'l-load tmp%28#0'
+debug: Inserted main_changes_route@21.ops[211]: 'l-store-copy tmp%33#0 0'
+debug: Replaced main_changes_route@21.ops[214]: 'v-load tmp%33#0' with 'l-load tmp%33#0'
+debug: Inserted main_changes_route@21.ops[81]: 'l-store-copy to#0 0'
+debug: Replaced main_changes_route@21.ops[85]: 'v-load to#0' with 'l-load to#0'
+debug: Inserted main_changes_route@21.ops[87]: 'l-store-copy status#0 1'
+debug: Replaced main_changes_route@21.ops[92]: 'v-load status#0' with 'l-load status#0'
+debug: Inserted main_changes_route@21.ops[100]: 'l-store-copy status#0 1'
+debug: Replaced main_changes_route@21.ops[105]: 'v-load status#0' with 'l-load status#0'
+debug: Inserted main_changes_route@21.ops[118]: 'l-store-copy status#0 1'
+debug: Replaced main_changes_route@21.ops[123]: 'v-load status#0' with 'l-load status#0'
+debug: Inserted main_changes_route@21.ops[135]: 'l-store-copy status#0 1'
+debug: Replaced main_changes_route@21.ops[140]: 'v-load status#0' with 'l-load status#0'
+debug: Inserted main_changes_route@21.ops[152]: 'l-store-copy status#0 1'
+debug: Replaced main_changes_route@21.ops[157]: 'v-load status#0' with 'l-load status#0'
+debug: Inserted main_changes_route@21.ops[170]: 'l-store-copy status#0 1'
+debug: Replaced main_changes_route@21.ops[175]: 'v-load status#0' with 'l-load status#0'
+debug: Inserted main_changes_route@21.ops[189]: 'l-store-copy status#0 1'
+debug: Replaced main_changes_route@21.ops[194]: 'v-load status#0' with 'l-load status#0'
+debug: Inserted main_changes_route@21.ops[213]: 'l-store-copy status#0 1'
+debug: Replaced main_changes_route@21.ops[218]: 'v-load status#0' with 'l-load status#0'
+debug: Inserted main_changes_route@21.ops[219]: 'l-store-copy status#0 1'
+debug: Replaced main_changes_route@21.ops[227]: 'v-load status#0' with 'l-load status#0'
+debug: Inserted main_changes_route@21.ops[188]: 'l-store-copy value#0 2'
+debug: Replaced main_changes_route@21.ops[200]: 'v-load value#0' with 'l-load value#0'
+debug: Inserted main_changes_route@21.ops[18]: 'l-store-copy tmp%2#1 0'
+debug: Replaced main_changes_route@21.ops[29]: 'v-load tmp%2#1' with 'l-load tmp%2#1'
+debug: Inserted main_changes_route@21.ops[36]: 'l-store-copy tmp%4#1 0'
+debug: Replaced main_changes_route@21.ops[47]: 'v-load tmp%4#1' with 'l-load tmp%4#1'
+debug: Inserted main_changes_route@21.ops[54]: 'l-store-copy tmp%6#0 0'
+debug: Replaced main_changes_route@21.ops[65]: 'v-load tmp%6#0' with 'l-load tmp%6#0'
+debug: Inserted main_changes_route@21.ops[72]: 'l-store-copy tmp%8#1 0'
+debug: Replaced main_changes_route@21.ops[83]: 'v-load tmp%8#1' with 'l-load tmp%8#1'
+debug: Inserted main_changes_route@21.ops[88]: 'l-store-copy acct#0 1'
+debug: Replaced main_changes_route@21.ops[100]: 'v-load acct#0' with 'l-load acct#0'
+debug: Inserted main_changes_route@21.ops[90]: 'l-store-copy from_#0 3'
+debug: Replaced main_changes_route@21.ops[103]: 'v-load from_#0' with 'l-load from_#0'
+debug: Inserted main_changes_route@21.ops[92]: 'l-store-copy to#0 4'
+debug: Replaced main_changes_route@21.ops[105]: 'v-load to#0' with 'l-load to#0'
+debug: Inserted main_changes_route@21.ops[137]: 'l-store-copy total#1 0'
+debug: Replaced main_changes_route@21.ops[152]: 'v-load total#1' with 'l-load total#1'
+debug: Inserted main_changes_route@21.ops[155]: 'l-store-copy total#1 0'
+debug: Replaced main_changes_route@21.ops[170]: 'v-load total#1' with 'l-load total#1'
+debug: Inserted main_changes_route@21.ops[101]: 'l-store-copy total#1 3'
+debug: Replaced main_changes_route@21.ops[117]: 'v-load total#1' with 'l-load total#1'
+debug: Inserted main_changes_route@21.ops[120]: 'l-store-copy total#1 0'
+debug: Replaced main_changes_route@21.ops[136]: 'v-load total#1' with 'l-load total#1'
+debug: Inserted main_changes_route@21.ops[175]: 'l-store-copy total#1 0'
+debug: Replaced main_changes_route@21.ops[191]: 'v-load total#1' with 'l-load total#1'
+debug: Inserted main_changes_route@21.ops[219]: 'l-store-copy total#1 0'
+debug: Replaced main_changes_route@21.ops[237]: 'v-load total#1' with 'l-load total#1'
+debug: Inserted main_changes_route@21.ops[125]: 'l-store-copy from_#0 3'
+debug: Replaced main_changes_route@21.ops[143]: 'v-load from_#0' with 'l-load from_#0'
+debug: Inserted main_changes_route@21.ops[127]: 'l-store-copy to#0 5'
+debug: Replaced main_changes_route@21.ops[145]: 'v-load to#0' with 'l-load to#0'
+debug: Inserted main_changes_route@21.ops[145]: 'l-store-copy from_#0 3'
+debug: Replaced main_changes_route@21.ops[163]: 'v-load from_#0' with 'l-load from_#0'
+debug: Inserted main_changes_route@21.ops[147]: 'l-store-copy to#0 4'
+debug: Replaced main_changes_route@21.ops[165]: 'v-load to#0' with 'l-load to#0'
+debug: Inserted main_changes_route@21.ops[164]: 'l-store-copy app#0 3'
+debug: Replaced main_changes_route@21.ops[182]: 'v-load app#0' with 'l-load app#0'
+debug: Inserted main_changes_route@21.ops[104]: 'l-store-copy acct#0 3'
+debug: Replaced main_changes_route@21.ops[123]: 'v-load acct#0' with 'l-load acct#0'
+debug: Inserted main_changes_route@21.ops[107]: 'l-store-copy from_#0 5'
+debug: Replaced main_changes_route@21.ops[126]: 'v-load from_#0' with 'l-load from_#0'
+debug: Inserted main_changes_route@21.ops[109]: 'l-store-copy to#0 6'
+debug: Replaced main_changes_route@21.ops[129]: 'v-load to#0' with 'l-load to#0'
+debug: Inserted main_changes_route@21.ops[169]: 'l-store-copy from_#0 4'
+debug: Replaced main_changes_route@21.ops[188]: 'v-load from_#0' with 'l-load from_#0'
+debug: Inserted main_changes_route@21.ops[171]: 'l-store-copy to#0 5'
+debug: Replaced main_changes_route@21.ops[190]: 'v-load to#0' with 'l-load to#0'
+debug: Inserted main_changes_route@21.ops[188]: 'l-store-copy app#0 3'
+debug: Replaced main_changes_route@21.ops[206]: 'v-load app#0' with 'l-load app#0'
+debug: Inserted main_changes_route@21.ops[191]: 'l-store-copy from_#0 5'
+debug: Replaced main_changes_route@21.ops[209]: 'v-load from_#0' with 'l-load from_#0'
+debug: Inserted main_changes_route@21.ops[193]: 'l-store-copy to#0 6'
+debug: Replaced main_changes_route@21.ops[211]: 'v-load to#0' with 'l-load to#0'
+debug: Inserted main_changes_route@21.ops[67]: 'l-store-copy from_#0 0'
+debug: Replaced main_changes_route@21.ops[90]: 'v-load from_#0' with 'l-load from_#0'
+debug: Inserted main_changes_route@21.ops[208]: 'l-store-copy total#1 3'
+debug: Replaced main_changes_route@21.ops[231]: 'v-load total#1' with 'l-load total#1'
+debug: Inserted main_changes_route@21.ops[211]: 'l-store-copy app#0 3'
+debug: Replaced main_changes_route@21.ops[237]: 'v-load app#0' with 'l-load app#0'
+debug: Inserted main_changes_route@21.ops[214]: 'l-store-copy from_#0 5'
+debug: Replaced main_changes_route@21.ops[240]: 'v-load from_#0' with 'l-load from_#0'
+debug: Inserted main_changes_route@21.ops[216]: 'l-store-copy to#0 6'
+debug: Replaced main_changes_route@21.ops[242]: 'v-load to#0' with 'l-load to#0'
+debug: Inserted main_changes_route@21.ops[128]: 'l-store-copy app#0 4'
+debug: Replaced main_changes_route@21.ops[168]: 'v-load app#0' with 'l-load app#0'
+debug: Inserted main_changes_route@21.ops[107]: 'l-store-copy asset#0 5'
+debug: Replaced main_changes_route@21.ops[149]: 'v-load asset#0' with 'l-load asset#0'
+debug: Inserted main_changes_route@21.ops[31]: 'l-store-copy asset#0 0'
+debug: Replaced main_changes_route@21.ops[107]: 'v-load asset#0' with 'l-load asset#0'
+debug: Inserted main_changes_route@21.ops[50]: 'l-store-copy app#0 1'
+debug: Replaced main_changes_route@21.ops[130]: 'v-load app#0' with 'l-load app#0'
+debug: Inserted main_changes_route@21.ops[4]: 'l-store-copy acct#0 0'
+debug: Replaced main_changes_route@21.ops[91]: 'v-load acct#0' with 'l-load acct#0'
+debug: Inserted main_or_contd@29.ops[3]: 'l-store-copy tmp%36#0 0'
+debug: Replaced main_or_contd@29.ops[5]: 'v-load tmp%36#0' with 'l-load tmp%36#0'
+debug: Inserted main_if_body@30.ops[2]: 'l-store-copy tmp%37#0 0'
+debug: Replaced main_if_body@30.ops[5]: 'v-load tmp%37#0' with 'l-load tmp%37#0'
+debug: Inserted main_after_if_else@31.ops[8]: 'l-store-copy rnd#0 0'
+debug: Replaced main_after_if_else@31.ops[10]: 'v-load rnd#0' with 'l-load rnd#0'
+debug: Inserted main_after_if_else@31.ops[13]: 'l-store-copy tmp%42#0 0'
+debug: Replaced main_after_if_else@31.ops[15]: 'v-load tmp%42#0' with 'l-load tmp%42#0'
+debug: Inserted main_after_if_else@31.ops[31]: 'l-store-copy rnd#0 0'
+debug: Replaced main_after_if_else@31.ops[33]: 'v-load rnd#0' with 'l-load rnd#0'
+debug: Inserted main_after_if_else@31.ops[44]: 'l-store-copy tmp%50#0 0'
+debug: Replaced main_after_if_else@31.ops[46]: 'v-load tmp%50#0' with 'l-load tmp%50#0'
+debug: Inserted main_after_if_else@31.ops[18]: 'l-store-copy tmp%43#0 0'
+debug: Replaced main_after_if_else@31.ops[21]: 'v-load tmp%43#0' with 'l-load tmp%43#0'
+debug: Inserted main_after_if_else@31.ops[37]: 'l-store-copy tmp%48#0 0'
+debug: Replaced main_after_if_else@31.ops[40]: 'v-load tmp%48#0' with 'l-load tmp%48#0'
+debug: Inserted main_after_if_else@31.ops[7]: 'l-store-copy status#0 1'
+debug: Replaced main_after_if_else@31.ops[12]: 'v-load status#0' with 'l-load status#0'
+debug: Inserted main_after_if_else@31.ops[32]: 'l-store-copy status#0 1'
+debug: Replaced main_after_if_else@31.ops[37]: 'v-load status#0' with 'l-load status#0'
+debug: Inserted main_after_if_else@31.ops[38]: 'l-store-copy status#0 1'
+debug: Replaced main_after_if_else@31.ops[46]: 'v-load status#0' with 'l-load status#0'
+debug: Inserted main_after_if_else@31.ops[6]: 'l-store-copy value#0 2'
+debug: Replaced main_after_if_else@31.ops[18]: 'v-load value#0' with 'l-load value#0'
+debug: Inserted main_after_if_else@31.ops[25]: 'l-store-copy total#1 0'
+debug: Replaced main_after_if_else@31.ops[44]: 'v-load total#1' with 'l-load total#1'
+debug: Inserted main_after_if_else@31.ops[1]: 'l-store-copy acct#0 0'
+debug: Replaced main_after_if_else@31.ops[28]: 'v-load acct#0' with 'l-load acct#0'
+debug: Inserted main_after_if_else@31.ops[3]: 'l-store-copy app#0 2'
+debug: Replaced main_after_if_else@31.ops[30]: 'v-load app#0' with 'l-load app#0'
+debug: Inserted main_after_if_else@31.ops[6]: 'l-store-copy from_#0 5'
+debug: Replaced main_after_if_else@31.ops[33]: 'v-load from_#0' with 'l-load from_#0'
+debug: Inserted main_after_if_else@31.ops[8]: 'l-store-copy to#0 7'
+debug: Replaced main_after_if_else@31.ops[35]: 'v-load to#0' with 'l-load to#0'
+debug: Inserted main_or_contd@32.ops[3]: 'l-store-copy tmp%51#0 0'
+debug: Replaced main_or_contd@32.ops[5]: 'v-load tmp%51#0' with 'l-load tmp%51#0'
+debug: Inserted main_if_body@33.ops[2]: 'l-store-copy tmp%52#0 0'
+debug: Replaced main_if_body@33.ops[5]: 'v-load tmp%52#0' with 'l-load tmp%52#0'
+debug: Inserted main_after_if_else@34.ops[7]: 'l-store-copy rnd#0 0'
+debug: Replaced main_after_if_else@34.ops[9]: 'v-load rnd#0' with 'l-load rnd#0'
+debug: Inserted main_after_if_else@34.ops[23]: 'l-store-copy total#1 0'
+debug: Replaced main_after_if_else@34.ops[25]: 'v-load total#1' with 'l-load total#1'
+debug: Inserted main_after_if_else@34.ops[31]: 'l-store-copy tmp%12#0 0'
+debug: Replaced main_after_if_else@34.ops[33]: 'v-load tmp%12#0' with 'l-load tmp%12#0'
+debug: Inserted main_after_if_else@34.ops[15]: 'l-store-copy tmp%58#0 0'
+debug: Replaced main_after_if_else@34.ops[18]: 'v-load tmp%58#0' with 'l-load tmp%58#0'
+debug: Inserted main_after_if_else@34.ops[20]: 'l-store-copy tmp%59#0 0'
+debug: Replaced main_after_if_else@34.ops[23]: 'v-load tmp%59#0' with 'l-load tmp%59#0'
+debug: Inserted main_after_if_else@34.ops[29]: 'l-store-copy aggregate%val_as_bytes%6#0 0'
+debug: Replaced main_after_if_else@34.ops[32]: 'v-load aggregate%val_as_bytes%6#0' with 'l-load aggregate%val_as_bytes%6#0'
+debug: Inserted main_after_if_else@34.ops[6]: 'l-store-copy status#0 1'
+debug: Replaced main_after_if_else@34.ops[11]: 'v-load status#0' with 'l-load status#0'
+debug: Inserted main_after_if_else@34.ops[13]: 'l-store-copy tmp%57#0 0'
+debug: Replaced main_after_if_else@34.ops[19]: 'v-load tmp%57#0' with 'l-load tmp%57#0'
+debug: Inserted main_after_if_else@34.ops[5]: 'l-store-copy name#0 2'
+debug: Replaced main_after_if_else@34.ops[16]: 'v-load name#0' with 'l-load name#0'
+debug: Inserted main___algopy_default_create@25.ops[1]: 'l-store-copy tmp%7#0 0'
+debug: Replaced main___algopy_default_create@25.ops[3]: 'v-load tmp%7#0' with 'l-load tmp%7#0'
+debug: Inserted main___algopy_default_create@25.ops[7]: 'l-store-copy tmp%9#0 0'
+debug: Replaced main___algopy_default_create@25.ops[9]: 'v-load tmp%9#0' with 'l-load tmp%9#0'
+debug: Inserted main___algopy_default_create@25.ops[15]: 'l-store-copy tmp%11#0 0'
+debug: Replaced main___algopy_default_create@25.ops[17]: 'v-load tmp%11#0' with 'l-load tmp%11#0'
+debug: Inserted main___algopy_default_create@25.ops[11]: 'l-store-copy tmp%10#0 0'
+debug: Replaced main___algopy_default_create@25.ops[14]: 'v-load tmp%10#0' with 'l-load tmp%10#0'
+debug: Inserted main___algopy_default_create@25.ops[5]: 'l-store-copy tmp%8#0 0'
+debug: Replaced main___algopy_default_create@25.ops[14]: 'v-load tmp%8#0' with 'l-load tmp%8#0'
+debug: Found 7 edge set/s for algopy.arc4.ARC4Contract.approval_program
+debug: Allocated to x-stack: acct#0, app#0, from_#0, tmp%2#1, to#0, total#1
+debug: shared x-stack for main_changes_route@21 -> main_or_contd@29: acct#0, to#0, from_#0, app#0, total#1
+debug: shared x-stack for main_changes_route@21 -> main_if_body@30: acct#0, to#0, from_#0, app#0, total#1
+debug: shared x-stack for main_changes_route@21 -> main_after_if_else@31: acct#0, to#0, from_#0, app#0, total#1
+debug: shared x-stack for main_or_contd@29 -> main_or_contd@29: acct#0, to#0, from_#0, app#0, total#1
+debug: shared x-stack for main_or_contd@29 -> main_if_body@30: acct#0, to#0, from_#0, app#0, total#1
+debug: shared x-stack for main_or_contd@29 -> main_after_if_else@31: acct#0, to#0, from_#0, app#0, total#1
+debug: shared x-stack for main_if_body@30 -> main_or_contd@29: acct#0, to#0, from_#0, app#0, total#1
+debug: shared x-stack for main_if_body@30 -> main_if_body@30: acct#0, to#0, from_#0, app#0, total#1
+debug: shared x-stack for main_if_body@30 -> main_after_if_else@31: acct#0, to#0, from_#0, app#0, total#1
+debug: shared x-stack for main_after_if_else@31 -> main_or_contd@32: to#0, from_#0, app#0, total#1
+debug: shared x-stack for main_after_if_else@31 -> main_if_body@33: to#0, from_#0, app#0, total#1
+debug: shared x-stack for main_after_if_else@31 -> main_after_if_else@34: to#0, from_#0, app#0, total#1
+debug: shared x-stack for main_or_contd@32 -> main_or_contd@32: to#0, from_#0, app#0, total#1
+debug: shared x-stack for main_or_contd@32 -> main_if_body@33: to#0, from_#0, app#0, total#1
+debug: shared x-stack for main_or_contd@32 -> main_after_if_else@34: to#0, from_#0, app#0, total#1
+debug: shared x-stack for main_if_body@33 -> main_or_contd@32: to#0, from_#0, app#0, total#1
+debug: shared x-stack for main_if_body@33 -> main_if_body@33: to#0, from_#0, app#0, total#1
+debug: shared x-stack for main_if_body@33 -> main_after_if_else@34: to#0, from_#0, app#0, total#1
+debug: shared x-stack for main_if_body@41 -> main_after_inlined_test_cases.time_travel.contract.TimeTravel.first_item_if@43: tmp%2#1
+debug: shared x-stack for main_after_if_else@42 -> main_after_inlined_test_cases.time_travel.contract.TimeTravel.first_item_if@43: tmp%2#1
+debug: algopy.arc4.ARC4Contract.approval_program f-stack entry: ['name#0', 'status#0']
 debug: algopy.arc4.ARC4Contract.approval_program f-stack on first store: []
 debug: test_cases.time_travel.contract.go_back_not_inlined f-stack entry: []
 debug: test_cases.time_travel.contract.go_back_not_inlined f-stack on first store: []
 debug: algopy.arc4.ARC4Contract.clear_state_program f-stack entry: []
 debug: algopy.arc4.ARC4Contract.clear_state_program f-stack on first store: []
 debug: optimizing TEAL subroutine ops algopy.arc4.ARC4Contract.approval_program() -> uint64:
-time_travel/contract.py:161:2 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.go_back_not_inlined(rnd: uint64) -> void:
+time_travel/contract.py:182:2 debug: optimizing TEAL subroutine ops test_cases.time_travel.contract.go_back_not_inlined(rnd: uint64) -> void:
 debug: optimizing TEAL subroutine blocks algopy.arc4.ARC4Contract.approval_program() -> uint64:
 debug: inlining single reference block main_block@0 into main
 debug: inlining single reference block main_call___init__@1 into main
 debug: inlining single reference block main_abi_routing@4 into main_after_if_else@2
-debug: inlining single reference block main_after_if_else@22 into main_after_if_else@2
+debug: inlining single reference block main_after_if_else@24 into main_after_if_else@2
+debug: inlining single reference block main_or_contd@29 into main_changes_route@21
+debug: inlining single reference block main_or_contd@32 into main_after_if_else@31
+debug: inlining single reference block main_if_body@41 into main_first_item_if_route@18
 debug: removing explicit jump to fall-through block main_after_if_else@2
-time_travel/contract.py:161:2 debug: optimizing TEAL subroutine blocks test_cases.time_travel.contract.go_back_not_inlined(rnd: uint64) -> void:
+debug: removing explicit jump to fall-through block main_if_body@30
+debug: removing explicit jump to fall-through block main_after_if_else@31
+debug: removing explicit jump to fall-through block main_if_body@33
+debug: removing explicit jump to fall-through block main_after_if_else@34
+debug: removing explicit jump to fall-through block main_after_inlined_test_cases.time_travel.contract.TimeTravel.first_item_if@43
+time_travel/contract.py:182:2 debug: optimizing TEAL subroutine blocks test_cases.time_travel.contract.go_back_not_inlined(rnd: uint64) -> void:
 debug: inlining single reference block go_back_not_inlined_block@0 into go_back_not_inlined
 debug: optimizing TEAL subroutine ops algopy.arc4.ARC4Contract.clear_state_program() -> uint64:
 debug: optimizing TEAL subroutine blocks algopy.arc4.ARC4Contract.clear_state_program() -> uint64:

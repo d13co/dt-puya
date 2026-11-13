@@ -111,6 +111,21 @@ class TimeTravel(ARC4Contract, avm_version=13):
         return then
 
     @arc4.abimethod
+    def data_existed_before_delete(self) -> Bytes:
+        existed = bool(self.data)
+        del self.data.value
+        assert existed
+        return self.data.value  # keeps its exists assert: the box is gone
+
+    @arc4.abimethod
+    def first_item_if(self, first: bool) -> arc4.UInt64:
+        # doesn't seek, so the box read is still combined with the read of its first item
+        items = self.items.value.copy()
+        if first:
+            return items[0]
+        return items[1]
+
+    @arc4.abimethod
     def first_valid_then_and_now(self, i: UInt64, rnd: UInt64) -> UInt64:
         now = gtxn.Transaction(i).first_valid
         op.TimeTravel.seek(rnd)
@@ -143,11 +158,17 @@ class TimeTravel(ARC4Contract, avm_version=13):
         rnd, status, value = op.TimeTravel.global_key_change_uint64(app, b"counter", from_, to)
         total += rnd + status + value
         rnd, status, name = op.TimeTravel.global_key_change_bytes(app, b"name", from_, to)
-        total += rnd + status + name.length
+        total += rnd + status
+        # the value is uint64 0 unless the key was created or changed
+        if status in (UInt64(1), UInt64(2)):
+            total += name.length
         rnd, status, value = op.TimeTravel.local_key_change_uint64(acct, app, b"n", from_, to)
         total += rnd + status + value
         rnd, status, name = op.TimeTravel.local_key_change_bytes(acct, app, b"s", from_, to)
-        total += rnd + status + name.length
+        total += rnd + status
+        # the value is uint64 0 unless the key was created or changed
+        if status in (UInt64(1), UInt64(2)):
+            total += name.length
         rnd, status, name = op.TimeTravel.box_prefix_change(app, b"it", from_, to)
         total += rnd + status + name.length
         return total

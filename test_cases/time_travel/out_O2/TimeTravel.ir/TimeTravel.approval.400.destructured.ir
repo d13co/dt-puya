@@ -7,7 +7,7 @@ main algopy.arc4.ARC4Contract.approval_program:
         goto block@2
     block@2: // after_if_else_L1
         let tmp%0#1: uint64 = (txn NumAppArgs)
-        goto tmp%0#1 ? block@4 : block@23
+        goto tmp%0#1 ? block@4 : block@25
     block@4: // abi_routing_L29
         let tmp%2#0: uint64 = (txn OnCompletion)
         let tmp%3#0: bool = (! tmp%2#0)
@@ -15,7 +15,7 @@ main algopy.arc4.ARC4Contract.approval_program:
         let tmp%4#0: uint64 = (txn ApplicationID)
         (assert tmp%4#0)
         let tmp%6#0: bytes = (txna ApplicationArgs 0)
-        switch tmp%6#0 {method "round_at(uint64)uint64" => block@6, method "round_before(uint64)uint64" => block@7, method "counter_then_and_now(uint64)(uint64,uint64)" => block@8, method "data_changed(uint64)bool" => block@9, method "first_item_changed(uint64)bool" => block@10, method "first_item_now(uint64)uint64" => block@11, method "append_then_write_back(uint64,uint64)void" => block@12, method "set_then_write_back(uint64,uint64)void" => block@13, method "timestamps(uint64,uint64)uint64" => block@14, method "data_existed(uint64)byte[]" => block@15, method "data_existed_before_call(uint64)byte[]" => block@16, method "first_valid_then_and_now(uint64,uint64)uint64" => block@17, method "data_exists_then(uint64)bool" => block@18, method "changes(address,uint64,uint64,uint64,uint64)uint64" => block@19, * => block@22}
+        switch tmp%6#0 {method "round_at(uint64)uint64" => block@6, method "round_before(uint64)uint64" => block@7, method "counter_then_and_now(uint64)(uint64,uint64)" => block@8, method "data_changed(uint64)bool" => block@9, method "first_item_changed(uint64)bool" => block@10, method "first_item_now(uint64)uint64" => block@11, method "append_then_write_back(uint64,uint64)void" => block@12, method "set_then_write_back(uint64,uint64)void" => block@13, method "timestamps(uint64,uint64)uint64" => block@14, method "data_existed(uint64)byte[]" => block@15, method "data_existed_before_call(uint64)byte[]" => block@16, method "data_existed_before_delete()byte[]" => block@17, method "first_item_if(bool)uint64" => block@18, method "first_valid_then_and_now(uint64,uint64)uint64" => block@19, method "data_exists_then(uint64)bool" => block@20, method "changes(address,uint64,uint64,uint64,uint64)uint64" => block@21, * => block@24}
     block@6: // round_at_route_L36
         let tmp%0#3: bytes = (txna ApplicationArgs 1)
         let len%0#0: uint64 = (len tmp%0#3)
@@ -77,9 +77,9 @@ main algopy.arc4.ARC4Contract.approval_program:
         (assert box%exists%0#0) // check self.data exists
         let is_out_of_bounds%1#0: bool = (>= 8u box%box_len%0#0)
         let bounded_index%1#0: uint64 = (select 8u box%box_len%0#0 is_out_of_bounds%1#0)
-        let box%box_extract%0#1: bytes = (box_extract 0x64617461 0u bounded_index%1#0)
-        let tmp%2#8: bool = (!= tmp%0#3 box%box_extract%0#1)
-        let aggregate%encoded_bool%0#0: bytes[1] = (setbit 0x00 0u tmp%2#8)
+        let box%box_extract%0#0: bytes = (box_extract 0x64617461 0u bounded_index%1#0)
+        let tmp%2#10: bool = (!= tmp%0#3 box%box_extract%0#0)
+        let aggregate%encoded_bool%0#0: bytes[1] = (setbit 0x00 0u tmp%2#10)
         let tmp%4#1: bytes = (concat 0x151f7c75 aggregate%encoded_bool%0#0)
         (log tmp%4#1)
         exit 1u
@@ -93,8 +93,8 @@ main algopy.arc4.ARC4Contract.approval_program:
         (assert aggregate%box_get%3#0) // check self.items exists
         (tt_seek rnd#0)
         let aggregate%encoded_element%0#0: bytes = ((extract 2 8) now#2)
-        let box%box_extract%0#1: bytes = (box_extract 0x6974656d73 2u 8u) // on error: index out of bounds
-        let tmp%0#0: bool = (b!= aggregate%encoded_element%0#0 box%box_extract%0#1)
+        let box%box_extract%0#0: bytes = (box_extract 0x6974656d73 2u 8u) // on error: index out of bounds
+        let tmp%0#0: bool = (b!= aggregate%encoded_element%0#0 box%box_extract%0#0)
         let aggregate%encoded_bool%1#0: bytes[1] = (setbit 0x00 0u tmp%0#0)
         let tmp%4#1: bytes = (concat 0x151f7c75 aggregate%encoded_bool%1#0)
         (log tmp%4#1)
@@ -105,10 +105,10 @@ main algopy.arc4.ARC4Contract.approval_program:
         let eq%0#0: bool = (== len%0#0 8u)
         (assert eq%0#0) // invalid number of bytes for arc4.uint64
         let rnd#0: uint64 = (btoi tmp%0#3)
-        let first#0: Encoded(uint64) = (box_extract 0x6974656d73 2u 8u) // on error: index out of bounds
+        let first#1: Encoded(uint64) = (box_extract 0x6974656d73 2u 8u) // on error: index out of bounds
         (tt_seek rnd#0)
-        let tmp%3#4: bytes = (concat 0x151f7c75 first#0)
-        (log tmp%3#4)
+        let tmp%3#2: bytes = (concat 0x151f7c75 first#1)
+        (log tmp%3#2)
         exit 1u
     block@12: // append_then_write_back_route_L76
         let tmp%0#3: bytes = (txna ApplicationArgs 1)
@@ -120,17 +120,17 @@ main algopy.arc4.ARC4Contract.approval_program:
         let len%1#0: uint64 = (len x#0)
         let eq%1#0: bool = (== len%1#0 8u)
         (assert eq%1#0) // invalid number of bytes for arc4.uint64
-        let (items#0: Encoded(len+uint64[]), aggregate%box_get%5#0: bool) = (box_get 0x6974656d73)
+        let (items#1: Encoded(len+uint64[]), aggregate%box_get%5#0: bool) = (box_get 0x6974656d73)
         (assert aggregate%box_get%5#0) // check self.items exists
-        let array_length#0: uint64 = (extract_uint16 items#0 0u)
+        let array_length#0: uint64 = (extract_uint16 items#1 0u)
         let new_array_length#0: uint64 = (+ array_length#0 1u)
         let tmp%0#3: bytes = (itob new_array_length#0)
         let new_len_u16#0: bytes = ((extract 6 0) tmp%0#3)
-        let result#0: bytes = ((replace2 0) items#0 new_len_u16#0)
-        let items#0: Encoded(len+uint64[]) = (concat result#0 x#0)
+        let result#0: bytes = ((replace2 0) items#1 new_len_u16#0)
+        let items#1: Encoded(len+uint64[]) = (concat result#0 x#0)
         (tt_seek rnd#0)
         (box_del 0x6974656d73)
-        (box_put 0x6974656d73 items#0)
+        (box_put 0x6974656d73 items#1)
         exit 1u
     block@13: // set_then_write_back_route_L83
         let tmp%0#3: bytes = (txna ApplicationArgs 1)
@@ -203,7 +203,39 @@ main algopy.arc4.ARC4Contract.approval_program:
         let tmp%4#1: bytes = (concat 0x151f7c75 aggregate%encoded_value%1#0)
         (log tmp%4#1)
         exit 1u
-    block@17: // first_valid_then_and_now_route_L113
+    block@17: // data_existed_before_delete_route_L113
+        let (_%0#0: uint64, existed#0: bool) = (box_len 0x64617461)
+        (box_del 0x64617461)
+        (assert existed#0)
+        let (aggregate%box_get%12#0: bytes, aggregate%box_get%13#0: bool) = (box_get 0x64617461)
+        (assert aggregate%box_get%13#0) // check self.data exists
+        let aggregate%length%2#0: uint64 = (len aggregate%box_get%12#0)
+        let aggregate%as_bytes%2#0: bytes[8] = (itob aggregate%length%2#0)
+        let aggregate%length_uint16%2#0: bytes = ((extract 6 2) aggregate%as_bytes%2#0)
+        let aggregate%encoded_value%2#0: bytes = (concat aggregate%length_uint16%2#0 aggregate%box_get%12#0)
+        let tmp%2#1: bytes = (concat 0x151f7c75 aggregate%encoded_value%2#0)
+        (log tmp%2#1)
+        exit 1u
+    block@18: // first_item_if_route_L120
+        let tmp%0#3: bytes = (txna ApplicationArgs 1)
+        let len%0#0: uint64 = (len tmp%0#3)
+        let eq%0#0: bool = (== len%0#0 1u)
+        (assert eq%0#0) // invalid number of bytes for arc4.bool
+        let first#0: bool = (getbit tmp%0#3 0u)
+        goto first#0 ? block@41 : block@42
+    block@41: // if_body_L125
+        let box%box_extract%0#0: bytes = (box_extract 0x6974656d73 2u 8u) // on error: index out of bounds
+        let tmp%2#1: bytes = box%box_extract%0#0
+        goto block@43
+    block@42: // after_if_else_L124
+        let box%box_extract%1#0: Encoded(uint64) = (box_extract 0x6974656d73 10u 8u) // on error: index out of bounds
+        let tmp%2#1: bytes = box%box_extract%1#0
+        goto block@43
+    block@43: // after_inlined_test_cases.time_travel.contract.TimeTravel.first_item_if_L120
+        let tmp%3#2: bytes = (concat 0x151f7c75 tmp%2#1)
+        (log tmp%3#2)
+        exit 1u
+    block@19: // first_valid_then_and_now_route_L128
         let tmp%0#3: bytes = (txna ApplicationArgs 1)
         let len%0#0: uint64 = (len tmp%0#3)
         let eq%0#0: bool = (== len%0#0 8u)
@@ -222,7 +254,7 @@ main algopy.arc4.ARC4Contract.approval_program:
         let tmp%6#0: bytes = (concat 0x151f7c75 aggregate%val_as_bytes%5#0)
         (log tmp%6#0)
         exit 1u
-    block@18: // data_exists_then_route_L120
+    block@20: // data_exists_then_route_L135
         let tmp%0#3: bytes = (txna ApplicationArgs 1)
         let len%0#0: uint64 = (len tmp%0#3)
         let eq%0#0: bool = (== len%0#0 8u)
@@ -237,7 +269,7 @@ main algopy.arc4.ARC4Contract.approval_program:
         let tmp%4#1: bytes = (concat 0x151f7c75 aggregate%encoded_bool%2#0)
         (log tmp%4#1)
         exit 1u
-    block@19: // changes_route_L126
+    block@21: // changes_route_L141
         let acct#0: account = (txna ApplicationArgs 1)
         let len%0#0: uint64 = (len acct#0)
         let eq%0#0: bool = (== len%0#0 32u)
@@ -285,30 +317,46 @@ main algopy.arc4.ARC4Contract.approval_program:
         let total#1: uint64 = (+ total#1 tmp%28#0)
         let (rnd#0: uint64, status#0: uint64, name#0: bytes) = (tt_global_key_change app#0 0x6e616d65 from_#0 to#0)
         let tmp%33#0: uint64 = (+ rnd#0 status#0)
-        let tmp%34#0: uint64 = (len name#0)
-        let tmp%35#0: uint64 = (+ tmp%33#0 tmp%34#0)
-        let total#1: uint64 = (+ total#1 tmp%35#0)
+        let total#1: uint64 = (+ total#1 tmp%33#0)
+        let tmp%35#0: bool = (== status#0 1u)
+        goto tmp%35#0 ? block@30 : block@29
+    block@29: // or_contd_L163
+        let tmp%36#0: bool = (== status#0 2u)
+        goto tmp%36#0 ? block@30 : block@31
+    block@30: // if_body_L164
+        let tmp%37#0: uint64 = (len name#0)
+        let total#1: uint64 = (+ total#1 tmp%37#0)
+        goto block@31
+    block@31: // after_if_else_L163
         let (rnd#0: uint64, status#0: uint64, value#0: uint64) = (tt_local_key_change acct#0 app#0 0x6e from_#0 to#0)
-        let tmp%40#0: uint64 = (+ rnd#0 status#0)
-        let tmp%41#0: uint64 = (+ tmp%40#0 value#0)
-        let total#1: uint64 = (+ total#1 tmp%41#0)
+        let tmp%42#0: uint64 = (+ rnd#0 status#0)
+        let tmp%43#0: uint64 = (+ tmp%42#0 value#0)
+        let total#1: uint64 = (+ total#1 tmp%43#0)
         let (rnd#0: uint64, status#0: uint64, name#0: bytes) = (tt_local_key_change acct#0 app#0 0x73 from_#0 to#0)
-        let tmp%46#0: uint64 = (+ rnd#0 status#0)
-        let tmp%47#0: uint64 = (len name#0)
-        let tmp%48#0: uint64 = (+ tmp%46#0 tmp%47#0)
+        let tmp%48#0: uint64 = (+ rnd#0 status#0)
         let total#1: uint64 = (+ total#1 tmp%48#0)
+        let tmp%50#0: bool = (== status#0 1u)
+        goto tmp%50#0 ? block@33 : block@32
+    block@32: // or_contd_L170
+        let tmp%51#0: bool = (== status#0 2u)
+        goto tmp%51#0 ? block@33 : block@34
+    block@33: // if_body_L171
+        let tmp%52#0: uint64 = (len name#0)
+        let total#1: uint64 = (+ total#1 tmp%52#0)
+        goto block@34
+    block@34: // after_if_else_L170
         let (rnd#0: uint64, status#0: uint64, name#0: bytes) = (tt_box_prefix_change app#0 0x6974 from_#0 to#0)
-        let tmp%53#0: uint64 = (+ rnd#0 status#0)
-        let tmp%54#0: uint64 = (len name#0)
-        let tmp%55#0: uint64 = (+ tmp%53#0 tmp%54#0)
-        let total#1: uint64 = (+ total#1 tmp%55#0)
+        let tmp%57#0: uint64 = (+ rnd#0 status#0)
+        let tmp%58#0: uint64 = (len name#0)
+        let tmp%59#0: uint64 = (+ tmp%57#0 tmp%58#0)
+        let total#1: uint64 = (+ total#1 tmp%59#0)
         let aggregate%val_as_bytes%6#0: bytes[8] = (itob total#1)
         let tmp%12#0: bytes = (concat 0x151f7c75 aggregate%val_as_bytes%6#0)
         (log tmp%12#0)
         exit 1u
-    block@22: // after_if_else_L29
+    block@24: // after_if_else_L29
         fail
-    block@23: // __algopy_default_create_L1
+    block@25: // __algopy_default_create_L1
         let tmp%7#0: uint64 = (txn OnCompletion)
         let tmp%8#0: bool = (! tmp%7#0)
         let tmp%9#0: uint64 = (txn ApplicationID)
@@ -318,6 +366,6 @@ main algopy.arc4.ARC4Contract.approval_program:
         exit 1u
 
 subroutine test_cases.time_travel.contract.go_back_not_inlined(rnd: uint64) -> void:
-    block@0: // L161
+    block@0: // L182
         (tt_seek rnd#0)
         return 

@@ -100,9 +100,4 @@ The following steps describe the current process to update the langspec used in 
 
 ### Time-travel ops (dt-algorand)
 
-`langspec.timetravel.json` holds the time-travel ops of [dt-algorand](https://github.com/d13co/dt-algorand) (`tt_seek`
-and the `tt_*_change` lookups, prefix byte `0xff`), which `poe gen_lang_spec` adds to `langspec.json`. dt-algorand's
-`cmd/opdoc` leaves them out of its langspec, as they are not part of the chain's AVM: to regenerate the file, run a copy
-of `cmd/opdoc` without the lines of `main()` that delete them (`logic.IsTimeTravelOp`, `logic.TimeTravelOpGroup`) and
-without `teal.tmLanguage.json`, then take the `tt_*` entries of its `langspec_v13.json`. The rest of that langspec should
-match `langspec.json`. `src/puya/ir/optimize/_time_travel.py` describes what the optimizer does around a seek.
+`langspec.timetravel.json` holds the time-travel ops of [dt-algorand](https://github.com/d13co/dt-algorand) (`tt_seek` and the `tt_*_change` lookups, prefix byte `0xff`), which `poe gen_lang_spec` adds to `langspec.json`. dt-algorand's `cmd/opdoc` leaves them out of its langspec, as they are not part of the chain's AVM: to regenerate the file, run a copy of `cmd/opdoc` without the lines of `main()` that delete them (`logic.IsTimeTravelOp`, `logic.TimeTravelOpGroup`) and without `teal.tmLanguage.json`, then take the `tt_*` entries of its `langspec_v13.json`. The rest of that langspec should match `langspec.json`. `src/puya/ir/optimize/_time_travel.py` describes what the optimizer does around a seek.

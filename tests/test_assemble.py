@@ -1,5 +1,7 @@
 import base64
+import functools
 from collections.abc import Mapping, Sequence
+from http import HTTPStatus
 
 import algokit_utils as au
 import pytest
@@ -43,22 +45,18 @@ def test_assemble_matches_algod(
                 )
 
 
-_time_travel_algods = list[tuple[au.AlgodClient, bool]]()
-
-
+@functools.cache
 def _algod_has_time_travel(algod_client: au.AlgodClient) -> bool:
     """Whether algod assembles dt-algorand's time-travel ops, which a stock algod lacks."""
-    for client, has_time_travel in _time_travel_algods:
-        if client is algod_client:
-            return has_time_travel
     try:
         algod_client.teal_compile(b"#pragma version 13\nint 1\ntt_seek\nint 1")
-    except Exception:
-        has_time_travel = False
-    else:
-        has_time_travel = True
-    _time_travel_algods.append((algod_client, has_time_travel))
-    return has_time_travel
+    except au.UnexpectedStatusError as ex:
+        # a stock algod refuses the program as it doesn't know the op; any other failure is
+        # one of algod's or the test's, and fails the test rather than skipping it
+        if ex.status_code == HTTPStatus.BAD_REQUEST and "unknown opcode" in str(ex):
+            return False
+        raise
+    return True
 
 
 def assemble_and_compare_program(

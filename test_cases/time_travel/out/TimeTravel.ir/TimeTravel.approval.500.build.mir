@@ -21,7 +21,7 @@ subroutine main:
         txn NumAppArgs                                                                             tmp%0#1
         v-store tmp%0#1
         v-load tmp%0#1                                                                             tmp%0#1
-        bz main___algopy_default_create@23 ; b main_abi_routing@4
+        bz main___algopy_default_create@25 ; b main_abi_routing@4
 
     main_abi_routing@4:
         // time_travel/contract.py:29
@@ -50,102 +50,116 @@ subroutine main:
         method timestamps(uint64,uint64)uint64                                                     Method(round_at(uint64)uint64),Method(round_before(uint64)uint64),Method(counter_then_and_now(uint64)(uint64,uint64)),Method(data_changed(uint64)bool),Method(first_item_changed(uint64)bool),Method(first_item_now(uint64)uint64),Method(append_then_write_back(uint64,uint64)void),Method(set_then_write_back(uint64,uint64)void),Method(timestamps(uint64,uint64)uint64)
         method data_existed(uint64)byte[]                                                          Method(round_at(uint64)uint64),Method(round_before(uint64)uint64),Method(counter_then_and_now(uint64)(uint64,uint64)),Method(data_changed(uint64)bool),Method(first_item_changed(uint64)bool),Method(first_item_now(uint64)uint64),Method(append_then_write_back(uint64,uint64)void),Method(set_then_write_back(uint64,uint64)void),Method(timestamps(uint64,uint64)uint64),Method(data_existed(uint64)byte[])
         method data_existed_before_call(uint64)byte[]                                              Method(round_at(uint64)uint64),Method(round_before(uint64)uint64),Method(counter_then_and_now(uint64)(uint64,uint64)),Method(data_changed(uint64)bool),Method(first_item_changed(uint64)bool),Method(first_item_now(uint64)uint64),Method(append_then_write_back(uint64,uint64)void),Method(set_then_write_back(uint64,uint64)void),Method(timestamps(uint64,uint64)uint64),Method(data_existed(uint64)byte[]),Method(data_existed_before_call(uint64)byte[])
-        method first_valid_then_and_now(uint64,uint64)uint64                                       Method(round_at(uint64)uint64),Method(round_before(uint64)uint64),Method(counter_then_and_now(uint64)(uint64,uint64)),Method(data_changed(uint64)bool),Method(first_item_changed(uint64)bool),Method(first_item_now(uint64)uint64),Method(append_then_write_back(uint64,uint64)void),Method(set_then_write_back(uint64,uint64)void),Method(timestamps(uint64,uint64)uint64),Method(data_existed(uint64)byte[]),Method(data_existed_before_call(uint64)byte[]),Method(first_valid_then_and_now(uint64,uint64)uint64)
-        method data_exists_then(uint64)bool                                                        Method(round_at(uint64)uint64),Method(round_before(uint64)uint64),Method(counter_then_and_now(uint64)(uint64,uint64)),Method(data_changed(uint64)bool),Method(first_item_changed(uint64)bool),Method(first_item_now(uint64)uint64),Method(append_then_write_back(uint64,uint64)void),Method(set_then_write_back(uint64,uint64)void),Method(timestamps(uint64,uint64)uint64),Method(data_existed(uint64)byte[]),Method(data_existed_before_call(uint64)byte[]),Method(first_valid_then_and_now(uint64,uint64)uint64),Method(data_exists_then(uint64)bool)
-        method changes(address,uint64,uint64,uint64,uint64)uint64                                  Method(round_at(uint64)uint64),Method(round_before(uint64)uint64),Method(counter_then_and_now(uint64)(uint64,uint64)),Method(data_changed(uint64)bool),Method(first_item_changed(uint64)bool),Method(first_item_now(uint64)uint64),Method(append_then_write_back(uint64,uint64)void),Method(set_then_write_back(uint64,uint64)void),Method(timestamps(uint64,uint64)uint64),Method(data_existed(uint64)byte[]),Method(data_existed_before_call(uint64)byte[]),Method(first_valid_then_and_now(uint64,uint64)uint64),Method(data_exists_then(uint64)bool),Method(changes(address,uint64,uint64,uint64,uint64)uint64)
-        v-load tmp%6#0                                                                             Method(round_at(uint64)uint64),Method(round_before(uint64)uint64),Method(counter_then_and_now(uint64)(uint64,uint64)),Method(data_changed(uint64)bool),Method(first_item_changed(uint64)bool),Method(first_item_now(uint64)uint64),Method(append_then_write_back(uint64,uint64)void),Method(set_then_write_back(uint64,uint64)void),Method(timestamps(uint64,uint64)uint64),Method(data_existed(uint64)byte[]),Method(data_existed_before_call(uint64)byte[]),Method(first_valid_then_and_now(uint64,uint64)uint64),Method(data_exists_then(uint64)bool),Method(changes(address,uint64,uint64,uint64,uint64)uint64),tmp%6#0
-        match main_round_at_route@6 main_round_before_route@7 main_counter_then_and_now_route@8 main_data_changed_route@9 main_first_item_changed_route@10 main_first_item_now_route@11 main_append_then_write_back_route@12 main_set_then_write_back_route@13 main_timestamps_route@14 main_data_existed_route@15 main_data_existed_before_call_route@16 main_first_valid_then_and_now_route@17 main_data_exists_then_route@18 main_changes_route@19 ; b main_after_if_else@22 
+        method data_existed_before_delete()byte[]                                                  Method(round_at(uint64)uint64),Method(round_before(uint64)uint64),Method(counter_then_and_now(uint64)(uint64,uint64)),Method(data_changed(uint64)bool),Method(first_item_changed(uint64)bool),Method(first_item_now(uint64)uint64),Method(append_then_write_back(uint64,uint64)void),Method(set_then_write_back(uint64,uint64)void),Method(timestamps(uint64,uint64)uint64),Method(data_existed(uint64)byte[]),Method(data_existed_before_call(uint64)byte[]),Method(data_existed_before_delete()byte[])
+        method first_item_if(bool)uint64                                                           Method(round_at(uint64)uint64),Method(round_before(uint64)uint64),Method(counter_then_and_now(uint64)(uint64,uint64)),Method(data_changed(uint64)bool),Method(first_item_changed(uint64)bool),Method(first_item_now(uint64)uint64),Method(append_then_write_back(uint64,uint64)void),Method(set_then_write_back(uint64,uint64)void),Method(timestamps(uint64,uint64)uint64),Method(data_existed(uint64)byte[]),Method(data_existed_before_call(uint64)byte[]),Method(data_existed_before_delete()byte[]),Method(first_item_if(bool)uint64)
+        method first_valid_then_and_now(uint64,uint64)uint64                                       Method(round_at(uint64)uint64),Method(round_before(uint64)uint64),Method(counter_then_and_now(uint64)(uint64,uint64)),Method(data_changed(uint64)bool),Method(first_item_changed(uint64)bool),Method(first_item_now(uint64)uint64),Method(append_then_write_back(uint64,uint64)void),Method(set_then_write_back(uint64,uint64)void),Method(timestamps(uint64,uint64)uint64),Method(data_existed(uint64)byte[]),Method(data_existed_before_call(uint64)byte[]),Method(data_existed_before_delete()byte[]),Method(first_item_if(bool)uint64),Method(first_valid_then_and_now(uint64,uint64)uint64)
+        method data_exists_then(uint64)bool                                                        Method(round_at(uint64)uint64),Method(round_before(uint64)uint64),Method(counter_then_and_now(uint64)(uint64,uint64)),Method(data_changed(uint64)bool),Method(first_item_changed(uint64)bool),Method(first_item_now(uint64)uint64),Method(append_then_write_back(uint64,uint64)void),Method(set_then_write_back(uint64,uint64)void),Method(timestamps(uint64,uint64)uint64),Method(data_existed(uint64)byte[]),Method(data_existed_before_call(uint64)byte[]),Method(data_existed_before_delete()byte[]),Method(first_item_if(bool)uint64),Method(first_valid_then_and_now(uint64,uint64)uint64),Method(data_exists_then(uint64)bool)
+        method changes(address,uint64,uint64,uint64,uint64)uint64                                  Method(round_at(uint64)uint64),Method(round_before(uint64)uint64),Method(counter_then_and_now(uint64)(uint64,uint64)),Method(data_changed(uint64)bool),Method(first_item_changed(uint64)bool),Method(first_item_now(uint64)uint64),Method(append_then_write_back(uint64,uint64)void),Method(set_then_write_back(uint64,uint64)void),Method(timestamps(uint64,uint64)uint64),Method(data_existed(uint64)byte[]),Method(data_existed_before_call(uint64)byte[]),Method(data_existed_before_delete()byte[]),Method(first_item_if(bool)uint64),Method(first_valid_then_and_now(uint64,uint64)uint64),Method(data_exists_then(uint64)bool),Method(changes(address,uint64,uint64,uint64,uint64)uint64)
+        v-load tmp%6#0                                                                             Method(round_at(uint64)uint64),Method(round_before(uint64)uint64),Method(counter_then_and_now(uint64)(uint64,uint64)),Method(data_changed(uint64)bool),Method(first_item_changed(uint64)bool),Method(first_item_now(uint64)uint64),Method(append_then_write_back(uint64,uint64)void),Method(set_then_write_back(uint64,uint64)void),Method(timestamps(uint64,uint64)uint64),Method(data_existed(uint64)byte[]),Method(data_existed_before_call(uint64)byte[]),Method(data_existed_before_delete()byte[]),Method(first_item_if(bool)uint64),Method(first_valid_then_and_now(uint64,uint64)uint64),Method(data_exists_then(uint64)bool),Method(changes(address,uint64,uint64,uint64,uint64)uint64),tmp%6#0
+        match main_round_at_route@6 main_round_before_route@7 main_counter_then_and_now_route@8 main_data_changed_route@9 main_first_item_changed_route@10 main_first_item_now_route@11 main_append_then_write_back_route@12 main_set_then_write_back_route@13 main_timestamps_route@14 main_data_existed_route@15 main_data_existed_before_call_route@16 main_data_existed_before_delete_route@17 main_first_item_if_route@18 main_first_valid_then_and_now_route@19 main_data_exists_then_route@20 main_changes_route@21 ; b main_after_if_else@24 
 
     main_round_at_route@6:
         // time_travel/contract.py:36
         // @arc4.abimethod
         callsub round_at
-        b main_after_if_else@22
+        b main_after_if_else@24
 
     main_round_before_route@7:
         // time_travel/contract.py:41
         // @arc4.abimethod
         callsub round_before
-        b main_after_if_else@22
+        b main_after_if_else@24
 
     main_counter_then_and_now_route@8:
         // time_travel/contract.py:47
         // @arc4.abimethod
         callsub counter_then_and_now
-        b main_after_if_else@22
+        b main_after_if_else@24
 
     main_data_changed_route@9:
         // time_travel/contract.py:56
         // @arc4.abimethod
         callsub data_changed
-        b main_after_if_else@22
+        b main_after_if_else@24
 
     main_first_item_changed_route@10:
         // time_travel/contract.py:63
         // @arc4.abimethod
         callsub first_item_changed
-        b main_after_if_else@22
+        b main_after_if_else@24
 
     main_first_item_now_route@11:
         // time_travel/contract.py:70
         // @arc4.abimethod
         callsub first_item_now
-        b main_after_if_else@22
+        b main_after_if_else@24
 
     main_append_then_write_back_route@12:
         // time_travel/contract.py:76
         // @arc4.abimethod
         callsub append_then_write_back
-        b main_after_if_else@22
+        b main_after_if_else@24
 
     main_set_then_write_back_route@13:
         // time_travel/contract.py:83
         // @arc4.abimethod
         callsub set_then_write_back
-        b main_after_if_else@22
+        b main_after_if_else@24
 
     main_timestamps_route@14:
         // time_travel/contract.py:90
         // @arc4.abimethod
         callsub timestamps
-        b main_after_if_else@22
+        b main_after_if_else@24
 
     main_data_existed_route@15:
         // time_travel/contract.py:97
         // @arc4.abimethod
         callsub data_existed
-        b main_after_if_else@22
+        b main_after_if_else@24
 
     main_data_existed_before_call_route@16:
         // time_travel/contract.py:105
         // @arc4.abimethod
         callsub data_existed_before_call
-        b main_after_if_else@22
+        b main_after_if_else@24
 
-    main_first_valid_then_and_now_route@17:
+    main_data_existed_before_delete_route@17:
         // time_travel/contract.py:113
         // @arc4.abimethod
-        callsub first_valid_then_and_now
-        b main_after_if_else@22
+        callsub data_existed_before_delete
+        b main_after_if_else@24
 
-    main_data_exists_then_route@18:
+    main_first_item_if_route@18:
         // time_travel/contract.py:120
         // @arc4.abimethod
-        callsub data_exists_then
-        b main_after_if_else@22
+        callsub first_item_if
+        b main_after_if_else@24
 
-    main_changes_route@19:
-        // time_travel/contract.py:126
+    main_first_valid_then_and_now_route@19:
+        // time_travel/contract.py:128
+        // @arc4.abimethod
+        callsub first_valid_then_and_now
+        b main_after_if_else@24
+
+    main_data_exists_then_route@20:
+        // time_travel/contract.py:135
+        // @arc4.abimethod
+        callsub data_exists_then
+        b main_after_if_else@24
+
+    main_changes_route@21:
+        // time_travel/contract.py:141
         // @arc4.abimethod
         callsub changes
-        b main_after_if_else@22
+        b main_after_if_else@24
 
-    main_after_if_else@22:
+    main_after_if_else@24:
         // time_travel/contract.py:29
         // class TimeTravel(ARC4Contract, avm_version=13):
         err
 
-    main___algopy_default_create@23:
+    main___algopy_default_create@25:
         txn OnCompletion                                                                           tmp%7#0
         v-store tmp%7#0
         v-load tmp%7#0                                                                             tmp%7#0
@@ -169,7 +183,7 @@ subroutine main:
 // test_cases.time_travel.contract.go_back_not_inlined(rnd: uint64) -> void:
 subroutine go_back_not_inlined:
     go_back_not_inlined_block@0:                                                                   (𝕡) rnd#0 |
-        // time_travel/contract.py:163
+        // time_travel/contract.py:184
         // op.TimeTravel.seek(rnd)
         p-load rnd#0                                                                               (𝕡) rnd#0 | rnd#0 (copy)
         tt_seek                                                                                    (𝕡) rnd#0 |
@@ -469,7 +483,7 @@ subroutine first_item_changed:
         v-store now#0
         v-load aggregate%box_get%1#0                                                               aggregate%box_get%1#0
         assert // check self.items exists
-        // time_travel/contract.py:158
+        // time_travel/contract.py:179
         // op.TimeTravel.seek(rnd)
         v-load rnd#0                                                                               rnd#0
         tt_seek
@@ -892,10 +906,131 @@ subroutine data_existed_before_call:
         return
 
 
+// test_cases.time_travel.contract.TimeTravel.data_existed_before_delete[routing]() -> void:
+subroutine data_existed_before_delete:
+    data_existed_before_delete_block@0:
+        // time_travel/contract.py:115
+        // existed = bool(self.data)
+        byte 0x64617461                                                                            0x64617461
+        box_len                                                                                    _%0#0,existed#0
+        v-store existed#0                                                                          _%0#0
+        v-store _%0#0
+        // time_travel/contract.py:116
+        // del self.data.value
+        byte 0x64617461                                                                            0x64617461
+        box_del                                                                                    {box_del}
+        pop 1
+        // time_travel/contract.py:117
+        // assert existed
+        v-load existed#0                                                                           existed#0
+        assert
+        // time_travel/contract.py:118
+        // return self.data.value  # keeps its exists assert: the box is gone
+        byte 0x64617461                                                                            0x64617461
+        box_get                                                                                    aggregate%box_get%0#0,aggregate%box_get%1#0
+        v-store aggregate%box_get%1#0                                                              aggregate%box_get%0#0
+        v-store aggregate%box_get%0#0
+        v-load aggregate%box_get%1#0                                                               aggregate%box_get%1#0
+        assert // check self.data exists
+        // time_travel/contract.py:113
+        // @arc4.abimethod
+        v-load aggregate%box_get%0#0                                                               aggregate%box_get%0#0
+        len                                                                                        aggregate%length%0#0
+        v-store aggregate%length%0#0
+        v-load aggregate%length%0#0                                                                aggregate%length%0#0
+        itob                                                                                       aggregate%as_bytes%0#0
+        v-store aggregate%as_bytes%0#0
+        v-load aggregate%as_bytes%0#0                                                              aggregate%as_bytes%0#0
+        extract 6 2                                                                                aggregate%length_uint16%0#0
+        v-store aggregate%length_uint16%0#0
+        v-load aggregate%length_uint16%0#0                                                         aggregate%length_uint16%0#0
+        v-load aggregate%box_get%0#0                                                               aggregate%length_uint16%0#0,aggregate%box_get%0#0
+        concat                                                                                     aggregate%encoded_value%0#0
+        v-store aggregate%encoded_value%0#0
+        byte 0x151f7c75                                                                            0x151f7c75
+        v-load aggregate%encoded_value%0#0                                                         0x151f7c75,aggregate%encoded_value%0#0
+        concat                                                                                     tmp%2#0
+        v-store tmp%2#0
+        v-load tmp%2#0                                                                             tmp%2#0
+        log
+        int 1                                                                                      1
+        return
+
+
+// test_cases.time_travel.contract.TimeTravel.first_item_if[routing]() -> void:
+subroutine first_item_if:
+    first_item_if_block@0:
+        // time_travel/contract.py:120
+        // @arc4.abimethod
+        txna ApplicationArgs 1                                                                     tmp%0#0
+        v-store tmp%0#0
+        v-load tmp%0#0                                                                             tmp%0#0
+        len                                                                                        len%0#0
+        v-store len%0#0
+        v-load len%0#0                                                                             len%0#0
+        int 1                                                                                      len%0#0,1
+        ==                                                                                         eq%0#0
+        v-store eq%0#0
+        v-load eq%0#0                                                                              eq%0#0
+        assert // invalid number of bytes for arc4.bool
+        v-load tmp%0#0                                                                             tmp%0#0
+        int 0                                                                                      tmp%0#0,0
+        getbit                                                                                     first#0
+        v-store first#0
+        // time_travel/contract.py:124
+        // if first:
+        v-load first#0                                                                             first#0
+        bz first_item_if_after_if_else@3 ; b first_item_if_if_body@2
+
+    first_item_if_if_body@2:
+        // time_travel/contract.py:123
+        // items = self.items.value.copy()
+        byte 0x6974656d73                                                                          0x6974656d73
+        // time_travel/contract.py:125
+        // return items[0]
+        int 2                                                                                      0x6974656d73,2
+        int 8                                                                                      0x6974656d73,2,8
+        box_extract // on error: index out of bounds                                               box%box_extract%0#0
+        v-store box%box_extract%0#0
+        v-load box%box_extract%0#0                                                                 box%box_extract%0#0
+        v-store tmp%2#0
+        // time_travel/contract.py:120
+        // @arc4.abimethod
+        b first_item_if_after_inlined_test_cases.time_travel.contract.TimeTravel.first_item_if@4 
+
+    first_item_if_after_if_else@3:
+        // time_travel/contract.py:123
+        // items = self.items.value.copy()
+        byte 0x6974656d73                                                                          0x6974656d73
+        // time_travel/contract.py:126
+        // return items[1]
+        int 10                                                                                     0x6974656d73,10
+        int 8                                                                                      0x6974656d73,10,8
+        box_extract // on error: index out of bounds                                               box%box_extract%1#0
+        v-store box%box_extract%1#0
+        v-load box%box_extract%1#0                                                                 box%box_extract%1#0
+        v-store tmp%2#0
+        // time_travel/contract.py:120
+        // @arc4.abimethod
+        b first_item_if_after_inlined_test_cases.time_travel.contract.TimeTravel.first_item_if@4 
+
+    first_item_if_after_inlined_test_cases.time_travel.contract.TimeTravel.first_item_if@4:
+        // time_travel/contract.py:120
+        // @arc4.abimethod
+        byte 0x151f7c75                                                                            0x151f7c75
+        v-load tmp%2#0                                                                             0x151f7c75,tmp%2#0
+        concat                                                                                     tmp%3#0
+        v-store tmp%3#0
+        v-load tmp%3#0                                                                             tmp%3#0
+        log
+        int 1                                                                                      1
+        return
+
+
 // test_cases.time_travel.contract.TimeTravel.first_valid_then_and_now[routing]() -> void:
 subroutine first_valid_then_and_now:
     first_valid_then_and_now_block@0:
-        // time_travel/contract.py:113
+        // time_travel/contract.py:128
         // @arc4.abimethod
         txna ApplicationArgs 1                                                                     tmp%0#0
         v-store tmp%0#0
@@ -925,27 +1060,27 @@ subroutine first_valid_then_and_now:
         v-load tmp%2#0                                                                             tmp%2#0
         btoi                                                                                       rnd#0
         v-store rnd#0
-        // time_travel/contract.py:115
+        // time_travel/contract.py:130
         // now = gtxn.Transaction(i).first_valid
         v-load i#0                                                                                 i#0
         gtxns FirstValid                                                                           now#0
         v-store now#0
-        // time_travel/contract.py:116
+        // time_travel/contract.py:131
         // op.TimeTravel.seek(rnd)
         v-load rnd#0                                                                               rnd#0
         tt_seek
-        // time_travel/contract.py:117
+        // time_travel/contract.py:132
         // then = gtxn.Transaction(i).first_valid
         v-load i#0                                                                                 i#0
         gtxns FirstValid                                                                           then#0
         v-store then#0
-        // time_travel/contract.py:118
+        // time_travel/contract.py:133
         // return now + then
         v-load now#0                                                                               now#0
         v-load then#0                                                                              now#0,then#0
         +                                                                                          tmp%2#1
         v-store tmp%2#1
-        // time_travel/contract.py:113
+        // time_travel/contract.py:128
         // @arc4.abimethod
         v-load tmp%2#1                                                                             tmp%2#1
         itob                                                                                       aggregate%val_as_bytes%0#0
@@ -963,7 +1098,7 @@ subroutine first_valid_then_and_now:
 // test_cases.time_travel.contract.TimeTravel.data_exists_then[routing]() -> void:
 subroutine data_exists_then:
     data_exists_then_block@0:
-        // time_travel/contract.py:120
+        // time_travel/contract.py:135
         // @arc4.abimethod
         txna ApplicationArgs 1                                                                     tmp%0#0
         v-store tmp%0#0
@@ -979,7 +1114,7 @@ subroutine data_exists_then:
         v-load tmp%0#0                                                                             tmp%0#0
         btoi                                                                                       rnd#0
         v-store rnd#0
-        // time_travel/contract.py:122
+        // time_travel/contract.py:137
         // assert self.data.length
         byte 0x64617461                                                                            0x64617461
         box_len                                                                                    value%0#0,check%0#0
@@ -989,17 +1124,17 @@ subroutine data_exists_then:
         assert // check self.data exists
         v-load value%0#0                                                                           value%0#0
         assert
-        // time_travel/contract.py:123
+        // time_travel/contract.py:138
         // op.TimeTravel.seek(rnd)
         v-load rnd#0                                                                               rnd#0
         tt_seek
-        // time_travel/contract.py:124
+        // time_travel/contract.py:139
         // return bool(self.data)
         byte 0x64617461                                                                            0x64617461
         box_len                                                                                    _%0#0,maybe_exists%0#0
         v-store maybe_exists%0#0                                                                   _%0#0
         v-store _%0#0
-        // time_travel/contract.py:120
+        // time_travel/contract.py:135
         // @arc4.abimethod
         byte 0x00                                                                                  0x00
         int 0                                                                                      0x00,0
@@ -1019,7 +1154,7 @@ subroutine data_exists_then:
 // test_cases.time_travel.contract.TimeTravel.changes[routing]() -> void:
 subroutine changes:
     changes_block@0:
-        // time_travel/contract.py:126
+        // time_travel/contract.py:141
         // @arc4.abimethod
         txna ApplicationArgs 1                                                                     acct#0
         v-store acct#0
@@ -1088,7 +1223,7 @@ subroutine changes:
         v-load tmp%8#0                                                                             tmp%8#0
         btoi                                                                                       to#0
         v-store to#0
-        // time_travel/contract.py:131
+        // time_travel/contract.py:146
         // rnd, status = op.TimeTravel.acct_change(acct, from_, to)
         v-load acct#0                                                                              acct#0
         v-load from_#0                                                                             acct#0,from_#0
@@ -1096,13 +1231,13 @@ subroutine changes:
         tt_acct_change                                                                             rnd#0,status#0
         v-store status#0                                                                           rnd#0
         v-store rnd#0
-        // time_travel/contract.py:132
+        // time_travel/contract.py:147
         // total += rnd + status
         v-load rnd#0                                                                               rnd#0
         v-load status#0                                                                            rnd#0,status#0
         +                                                                                          total#1
         v-store total#1
-        // time_travel/contract.py:133
+        // time_travel/contract.py:148
         // rnd, status = op.TimeTravel.holding_change(acct, asset, from_, to)
         v-load acct#0                                                                              acct#0
         v-load asset#0                                                                             acct#0,asset#0
@@ -1111,7 +1246,7 @@ subroutine changes:
         tt_holding_change                                                                          rnd#0,status#0
         v-store status#0                                                                           rnd#0
         v-store rnd#0
-        // time_travel/contract.py:134
+        // time_travel/contract.py:149
         // total += rnd + status
         v-load rnd#0                                                                               rnd#0
         v-load status#0                                                                            rnd#0,status#0
@@ -1121,7 +1256,7 @@ subroutine changes:
         v-load tmp%6#1                                                                             total#1,tmp%6#1
         +                                                                                          total#1
         v-store total#1
-        // time_travel/contract.py:135
+        // time_travel/contract.py:150
         // rnd, status = op.TimeTravel.local_change(acct, app, from_, to)
         v-load acct#0                                                                              acct#0
         v-load app#0                                                                               acct#0,app#0
@@ -1130,7 +1265,7 @@ subroutine changes:
         tt_local_change                                                                            rnd#0,status#0
         v-store status#0                                                                           rnd#0
         v-store rnd#0
-        // time_travel/contract.py:136
+        // time_travel/contract.py:151
         // total += rnd + status
         v-load rnd#0                                                                               rnd#0
         v-load status#0                                                                            rnd#0,status#0
@@ -1140,7 +1275,7 @@ subroutine changes:
         v-load tmp%10#1                                                                            total#1,tmp%10#1
         +                                                                                          total#1
         v-store total#1
-        // time_travel/contract.py:137
+        // time_travel/contract.py:152
         // rnd, status = op.TimeTravel.asset_change(asset, from_, to)
         v-load asset#0                                                                             asset#0
         v-load from_#0                                                                             asset#0,from_#0
@@ -1148,7 +1283,7 @@ subroutine changes:
         tt_asset_change                                                                            rnd#0,status#0
         v-store status#0                                                                           rnd#0
         v-store rnd#0
-        // time_travel/contract.py:138
+        // time_travel/contract.py:153
         // total += rnd + status
         v-load rnd#0                                                                               rnd#0
         v-load status#0                                                                            rnd#0,status#0
@@ -1158,7 +1293,7 @@ subroutine changes:
         v-load tmp%14#0                                                                            total#1,tmp%14#0
         +                                                                                          total#1
         v-store total#1
-        // time_travel/contract.py:139
+        // time_travel/contract.py:154
         // rnd, status = op.TimeTravel.app_change(app, from_, to)
         v-load app#0                                                                               app#0
         v-load from_#0                                                                             app#0,from_#0
@@ -1166,7 +1301,7 @@ subroutine changes:
         tt_app_change                                                                              rnd#0,status#0
         v-store status#0                                                                           rnd#0
         v-store rnd#0
-        // time_travel/contract.py:140
+        // time_travel/contract.py:155
         // total += rnd + status
         v-load rnd#0                                                                               rnd#0
         v-load status#0                                                                            rnd#0,status#0
@@ -1176,7 +1311,7 @@ subroutine changes:
         v-load tmp%18#0                                                                            total#1,tmp%18#0
         +                                                                                          total#1
         v-store total#1
-        // time_travel/contract.py:141
+        // time_travel/contract.py:156
         // rnd, status = op.TimeTravel.box_change(app, b"data", from_, to)
         v-load app#0                                                                               app#0
         byte 0x64617461                                                                            app#0,0x64617461
@@ -1185,7 +1320,7 @@ subroutine changes:
         tt_box_change                                                                              rnd#0,status#0
         v-store status#0                                                                           rnd#0
         v-store rnd#0
-        // time_travel/contract.py:142
+        // time_travel/contract.py:157
         // total += rnd + status
         v-load rnd#0                                                                               rnd#0
         v-load status#0                                                                            rnd#0,status#0
@@ -1195,7 +1330,7 @@ subroutine changes:
         v-load tmp%22#0                                                                            total#1,tmp%22#0
         +                                                                                          total#1
         v-store total#1
-        // time_travel/contract.py:143
+        // time_travel/contract.py:158
         // rnd, status, value = op.TimeTravel.global_key_change_uint64(app, b"counter", from_, to)
         v-load app#0                                                                               app#0
         byte 0x636f756e746572                                                                      app#0,0x636f756e746572
@@ -1205,7 +1340,7 @@ subroutine changes:
         v-store value#0                                                                            rnd#0,status#0
         v-store status#0                                                                           rnd#0
         v-store rnd#0
-        // time_travel/contract.py:144
+        // time_travel/contract.py:159
         // total += rnd + status + value
         v-load rnd#0                                                                               rnd#0
         v-load status#0                                                                            rnd#0,status#0
@@ -1219,7 +1354,7 @@ subroutine changes:
         v-load tmp%28#0                                                                            total#1,tmp%28#0
         +                                                                                          total#1
         v-store total#1
-        // time_travel/contract.py:145
+        // time_travel/contract.py:160
         // rnd, status, name = op.TimeTravel.global_key_change_bytes(app, b"name", from_, to)
         v-load app#0                                                                               app#0
         byte 0x6e616d65                                                                            app#0,0x6e616d65
@@ -1229,24 +1364,49 @@ subroutine changes:
         v-store name#0                                                                             rnd#0,status#0
         v-store status#0                                                                           rnd#0
         v-store rnd#0
-        // time_travel/contract.py:146
-        // total += rnd + status + name.length
+        // time_travel/contract.py:161
+        // total += rnd + status
         v-load rnd#0                                                                               rnd#0
         v-load status#0                                                                            rnd#0,status#0
         +                                                                                          tmp%33#0
         v-store tmp%33#0
-        v-load name#0                                                                              name#0
-        len                                                                                        tmp%34#0
-        v-store tmp%34#0
-        v-load tmp%33#0                                                                            tmp%33#0
-        v-load tmp%34#0                                                                            tmp%33#0,tmp%34#0
-        +                                                                                          tmp%35#0
-        v-store tmp%35#0
         v-load total#1                                                                             total#1
-        v-load tmp%35#0                                                                            total#1,tmp%35#0
+        v-load tmp%33#0                                                                            total#1,tmp%33#0
         +                                                                                          total#1
         v-store total#1
-        // time_travel/contract.py:147
+        // time_travel/contract.py:163
+        // if status in (UInt64(1), UInt64(2)):
+        v-load status#0                                                                            status#0
+        int 1                                                                                      status#0,1
+        ==                                                                                         tmp%35#0
+        v-store tmp%35#0
+        v-load tmp%35#0                                                                            tmp%35#0
+        bz changes_or_contd@2 ; b changes_if_body@3
+
+    changes_or_contd@2:
+        // time_travel/contract.py:163
+        // if status in (UInt64(1), UInt64(2)):
+        v-load status#0                                                                            status#0
+        int 2                                                                                      status#0,2
+        ==                                                                                         tmp%36#0
+        v-store tmp%36#0
+        v-load tmp%36#0                                                                            tmp%36#0
+        bz changes_after_if_else@4 ; b changes_if_body@3
+
+    changes_if_body@3:
+        // time_travel/contract.py:164
+        // total += name.length
+        v-load name#0                                                                              name#0
+        len                                                                                        tmp%37#0
+        v-store tmp%37#0
+        v-load total#1                                                                             total#1
+        v-load tmp%37#0                                                                            total#1,tmp%37#0
+        +                                                                                          total#1
+        v-store total#1
+        b changes_after_if_else@4
+
+    changes_after_if_else@4:
+        // time_travel/contract.py:165
         // rnd, status, value = op.TimeTravel.local_key_change_uint64(acct, app, b"n", from_, to)
         v-load acct#0                                                                              acct#0
         v-load app#0                                                                               acct#0,app#0
@@ -1257,21 +1417,21 @@ subroutine changes:
         v-store value#0                                                                            rnd#0,status#0
         v-store status#0                                                                           rnd#0
         v-store rnd#0
-        // time_travel/contract.py:148
+        // time_travel/contract.py:166
         // total += rnd + status + value
         v-load rnd#0                                                                               rnd#0
         v-load status#0                                                                            rnd#0,status#0
-        +                                                                                          tmp%40#0
-        v-store tmp%40#0
-        v-load tmp%40#0                                                                            tmp%40#0
-        v-load value#0                                                                             tmp%40#0,value#0
-        +                                                                                          tmp%41#0
-        v-store tmp%41#0
+        +                                                                                          tmp%42#0
+        v-store tmp%42#0
+        v-load tmp%42#0                                                                            tmp%42#0
+        v-load value#0                                                                             tmp%42#0,value#0
+        +                                                                                          tmp%43#0
+        v-store tmp%43#0
         v-load total#1                                                                             total#1
-        v-load tmp%41#0                                                                            total#1,tmp%41#0
+        v-load tmp%43#0                                                                            total#1,tmp%43#0
         +                                                                                          total#1
         v-store total#1
-        // time_travel/contract.py:149
+        // time_travel/contract.py:167
         // rnd, status, name = op.TimeTravel.local_key_change_bytes(acct, app, b"s", from_, to)
         v-load acct#0                                                                              acct#0
         v-load app#0                                                                               acct#0,app#0
@@ -1282,24 +1442,49 @@ subroutine changes:
         v-store name#0                                                                             rnd#0,status#0
         v-store status#0                                                                           rnd#0
         v-store rnd#0
-        // time_travel/contract.py:150
-        // total += rnd + status + name.length
+        // time_travel/contract.py:168
+        // total += rnd + status
         v-load rnd#0                                                                               rnd#0
         v-load status#0                                                                            rnd#0,status#0
-        +                                                                                          tmp%46#0
-        v-store tmp%46#0
-        v-load name#0                                                                              name#0
-        len                                                                                        tmp%47#0
-        v-store tmp%47#0
-        v-load tmp%46#0                                                                            tmp%46#0
-        v-load tmp%47#0                                                                            tmp%46#0,tmp%47#0
         +                                                                                          tmp%48#0
         v-store tmp%48#0
         v-load total#1                                                                             total#1
         v-load tmp%48#0                                                                            total#1,tmp%48#0
         +                                                                                          total#1
         v-store total#1
-        // time_travel/contract.py:151
+        // time_travel/contract.py:170
+        // if status in (UInt64(1), UInt64(2)):
+        v-load status#0                                                                            status#0
+        int 1                                                                                      status#0,1
+        ==                                                                                         tmp%50#0
+        v-store tmp%50#0
+        v-load tmp%50#0                                                                            tmp%50#0
+        bz changes_or_contd@5 ; b changes_if_body@6
+
+    changes_or_contd@5:
+        // time_travel/contract.py:170
+        // if status in (UInt64(1), UInt64(2)):
+        v-load status#0                                                                            status#0
+        int 2                                                                                      status#0,2
+        ==                                                                                         tmp%51#0
+        v-store tmp%51#0
+        v-load tmp%51#0                                                                            tmp%51#0
+        bz changes_after_if_else@7 ; b changes_if_body@6
+
+    changes_if_body@6:
+        // time_travel/contract.py:171
+        // total += name.length
+        v-load name#0                                                                              name#0
+        len                                                                                        tmp%52#0
+        v-store tmp%52#0
+        v-load total#1                                                                             total#1
+        v-load tmp%52#0                                                                            total#1,tmp%52#0
+        +                                                                                          total#1
+        v-store total#1
+        b changes_after_if_else@7
+
+    changes_after_if_else@7:
+        // time_travel/contract.py:172
         // rnd, status, name = op.TimeTravel.box_prefix_change(app, b"it", from_, to)
         v-load app#0                                                                               app#0
         byte 0x6974                                                                                app#0,0x6974
@@ -1309,24 +1494,24 @@ subroutine changes:
         v-store name#0                                                                             rnd#0,status#0
         v-store status#0                                                                           rnd#0
         v-store rnd#0
-        // time_travel/contract.py:152
+        // time_travel/contract.py:173
         // total += rnd + status + name.length
         v-load rnd#0                                                                               rnd#0
         v-load status#0                                                                            rnd#0,status#0
-        +                                                                                          tmp%53#0
-        v-store tmp%53#0
+        +                                                                                          tmp%57#0
+        v-store tmp%57#0
         v-load name#0                                                                              name#0
-        len                                                                                        tmp%54#0
-        v-store tmp%54#0
-        v-load tmp%53#0                                                                            tmp%53#0
-        v-load tmp%54#0                                                                            tmp%53#0,tmp%54#0
-        +                                                                                          tmp%55#0
-        v-store tmp%55#0
+        len                                                                                        tmp%58#0
+        v-store tmp%58#0
+        v-load tmp%57#0                                                                            tmp%57#0
+        v-load tmp%58#0                                                                            tmp%57#0,tmp%58#0
+        +                                                                                          tmp%59#0
+        v-store tmp%59#0
         v-load total#1                                                                             total#1
-        v-load tmp%55#0                                                                            total#1,tmp%55#0
+        v-load tmp%59#0                                                                            total#1,tmp%59#0
         +                                                                                          total#1
         v-store total#1
-        // time_travel/contract.py:126
+        // time_travel/contract.py:141
         // @arc4.abimethod
         v-load total#1                                                                             total#1
         itob                                                                                       aggregate%val_as_bytes%0#0
